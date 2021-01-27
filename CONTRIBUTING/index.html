@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Contributions - Samvaad</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Samvaad</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../smart_crawlers/" class="dropdown-item">Smart Crawlers</a>
+</li>
+                                    
+<li>
+    <a href="../data_pipelines/" class="dropdown-item">Intelligent Data Pipelines</a>
+</li>
+                                    
+<li>
+    <a href="../lid/" class="dropdown-item">Language Identification Model</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../LICENSE/" class="dropdown-item">License</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Contributions</a>
+</li>
+                                    
+<li>
+    <a href="../RELEASE_NOTES/" class="dropdown-item">Release notes</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../LICENSE/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../RELEASE_NOTES/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#contributing-to-this-project" class="nav-link">Contributing to this project</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#contributors-agreement" class="nav-link">Contributors Agreement</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#how-can-i-contribute" class="nav-link">How Can I Contribute?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="contributing-to-this-project">Contributing to this project</h1>
+<ul>
+<li><a href="#user-content-contributors-agreement">Contributors Agreement</a></li>
+<li><a href="#Introduction">Introduction</a></li>
+<li><a href="#user-content-i-dont-want-to-read-this-whole-thing-i-just-have-a-question">I don't want to read this whole thing I just have a question!!!</a></li>
+<li><a href="#user-content-how-can-i-contribute">How Can I Contribute?</a></li>
+<li><a href="#user-content-reporting-bugs">Reporting Bugs</a></li>
+<li><a href="#user-content-suggesting-enhancements">Suggesting Enhancements</a></li>
+<li><a href="#user-content-creating-pull-requests">Creating Pull Requests</a></li>
+</ul>
+<h2 id="contributors-agreement">Contributors Agreement</h2>
+<p>By submitting patches to this project you agree to allow them to be redistributed under the project's license, according to the normal forms and usages of the open-source community.</p>
+<h2 id="introduction">Introduction</h2>
+<p>First off, thank you for considering contributing to this project. It's people like you that make it such a great tool.</p>
+<p>Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.</p>
+<p>This is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into the main project itself.</p>
+<h3 id="i-dont-want-to-read-this-whole-thing-i-just-have-a-question">I don't want to read this whole thing I just have a question!!!</h3>
+<p>We currently allow our users to use the issue tracker for support questions. But please be wary that maintaining an open source project can take a lot of time from the maintainers. If asking for a support question, state it clearly and take the time to explain your problem properly. Also, if your problem is not strictly related to this project we recommend you to use Stack Overlow instead.</p>
+<h2 id="how-can-i-contribute">How Can I Contribute?</h2>
+<h3 id="reporting-bugs">Reporting Bugs</h3>
+<p>Before creating bug reports, please check the existing bug reports as you might find out that you don't need to create one. When you are creating a bug report, please include as many details as possible.</p>
+<h4 id="how-do-i-submit-a-good-bug-report">How Do I Submit A (Good) Bug Report?</h4>
+<p>Bugs are tracked as <a href="https://guides.github.com/features/issues/">GitHub issues</a>. Create an issue on the project's repository and provide the following information.</p>
+<p>Explain the problem and include additional details to help maintainers reproduce the problem:</p>
+<ul>
+<li><strong>Use a clear and descriptive title</strong> for the issue to identify the problem.</li>
+<li><strong>Describe the exact steps which reproduce the problem</strong> in as many details as possible. For example, start by explaining how you used the project. When listing steps, <strong>don't just say what you did, but explain how you did it</strong>.</li>
+<li><strong>Provide specific examples to demonstrate the steps</strong>. It's always better to get more information. You can include links to files or GitHub projects, copy/pasteable snippets or even print screens or animated GIFS. If you're providing snippets in the issue, use <a href="https://help.github.com/articles/markdown-basics/#multiple-lines">Markdown code blocks</a>.</li>
+<li><strong>Describe the behavior you observed after following the steps</strong> and point out what exactly is the problem with that behavior.</li>
+<li><strong>Explain which behavior you expected to see instead and why.</strong></li>
+<li><strong>If the problem wasn't triggered by a specific action</strong>, describe what you were doing before the problem happened and share more information using the guidelines below.</li>
+</ul>
+<p>Provide more context by answering these questions:</p>
+<ul>
+<li><strong>Did the problem start happening recently</strong> (e.g. after updating to a new version) or was this always a problem?</li>
+<li>If the problem started happening recently, <strong>can you reproduce the problem in an older version?</strong> What's the most recent version in which the problem doesn't happen?</li>
+<li><strong>Can you reliably reproduce the issue?</strong> If not, provide details about how often the problem happens and under which conditions it normally happens.</li>
+</ul>
+<p>Include details about your configuration and environment:</p>
+<ul>
+<li><strong>Which version of the project are you using?</strong></li>
+<li><strong>What's the name and version of the OS you're using</strong>?</li>
+<li><strong>Any other information that could be useful about you environment</strong></li>
+</ul>
+<h3 id="suggesting-enhancements">Suggesting Enhancements</h3>
+<p>This section guides you through submitting an enhancement suggestion for this project, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions.</p>
+<p>Before creating enhancement suggestions, please check the list of enhancements suggestions in the issue tracker as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please include as many details as possible.</p>
+<h4 id="how-do-i-submit-a-good-enhancement-suggestion">How Do I Submit A (Good) Enhancement Suggestion?</h4>
+<p>Enhancement suggestions are tracked as <a href="https://guides.github.com/features/issues/">GitHub issues</a>. Create an issue on the project's repository and provide the following information:</p>
+<ul>
+<li><strong>Use a clear and descriptive title</strong> for the issue to identify the suggestion.</li>
+<li><strong>Provide a step-by-step description of the suggested enhancement</strong> in as many details as possible.</li>
+<li><strong>Provide specific examples to demonstrate the steps</strong>. It's always better to get more information. You can include links to files or GitHub projects, copy/pasteable snippets or even print screens or animated GIFS. If you're providing snippets in the issue, use <a href="https://help.github.com/articles/markdown-basics/#multiple-lines">Markdown code blocks</a>.</li>
+<li><strong>Describe the current behavior</strong> and <strong>explain which behavior you expected to see instead</strong> and why.</li>
+<li><strong>List some other similar projects where this enhancement exists.</strong></li>
+<li><strong>Specify which version of the project you're using.</strong></li>
+<li><strong>Specify the current environment you're using.</strong> if this is a useful information.</li>
+</ul>
+<h3 id="creating-pull-requests">Creating Pull Requests</h3>
+<h4 id="how-do-i-submit-a-good-pull-request">How Do I Submit A (Good) Pull Request?</h4>
+<ul>
+<li><strong>Be warned that the contributors agreement displayed on top of this document is applicable as soon as you create a pull request</strong>.</li>
+<li><strong>Use a clear and descriptive title</strong> for the pull request to state the improvement you made to the code or the bug you solved.</li>
+<li><strong>Provide a link to the related issue</strong> if the pull request is a follow up of an existing bug report or enhancement suggestion.</li>
+<li><strong>Comment why this pull request represents an enhancement</strong> and give a rationale explaining why you did it that way and not another way.</li>
+<li><strong>Use the same coding style than the one used in this project</strong>.</li>
+<li><strong>Welcome suggestions from the maintainers to improve your pull request</strong>. </li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

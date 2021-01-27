@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Smart Crawlers - Samvaad</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Samvaad</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Smart Crawlers</a>
+</li>
+                                    
+<li>
+    <a href="../data_pipelines/" class="dropdown-item">Intelligent Data Pipelines</a>
+</li>
+                                    
+<li>
+    <a href="../lid/" class="dropdown-item">Language Identification Model</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../LICENSE/" class="dropdown-item">License</a>
+</li>
+                                    
+<li>
+    <a href="../CONTRIBUTING/" class="dropdown-item">Contributions</a>
+</li>
+                                    
+<li>
+    <a href="../RELEASE_NOTES/" class="dropdown-item">Release notes</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../data_pipelines/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#about-the-project" class="nav-link">About The Project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#usage" class="nav-link">Usage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#file-mode-configurations" class="nav-link">File Mode configurations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#youtube-api-configurations" class="nav-link">Youtube API configurations</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#additional-services" class="nav-link">Additional Services</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contributing" class="nav-link">Contributing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#license" class="nav-link">License</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contact" class="nav-link">Contact</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#acknowledgements" class="nav-link">Acknowledgements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#about-the-project">About the Project</a></li>
+<li><a href="#built-with">Built With</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#setting-credentials-for-google-cloud-bucket">Setting credentials for Google cloud bucket</a></li>
+<li><a href="#bucket-configuration">Bucket configuration</a></li>
+<li><a href="#metadata-file-configurations">Metadata file configurations</a></li>
+<li><a href="#youtube-download-configurations">Youtube download configurations</a></li>
+<li><a href="#web-crawl-configuration">Web Crawl Configuraton</a></li>
+<li><a href="#adding-new-spider">Adding new spider</a></li>
+<li><a href="#running-spiders-with-appropriate-pipeline">Running spiders with appropriate pipeline</a></li>
+<li><a href="#additional-services">Additional services</a></li>
+<li><a href="#selenium-google-crawler">Selenium google crawler</a></li>
+<li><a href="#selenium-youtube-crawler">Selenium youtube crawler</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+<!-- ABOUT THE PROJECT -->
+<h2 id="about-the-project">About The Project</h2>
+<p>This is downloading framework that is extensible and allows the user to add new source without much code changes. For each new source user need to write a scrapy spider script and rest of downloading and meta file creation is handled by repective pipelines. And if required user can add their custom pipelines. This framework automatically transfer the downloaded data to a Google cloud bucket automatically. For more info on writing scrapy spider and pipeline one can refer to the <a href="https://docs.scrapy.org/en/latest/intro/tutorial.html">documentation</a>. </p>
+<h3 id="built-with">Built With</h3>
+<p>We have used scrapy as the base of this framework.
+* <a href="https://github.com/scrapy/scrapy">Scrapy</a></p>
+<!-- GETTING STARTED -->
+<h2 id="getting-started">Getting Started</h2>
+<p>To get started install the prerequisites and clone the repo to machine on which you wish to run the framework.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ol>
+<li>ffmpeg</li>
+<li>Any linux based (preferred Ubuntu)</li>
+</ol>
+<pre><code class="language-sh">sudo apt-get install ffmpeg
+</code></pre>
+<ul>
+<li>Mac-ox</li>
+</ul>
+<pre><code class="language-sh">brew install ffmpeg
+</code></pre>
+<ol>
+<li>
+<p>Supported Python Version = 3.6</p>
+</li>
+<li>
+<p>Windows user can follow installation steps on <a href="https://www.ffmpeg.org">https://www.ffmpeg.org</a></p>
+</li>
+</ol>
+<h3 id="installation">Installation</h3>
+<ol>
+<li>Clone the repo</li>
+</ol>
+<pre><code class="language-sh">git clone https://github.com/Open-Speech-EkStep/data-acquisition-pipeline.git
+</code></pre>
+<ol>
+<li>Install python requirements</li>
+</ol>
+<pre><code class="language-sh">pip install -r requirements.txt
+</code></pre>
+<!-- USAGE EXAMPLES -->
+<h2 id="usage">Usage</h2>
+<p>This framework allows the user to download the media file from a websource(youtube, xyz.com, etc) and creates the respective metadata file from the data that is extracted from the file.For using any added source or to add new source refer to steps below.It can also crawl internet for media of a specific language. For web crawling, refer to the web crawl configuration below.</p>
+<h3 id="common-configuration-steps">Common configuration steps:</h3>
+<h4 id="setting-credentials-for-google-cloud-bucket">Setting credentials for Google cloud bucket</h4>
+<p>You can set credentials for Google cloud bucket in the <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/credentials.json">credentials.json</a> add the credentials in given manner
+```shell script
+{"Credentials":{ YOUR ACCOUNT CREDENTIAL KEYS }}</p>
+<pre><code>#### Bucket configuration
+Bucket configurations for data transfer in [storage_config.json](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/storage_config.json) 
+```shell script
+&quot;bucket&quot;: &quot;ekstepspeechrecognition-dev&quot;,          Your bucket name
+&quot;channel_blob_path&quot;: &quot;scrapydump/refactor_test&quot;,  Path to directory where downloaded files is to be stored
+&quot;archive_blob_path&quot;: &quot;archive&quot;,                   Folder name in which history of download is to be maintained
+&quot;scraped_data_blob_path&quot;: &quot;scraped&quot;               Folder name in which CSV for youtube file mode is stored
+
+Note:
+1. Both archive_blob_path and scraped_data_blob_path should be present in channel_blob_path.
+2. The CSV file used in file mode of youtube, It\'s name must be same as source_name given above. 
+3. (only for datacollector_urls and datacollector_bing spiders) To autoconfigure language parameter to channel_blob_path from web_crawler_config.json, use &lt;language&gt; in channel_blob_path.  
+    &quot;eg: for tamil : data/download/&lt;language&gt;/audio - this will replace &lt;language&gt; with tamil.&quot;
+</code></pre>
+<h4 id="metadata-file-configurations">Metadata file configurations</h4>
+<p>Metadata file configurations in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/config.json">config.json</a>
+```shell script
+mode: 'complete'                        This should not be changed     <br />
+audio_id: null                          If you want to give a custom audio id add here 
+cleaned_duration: null                  If you know the cleaned duration of audio add here
+num_of_speakers: null                   Number of speaker present in audio
+language: Hindi                         Language of audio
+has_other_audio_signature: False        If audio has multiple speaker in same file (True/False)
+type: 'audio'                           Type of media (audio or video)
+source: 'Demo_Source'                   Source name
+experiment_use: False                   If its for experimental use (True/False)
+utterances_files_list: null           <br />
+source_website: ''                      Source website url
+experiment_name: null                   Name of experiment if experiment_use is True
+mother_tongue: null                     Accent of language(Bengali, Marathi, etc...)
+age_group: null                         Age group of speaker in audio
+recorded_state: null                    State in which audio is recorded
+recorded_district: null                 District of state in which audio is recorded
+recorded_place: null                    Recording location
+recorded_date: null                     Recording date
+purpose: null                           Purpose of recording
+speaker_gender: null                    Gender of speaker
+speaker_name: null                      Name of speaker</p>
+<p>Note:
+1. If any of the field info is not available keep its value to null
+2. If speaker_name or speaker_gender is given then that same will be used for all the files in given source </p>
+<pre><code>#### Youtube download configurations
+* You can set download mode [file/channel] in [youtube_pipeline_config.py](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py) 
+```shell script
+mode = 'file'  # [channel,file]
+</code></pre>
+<p>In file mode you will store a csv file whose name must be same as source name in scraped_data_blob_path. csv must  contain urls of youtube videos, speaker name and gender as three different columns. Urls is a must field. You can leave speaker name and gender blank if data is not available. <br>Given below is the structure of csv.</br>
+```shell script
+ video_url,speaker_name,speaker_gender
+https://www.youtube.com/watch?v=K1vW_ZikA5o,Ram_Singh,male
+https://www.youtube.com/watch?v=o82HIOgozi8,John_Doe,male
+...</p>
+<pre><code>* common configurations in [youtube_pipeline_config.py](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py)
+```shell script
+# Common configurations
+&quot;source_name&quot;: &quot;DEMO&quot;,                            This is the name of source you are downloading
+batch_num = 1                                     Number of videos to be downloaded as batches
+</code></pre>
+<ul>
+<li>file mode configurations in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py">youtube_pipeline_config.py</a> 
+```shell script</li>
+</ul>
+<h1 id="file-mode-configurations">File Mode configurations</h1>
+<p>file_speaker_gender_column = 'speaker_gender'     Gender column name in csv file
+file_speaker_name_column = "speaker_name"         Speaker name column name in csv file
+file_url_name_column = "video_url"                Video url column name in csv file</p>
+<pre><code>* channel mode configuration in  [youtube_pipeline_config.py](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/youtube/crawler/data_acquisition_framework/configs/youtube_pipeline_config.py)
+```shell script
+# Channel mode configurations
+channel_url_dict = {}             Channel url dictionary (This will download all the videos from the given channels with corresponding source names)
+match_title_string = ''       REGEX   Download only matching titles (regex or caseless sub-string)
+reject_title_string = ''      REGEX    Skip download for matching titles (regex or caseless sub-string)
+
+Note:
+1. In channel_url_dict, the keys must be the urls and values must be their channel names
+2. To get list of channels from youtube API, channel_url_dict must be empty
+</code></pre>
+<h4 id="youtube-api-configuration">Youtube API configuration</h4>
+<ul>
+<li>Automated Youtube fetching configuration in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_api_config.json">youtube_api_config.json</a>
+```shell script</li>
+</ul>
+<h1 id="youtube-api-configurations">Youtube API configurations</h1>
+<p>"language" : "hindi",                             Type of language for which search results are required.
+"language_code": "hi",                            Language code for the specified language.
+"keywords":[                                      The search keywords to be given in youtube API query
+    "audio",
+    "speech",
+    "talk"
+],
+"words_to_ignore":[                               The words that are to be ignored in youtube API query
+    "song",
+    "music"
+],
+"max_results": 20                                 Maximum number of channels or results that is required.</p>
+<pre><code>#### Web Crawl Configuration
+* web crawl configuration in [web_crawl_config.json](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/web_crawl_config.py) (Use this only for datacollector_bing and datacollector_urls spider)
+```shell script
+&quot;language&quot;: &quot;gujarati&quot;,                           Language to be crawled
+&quot;language_code&quot;: &quot;gu&quot;,                            Language code for the specified language.
+&quot;keywords&quot;: [                                     Keywords to query
+    &quot;talks audio&quot;,
+    &quot;audiobooks&quot;,
+    &quot;speeches&quot;,
+],
+&quot;word_to_ignore&quot;: [                               Words to ignore while crawling
+    &quot;ieeexplore.ieee.org&quot;,
+    &quot;dl.acm.org&quot;,
+    &quot;www.microsoft.com&quot;
+],
+&quot;extensions_to_ignore&quot;: [                         Formats/extensions to ignore while crawling
+    &quot;.jpeg&quot;,
+    &quot;xlsx&quot;,
+    &quot;.xml&quot;
+],
+&quot;extensions_to_include&quot;: [                        Formats/extensions to include while crawling
+    &quot;.mp3&quot;,
+    &quot;.wav&quot;,
+    &quot;.mp4&quot;,
+],
+&quot;pages&quot;: 1,                                       Number of pages to crawl
+&quot;depth&quot;: 1,                                       Nesting depth for each website
+&quot;continue_page&quot;: &quot;NO&quot;,                            Field to continue/resume crawling
+&quot;last_visited&quot;: 200,                              Last visited results count
+&quot;enable_hours_restriction&quot;: &quot;YES&quot;,                Restrict crawling based on hours of data collected
+&quot;max_hours&quot;: 1                                    Maximum hours to crawl
+</code></pre>
+<h4 id="adding-new-spider">Adding new spider</h4>
+<p>As we already mentioned our framework is extensible for any new source. To add a new source user just need to write a spider for that source.<br>To add a spider you can follow the scrapy <a href="https://docs.scrapy.org/en/latest/intro/tutorial.html">documentation</a> or you can check our <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/spiders/datacollector_music.py">sample</a> spider.</br> </p>
+<h4 id="running-spiders-with-appropriate-pipeline">Running spiders with appropriate pipeline</h4>
+<ul>
+<li>Starting youtube spider with YoutubeApi pipeline.<ul>
+<li>Add youtube search api key in .youtube_api_key file in project root. 
+```shell script
+scrapy crawl datacollector_youtube --set=ITEM_PIPELINES='{"data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline": 1}'</li>
+</ul>
+</li>
+</ul>
+<pre><code>* Starting datacollector_bing spider with audio pipeline.
+```shell script
+scrapy crawl datacollector_bing
+</code></pre>
+<ul>
+<li>Starting datacollector_urls spider with audio pipeline.
+Make sure to put the urls to crawl in the data_acquisition_framework/urls.txt
+<code>shell script
+scrapy crawl datacollector_urls</code></li>
+</ul>
+<h2 id="additional-services">Additional Services</h2>
+<h4 id="selenium-google-crawler">Selenium google crawler</h4>
+<ul>
+<li>
+<p>It is capable of crawling search results of google for a given language and exporting them to urls.txt file. This urls.txt file can be used with datacollector_urls spider to crawl all the search results website and download the media along with their metadata.</p>
+</li>
+<li>
+<p>A specified Readme can be found in selenium_google_crawler folder. <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/selenium_google_crawler/Readme.md">Readme for selenium google crawler</a></p>
+</li>
+</ul>
+<h4 id="selenium-youtube-crawler">Selenium youtube crawler</h4>
+<ul>
+<li>
+<p>It is capable of crawling youtube videos using youtube api or from a list of files with youtube video ids provided with channel name as filename.</p>
+</li>
+<li>
+<p>A specified Readme can be found in selenium_youtube_crawler folder. <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/selenium_youtube_crawler/Readme.md">Readme for selenium youtube crawler</a></p>
+</li>
+</ul>
+<!-- CONTRIBUTING -->
+<h2 id="contributing">Contributing</h2>
+<p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p>
+<ol>
+<li>Fork the Project</li>
+<li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li>
+<li>Commit your Changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li>
+<li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+<!-- LICENSE -->
+<h2 id="license">License</h2>
+<p>Distributed under the [XYZ] License. See <code>LICENSE</code> for more information.</p>
+<!-- CONTACT -->
+<h2 id="contact">Contact</h2>
+<p>Your Name - <a href="https://twitter.com/your_username">@your_twitter</a> - email@example.com</p>
+<p>Project Link: <a href="https://github.com/your_username/repo_name">https://github.com/your_username/repo_name</a></p>
+<!-- ACKNOWLEDGEMENTS -->
+<h2 id="acknowledgements">Acknowledgements</h2>
+<ul>
+<li><a href="https://github.com/scrapy/scrapy">Scrapy</a></li>
+<li><a href="https://github.com/ytdl-org/youtube-dl">YouTube-dl</a></li>
+<li><a href="https://github.com/devsnd/tinytag">TinyTag</a></li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

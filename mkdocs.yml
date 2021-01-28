@@ -1,0 +1,13 @@
+site_name: Samvaad
+nav:
+    - Home: index.md
+    - 'User Guide':
+          - 'Smart Crawlers': 'smart_crawlers.md'
+          - 'Intelligent Data Pipelines': 'data_pipelines.md'
+          - 'Language Identification Model': 'lid.md'
+    - About:
+          - 'License': LICENSE.md
+          - 'Contributions': CONTRIBUTING.md
+          - 'Release notes': RELEASE_NOTES.md
+
+

@@ -35,11 +35,11 @@ Smart Crawlers is based on an open platform, you are free to use any programming
 
 The Developer documentation provides you with a complete set of guidelines which you need to:
 
-Install Smart Crawlers
-Configure Smart Crawlers
-Customize Smart Crawlers
-Extend Smart Crawlers
-Contribute to Smart Crawlers
+* Install Smart Crawlers
+* Configure Smart Crawlers
+* Customize Smart Crawlers
+* Extend Smart Crawlers
+* Contribute to Smart Crawlers
 
 
 

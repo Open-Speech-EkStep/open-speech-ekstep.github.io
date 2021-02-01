@@ -1,7 +1,7 @@
 # Welcome to Samvaad
 
 
-<img src="img/samvaad.png" alt="drawing" width="300"/>
+<img src="img/samvaad2.png" alt="drawing" width="300"/>
 
 An intelligent speech to text conversion pipeline
 

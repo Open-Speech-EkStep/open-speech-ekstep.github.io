@@ -1,6 +1,6 @@
 # Smart Crawlers
 
-<img src="img/smart_crawlers.jpg" alt="drawing" width="700"/>
+<img src="img/smart_crawlers.png" alt="drawing" width="700"/>
 
 
 <!-- TABLE OF CONTENTS -->

@@ -1,3 +1,6 @@
+<img src="img/smart_crawlers.jpg" alt="drawing" width="700"/>
+
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 

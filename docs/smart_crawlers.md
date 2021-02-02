@@ -1,7 +1,9 @@
 # Smart Crawlers
 
-<img src="img/smart_crawlers.png" alt="drawing" width="700"/>
-
+<figure>
+  <img src="img/smart_crawlers.png" width="500" />
+  <figcaption>Smart Crawler Diagram</figcaption>
+</figure>
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents

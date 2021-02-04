@@ -134,7 +134,7 @@
             
             <li class="nav-item" data-level="1"><a href="#youtube-api-configurations" class="nav-link">Youtube API configurations</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#additional-services" class="nav-link">Additional Services</a>
+            <li class="nav-item" data-level="2"><a href="#running-services" class="nav-link">Running services</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -179,10 +179,13 @@
 <li><a href="#youtube-download-configurations">Youtube download configurations</a></li>
 <li><a href="#web-crawl-configuration">Web Crawl Configuraton</a></li>
 <li><a href="#adding-new-spider">Adding new spider</a></li>
-<li><a href="#running-spiders-with-appropriate-pipeline">Running spiders with appropriate pipeline</a></li>
-<li><a href="#additional-services">Additional services</a></li>
+<li><a href="#running-services">Running Services</a></li>
+<li><a href="#youtube-spider-in-channel-mode">Youtube spider in channel mode</a></li>
+<li><a href="#youtube-spider-in-file-mode">Youtube spider in file mode</a></li>
+<li><a href="#bing-spider">Bing spider</a></li>
+<li><a href="#urls-spider">Urls spider</a></li>
 <li><a href="#selenium-google-crawler">Selenium google crawler</a></li>
-<li><a href="#selenium-youtube-crawler">Selenium youtube crawler</a></li>
+<li><a href="#selenium-youtube-crawler-for-file-mode-and-api-mode">Selenium youtube crawler in file mode and api mode</a></li>
 <li><a href="#contributing">Contributing</a></li>
 <li><a href="#license">License</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -286,7 +289,8 @@ Bucket configurations for data transfer in [storage_config.json](https://github.
 &quot;bucket&quot;: &quot;ekstepspeechrecognition-dev&quot;,          Your bucket name
 &quot;channel_blob_path&quot;: &quot;scrapydump/refactor_test&quot;,  Path to directory where downloaded files is to be stored
 &quot;archive_blob_path&quot;: &quot;archive&quot;,                   Folder name in which history of download is to be maintained
-&quot;scraped_data_blob_path&quot;: &quot;scraped&quot;               Folder name in which CSV for youtube file mode is stored
+&quot;channels_file_blob_path&quot;: &quot;channels&quot;,            Folder name in which channels and its videos are saved 
+&quot;scraped_data_blob_path&quot;: &quot;data_to_be_scraped&quot;    Folder name in which CSV for youtube file mode is stored
 
 Note:
 1. Both archive_blob_path and scraped_data_blob_path should be present in channel_blob_path.
@@ -335,25 +339,23 @@ https://www.youtube.com/watch?v=o82HIOgozi8,John_Doe,male
 <pre><code>* common configurations in [youtube_pipeline_config.py](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py)
 ```shell script
 # Common configurations
-&quot;source_name&quot;: &quot;DEMO&quot;,                            This is the name of source you are downloading
-batch_num = 1                                     Number of videos to be downloaded as batches
-only_creative_commons = False                     Should Download only creative commons(True, False)
+&quot;source_name&quot;: &quot;DEMO&quot;,                              This is the name of source you are downloading
+batch_num = 1                                       Number of videos to be downloaded as batches
+youtube_service_to_use = YoutubeService.YOUTUBE_DL  This field is to choose which service to use for getting video information
+only_creative_commons = False                       Should Download only creative commons(True, False)
 </code></pre>
-<ul>
-<li>file mode configurations in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py">youtube_pipeline_config.py</a> 
-```shell script</li>
-</ul>
+<p>Possible values for youtube_service_to_use: (YoutubeService.YOUTUBE_DL, YoutubeService.YOUTUBE_API)
+* file mode configurations in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py">youtube_pipeline_config.py</a> 
+```shell script</p>
 <h1 id="file-mode-configurations">File Mode configurations</h1>
 <p>file_speaker_gender_column = 'speaker_gender'     Gender column name in csv file
 file_speaker_name_column = "speaker_name"         Speaker name column name in csv file
-file_url_name_column = "video_url"                Video url column name in csv file</p>
+file_url_name_column = "video_url"                Video url column name in csv file
+license_column = "license"                        Video license column name in csv file</p>
 <pre><code>* channel mode configuration in  [youtube_pipeline_config.py](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/youtube/crawler/data_acquisition_framework/configs/youtube_pipeline_config.py)
 ```shell script
 # Channel mode configurations
-youtube_service_to_use=YoutubeService.YOUTUBE_API  The youtube service to use for fetching videos(YOUTUBE_API, YOUTUBE_DL)
-channel_url_dict = {}                              Channel url dictionary (This will download all the videos from the given channels with corresponding source names)
-match_title_string = ''                            REGEX   Download only matching titles (regex or caseless sub-string)
-reject_title_string = ''                           REGEX    Skip download for matching titles (regex or caseless sub-string)
+channel_url_dict = {}             Channel url dictionary (This will download all the videos from the given channels with corresponding source names)
 
 Note:
 1. In channel_url_dict, the keys must be the urls and values must be their channel names
@@ -411,26 +413,144 @@ Note:
 </code></pre>
 <h4 id="adding-new-spider">Adding new spider</h4>
 <p>As we already mentioned our framework is extensible for any new source. To add a new source user just need to write a spider for that source.<br>To add a spider you can follow the scrapy <a href="https://docs.scrapy.org/en/latest/intro/tutorial.html">documentation</a> or you can check our <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/spiders/datacollector_music.py">sample</a> spider.</br> </p>
-<h4 id="running-spiders-with-appropriate-pipeline">Running spiders with appropriate pipeline</h4>
+<!-- RUNNING THE SERVICES -->
+<h2 id="running-services">Running services</h2>
+<p>Make sure the google credentials are present in project root folder in credentials.json file.</p>
+<h4 id="youtube-spider-in-channel-mode">Youtube spider in channel mode:</h4>
+<ol>
+<li>
+<p>In <code>data_acqusition_framework/configs</code>, do the following:</p>
 <ul>
-<li>Starting youtube spider with YoutubeApi pipeline.<ul>
-<li>Add youtube search api key in .youtube_api_key file in project root. 
-```shell script
-scrapy crawl datacollector_youtube --set=ITEM_PIPELINES='{"data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline": 1}'</li>
+<li>
+<p>Open <code>config.json</code> and change <code>language</code> and <code>type</code> to your respective use case.</p>
+</li>
+<li>
+<p>Open <code>storage_config.json</code> and change <code>bucket</code> and <code>channel_blob_path</code> to your respective gcp paths.(For more info on these fields, scroll above to Bucket configuration)</p>
+</li>
+<li>Open <code>youtube_pipeline_config.py</code> and change mode to channel<code>(eg: mode='channel')</code></li>
+<li>There are two ways to download videos of youtube channels:</li>
+<li>
+<p>You can hardcode the channel url and channel name</p>
+</li>
+<li>
+<p>You can use youtube-utils service(youtube-dl/youtube data api) to fetch channels and its respective videos information.</p>
+</li>
+<li>To download by hardcoding the channel urls, do the following:</li>
+<li>
+<p>Open <code>data_acqusition_framework/configs/youtube_pipeline_config.py</code> and do the following:</p>
+<ul>
+<li>
+<p>Add the channel_urls and its names in <code>channel_url_dict</code> variable.
+<code>eg. channel_url_dict = { 
+      "https://www.youtube.com/channel/UC2XEzs5R1mn2wTKgtjuMxiQ": "channel_name_a",
+      "https://www.youtube.com/channel/UC2XEzs5R1mn2wTKgtjuMxiQ":"channel_name_b" 
+    }</code></p>
+</li>
+<li>
+<p>Set <code>youtube_service_to_use</code> variable value to either <code>YoutubeService.YOUTUBE_DL</code> or <code>YoutubeService.YOUTUBE_API</code> for collecting video info.</p>
+</li>
+<li>
+<p>If <code>YoutubeService.YOUTUBE_API</code> is chosen, then get APIKEY for youtube data api from google developer console and store it in a file called <code>.youtube_api_key</code> in project root folder.</p>
+<ul>
+<li>From the project root folder, run the following command:
+  <code>scrapy crawl datacollector_youtube --set=ITEM_PIPELINES='{"data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline": 1}'`</code></li>
 </ul>
 </li>
 </ul>
-<pre><code>* Starting datacollector_bing spider with audio pipeline.
-```shell script
-scrapy crawl datacollector_bing
-</code></pre>
+</li>
+<li>
+<p>This will start fetching the videos from youtube for the given channels and download them to bucket.</p>
+</li>
+<li>To download by using youtube-utils service, do the following:</li>
+<li>
+<p>Open <code>data_acqusition_framework/configs/youtube_pipeline_config.py</code> and do the following:</p>
 <ul>
-<li>Starting datacollector_urls spider with audio pipeline.
-Make sure to put the urls to crawl in the data_acquisition_framework/urls.txt
-<code>shell script
-scrapy crawl datacollector_urls</code></li>
+<li>
+<p>Assign <code>channel_url_dict = {}</code>(If not empty, will not work)</p>
+</li>
+<li>
+<p>Set <code>youtube_service_to_use</code> variable value to either <code>YoutubeService.YOUTUBE_DL</code> or <code>YoutubeService.YOUTUBE_API</code> for collecting video info.</p>
+</li>
+<li>If <code>YoutubeService.YOUTUBE_API</code> is chosen, then get APIKEY for youtube data api from google developer console and store it in a file called <code>.youtube_api_key</code> in project root folder.<ul>
+<li>Open <code>data_acqusition_framework/configs/youtube_api_config.json</code> and change the fields to your requirements.(For more info: check above in Youtube api configuration)</li>
+<li>From the project root folder, run the following command:
+<code>scrapy crawl datacollector_youtube --set=ITEM_PIPELINES='{"data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline": 1}'</code></li>
 </ul>
-<h2 id="additional-services">Additional Services</h2>
+</li>
+</ul>
+</li>
+<li>
+<p>This will start fetching the videos from youtube for the given channels and download them to bucket.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="youtube-spider-in-file-mode">Youtube spider in file mode:</h4>
+<ol>
+<li>
+<p>In <code>data_acqusition_framework/configs</code>, do the following:</p>
+<ul>
+<li>
+<p>Open <code>config.json</code> and change <code>language</code> and <code>type</code> to your respective use case.</p>
+</li>
+<li>
+<p>Open <code>storage_config.json</code> and change <code>bucket</code> and <code>channel_blob_path</code> to your respective gcp paths.(For more info on these fields, scroll above to Bucket configuration)</p>
+</li>
+<li>
+<p>Open <code>youtube_pipeline_config.py</code> and do the following:</p>
+<ul>
+<li>change <code>mode</code> to <code>file</code>(eg: mode='file').</li>
+<li>change <code>source_name</code> to your requirement so that videos get downloaded to that folder in google storage bucket. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Next Steps:</p>
+<ul>
+<li>
+<p>Create a file in the following format:\
+     eg. <code>source_name.csv</code> with content (license column is optional):
+     Here <code>source_name</code> in <code>source_name.csv</code> is the name you gave in youtube_pipeline_config.py file. It should be the same.
+     <code>video_url,speaker_name,speaker_gender,license
+        https://www.youtube.com/watch?v=K1vW_ZikA5o,Ram_Singh,male,Creative Commons
+        https://www.youtube.com/watch?v=o82HIOgozi8,John_Doe,male,Standard Youtube
+        ...</code></p>
+</li>
+<li>
+<p>Now to upload this file to google cloud storage do the following:</p>
+<ul>
+<li>Open the <code>channel_blob_path</code> folder that you gave in <code>storage_config.json</code> and create a folder there named <code>data_to_be_scraped</code>.</li>
+<li>Upload the file that you created with previous step to this folder.</li>
+</ul>
+</li>
+<li>
+<p>From the project root folder, run the following command:
+    <code>scrapy crawl datacollector_youtube --set=ITEM_PIPELINES='{"data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline": 1}'</code></p>
+</li>
+<li>
+<p>This will start fetching the videos mentioned in the file from youtube and download them to bucket.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="bing-spider">Bing Spider</h4>
+<ul>
+<li>Configure <code>data_acquisition_framework/configs/web_crawl_config.json</code> for your requirements.</li>
+<li>Starting datacollector_bing spider with audio pipeline.
+    From project root folder, run the following:
+    <code>shell script
+    scrapy crawl datacollector_bing</code></li>
+</ul>
+<h4 id="urls-spider">Urls Spider</h4>
+<ul>
+<li>Configure <code>data_acquisition_framework/configs/web_crawl_config.json</code> for your requirements.</li>
+<li>Starting datacollector_urls spider with audio pipeline.
+    Make sure to put the urls to crawl in the <code>data_acquisition_framework/urls.txt</code>.
+    From project root folder, run the following:
+    <code>shell script
+    scrapy crawl datacollector_urls</code></li>
+</ul>
 <h4 id="selenium-google-crawler">Selenium google crawler</h4>
 <ul>
 <li>
@@ -440,7 +560,7 @@ scrapy crawl datacollector_urls</code></li>
 <p>A specified Readme can be found in selenium_google_crawler folder. <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/selenium_google_crawler/Readme.md">Readme for selenium google crawler</a></p>
 </li>
 </ul>
-<h4 id="selenium-youtube-crawler">Selenium youtube crawler</h4>
+<h4 id="selenium-youtube-crawler-for-file-mode-and-api-mode">Selenium youtube crawler for file mode and api mode</h4>
 <ul>
 <li>
 <p>It is capable of crawling youtube videos using youtube api or from a list of files with youtube video ids provided with channel name as filename.</p>

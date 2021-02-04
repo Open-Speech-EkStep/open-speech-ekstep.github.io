@@ -6,6 +6,7 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
+  * [Summary](#summary)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -50,6 +51,48 @@ The Developer documentation provides you with a complete set of guidelines which
 ### Built With
 We have used scrapy as the base of this framework.
 * [Scrapy](https://github.com/scrapy/scrapy)
+
+### Summary
+
+This summary mentions the key advantages and limitations of this smart crawler service. 
+
+#### Youtube Crawler
+
+  ##### Key Points and Advantages:
+  * Get language relevant channels from YouTube and download videos from them.(70%-80% relevancy with language - based on Manual Analysis)
+  * Can fetch channels with Creative Commons video and download the videos in them as well.(70% relevancy with language)
+  * Can download using file mode(manually filled with video Ids) or channel mode.
+  * Youtube-dl can fetch N number of videos from a channel and download them.
+  * YouTube crawler downloads files at a rate of maximum of 2000 hours per day  and minimum of 800 hours per day.
+  * Youtube crawler is more convenient and it’s a main source of Creative Commons data that can be accessed easily.
+  * It can be deployed in cloud service called zyte used for scraping/crawling.
+  * License information of videos are available in metadata.
+  
+  ##### Limitations:
+  * Youtube-api cannot return more than 500 videos per channel.(when using YOUTUBE_API mode in configuration)
+  * Youtube-api is restricted to 10000 tokens per day in free mode.
+      1. 10000 tokens can be used to get license info of 10000 videos.(in any mode)
+      2. 10000 tokens can be used to get 5000 channels.(in YOUTUBE_API mode)
+      3. Youtube-dl can be used to get all videos freely.(in YOUTUBE_DL mode)
+  * Cannot fetch data from specific playlist.
+    (Solution: Fetch videos Ids of a playlist using YouTube-dl and put them in a file and download in file mode.)
+  * Rare cases in which you might get Too many requests error from Youtube-DL.
+    (Solution: Rerun the application with same sources.)
+  * Cannot download videos which require user information and private videos.
+
+#### Web Crawler
+
+  ##### Key Points and Advantages:
+  * Web crawler can download specific language audio but with around 50 - 60% relevance.
+  * Web crawler downloads files at a rate of at least 2000 hours per day.
+  * It is a faster means of downloading data.
+  * Creative Commons license of videos can be identified if available while crawling websites.
+
+  ##### Limitations
+  * Web crawler is not finely tuned yet, so downloaded content might have low language relevance. 
+  * It cannot be deployed in zyte service free accounts and can be only deployed in zyte service paid accounts where docker container creation can be customised.
+  * License information of videos in web crawler cannot be automatically identified but requires some manual intervention.
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -151,6 +194,7 @@ https://www.youtube.com/watch?v=o82HIOgozi8,John_Doe,male
 # Common configurations
 "source_name": "DEMO",                            This is the name of source you are downloading
 batch_num = 1                                     Number of videos to be downloaded as batches
+only_creative_commons = False                     Should Download only creative commons(True, False)
 ```
 * file mode configurations in [youtube_pipeline_config.py](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py) 
 ```shell script
@@ -162,9 +206,10 @@ file_url_name_column = "video_url"                Video url column name in csv f
 * channel mode configuration in  [youtube_pipeline_config.py](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/youtube/crawler/data_acquisition_framework/configs/youtube_pipeline_config.py)
 ```shell script
 # Channel mode configurations
-channel_url_dict = {}             Channel url dictionary (This will download all the videos from the given channels with corresponding source names)
-match_title_string = ''       REGEX   Download only matching titles (regex or caseless sub-string)
-reject_title_string = ''      REGEX    Skip download for matching titles (regex or caseless sub-string)
+youtube_service_to_use=YoutubeService.YOUTUBE_API  The youtube service to use for fetching videos(YOUTUBE_API, YOUTUBE_DL)
+channel_url_dict = {}                              Channel url dictionary (This will download all the videos from the given channels with corresponding source names)
+match_title_string = ''                            REGEX   Download only matching titles (regex or caseless sub-string)
+reject_title_string = ''                           REGEX    Skip download for matching titles (regex or caseless sub-string)
 
 Note:
 1. In channel_url_dict, the keys must be the urls and values must be their channel names

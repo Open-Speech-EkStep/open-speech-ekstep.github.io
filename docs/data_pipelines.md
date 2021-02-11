@@ -21,10 +21,10 @@
 
 This is data processing framework that is extensible and allows user to add new module for any other processing. In this project we have some module:
 
-* [Audio processor](#audio-processor)
-* [Speaker identification](#speaker)
-* [Gender identification](#gender)
-* [Audio transcription (STT)](#STT)
+ * [Audio processor](#audio-processor)
+ * [Speaker identification](#speaker)
+ * [Gender identification](#gender)
+ * [Audio transcription (STT)](#STT)
 
 
 The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Data Pipelines.

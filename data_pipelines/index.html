@@ -106,7 +106,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#smart-crawlers" class="nav-link">Smart Crawlers</a>
+            <li class="nav-item" data-level="1"><a href="#data-pipelines" class="nav-link">Data pipelines</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
               <ul class="nav flex-column">
@@ -139,8 +139,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="smart-crawlers">Smart Crawlers</h1>
-<p><img alt="Screenshot" src="img/data_pipelines.png" /></p>
+<h1 id="data-pipelines">Data pipelines</h1>
+<p><img alt="Screenshot" src="img/data_pipeline.png" /></p>
 <!-- TABLE OF CONTENTS -->
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
@@ -164,14 +164,14 @@
 <li><a href="#STT">Audio transcription (STT)</a></li>
 </ul>
 <p>The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Data Pipelines.</p>
-<h4 id="audio-processor">Audio processor</h4>
+<h4 id="audio-processor">* Audio processor</h4>
 <p><img alt="Screenshot" src="img/data_pipeline.png" /></p>
 <p>In audio processor we run Vad to break down audio in utterances after that we run WADASNR to calculate SNR for each utterance. </p>
-<h4 id="speaker-identification">Speaker identification</h4>
+<h4 id="speaker-identification">* Speaker identification</h4>
 <p>This module is for identity the number of speaker for a given source. we are using resemblyzer.</p>
-<h4 id="gender-identification">Gender identification</h4>
+<h4 id="gender-identification">* Gender identification</h4>
 <p>This module is for identity the gender of speaker in a utterance.</p>
-<h4 id="audio-transcription-stt">Audio transcription (STT)</h4>
+<h4 id="audio-transcription-stt">* Audio transcription (STT)</h4>
 <p>This module is for run Speech To Text (STT) in given source. we can use google,azure and we can also add more API for running STT.</p>
 <h3 id="built-with">Built With</h3>
 <p>We have used some tool as the base of this framework.

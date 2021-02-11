@@ -30,16 +30,17 @@ This is data processing framework that is extensible and allows user to add new 
 The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Data Pipelines.
 
 
-# Audio processor
-![Screenshot](img/data_pipelines.png)
+#### Audio processor
+![Screenshot](img/data_pipeline.png)
+
 In audio processor we run Vad to break down audio in utterances after that we run WADASNR to calculate SNR for each utterance. 
-# Speaker identification
+#### Speaker identification
 This module is for identity the number of speaker for a given source. we are using resemblyzer.
 
-# Gender identification
+#### Gender identification
 This module is for identity the gender of speaker in a utterance.
 
-# Audio transcription (STT)
+#### Audio transcription (STT)
 This module is for run Speech To Text (STT) in given source. we can use google,azure and we can also add more API for running STT.
 ### Built With
 We have used some tool as the base of this framework.

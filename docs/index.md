@@ -2,13 +2,12 @@
 
 Recipies to build Speech Recognition models
 
-# Introduction
+## Introduction
 
 Vakyansh is an open-source set of recipes to build Speech Recognition models from scratch right from data collection,
 data cleaninig, data processing, data analysis and model training. The intelligent pipelines are available part of the recipes which allows to prepare audio data without manual analysis of audio. 
 
 <img src="img/differentiator.png" alt="drawing" width="500" width="500"/>
-
 
 ## Getting started
 
@@ -17,16 +16,18 @@ It would enable people to innovate and improve and build Speech Recognition Mode
 The recipes can be picked and chosen based on the requirement or they can be used as whole package if starting from scratch.
 
 ## Modeling process
+
 <img src="img/vakyansh_modeling.png" alt="drawing" width="500" width="500"/>
 
 ## Vakyansh components
+
 - Data Collection Pipeline
 - Intelligent Data Pipeline
 - Model Training Pipeline
 
-## Tech in one view <br>
-<img src="img/vakyansh_tech.png" alt="drawing" width="500" width="500"/>
+## Tech in one view
 
+<img src="img/vakyansh_tech.png" alt="drawing" width="500" width="500"/>
 
 The Developer documentation provides you with a complete set of guidelines which you need to:
 

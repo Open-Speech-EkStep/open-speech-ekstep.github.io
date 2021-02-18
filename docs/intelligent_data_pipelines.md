@@ -19,7 +19,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is data processing framework that is extensible and allows user to add new module for any other processing. In this project we have some module:
+This is data processing framework that is extensible and allows user to add new module for any other processing.
+[Here](https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline) is the code  
+In this project we have some module:
 
  * [Audio processor](#audio-processor)
  * [Speaker identification](#speaker)

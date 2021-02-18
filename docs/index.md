@@ -23,7 +23,7 @@ The recipes can be picked and chosen based on the requirement or they can be use
 
 1. [Data Collection Pipeline](https://open-speech-ekstep.github.io/mkdocs/smart_crawlers/)
 2. [Intelligent Data Pipeline](https://open-speech-ekstep.github.io/mkdocs/data_pipelines/)
-3. Model Training Pipeline
+3. [Model Training Pipeline](https://open-speech-ekstep.github.io/mkdocs/model_training/)
 
 ## Tech in one view
 

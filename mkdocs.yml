@@ -6,6 +6,6 @@ nav:
               - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
               - "Model Training Pipeline": "model_training.md"
       - About:
-              - "License": LICENSE.md
+              - "License": LICENSE
               - "Contributions": CONTRIBUTING.md
               - "Release notes": RELEASE_NOTES.md

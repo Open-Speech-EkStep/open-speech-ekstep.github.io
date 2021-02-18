@@ -1,6 +1,6 @@
 # Welcome to Vakyansh
 
-Recipies to build Speech Recognition models
+## **Recipies to build Speech Recognition models**
 
 ## Introduction
 
@@ -21,9 +21,9 @@ The recipes can be picked and chosen based on the requirement or they can be use
 
 ## Vakyansh components
 
-- Data Collection Pipeline
-- Intelligent Data Pipeline
-- Model Training Pipeline
+1. [Data Collection Pipeline](https://open-speech-ekstep.github.io/mkdocs/smart_crawlers/)
+2. [Intelligent Data Pipeline](https://open-speech-ekstep.github.io/mkdocs/data_pipelines/)
+3. Model Training Pipeline
 
 ## Tech in one view
 
@@ -31,8 +31,8 @@ The recipes can be picked and chosen based on the requirement or they can be use
 
 The Developer documentation provides you with a complete set of guidelines which you need to:
 
-Install Vakyansh
-Configure Vakyansh
-Customize Vakyansh
-Extend Vakyansh
-Contribute to Vakyansh
+- Install Vakyansh
+- Configure Vakyansh
+- Customize Vakyansh
+- Extend Vakyansh
+- Contribute to Vakyansh

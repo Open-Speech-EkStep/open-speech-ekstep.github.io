@@ -2,8 +2,8 @@ site_name: Vakyansh
 nav:
       - Home: index.md
       - "User Guide":
-              - "Smart Crawlers": "smart_crawlers.md"
-              - "Intelligent Data Pipelines": "data_pipelines.md"
+              - "Data Collection Pipeine": "data_collection.md"
+              - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
               - "Model Training Pipeline": "model_training.md"
       - About:
               - "License": LICENSE.md

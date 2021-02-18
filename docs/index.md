@@ -1,8 +1,9 @@
 # Welcome to Vakyansh
 
+Recipies to build Speech Recognition models
+
 <img src="img/vakyansh_modeling.png" alt="drawing" width="300"/>
 
-Recipies to build Speech Recognition models
 
 ## Introduction
 

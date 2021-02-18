@@ -21,11 +21,11 @@ The recipes can be picked and chosen based on the requirement or they can be use
 
 ## Vakyansh Components
 
-### 1. [Data Collection Pipeline](https://open-speech-ekstep.github.io/mkdocs/smart_crawlers/)
+### 1. [Data Collection Pipeline](https://open-speech-ekstep.github.io/mkdocs/data_collection/)
 
 Pipelines to collect data in automated way for the language you want
 
-### 2. [Intelligent Data Pipeline](https://open-speech-ekstep.github.io/mkdocs/data_pipelines/)
+### 2. [Intelligent Data Pipeline](https://open-speech-ekstep.github.io/mkdocs/intelligent_data_pipelines/)
 
 Pipelines to transform raw data and prepare data for model training. They clean, process and balance data for model training
 

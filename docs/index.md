@@ -4,8 +4,16 @@
 
 ## Introduction
 
-Vakyansh is an open-source set of recipes to build Speech Recognition models from scratch right from data collection,
-data cleaninig, data processing, data analysis and model training. The intelligent pipelines are available part of the recipes which allows to prepare audio data without manual analysis of audio. 
+Vakyansh aims to host the key essentials of Automatic Speech Recognition (ASR) technology, focusing on Indian languages. It is a resource that allows people to build applications that leverage speech recognition.
+
+The site will host open data for training ASR models, open source utilities and pipelines to train ASR models and open ASR models themselves. Vakyansh also hosts tools to contribute your voices to create a diverse open data repository of Indian voices to this end. This data will be available in an open manner for all to use. It is a resource that allows people to build applications that leverage speech recognition.
+
+## Open Source
+
+Open sourcing the speech recognition technology empowers us to bring our languages to the core of our fundamentals.
+Vakyansh aims to open source the speech recognition models in various languages, the datasets collected through various channels and the linguistic utilities developed to process and clean the data and make it usable by speech recognition tools.
+
+The open source strategy will enable the various language communities, individuals and technologists, who are passionate about their language, to develop speech recognition applications, and integrate them in various domains for the good of the community.
 
 ![alt text](img/differentiator.png "What differentiates us")
 
@@ -13,7 +21,6 @@ data cleaninig, data processing, data analysis and model training. The intellige
 
 Vakyansh's developer documentation is meant for its adopters, developers and contributors.
 It would enable people to innovate and improve and build Speech Recognition Models in any language.
-The recipes can be picked and chosen based on the requirement or they can be used as whole package if starting from scratch.
 
 ## Modeling Process
 

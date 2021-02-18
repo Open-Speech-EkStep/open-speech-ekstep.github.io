@@ -7,7 +7,7 @@
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
+  * [Run on GCP (with composer)](#setup)
   * [Installation](#installation)
 * [Contributing](#contributing)
 * [License](#license)
@@ -42,16 +42,46 @@ This module is for identity the gender of speaker in a utterance.
 
 #### * Audio transcription (STT)
 This module is for run Speech To Text (STT) in given source. we can use google,azure and we can also add more API for running STT.
-### Built With
-We have used some tool as the base of this framework.
-* [webrtcvad](https://pypi.org/project/webrtcvad/)
-* [WadaSNR]
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 To get started install the prerequisites and clone the repo to machine on which you wish to run the framework.
 
+### Installation
+
+1. Clone the repo
+```sh
+git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
+```
+2. Install python requirements
+```sh
+pip install -r requirements.txt
+```
+
+## Run on GCP (with composer)
+  ### Requirements: 
+   1.Terraform [https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
+   2.gcloud [https://cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install)
+   3.ffmpeg [https://www.ffmpeg.org](https://www.ffmpeg.org)
+
+  * Infra Setup (with config):
+    
+  
+
+  * CI/CD setup:
+  
+  ### Audio Processing (with config):
+   description:
+   config:
+   steps to run : 
+
+  ### Audio Analysis (with config)
+ 
+  ### Data Balancing (with config):
+   
+  ### Audio Transcription (with config)
+  
 ### Prerequisites
 1. ffmpeg
 * Any linux based (preferred Ubuntu)
@@ -65,16 +95,6 @@ brew install ffmpeg
 2. Supported Python Version = 3.6
 
 * Windows user can follow installation steps on [https://www.ffmpeg.org](https://www.ffmpeg.org)
-### Installation
-
-1. Clone the repo
-```sh
-git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
-```
-2. Install python requirements
-```sh
-pip install -r requirements.txt
-```
 
 
 <!-- CONTRIBUTING -->

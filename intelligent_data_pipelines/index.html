@@ -195,44 +195,68 @@ In this project we have some module:</p>
 </code></pre>
 <h2 id="run-on-gcp-with-composer">Run on GCP (with composer)</h2>
 <p>### Requirements: 
-   1.Terraform <a href="https://www.terraform.io/downloads.html">https://www.terraform.io/downloads.html</a>
-   2.gcloud <a href="https://cloud.google.com/sdk/docs/install">https://cloud.google.com/sdk/docs/install</a>
-   3.ffmpeg <a href="https://www.ffmpeg.org">https://www.ffmpeg.org</a></p>
-<ul>
+   1.Terraform <a href="https://www.terraform.io/downloads.html">https://www.terraform.io/downloads.html</a></p>
+<p>2.gcloud <a href="https://cloud.google.com/sdk/docs/install">https://cloud.google.com/sdk/docs/install</a></p>
+<p>### Infra Setup (with config):</p>
+<ol>
 <li>
-<p>Infra Setup (with config):</p>
+<p>Clone the repo
+    <code>sh
+    git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git</code>
+  2.Initialize terraform modules<br />
+<code>terraform init</code>  </p>
+</li>
+<li>
+<p>Select a workspace as per the environments(dev,test,prod).<br />
+<code>terraform workspace select &lt;env_name&gt;</code><br />
+  eg: <code>terraform workspace select prod</code> </p>
+</li>
+<li>
+<p>Run specific modules as per requirements.<br />
+<code>terraform apply -target=module.&lt;module-name&gt;</code> <br />
+  eg: <code>terraform apply -target=module.sql-database</code>  </p>
+</li>
+<li>
+<p>Run all modules at once.<br />
+<code>terraform apply</code>    </p>
 </li>
 <li>
 <p>CI/CD setup:</p>
 </li>
-</ul>
+</ol>
+<p>Once we deploy using circle-ci it will create schema for our DB and upload our dags in airflow dag bucket that we create using
+   terraform. and also create and push image of code in google container registry and upload our variable to airflow.</p>
 <p>### Audio Processing (with config):
    description:
    config:
-   steps to run : </p>
+    <img alt="Screenshot" src="../img/audio_processor_config.png" /></p>
+<p>steps to run : </p>
+<pre><code>1. We have to configure *sourcepathforsnr* in airflow variable where our raw data stored.
+
+2. Other variable is *snrcatalogue* in that we update our source which we want to run and count how many file should run 
+   in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
+   run if parallelism is not define number of pod = count ex:
+   ```"snrcatalogue": {
+      "&lt;source_name&gt;": {
+      "count": 5,
+      "format": "mp3",
+      "language": "telugu",
+      "parallelism":2
+  }```
+
+3. We have to also set *audiofilelist* with whatever source we want to run with empty array that will store our file path ex:
+
+   ``` "audiofilelist": {
+        "&lt;source_name&gt;": []
+   }```
+
+4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
+   and upload processed file to *remote_processed_audio_file_path* that we mentioned in config file. and move raw data from 
+   *remote_raw_audio_file_path* to *snr_done_folder_path*. and update DB also with the metadata which we created using circle-ci.
+</code></pre>
 <p>### Audio Analysis (with config)</p>
 <p>### Data Balancing (with config):</p>
 <p>### Audio Transcription (with config)</p>
-<h3 id="prerequisites">Prerequisites</h3>
-<ol>
-<li>ffmpeg</li>
-<li>Any linux based (preferred Ubuntu)</li>
-</ol>
-<pre><code class="language-sh">sudo apt-get install ffmpeg
-</code></pre>
-<ul>
-<li>Mac-ox</li>
-</ul>
-<pre><code class="language-sh">brew install ffmpeg
-</code></pre>
-<ol>
-<li>
-<p>Supported Python Version = 3.6</p>
-</li>
-<li>
-<p>Windows user can follow installation steps on <a href="https://www.ffmpeg.org">https://www.ffmpeg.org</a></p>
-</li>
-</ol>
 <!-- CONTRIBUTING -->
 <h2 id="contributing">Contributing</h2>
 <p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p>

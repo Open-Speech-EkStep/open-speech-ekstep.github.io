@@ -64,39 +64,70 @@ pip install -r requirements.txt
 ## Run on GCP (with composer)
   ### Requirements: 
    1.Terraform [https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
+
    2.gcloud [https://cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install)
-   3.ffmpeg [https://www.ffmpeg.org](https://www.ffmpeg.org)
 
-  * Infra Setup (with config):
-    
+  ### Infra Setup (with config):
+
+  1. Clone the repo
+    ```sh
+    git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
+    ```
+  2.Initialize terraform modules  
+  ```terraform init```  
+
+  3. Select a workspace as per the environments(dev,test,prod).  
+  ```terraform workspace select <env_name>```  
+  eg: ```terraform workspace select prod``` 
+
+  4. Run specific modules as per requirements.  
+  ```terraform apply -target=module.<module-name>```   
+  eg: ```terraform apply -target=module.sql-database```  
+
+  5. Run all modules at once.  
+  ```terraform apply```    
   
-
   * CI/CD setup:
+
+   Once we deploy using circle-ci it will create schema for our DB and upload our dags in airflow dag bucket that we create using
+   terraform. and also create and push image of code in google container registry and upload our variable to airflow.
   
   ### Audio Processing (with config):
    description:
    config:
+    ![Screenshot](img/audio_processor_config.png)
+
    steps to run : 
+
+    1. We have to configure *sourcepathforsnr* in airflow variable where our raw data stored.
+
+    2. Other variable is *snrcatalogue* in that we update our source which we want to run and count how many file should run 
+       in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
+       run if parallelism is not define number of pod = count ex:
+       ```"snrcatalogue": {
+          "<source_name>": {
+          "count": 5,
+          "format": "mp3",
+          "language": "telugu",
+          "parallelism":2
+      }```
+
+    3. We have to also set *audiofilelist* with whatever source we want to run with empty array that will store our file path ex:
+
+       ``` "audiofilelist": {
+            "<source_name>": []
+       }```
+    
+    4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
+       and upload processed file to *remote_processed_audio_file_path* that we mentioned in config file. and move raw data from 
+       *remote_raw_audio_file_path* to *snr_done_folder_path*. and update DB also with the metadata which we created using circle-ci.
+       
 
   ### Audio Analysis (with config)
  
   ### Data Balancing (with config):
    
   ### Audio Transcription (with config)
-  
-### Prerequisites
-1. ffmpeg
-* Any linux based (preferred Ubuntu)
-```sh
-sudo apt-get install ffmpeg
-```
-* Mac-ox
-```sh
-brew install ffmpeg
-```
-2. Supported Python Version = 3.6
-
-* Windows user can follow installation steps on [https://www.ffmpeg.org](https://www.ffmpeg.org)
 
 
 <!-- CONTRIBUTING -->

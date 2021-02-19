@@ -129,7 +129,6 @@ pip install -r requirements.txt
    
   ### Audio Transcription (with config)
 
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -141,22 +140,18 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
+We follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the [XYZ] License. See `LICENSE` for more information.
-
-
+Distributed under the [MIT] License. See [LICENSE](https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline/blob/master/LICENSE) for more information.
 
 <!-- CONTACT -->
 ## Contact
 
 Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
+Project Link: [https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline](https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline)
 
 <!-- ACKNOWLEDGEMENTS -->

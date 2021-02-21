@@ -177,6 +177,8 @@ In this project we have some module:</p>
 <p>This module is for identity the number of speaker for a given source. we are using resemblyzer.</p>
 <h4 id="gender-identification">* Gender identification</h4>
 <p>This module is for identity the gender of speaker in a utterance.</p>
+<h3 id="data-marker-with-config">Data Marker (with config):</h3>
+<p>This module is for filtering out data for STT after analyzing that data we have different kind of filter eg: SNR,Duration,speaker...</p>
 <h4 id="audio-transcription-stt">* Audio transcription (STT)</h4>
 <p>This module is for run Speech To Text (STT) in given source. we can use google,azure and we can also add more API for running STT.</p>
 <!-- GETTING STARTED -->
@@ -195,12 +197,14 @@ In this project we have some module:</p>
 </code></pre>
 <h2 id="run-on-gcp-with-composer">Run on GCP (with composer)</h2>
 <p>### Requirements: 
-   1.Terraform <a href="https://www.terraform.io/downloads.html">https://www.terraform.io/downloads.html</a></p>
-<p>2.gcloud <a href="https://cloud.google.com/sdk/docs/install">https://cloud.google.com/sdk/docs/install</a></p>
+   1. Terraform <a href="https://www.terraform.io/downloads.html">https://www.terraform.io/downloads.html</a></p>
+<ol>
+<li>gcloud <a href="https://cloud.google.com/sdk/docs/install">https://cloud.google.com/sdk/docs/install</a></li>
+</ol>
 <p>### Infra Setup (with config):</p>
 <ol>
 <li>
-<p>Clone the repo
+<p>Clone the repo:
     <code>sh
     git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git</code>
   2.Initialize terraform modules<br />
@@ -213,8 +217,8 @@ In this project we have some module:</p>
 </li>
 <li>
 <p>Run specific modules as per requirements.<br />
-<code>terraform apply -target=module.&lt;module-name&gt;</code> <br />
-  eg: <code>terraform apply -target=module.sql-database</code>  </p>
+<code>sh terraform apply -target=module.&lt;module-name&gt;</code> <br />
+  eg: <code>sh terraform apply -target=module.sql-database</code>  </p>
 </li>
 <li>
 <p>Run all modules at once.<br />
@@ -224,39 +228,137 @@ In this project we have some module:</p>
 <p>CI/CD setup:</p>
 </li>
 </ol>
-<p>Once we deploy using circle-ci it will create schema for our DB and upload our dags in airflow dag bucket that we create using
-   terraform. and also create and push image of code in google container registry and upload our variable to airflow.</p>
+<p>Once you pull code you have to configure some variable in your <a href="https://circleci.com/" title="circle-ci">circle-ci</a>.
+   So that while deploying code image should easily push into google container registry.</p>
+<p><code>1. GCP_PROJECT # Name of your GCP project
+    2. GOOGLE_AUTH # Service account key that is created using terraform
+    3. POSTGRES_DB # Database host ip that is created using terraform
+    4. POSTGRES_PASSWORD  # Database password
+    5. POSTGRES_USER # Database user name</code></p>
 <p>### Audio Processing (with config):
-   description:
-   config:
-    <img alt="Screenshot" src="../img/audio_processor_config.png" /></p>
-<p>steps to run : </p>
-<pre><code>1. We have to configure *sourcepathforsnr* in airflow variable where our raw data stored.
+   description:</p>
+<p>config:
+    ```# sample configurations
+      config:
+        common:
+          db_configuration:
+              db_name: ''
+              db_pass: ''
+              db_user: ''
+              cloud_sql_connection_name: '<DB Host>'</p>
+<pre><code>      gcs_config:
+        # master data bucket
+        master_bucket: '&lt;Name of the bucket&gt;'
 
-2. Other variable is *snrcatalogue* in that we update our source which we want to run and count how many file should run 
-   in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
-   run if parallelism is not define number of pod = count ex:
-   ```"snrcatalogue": {
-      "&lt;source_name&gt;": {
-      "count": 5,
-      "format": "mp3",
-      "language": "telugu",
-      "parallelism":2
-  }```
+    audio_processor_config:
 
-3. We have to also set *audiofilelist* with whatever source we want to run with empty array that will store our file path ex:
+      # feat_language_identification should true if you want run language identification for a source
+      feat_language_identification: False 
+      # language of the audio 
+      language: ''
 
-   ``` "audiofilelist": {
-        "&lt;source_name&gt;": []
-   }```
+      # path of the files on gcs which need to be processed
+      # path eg: &lt;bucket-name/data/audiotospeech/raw/download/downloaded/{language}/audio&gt;
+      remote_raw_audio_file_path: ''
 
-4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
-   and upload processed file to *remote_processed_audio_file_path* that we mentioned in config file. and move raw data from 
-   *remote_raw_audio_file_path* to *snr_done_folder_path*. and update DB also with the metadata which we created using circle-ci.
+      # after processing where we want to move raw data
+      snr_done_folder_path: '' # &lt;bucket-name/data/audiotospeech/raw/download/snr_done/{language}/audio&gt;
+
+      # path where the processed files need to be uploaded
+      remote_processed_audio_file_path: '' # &lt;bucket-name/data/audiotospeech/raw/download/catalogue/{language}/audio&gt;
+
+      # path where Duplicate files need to be uploaded based on checksum
+      duplicate_audio_file_path: '' # &lt;bucket-name/data/audiotospeech/raw/download/duplicate/{language}/audio&gt;
+
+      chunking_conversion_configuration:
+        aggressiveness: '' # using for vad by default it's value is 2 the more the value that aggressive vad for chunking audio 
+        max_duration: ''   # max duration is second if chunk is more than that vad will retry chunking with inc aggressiveness
+
+      # SNR specific configurations
+      snr_configuration:
+
+        max_snr_threshold: '' # less than max_snr_threshold utterance will move to rejected folder.
+        local_input_file_path: ''
+        local_output_file_path: ''
+```
 </code></pre>
-<p>### Audio Analysis (with config)</p>
-<p>### Data Balancing (with config):</p>
-<p>### Audio Transcription (with config)</p>
+<p>#### steps to run: </p>
+<pre><code>  1. We have to configure *sourcepathforsnr* in airflow variable where our raw data stored.
+
+  2. Other variable is *snrcatalogue* in that we update our source which we want to run and count how many file should run 
+     in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
+     run if parallelism is not define number of pod = count ex:
+     ```"snrcatalogue": {
+        "&lt;source_name&gt;": {
+        "count": 5,
+        "format": "mp3",
+        "language": "telugu",
+        "parallelism":2
+    }```
+
+  3. We have to also set *audiofilelist* with whatever source we want to run with empty array that will store our file path ex:
+
+     ``` "audiofilelist": {
+          "&lt;source_name&gt;": []
+     }```
+
+  4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
+     and upload processed file to *remote_processed_audio_file_path* that we mentioned in config file. and move raw data from 
+     *remote_raw_audio_file_path* to *snr_done_folder_path*. and update DB also with the metadata which we created using circle-ci.
+</code></pre>
+<p>### Audio Analysis (with config):
+ config:</p>
+<p>### Data Balancing (with config):
+ config:
+ ### Audio Transcription (with config)
+  config:
+  ```
+    audio_transcription_config:
+    # defaults to hi-IN</p>
+<pre><code>language: 'hi-IN' # language
+
+# audio_language it's used for sanitization rule whichever language you choose you need to add a rule class for the same.
+# You can use reference of hindi sanitization
+# sanitization rule eg: empty transcription, strip, char etc
+
+audio_language: 'kannada' # It is BCP-47 language tag with this we call STT api.
+
+# Bucket bath of wav file 
+remote_clean_audio_file_path: '&lt;bucketname&gt;/data/audiotospeech/raw/landing/{language}/audio'
+
+# path where the processed files need to be uploaded
+remote_stt_audio_file_path: '&lt;bucketname&gt;/data/audiotospeech/integration/processed/{language}/audio'
+</code></pre>
+<p>```
+  #### steps to run: </p>
+<pre><code>  1. We have to configure *sourcepathforsnr* in airflow variable where our raw data stored.
+
+  2. Other variable is *sourceinfo* in that we update our source which we want to run for STT and count how many file should run 
+     in one trigger.stt is whatever api we want to call for STT for google and azure we have all rapper for other API you can add rapper as well. language and parallelism is how many pod will up in one
+     run if parallelism is not define number of pod = count ex:
+
+     ```"snrcatalogue": {
+        "&lt;source_name&gt;": {
+        "count": 5,
+        "stt":"google"
+        "language": "telugu",
+        "parallelism":2
+    }```
+
+  3. We have to also set *audioidsforstt* and *integrationprocessedpath* with whatever source we want to run with empty array that will store audio_id ex:
+
+     ``` "audioidsforstt": {
+          "&lt;source_name&gt;": []
+     }```
+
+     ```
+     integrationprocessedpath:"" # path of folder where we want move transcribed data.
+     ```
+
+  4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
+     and upload processed file to *remote_stt_audio_file_path* that we mentioned in config file. and move raw data from 
+     *remote_clean_audio_file_path* to *integrationprocessedpath*. and update DB also with the metadata which we created using circle-ci.
+</code></pre>
 <!-- CONTRIBUTING -->
 <h2 id="contributing">Contributing</h2>
 <p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p>

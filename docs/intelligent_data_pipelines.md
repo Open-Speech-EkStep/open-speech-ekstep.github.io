@@ -73,10 +73,9 @@ pip install -r requirements.txt
   ### Infra Setup (with config):
 
   1. Clone the repo:
-    ```sh
-    git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
-    ```
-  2.Initialize terraform modules  
+    ```sh git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git```
+  
+  2. Initialize terraform modules  
   ```terraform init```  
 
   3. Select a workspace as per the environments(dev,test,prod).  
@@ -90,7 +89,7 @@ pip install -r requirements.txt
   5. Run all modules at once.  
   ```terraform apply```    
   
-  * CI/CD setup:
+  ### CI/CD setup:
 
    Once you pull code you have to configure some variable in your [circle-ci](https://circleci.com/ "circle-ci").
    So that while deploying code image should easily push into google container registry.
@@ -107,7 +106,8 @@ pip install -r requirements.txt
    description:
    
    config:
-    ```# sample configurations
+    ```
+    # sample configurations
       config:
         common:
           db_configuration:
@@ -154,28 +154,29 @@ pip install -r requirements.txt
 
   #### steps to run: 
 
-      1. We have to configure *sourcepathforsnr* in airflow variable where our raw data stored.
+    1. We have to configure *sourcepathforsnr* in airflow variable where our raw data stored.
 
-      2. Other variable is *snrcatalogue* in that we update our source which we want to run and count how many file should run 
-         in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
-         run if parallelism is not define number of pod = count ex:
-         ```"snrcatalogue": {
-            "<source_name>": {
-            "count": 5,
-            "format": "mp3",
-            "language": "telugu",
-            "parallelism":2
-        }```
+    2. Other variable is *snrcatalogue* in that we update our source which we want to run and count how many file should run 
+       in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
+       run if parallelism is not define number of pod = count ex:
 
-      3. We have to also set *audiofilelist* with whatever source we want to run with empty array that will store our file path ex:
+       ```"snrcatalogue": {
+          "<source_name>": {
+          "count": 5,
+          "format": "mp3",
+          "language": "telugu",
+          "parallelism":2
+      }```
 
-         ``` "audiofilelist": {
-              "<source_name>": []
-         }```
+    3. We have to also set *audiofilelist* with whatever source we want to run with empty array that will store our file path ex:
+    
+       ``` "audiofilelist": {
+            "<source_name>": []
+       }```
 
-      4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
-         and upload processed file to *remote_processed_audio_file_path* that we mentioned in config file. and move raw data from 
-         *remote_raw_audio_file_path* to *snr_done_folder_path*. and update DB also with the metadata which we created using circle-ci.
+    4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
+       and upload processed file to *remote_processed_audio_file_path* that we mentioned in config file. and move raw data from 
+       *remote_raw_audio_file_path* to *snr_done_folder_path*. and update DB also with the metadata which we created using circle-ci.
 
 
  ### Audio Analysis (with config):

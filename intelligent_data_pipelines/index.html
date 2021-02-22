@@ -235,10 +235,9 @@ In this project we have some module:</p>
     4. POSTGRES_PASSWORD  # Database password
     5. POSTGRES_USER # Database user name</code></p>
 <p>### Audio Processing (with config):
-   description:</p>
-<p>config:
+   #### Description:</p>
+<p>#### Config:
     ```
-    # sample configurations
       config:
         common:
           db_configuration:
@@ -282,57 +281,84 @@ In this project we have some module:</p>
         local_output_file_path: ''
 ```
 </code></pre>
-<p>#### steps to run: </p>
-<pre><code>1. We have to configure *sourcepathforsnr* in airflow variable where our raw data stored.
-
-2. Other variable is *snrcatalogue* in that we update our source which we want to run and count how many file should run 
-   in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
-   run if parallelism is not define number of pod = count ex:
-
-   ```"snrcatalogue": {
+<h4 id="steps-to-run">steps to run:</h4>
+<ol>
+<li>
+<p>We have to configure <em>sourcepathforsnr</em> in airflow variable where our raw data stored.</p>
+</li>
+<li>
+<p>Other variable is <em>snrcatalogue</em> in that we update our source which we want to run and count how many file should run 
+in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
+run if parallelism is not define number of pod = count ex:</p>
+<p><code>"snrcatalogue": {
       "&lt;source_name&gt;": {
       "count": 5,
       "format": "mp3",
       "language": "telugu",
       "parallelism":2
-  }```
-
-3. We have to also set *audiofilelist* with whatever source we want to run with empty array that will store our file path ex:
-
-   ``` "audiofilelist": {
+  }</code></p>
+</li>
+<li>
+<p>We have to also set <em>audiofilelist</em> with whatever source we want to run with empty array that will store our file path ex:</p>
+<p><code>"audiofilelist": {
         "&lt;source_name&gt;": []
-   }```
-
-4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
-   and upload processed file to *remote_processed_audio_file_path* that we mentioned in config file. and move raw data from 
-   *remote_raw_audio_file_path* to *snr_done_folder_path*. and update DB also with the metadata which we created using circle-ci.
-</code></pre>
-<p>### Audio Analysis (with config):
- Description: In audio analysis we have two module gender_analysis and speaker_analysis.
+   }</code></p>
+</li>
+<li>
+<p>That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
+       and upload processed file to <em>remote_processed_audio_file_path</em> that we mentioned in config file. and move raw data from 
+       <em>remote_raw_audio_file_path</em> to <em>snr_done_folder_path</em>. and update DB also with the metadata which we created using circle-ci.</p>
+</li>
+</ol>
+<h3 id="audio-analysis-with-config">Audio Analysis (with config)</h3>
+<h5 id="description">Description</h5>
+<pre><code>             In audio analysis we have two module gender_analysis and speaker_analysis.
               in speaker analysis we can find how many uniq speaker is present in given source.
-              and gender_analysis we can find which utterance is spoked by which gender</p>
-<p>config:
-  ```
-    audio_analysis_config:
-    analysis_options:
-      gender_analysis: 1 # It should be 1 or 0 if you want to run gender_analysis it should be 1 else 0
-      speaker_analysis: 0 # It should be 1 or 0 if you want to run speaker_analysis it should be 1 else 0</p>
-<pre><code># path where the processed files need to be uploaded
-remote_processed_audio_file_path: '&lt;bucket_name&gt;/data/audiotospeech/raw/download/catalogued/{language}/audio'
-
-# speaker_analysis_config it's for gender_analysis module
-speaker_analysis_config:
-  min_cluster_size: 4 # min_cluster_size is least number of cluster for one speaker
-  partial_set_size: 8000 # number of utterances for create embeddings for a given source 
-  fit_noise_on_similarity: 0.77 
-  min_samples: 2
+              and gender_analysis we can find which utterance is spoked by which gender
 </code></pre>
-<p>```</p>
-<p>### Data Balancing (with config):
- config:
- ### Audio Transcription (with config)
-  config:
-  ```
+<h4 id="config">Config:</h4>
+<pre><code>    ```
+      audio_analysis_config:
+      analysis_options:
+        gender_analysis: 1 # It should be 1 or 0 if you want to run gender_analysis it should be 1 else 0
+        speaker_analysis: 0 # It should be 1 or 0 if you want to run speaker_analysis it should be 1 else 0
+
+      # path where the processed files need to be uploaded
+      remote_processed_audio_file_path: '&lt;bucket_name&gt;/data/audiotospeech/raw/download/catalogued/{language}/audio'
+
+      # speaker_analysis_config it's for gender_analysis module
+      speaker_analysis_config:
+        min_cluster_size: 4 # min_cluster_size is least number of cluster for one speaker
+        partial_set_size: 8000 # number of utterances for create embeddings for a given source 
+        fit_noise_on_similarity: 0.77 
+        min_samples: 2
+
+    ```
+</code></pre>
+<h4 id="steps-to-run_1">steps to run:</h4>
+<ol>
+<li>We have to configure <em>audio_analysis_config</em> in airflow variable in this json we have to mention source name and language.</li>
+</ol>
+<pre><code>&quot;audio_analysis_config&quot; : {
+    &quot;&lt;source name&gt;&quot; : {
+    &quot;language&quot; : &quot;hindi&quot;
+     }
+}
+</code></pre>
+<ol>
+<li>That will create a dag audio_analysis now we can trigger that dag that will process given sources.
+       and upload processed file to <em>remote_processed_audio_file_path</em> that we mentioned in config file.
+       and update DB also with the metadata which we created using circle-ci.</li>
+</ol>
+<h3 id="data-balancing-with-config">Data Balancing (with config):</h3>
+<h4 id="config_1">config:</h4>
+<pre><code>```
+
+```
+</code></pre>
+<h3 id="audio-transcription-with-config">Audio Transcription (with config)</h3>
+<h4 id="config_2">config:</h4>
+<p>```
     config:
       common:</p>
 <pre><code>    db_configuration:
@@ -372,36 +398,42 @@ speaker_analysis_config:
   # path where the processed files need to be uploaded
   remote_stt_audio_file_path: '&lt;bucketname&gt;/data/audiotospeech/integration/processed/{language}/audio'
 </code></pre>
-<p>```
-  #### steps to run: </p>
-<pre><code>  1. We have to configure *sourcepathforsnr* in airflow variable where our raw data stored.
-
-  2. Other variable is *sourceinfo* in that we update our source which we want to run for STT and count how many file should run 
-     in one trigger.stt is whatever api we want to call for STT for google and azure we have all rapper for other API you can add rapper as well. language and parallelism is how many pod will up in one
-     run if parallelism is not define number of pod = count ex:
-
-     ```"snrcatalogue": {
-        "&lt;source_name&gt;": {
-        "count": 5,
-        "stt":"google"
-        "language": "telugu",
-        "parallelism":2
-    }```
-
-  3. We have to also set *audioidsforstt* and *integrationprocessedpath* with whatever source we want to run with empty array that will store audio_id ex:
-
-     ``` "audioidsforstt": {
-          "&lt;source_name&gt;": []
-     }```
-
-     ```
-     integrationprocessedpath:"" # path of folder where we want move transcribed data.
-     ```
-
-  4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
-     and upload processed file to *remote_stt_audio_file_path* that we mentioned in config file. and move raw data from 
-     *remote_clean_audio_file_path* to *integrationprocessedpath*. and update DB also with the metadata which we created using circle-ci.
+<p>```</p>
+<h4 id="steps-to-run_2">steps to run:</h4>
+<ol>
+<li>
+<p>We have to configure <em>sourcepathforsnr</em> in airflow variable where our raw data stored.</p>
+</li>
+<li>
+<p>Other variable is <em>sourceinfo</em> in that we update our source which we want to run for STT and count how many file should run 
+in one trigger.stt is whatever api we want to call for STT for google and azure we have all rapper for other API you can add rapper as well. language and parallelism is how many pod will up in one
+run if parallelism is not define number of pod = count ex:</p>
+<pre><code> ```"snrcatalogue": {
+    "&lt;source_name&gt;": {
+    "count": 5,
+    "stt":"google"
+    "language": "telugu",
+    "parallelism":2
+}```
 </code></pre>
+</li>
+<li>
+<p>We have to also set <em>audioidsforstt</em> and <em>integrationprocessedpath</em> with whatever source we want to run with empty array that will store audio_id ex:</p>
+<pre><code> ``` "audioidsforstt": {
+      "&lt;source_name&gt;": []
+ }```
+
+ ```
+ integrationprocessedpath:"" # path of folder where we want move transcribed data.
+ ```
+</code></pre>
+</li>
+<li>
+<p>That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
+and upload processed file to <strong>remote_stt_audio_file_path</strong> that we mentioned in config file. and move raw data from 
+         <strong>remote_clean_audio_file_path</strong> to <em>integrationprocessedpath</em>. and update DB also with the metadata which we created using circle-ci.</p>
+</li>
+</ol>
 <!-- CONTRIBUTING -->
 <h2 id="contributing">Contributing</h2>
 <p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p>

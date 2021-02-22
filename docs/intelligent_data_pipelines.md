@@ -169,7 +169,7 @@ pip install -r requirements.txt
       }```
 
     3. We have to also set *audiofilelist* with whatever source we want to run with empty array that will store our file path ex:
-    
+
        ``` "audiofilelist": {
             "<source_name>": []
        }```
@@ -180,29 +180,73 @@ pip install -r requirements.txt
 
 
  ### Audio Analysis (with config):
+ Description: In audio analysis we have two module gender_analysis and speaker_analysis.
+              in speaker analysis we can find how many uniq speaker is present in given source.
+              and gender_analysis we can find which utterance is spoked by which gender
+
  config:
+  ```
+    audio_analysis_config:
+    analysis_options:
+      gender_analysis: 1 # It should be 1 or 0 if you want to run gender_analysis it should be 1 else 0
+      speaker_analysis: 0 # It should be 1 or 0 if you want to run speaker_analysis it should be 1 else 0
+
+    # path where the processed files need to be uploaded
+    remote_processed_audio_file_path: '<bucket_name>/data/audiotospeech/raw/download/catalogued/{language}/audio'
+    
+    # speaker_analysis_config it's for gender_analysis module
+    speaker_analysis_config:
+      min_cluster_size: 4 # min_cluster_size is least number of cluster for one speaker
+      partial_set_size: 8000 # number of utterances for create embeddings for a given source 
+      fit_noise_on_similarity: 0.77 
+      min_samples: 2 
+
+  ```
   
  ### Data Balancing (with config):
  config:
  ### Audio Transcription (with config)
   config:
   ```
-    audio_transcription_config:
-    # defaults to hi-IN
-    
-    language: 'hi-IN' # language 
+    config:
+      common:
 
-    # audio_language it's used for sanitization rule whichever language you choose you need to add a rule class for the same.
-    # You can use reference of hindi sanitization
-    # sanitization rule eg: empty transcription, strip, char etc
+        db_configuration:
+            db_name: ''
+            db_pass: ''
+            db_user: ''
+            cloud_sql_connection_name: '<DB host>'
 
-    audio_language: 'kannada' # It is BCP-47 language tag with this we call STT api.
+        gcs_config:
+          # master data bucket 
+          master_bucket: '<bucket name>'
 
-    # Bucket bath of wav file 
-    remote_clean_audio_file_path: '<bucketname>/data/audiotospeech/raw/landing/{language}/audio'
+        azure_transcription_client:
+          speech_key: '<key of the api>'
+          service_region: 'centralindia' # service region
 
-    # path where the processed files need to be uploaded
-    remote_stt_audio_file_path: '<bucketname>/data/audiotospeech/integration/processed/{language}/audio'
+        google_transcription_client:
+          bucket: '<bucket name>'
+          language: 'hi-IN' # It is BCP-47 language tag with this we call STT api.
+          sample_rate: 16000 # Sample rate of audio utterance
+          audio_channel_count: 1 #The number of channels in the input audio data
+
+      audio_transcription_config:
+      # defaults to hi-IN
+
+      language: 'hi-IN' # language 
+
+      # audio_language it's used for sanitization rule whichever language you choose you need to add a rule class for the same.
+      # You can use reference of hindi sanitization
+      # sanitization rule eg: empty transcription, strip, char etc
+
+      audio_language: 'kannada' 
+
+      # Bucket bath of wav file 
+      remote_clean_audio_file_path: '<bucketname>/data/audiotospeech/raw/landing/{language}/audio'
+
+      # path where the processed files need to be uploaded
+      remote_stt_audio_file_path: '<bucketname>/data/audiotospeech/integration/processed/{language}/audio'
 
   ```
   #### steps to run: 

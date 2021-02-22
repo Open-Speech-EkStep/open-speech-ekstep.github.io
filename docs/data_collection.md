@@ -1,6 +1,6 @@
 # Data Collection Pipeline
 
-![Screenshot](img/smart_crawlers.png)
+![Screenshot](img/Data_collection_pipeline.png)
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 

@@ -38,19 +38,19 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This is downloading framework that is extensible and allows the user to add new source without much code changes. For each new source user need to write a scrapy spider script and rest of downloading and meta file creation is handled by repective pipelines. And if required user can add their custom pipelines. This framework automatically transfer the downloaded data to a Google cloud bucket automatically. For more info on writing scrapy spider and pipeline one can refer to the [documentation](https://docs.scrapy.org/en/latest/intro/tutorial.html). 
-Smart Crawlers’s developer documentation is meant for its adopters, developers and contributors.
+Data Collection Pipeline’s developer documentation is meant for its adopters, developers and contributors.
 
-The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Smart Crawlers.
+The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Data Collection Pipeline.
 
-Smart Crawlers is based on an open platform, you are free to use any programming language to extend or customize it but we prefer to use python to perform smart scraping.
+Data Collection Pipeline is based on an open platform, you are free to use any programming language to extend or customize it but we prefer to use python to perform smart scraping.
 
 The Developer documentation provides you with a complete set of guidelines which you need to:
 
-* Install Smart Crawlers  
-* Configure Smart Crawlers  
-* Customize Smart Crawlers  
-* Extend Smart Crawlers  
-* Contribute to Smart Crawlers  
+* Install Data Collection Pipeline  
+* Configure Data Collection Pipeline  
+* Customize Data Collection Pipeline  
+* Extend Data Collection Pipeline  
+* Contribute to Data Collection Pipeline  
 
 
 

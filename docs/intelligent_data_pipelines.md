@@ -4,10 +4,11 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
-  * [Built With](#built-with)
+* [Architecture](#architecture)
+* [Built With](#built-with)
 * [Getting Started](#getting-started)
-  * [Run on GCP (with composer)](#setup)
-  * [Installation](#installation)
+* [Run on GCP (with composer)](#setup)
+* [Installation](#installation)
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)

@@ -29,30 +29,48 @@ In this project we have some module:
 
 ![Architecture](img/intelligent_pipeline_arch.png)
 
-## Steps:
- * [Audio processor](#audio-processor)
- * [Speaker identification](#speaker)
- * [Gender identification](#gender)
- * [Audio transcription (STT)](#STT)
+## Intelligent Data Pipeline - Jobs:
+
+ * [Audio Processor](#audio-processor)
+  
+ * [Audio Analysis](#audio-analysis)
+ 
+ * [Audio Data Balancing](#audio-data-balancing)
+ 
+ * [Audio Validation](#audio-validation)
+  
+ * [Audio Transcription](#audio-transcription)
 
 
 The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Data Pipelines.
 
 
-#### * Audio processor
+#### * Audio Processor
+
 ![Screenshot](img/data_pipeline.png)
 
 In audio processor we run Vad to break down audio in utterances after that we run WADASNR to calculate SNR for each utterance. 
-#### * Speaker identification
+
+#### * Audio Analysis
+
+##### * Speaker identification
+
 This module is for identity the number of speaker for a given source. we are using resemblyzer.
 
-#### * Gender identification
+##### * Gender identification
+
 This module is for identity the gender of speaker in a utterance.
 
-### Data Marker (with config):
+#### * Audio Data Balancing:
+
 This module is for filtering out data for STT after analyzing that data we have different kind of filter eg: SNR,Duration,speaker...
 
-#### * Audio transcription (STT)
+#### * Audio Validation
+
+Audio Validation
+
+#### * Audio Transcription
+
 This module is for run Speech To Text (STT) in given source. we can use google,azure and we can also add more API for running STT.
 
 <!-- GETTING STARTED -->

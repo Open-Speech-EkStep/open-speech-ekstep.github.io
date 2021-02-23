@@ -29,7 +29,7 @@ In this project we have some module:
 
 ![Architecture](img/intelligent_pipeline_arch.png)
 
-## Intelligent Data Pipeline - Jobs:
+## Intelligent Data Pipeline - Jobs
 
  * [Audio Processor](#audio-processor)
   

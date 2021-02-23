@@ -26,8 +26,9 @@ In this project we have some module:
 
 ## Architecture
 
-* ![Architecture](img/intelligent_pipeline_arch.png)
+![Architecture](img/intelligent_pipeline_arch.png)
 
+## Steps:
  * [Audio processor](#audio-processor)
  * [Speaker identification](#speaker)
  * [Gender identification](#gender)

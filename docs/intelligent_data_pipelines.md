@@ -1,4 +1,4 @@
-# Data pipelines
+# Intelligent Data Pipeline
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents

@@ -1,6 +1,5 @@
 # Data pipelines
 
-![Screenshot](img/data_pipeline.png)
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
@@ -20,8 +19,14 @@
 ## About The Project
 
 This is data processing framework that is extensible and allows user to add new module for any other processing.
+
 [Here](https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline) is the code  
 In this project we have some module:
+
+
+## Architecture
+
+* ![Architecture](img/intelligent_pipeline_arch.png)
 
  * [Audio processor](#audio-processor)
  * [Speaker identification](#speaker)

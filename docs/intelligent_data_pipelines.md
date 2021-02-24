@@ -7,7 +7,8 @@
 * [Architecture](#architecture)
 * [Built With](#built-with)
 * [Getting Started](#getting-started)
-* [Run on GCP (with composer)](#setup)
+* [Run on Kubernetes](#run-on-kubernetes)
+  * [Using Composer](#using-composer)
 * [Installation](#installation)
 * [Contributing](#contributing)
 * [License](#license)
@@ -44,32 +45,31 @@ In this project we have some module:
 
 The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Data Pipelines.
 
-
-#### * Audio Processor
+### Audio Processor
 
 ![Screenshot](img/data_pipeline.png)
 
-In audio processor we run Vad to break down audio in utterances after that we run WADASNR to calculate SNR for each utterance. 
+In audio processor we run Vad to break down audio in utterances after that we run WADASNR to calculate SNR for each utterance.
 
-#### * Audio Analysis
+### Audio Analysis
 
-##### * Speaker identification
+### Speaker identification
 
 This module is for identity the number of speaker for a given source. we are using resemblyzer.
 
-##### * Gender identification
+### Gender identification
 
 This module is for identity the gender of speaker in a utterance.
 
-#### * Audio Data Balancing:
+### Audio Data Balancing
 
 This module is for filtering out data for STT after analyzing that data we have different kind of filter eg: SNR,Duration,speaker...
 
-#### * Audio Validation
+### Audio Validation
 
-Audio Validation
+Audio Validation details
 
-#### * Audio Transcription
+### Audio Transcription
 
 This module is for run Speech To Text (STT) in given source. we can use google,azure and we can also add more API for running STT.
 
@@ -81,110 +81,130 @@ To get started install the prerequisites and clone the repo to machine on which 
 ### Installation
 
 1. Clone the repo
+
 ```sh
 git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
 ```
+
 2. Install python requirements
+
 ```sh
 pip install -r requirements.txt
 ```
 
-## Run on GCP (with composer)
-  ### Requirements: 
-   1. Terraform [https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
+## Run on Kubernetes
 
-   2. gcloud [https://cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install)
+### Using Composer
 
-  ### Infra Setup (with config):
+### Requirements
 
-  1. Clone the repo:
-    ```sh git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git```
+  1. Terraform [https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
+
+  2. gcloud [https://cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install)
+
+### Infra Setup
+
+1. Clone the repo:
+ ```sh git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git```
+
+2. Initialize terraform modules  
+```terraform init```  
+
+3. Select a workspace as per the environments(dev,test,prod).  
+```terraform workspace select <env_name>```  
+eg: ```terraform workspace select prod``` 
+
+4. Run specific modules as per requirements.  
   
-  2. Initialize terraform modules  
-  ```terraform init```  
+```sh
+terraform apply -target=module.<module-name>
+```
 
-  3. Select a workspace as per the environments(dev,test,prod).  
-  ```terraform workspace select <env_name>```  
-  eg: ```terraform workspace select prod``` 
+eg:
 
-  4. Run specific modules as per requirements.  
-  ```sh terraform apply -target=module.<module-name>```   
-  eg: ```sh terraform apply -target=module.sql-database```  
+```sh
+terraform apply -target=module.sql-database
+```  
 
-  5. Run all modules at once.  
-  ```terraform apply```    
+5. Run all modules at once.
+
+```sh
+terraform apply
+```
   
-  ### CI/CD setup:
+### CI/CD setup
 
-   Once you pull code you have to configure some variable in your [circle-ci](https://circleci.com/ "circle-ci").
-   So that while deploying code image should easily push into google container registry.
-   
-   ```
-    1. GCP_PROJECT # Name of your GCP project
-    2. GOOGLE_AUTH # Service account key that is created using terraform
-    3. POSTGRES_DB # Database host ip that is created using terraform
-    4. POSTGRES_PASSWORD  # Database password
-    5. POSTGRES_USER # Database user name
-   ```
+Once you pull code you have to configure some variable in your [circle-ci](https://circleci.com/ "circle-ci").
+So that while deploying code image should easily push into google container registry.
+
+```txt
+1. GCP_PROJECT # Name of your GCP project
+2. GOOGLE_AUTH # Service account key that is created using terraform
+3. POSTGRES_DB # Database host ip that is created using terraform
+4. POSTGRES_PASSWORD  # Database password
+5. POSTGRES_USER # Database user name
+```
   
-  ### Audio Processing (with config):
-   #### Description:
-   
-   #### Config:
-    ```
-      config:
-        common:
-          db_configuration:
-              db_name: ''
-              db_pass: ''
-              db_user: ''
-              cloud_sql_connection_name: '<DB Host>'
+### Audio Processing
 
-          gcs_config:
-            # master data bucket
-            master_bucket: '<Name of the bucket>'
+#### Description
 
-        audio_processor_config:
+#### Config
 
-          # feat_language_identification should true if you want run language identification for a source
-          feat_language_identification: False 
-          # language of the audio 
-          language: '' 
+```yaml
+  config:
+    common:
+      db_configuration:
+          db_name: ''
+          db_pass: ''
+          db_user: ''
+          cloud_sql_connection_name: '<DB Host>'
 
-          # path of the files on gcs which need to be processed
-          # path eg: <bucket-name/data/audiotospeech/raw/download/downloaded/{language}/audio>
-          remote_raw_audio_file_path: ''
+      gcs_config:
+        # master data bucket
+        master_bucket: '<Name of the bucket>'
 
-          # after processing where we want to move raw data
-          snr_done_folder_path: '' # <bucket-name/data/audiotospeech/raw/download/snr_done/{language}/audio>
+    audio_processor_config:
 
-          # path where the processed files need to be uploaded
-          remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogue/{language}/audio>
+      # feat_language_identification should true if you want run language identification for a source
+      feat_language_identification: False 
+      # language of the audio 
+      language: '' 
 
-          # path where Duplicate files need to be uploaded based on checksum
-          duplicate_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/duplicate/{language}/audio>
+      # path of the files on gcs which need to be processed
+      # path eg: <bucket-name/data/audiotospeech/raw/download/downloaded/{language}/audio>
+      remote_raw_audio_file_path: ''
 
-          chunking_conversion_configuration:
-            aggressiveness: '' # using for vad by default it's value is 2 the more the value that aggressive vad for chunking audio 
-            max_duration: ''   # max duration is second if chunk is more than that vad will retry chunking with inc aggressiveness 
+      # after processing where we want to move raw data
+      snr_done_folder_path: '' # <bucket-name/data/audiotospeech/raw/download/snr_done/{language}/audio>
 
-          # SNR specific configurations
-          snr_configuration:
+      # path where the processed files need to be uploaded
+      remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogue/{language}/audio>
 
-            max_snr_threshold: '' # less than max_snr_threshold utterance will move to rejected folder.
-            local_input_file_path: ''
-            local_output_file_path: ''
-    ```
+      # path where Duplicate files need to be uploaded based on checksum
+      duplicate_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/duplicate/{language}/audio>
 
-#### steps to run: 
+      chunking_conversion_configuration:
+        aggressiveness: '' # using for vad by default it's value is 2 the more the value that aggressive vad for chunking audio 
+        max_duration: ''   # max duration is second if chunk is more than that vad will retry chunking with inc aggressiveness 
 
-1. We have to configure **sourcepathforsnr** in airflow variable where our raw data stored.
+      # SNR specific configurations
+      snr_configuration:
 
-2. Other variable is **snrcatalogue** in that we update our source which we want to run and count how many file should run 
+        max_snr_threshold: '' # less than max_snr_threshold utterance will move to rejected folder.
+        local_input_file_path: ''
+        local_output_file_path: ''
+```
+
+#### Steps to run
+
+* We have to configure **sourcepathforsnr** in airflow variable where our raw data stored.
+
+* Other variable is **snrcatalogue** in that we update our source which we want to run and count how many file should run 
 in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
 run if parallelism is not define number of pod = count ex:
 
- ```
+ ```json
  "snrcatalogue": {
     "<source_name>": {
     "count": 5,
@@ -194,30 +214,30 @@ run if parallelism is not define number of pod = count ex:
 }
 ```
 
-3. We have to also set **audiofilelist** with whatever source we want to run with empty array that will store our file path ex:
+* We have to also set **audiofilelist** with whatever source we want to run with empty array that will store our file path ex:
 
- ``` 
+ ```json
  "audiofilelist": {
       "<source_name>": []
  }
  ```
 
-4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
+* That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
        and upload processed file to **remote_processed_audio_file_path** that we mentioned in config file. and move raw data from 
        **remote_raw_audio_file_path** to **snr_done_folder_path**. and update DB also with the metadata which we created using circle-ci.
 
 
 ### Audio Analysis (with config)
-    
-##### Description:
+
+#### Description
 
   In audio analysis we have two module gender_analysis and speaker_analysis.
   in speaker analysis we can find how many uniq speaker is present in given source.
   and gender_analysis we can find which utterance is spoked by which gender
 
-#### Config:
+#### Config
 
-  ```
+  ```yaml
     audio_analysis_config:
 
     analysis_options:
@@ -237,11 +257,11 @@ run if parallelism is not define number of pod = count ex:
       min_samples: 2 
   ```
 
-#### steps to run: 
+#### Steps to run
 
-1. We have to configure **audio_analysis_config** in airflow variable in this json we have to mention source name and language.
+* We have to configure **audio_analysis_config** in airflow variable in this json we have to mention source name and language.
 
-```
+```json
 "audio_analysis_config" : {
     "<source name>" : {
     "language" : "hindi"
@@ -249,21 +269,24 @@ run if parallelism is not define number of pod = count ex:
 }
 ```
 
-2. That will create a dag audio_analysis now we can trigger that dag that will process given sources.
+* That will create a dag audio_analysis now we can trigger that dag that will process given sources.
        and upload processed file to **remote_processed_audio_file_path** that we mentioned in config file.
        and update DB also with the metadata which we created using circle-ci.
 
+### Data Balancing
 
-### Data Balancing (with config):
-#### config:
-    ```
-    data_tagger_config:
-    # path of to the folder in the master bucket where the data tagger will move the data to
-    landing_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/download/catalogued/{language}/audio'
+#### config
 
-    # path of to the folder in the master bucket from where the data tagger will pick up the data that needs to be moved
-    source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{language}/audio'
-    ```
+```yaml
+
+data_tagger_config:
+# path of to the folder in the master bucket where the data tagger will move the data to
+landing_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/download/catalogued/{language}/audio'
+
+# path of to the folder in the master bucket from where the data tagger will pick up the data that needs to be moved
+source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{language}/audio'
+
+```
 
 #### steps to run: 
 1. We need to configure **data_filter_config** airflow variable for each source. we have multiple filters 
@@ -275,7 +298,7 @@ run if parallelism is not define number of pod = count ex:
  6. **exclude_speaker_ids** # we can pass a list of speaker_ids that we want to skip.
  7. **with_randomness** # It is a boolean value if it's it will pickup random data from DB.
 
-```
+```json
 "data_filter_config": {
     "test_source1": {
       "language": "hindi",
@@ -300,6 +323,7 @@ run if parallelism is not define number of pod = count ex:
       }
     }
 ```
+
 2. After configure all value one dag will created **data_marker_pipeline** we can trigger that dag. this dag filter out all data 
 from given criteria It will pick data from **source_directory_path** and after filtering move data to **landing_directory_path**.
 ### Audio Transcription (with config):
@@ -355,7 +379,7 @@ from given criteria It will pick data from **source_directory_path** and after f
 in one trigger.stt is whatever api we want to call for STT for google and azure we have all rapper for other API you can add rapper as well. language and parallelism is how many pod will up in one
 run if parallelism is not define number of pod = count ex:
 
-```
+```json
  "snrcatalogue": {
     "<source_name>": {
     "count": 5,
@@ -367,19 +391,18 @@ run if parallelism is not define number of pod = count ex:
 
 3. We have to also set **audioidsforstt** and **integrationprocessedpath** with whatever source we want to run with empty array that will store audio_id ex:
 
- ``` 
+ ```json
  "audioidsforstt": {
       "<source_name>": []
  }
  ```
 
- ```
+ ```yaml
  integrationprocessedpath:"" # path of folder where we want move transcribed data.
  ```
 
 4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
-and upload processed file to **remote_stt_audio_file_path** that we mentioned in config file. and move raw data from 
-         **remote_clean_audio_file_path** to **integrationprocessedpath**. and update DB also with the metadata which we created using circle-ci.
+and upload processed file to **remote_stt_audio_file_path** that we mentioned in config file. and move raw data from **remote_clean_audio_file_path** to **integrationprocessedpath**. and update DB also with the metadata which we created using circle-ci.
 
 
 <!-- CONTRIBUTING -->

@@ -39,6 +39,9 @@ Pipelines to transform raw data and prepare data for model training. They clean,
 ### 3. [Model Training Pipeline](https://open-speech-ekstep.github.io/mkdocs/model_training/)
 
 Pipeline to build state of the art Speech Recognition Model using the data provided by Intelligent Data Pipeline
+### 4. [Crowdsourcing Platform](https://open-speech-ekstep.github.io/mkdocs/crowdsource_platform/)
+
+Platform to record and validate voice data from various speakers.
 
 ## Vakyansh Technical Overview
 

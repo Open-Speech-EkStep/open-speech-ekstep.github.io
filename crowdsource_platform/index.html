@@ -124,6 +124,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#architecture" class="nav-link">Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#usage" class="nav-link">Usage</a>
               <ul class="nav flex-column">
               </ul>
@@ -171,7 +175,7 @@
 <li><a href="#setting-credentials-for-google-cloud-bucket">Setting credentials for Google cloud bucket</a></li>
 <li><a href="#setting-credentials-for-aws-cloud-bucket">Setting credentials for AWS cloud bucket</a></li>
 <li><a href="#bucket-configuration">Bucket configuration</a></li>
-<li><a href="#metadata-file-configurations">Environment file configurations</a></li>
+<li><a href="#environment-file-configurations">Environment file configurations</a></li>
 </ul>
 </li>
 <li><a href="#running-services">Running services</a></li>
@@ -199,6 +203,8 @@ Crowdsourcing Platform’s developer documentation is meant for its adopters, de
 <!-- GETTING STARTED -->
 <h2 id="getting-started">Getting Started</h2>
 <p>To get started install the prerequisites and clone the repo to machine on which you wish to run the application.</p>
+<h2 id="architecture">Architecture</h2>
+<p><img alt="Architecture" src="img/crowdsource_arch.png" /></p>
 <h3 id="prerequisites">Prerequisites</h3>
 <ol>
 <li>
@@ -218,7 +224,7 @@ Crowdsourcing Platform’s developer documentation is meant for its adopters, de
 </ul>
 </li>
 <li>
-<p>Install Python Version = 3.6</p>
+<p>Install or connect to a postgres database</p>
 </li>
 <li>
 <p>Get credentials from google developer console for google cloud storage access/ or aws cli for amazon s3 storage access.</p>
@@ -235,7 +241,7 @@ Crowdsourcing Platform’s developer documentation is meant for its adopters, de
 <p><code>cd crowdsource-dataplatform</code></p>
 </li>
 <li>
-<p>Install python requirements</p>
+<p>Install node requirements</p>
 <p><code>npm install</code></p>
 </li>
 </ol>

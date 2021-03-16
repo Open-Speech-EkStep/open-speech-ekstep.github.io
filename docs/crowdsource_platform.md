@@ -15,7 +15,7 @@
       - [Setting credentials for Google cloud bucket](#setting-credentials-for-google-cloud-bucket)
       - [Setting credentials for AWS cloud bucket](#setting-credentials-for-aws-cloud-bucket)
       - [Bucket configuration](#bucket-configuration)
-      - [Environment file configurations](#metadata-file-configurations)
+      - [Environment file configurations](#environment-file-configurations)
   - [Running services](#running-services)
   - [Contributing](#contributing)
   - [License](#license)
@@ -52,6 +52,10 @@ We have used Node.js to build this platform.
 
 To get started install the prerequisites and clone the repo to machine on which you wish to run the application.
 
+## Architecture
+
+![Architecture](img/crowdsource_arch.png)
+
 ### Prerequisites
 1. Install `node` library using commands mentioned below.
     * For any linux based operating system (preferred Ubuntu):
@@ -68,7 +72,7 @@ To get started install the prerequisites and clone the repo to machine on which 
       
     * Windows user can follow installation steps on [https://nodejs.org/en/#home-downloadhead](https://nodejs.org/en/#home-downloadhead)
 
-2. Install Python Version = 3.6
+2. Install or connect to a postgres database
 
 3. Get credentials from google developer console for google cloud storage access/ or aws cli for amazon s3 storage access.
 
@@ -86,7 +90,7 @@ To get started install the prerequisites and clone the repo to machine on which 
     cd crowdsource-dataplatform
     ```
    
-3. Install python requirements
+3. Install node requirements
    
     ```
     npm install

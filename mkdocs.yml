@@ -5,6 +5,7 @@ nav:
               - "Data Collection Pipeine": "data_collection.md"
               - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
               - "Model Training Pipeline": "model_training.md"
+              - "Crowdsourcing Platform": "crowdsource_platform.md"
       - About:
               - "License": LICENSE
               - "Contributions": CONTRIBUTING.md

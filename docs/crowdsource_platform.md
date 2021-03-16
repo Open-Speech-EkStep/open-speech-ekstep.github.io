@@ -116,16 +116,16 @@ You can create a specific bucket to store the recorded samples on aws or gcp. An
 #### Environment file configurations
 The following are the variables required to run the application, for running on local these can be added to a .env file
 
-        ```
-        DB_HOST: The host url where your postgres instance is running
-        DB_USER: The username to access the db
-        DB_NAME: The database name
-        DEV_DB_NAME: The database name specific to dev environment
-        DB_PASS: The database password
-        BUCKET_NAME: The bucket name configured on aws or gcp
-        ENCRYPTION_KEY: Key to run unit tests
-        PORT: Port to run the application on
-        ```
+```
+DB_HOST: The host url where your postgres instance is running
+DB_USER: The username to access the db
+DB_NAME: The database name
+DEV_DB_NAME: The database name specific to dev environment
+DB_PASS: The database password
+BUCKET_NAME: The bucket name configured on aws or gcp
+ENCRYPTION_KEY: Key to run unit tests
+PORT: Port to run the application on
+```
         
 <!-- RUNNING THE SERVICES -->
 ## Running services
@@ -134,21 +134,21 @@ Make sure the google credentials are present in project root folder in credentia
 
 You can run the project using the command
 
-        ```
-        npm run
-        ```
+```
+npm run
+```
 
 To run application using a Google cloud bucket
 
-        ```
-        npm run gcp
-        ```
+```
+npm run gcp
+```
 
 To run application using a AWS cloud bucket
 
-        ```
-        npm run aws
-        ```
+```
+npm run aws
+```
 
 
 <!-- CONTRIBUTING -->

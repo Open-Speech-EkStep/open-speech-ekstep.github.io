@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Crowdsourcing Platform - Vakyansh</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Vakyansh</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../data_collection/" class="dropdown-item">Data Collection Pipeine</a>
+</li>
+                                    
+<li>
+    <a href="../intelligent_data_pipelines/" class="dropdown-item">Intelligent Data Pipeline</a>
+</li>
+                                    
+<li>
+    <a href="../model_training/" class="dropdown-item">Model Training Pipeline</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../LICENSE" class="dropdown-item">License</a>
+</li>
+                                    
+<li>
+    <a href="../CONTRIBUTING/" class="dropdown-item">Contributions</a>
+</li>
+                                    
+<li>
+    <a href="../RELEASE_NOTES/" class="dropdown-item">Release notes</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#crowdsourcing-platform" class="nav-link">Crowdsourcing Platform</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#about-the-project" class="nav-link">About The Project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#usage" class="nav-link">Usage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#running-services" class="nav-link">Running services</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contributing" class="nav-link">Contributing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#license" class="nav-link">License</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contact" class="nav-link">Contact</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="crowdsourcing-platform">Crowdsourcing Platform</h1>
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#crowdsource_platform">Crowdsourcing Platform</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#about-the-project">About The Project</a><ul>
+<li><a href="#built-with">Built With</a></li>
+</ul>
+</li>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#common-configuration-steps">Common configuration steps:</a></li>
+<li><a href="#setting-credentials-for-google-cloud-bucket">Setting credentials for Google cloud bucket</a></li>
+<li><a href="#setting-credentials-for-aws-cloud-bucket">Setting credentials for AWS cloud bucket</a></li>
+<li><a href="#bucket-configuration">Bucket configuration</a></li>
+<li><a href="#metadata-file-configurations">Environment file configurations</a></li>
+</ul>
+</li>
+<li><a href="#running-services">Running services</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<!-- ABOUT THE PROJECT -->
+<h2 id="about-the-project">About The Project</h2>
+<p>This is a web application which can be used to crowdsource audio and validate them for various languages. The application makes use of NodeJs, Postgres for Database. It can be hosted on any cloud platform. The current application has code to support AWS and GCP as providers to store the recorded information.
+Crowdsourcing Platform’s developer documentation is meant for its adopters, developers and contributors.</p>
+<p>The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Crowdsourcing Platform.</p>
+<p>Data Collection Pipeline is based on an open platform, you are free to use any programming language to extend or customize it but we prefer to use python to perform smart scraping.</p>
+<p>The Developer documentation provides you with a complete set of guidelines which you need to:</p>
+<ul>
+<li>Install dependencies for the Crowdsourcing Platform  </li>
+<li>Configure Crowdsourcing Platform</li>
+<li>Customize Crowdsourcing Platform  </li>
+<li>Extend Crowdsourcing Platform  </li>
+<li>Contribute to Crowdsourcing Platform</li>
+</ul>
+<h3 id="built-with">Built With</h3>
+<p>We have used Node.js to build this platform.
+* <a href="https://nodejs.org/">Node</a></p>
+<!-- GETTING STARTED -->
+<h2 id="getting-started">Getting Started</h2>
+<p>To get started install the prerequisites and clone the repo to machine on which you wish to run the application.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ol>
+<li>
+<p>Install <code>node</code> library using commands mentioned below.</p>
+<ul>
+<li>
+<p>For any linux based operating system (preferred Ubuntu):</p>
+<p><code>sudo apt-get install nodejs</code></p>
+</li>
+<li>
+<p>For Mac-os:</p>
+<p><code>brew install node</code></p>
+</li>
+<li>
+<p>Windows user can follow installation steps on <a href="https://nodejs.org/en/#home-downloadhead">https://nodejs.org/en/#home-downloadhead</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Install Python Version = 3.6</p>
+</li>
+<li>
+<p>Get credentials from google developer console for google cloud storage access/ or aws cli for amazon s3 storage access.</p>
+</li>
+</ol>
+<h3 id="installation">Installation</h3>
+<ol>
+<li>
+<p>Clone the repo using</p>
+<p><code>git clone https://github.com/Open-Speech-EkStep/crowdsource-dataplatform.git</code></p>
+</li>
+<li>
+<p>Go inside the directory</p>
+<p><code>cd crowdsource-dataplatform</code></p>
+</li>
+<li>
+<p>Install python requirements</p>
+<p><code>npm install</code></p>
+</li>
+</ol>
+<!-- USAGE EXAMPLES -->
+<h2 id="usage">Usage</h2>
+<h3 id="common-configuration-steps">Common configuration steps:</h3>
+<h4 id="setting-credentials-for-google-cloud-bucket">Setting credentials for Google cloud bucket</h4>
+<p>You can set credentials for Google cloud bucket by running the following command</p>
+<pre><code>gcloud auth application-default login
+</code></pre>
+<h4 id="setting-credentials-for-aws-cloud-bucket">Setting credentials for AWS cloud bucket</h4>
+<p>You can set credentials for AWS cloud bucket by running the following command</p>
+<pre><code>aws configure
+</code></pre>
+<h4 id="bucket-configuration">Bucket configuration</h4>
+<p>You can create a specific bucket to store the recorded samples on aws or gcp. And mention those in the environment variables.</p>
+<h4 id="environment-file-configurations">Environment file configurations</h4>
+<p>The following are the variables required to run the application, for running on local these can be added to a .env file</p>
+<pre><code>    ```
+    DB_HOST: The host url where your postgres instance is running
+    DB_USER: The username to access the db
+    DB_NAME: The database name
+    DEV_DB_NAME: The database name specific to dev environment
+    DB_PASS: The database password
+    BUCKET_NAME: The bucket name configured on aws or gcp
+    ENCRYPTION_KEY: Key to run unit tests
+    PORT: Port to run the application on
+    ```
+</code></pre>
+<!-- RUNNING THE SERVICES -->
+<h2 id="running-services">Running services</h2>
+<p>Make sure the google credentials are present in project root folder in credentials.json file.</p>
+<p>You can run the project using the command</p>
+<pre><code>    ```
+    npm run
+    ```
+</code></pre>
+<p>To run application using a Google cloud bucket</p>
+<pre><code>    ```
+    npm run gcp
+    ```
+</code></pre>
+<p>To run application using a AWS cloud bucket</p>
+<pre><code>    ```
+    npm run aws
+    ```
+</code></pre>
+<!-- CONTRIBUTING -->
+<h2 id="contributing">Contributing</h2>
+<p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p>
+<ol>
+<li>Fork the Project</li>
+<li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li>
+<li>Commit your Changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li>
+<li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+<!-- LICENSE -->
+<h2 id="license">License</h2>
+<p>Distributed under the [MIT] License. See <code>LICENSE</code> for more information.</p>
+<!-- CONTACT -->
+<h2 id="contact">Contact</h2>
+<p>Your Name - <a href="https://twitter.com/your_username">@your_twitter</a> - email@example.com</p>
+<p>Project Link: <a href="https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/">https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

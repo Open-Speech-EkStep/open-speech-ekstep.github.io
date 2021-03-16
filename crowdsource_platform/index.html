@@ -36,7 +36,7 @@
                             <li class="navitem">
                                 <a href=".." class="nav-link">Home</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -50,6 +50,10 @@
                                     
 <li>
     <a href="../model_training/" class="dropdown-item">Model Training Pipeline</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Crowdsourcing Platform</a>
 </li>
                                 </ul>
                             </li>
@@ -78,6 +82,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../model_training/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../LICENSE" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -240,34 +254,26 @@ Crowdsourcing Platform’s developer documentation is meant for its adopters, de
 <p>You can create a specific bucket to store the recorded samples on aws or gcp. And mention those in the environment variables.</p>
 <h4 id="environment-file-configurations">Environment file configurations</h4>
 <p>The following are the variables required to run the application, for running on local these can be added to a .env file</p>
-<pre><code>    ```
-    DB_HOST: The host url where your postgres instance is running
-    DB_USER: The username to access the db
-    DB_NAME: The database name
-    DEV_DB_NAME: The database name specific to dev environment
-    DB_PASS: The database password
-    BUCKET_NAME: The bucket name configured on aws or gcp
-    ENCRYPTION_KEY: Key to run unit tests
-    PORT: Port to run the application on
-    ```
+<pre><code>DB_HOST: The host url where your postgres instance is running
+DB_USER: The username to access the db
+DB_NAME: The database name
+DEV_DB_NAME: The database name specific to dev environment
+DB_PASS: The database password
+BUCKET_NAME: The bucket name configured on aws or gcp
+ENCRYPTION_KEY: Key to run unit tests
+PORT: Port to run the application on
 </code></pre>
 <!-- RUNNING THE SERVICES -->
 <h2 id="running-services">Running services</h2>
 <p>Make sure the google credentials are present in project root folder in credentials.json file.</p>
 <p>You can run the project using the command</p>
-<pre><code>    ```
-    npm run
-    ```
+<pre><code>npm run
 </code></pre>
 <p>To run application using a Google cloud bucket</p>
-<pre><code>    ```
-    npm run gcp
-    ```
+<pre><code>npm run gcp
 </code></pre>
 <p>To run application using a AWS cloud bucket</p>
-<pre><code>    ```
-    npm run aws
-    ```
+<pre><code>npm run aws
 </code></pre>
 <!-- CONTRIBUTING -->
 <h2 id="contributing">Contributing</h2>

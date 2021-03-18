@@ -143,52 +143,67 @@ markdown_extensions:
   - pymdownx.tilde
 
 # Page tree
+# nav:
+#   - Home: index.md
+#   - Getting started:
+#     - Installation: getting-started.md
+#     - Creating your site: creating-your-site.md
+#     - Publishing your site: publishing-your-site.md
+#     - Customization: customization.md
+#     - Troubleshooting: troubleshooting.md
+#     - Data privacy: data-privacy.md
+#     - Insiders: insiders.md
+#     - License: license.md
+#   - Setup:
+#     - Changing the colors: setup/changing-the-colors.md
+#     - Changing the fonts: setup/changing-the-fonts.md
+#     - Changing the language: setup/changing-the-language.md
+#     - Changing the logo and icons: setup/changing-the-logo-and-icons.md
+#     - Setting up navigation: setup/setting-up-navigation.md
+#     - Setting up site search: setup/setting-up-site-search.md
+#     - Setting up site analytics: setup/setting-up-site-analytics.md
+#     - Setting up versioning: setup/setting-up-versioning.md
+#     - Setting up the header: setup/setting-up-the-header.md
+#     - Setting up the footer: setup/setting-up-the-footer.md
+#     - Adding a git repository: setup/adding-a-git-repository.md
+#     - Adding a comment system: setup/adding-a-comment-system.md
+#   - Reference:
+#     - Abbreviations: reference/abbreviations.md
+#     - Admonitions: reference/admonitions.md
+#     - Buttons: reference/buttons.md
+#     - Code blocks: reference/code-blocks.md
+#     - Content tabs: reference/content-tabs.md
+#     - Data tables: reference/data-tables.md
+#     - Diagrams: reference/diagrams.md
+#     - Footnotes: reference/footnotes.md
+#     - Formatting: reference/formatting.md
+#     - Icons + Emojis: reference/icons-emojis.md
+#     - Images: reference/images.md
+#     - Lists: reference/lists.md
+#     - MathJax: reference/mathjax.md
+#     - Meta tags: reference/meta-tags.md
+#     - Variables: reference/variables.md
+#   - Changelog:
+#     - Material for MkDocs: changelog.md
+#     - Material for MkDocs Insiders: changelog/insiders.md
+#     - Guides:
+#       - Upgrading: upgrading.md
+#       - Deprecations: deprecations.md
+
+
 nav:
-  - Home: index.md
-  - Getting started:
-    - Installation: getting-started.md
-    - Creating your site: creating-your-site.md
-    - Publishing your site: publishing-your-site.md
-    - Customization: customization.md
-    - Troubleshooting: troubleshooting.md
-    - Data privacy: data-privacy.md
-    - Insiders: insiders.md
-    - License: license.md
-  - Setup:
-    - Changing the colors: setup/changing-the-colors.md
-    - Changing the fonts: setup/changing-the-fonts.md
-    - Changing the language: setup/changing-the-language.md
-    - Changing the logo and icons: setup/changing-the-logo-and-icons.md
-    - Setting up navigation: setup/setting-up-navigation.md
-    - Setting up site search: setup/setting-up-site-search.md
-    - Setting up site analytics: setup/setting-up-site-analytics.md
-    - Setting up versioning: setup/setting-up-versioning.md
-    - Setting up the header: setup/setting-up-the-header.md
-    - Setting up the footer: setup/setting-up-the-footer.md
-    - Adding a git repository: setup/adding-a-git-repository.md
-    - Adding a comment system: setup/adding-a-comment-system.md
-  - Reference:
-    - Abbreviations: reference/abbreviations.md
-    - Admonitions: reference/admonitions.md
-    - Buttons: reference/buttons.md
-    - Code blocks: reference/code-blocks.md
-    - Content tabs: reference/content-tabs.md
-    - Data tables: reference/data-tables.md
-    - Diagrams: reference/diagrams.md
-    - Footnotes: reference/footnotes.md
-    - Formatting: reference/formatting.md
-    - Icons + Emojis: reference/icons-emojis.md
-    - Images: reference/images.md
-    - Lists: reference/lists.md
-    - MathJax: reference/mathjax.md
-    - Meta tags: reference/meta-tags.md
-    - Variables: reference/variables.md
-  - Changelog:
-    - Material for MkDocs: changelog.md
-    - Material for MkDocs Insiders: changelog/insiders.md
-    - Guides:
-      - Upgrading: upgrading.md
-      - Deprecations: deprecations.md
+      - Home: index.md
+      - "User Guide":
+              - "Data Collection Pipeine": "data_collection.md"
+              - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
+              - "Model Training Pipeline": "model_training.md"
+              - "Crowdsourcing Platform": "crowdsource_platform.md"
+              - "Architecture Decision Records" : "adr.md"
+      - About:
+              - "License": LICENSE
+              - "Contributions": CONTRIBUTING.md
+              - "Release notes": RELEASE_NOTES.md
+
 
 # Google Analytics
 google_analytics:

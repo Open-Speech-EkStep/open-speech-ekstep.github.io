@@ -149,12 +149,13 @@
 <li>Drivers: Rajat Singhal<!-- optional --></li>
 <li>Approvers: Pramod Verma, Vivek Raghavan <!-- optional --></li>
 <li>Contributers: Rajat Singhal, Soujyo Sen, Heera Ballabh, Umair Manzoor <!-- optional --></li>
-<li>Drivers: Rajat Singhal<!-- optional --></li>
-<li>Date: [2021-03-18] <!-- optional --></li>
+<li>Date: 2021-03-18 <!-- optional --></li>
 </ul>
 <p>Technical Story: [ticket/issue URL] <!-- optional --></p>
 <h2 id="context-and-problem-statement">Context and Problem Statement</h2>
-<p>The application service directly talks with RDBMS currently to fetch the sentences shown while doing Contributions and to fetch contributions while doing Validations. The sentences and contributions are fetched in batches to avoid hitting the databse frequently. When the application will scale, there may be some contention at RDBMS layer. To avoid that having a Cache above the RDBS layer is being considered</p>
+<p>Currently, the application service directly talks with RDBMS to fetch the sentences shown while doing Contributions and to fetch contributions while doing the Validations.</p>
+<p>The sentences and contributions are fetched in batches to avoid hitting the databse frequently. When the application will scale, there may be some contention at RDBMS layer.</p>
+<p>To avoid that having a Cache above the RDBS layer is being considered</p>
 <h2 id="considered-options">Considered Options</h2>
 <h2 id="decision-outcome">Decision Outcome</h2>
 <h3 id="positive-consequences">Positive Consequences</h3>

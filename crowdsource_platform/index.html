@@ -120,11 +120,23 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
+            <li class="nav-item" data-level="2"><a href="#architecture" class="nav-link">Architecture</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#architecture" class="nav-link">Architecture</a>
+            <li class="nav-item" data-level="2"><a href="#languages-and-tools" class="nav-link">Languages and Tools</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cicd" class="nav-link">CI/CD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#infrastructure-as-code" class="nav-link">Infrastructure as Code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -133,6 +145,10 @@
               </ul>
             </li>
             <li class="nav-item" data-level="2"><a href="#running-services" class="nav-link">Running services</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#testing" class="nav-link">Testing</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -159,12 +175,16 @@
 <!-- TABLE OF CONTENTS -->
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
-<li><a href="#crowdsource_platform">Crowdsourcing Platform</a></li>
+<li><a href="#crowdsourcing-platform">Crowdsourcing Platform</a></li>
 <li><a href="#table-of-contents">Table of Contents</a></li>
 <li><a href="#about-the-project">About The Project</a><ul>
 <li><a href="#built-with">Built With</a></li>
 </ul>
 </li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#languages-and-tools">Languages and Tools</a></li>
+<li><a href="#cicd">CI/CD</a></li>
+<li><a href="#infrastructure-as-code">Infrastructure as Code</a></li>
 <li><a href="#getting-started">Getting Started</a><ul>
 <li><a href="#prerequisites">Prerequisites</a></li>
 <li><a href="#installation">Installation</a></li>
@@ -179,6 +199,15 @@
 </ul>
 </li>
 <li><a href="#running-services">Running services</a></li>
+<li><a href="#testing">Testing</a><ul>
+<li><a href="#unit-tests">Unit Tests</a></li>
+<li><a href="#functional-test">Functional Test</a></li>
+<li><a href="#scalabiity-test">Scalabiity Test</a></li>
+<li><a href="#load-test">Load Test</a></li>
+<li><a href="#security">Security</a></li>
+<li><a href="#running-cost-estimates">Running cost estimates</a></li>
+</ul>
+</li>
 <li><a href="#contributing">Contributing</a></li>
 <li><a href="#license">License</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -200,11 +229,29 @@ Crowdsourcing Platform’s developer documentation is meant for its adopters, de
 <h3 id="built-with">Built With</h3>
 <p>We have used Node.js to build this platform.
 * <a href="https://nodejs.org/">Node</a></p>
+<h2 id="architecture">Architecture</h2>
+<p><img alt="Architecture" src="../img/crowdsource/arch.png" /></p>
+<h2 id="languages-and-tools">Languages and Tools</h2>
+<p><img alt="Languages and Tools" src="../img/crowdsource/lang.png" /></p>
+<h2 id="cicd">CI/CD</h2>
+<ul>
+<li>CircleCI is used for CI/CD. </li>
+<li>Unit tests are run continously for each commit</li>
+<li>Functional Tests are run continously for each commit and act as one if the quality gates before Production deployment</li>
+<li>Automated deployment to K8s for multiple environments</li>
+<li>Database schema changes are done continously and automatically</li>
+<li>Trunk based developement is followed</li>
+</ul>
+<p><img alt="CI/CD Pipeline" src="../img/crowdsource/cicd.png" /></p>
+<h2 id="infrastructure-as-code">Infrastructure as Code</h2>
+<ul>
+<li>Infrastructure defined in code with Terraform and shell scripts</li>
+<li>Easily migrate to another AWS account</li>
+<li>Spin up new env easily</li>
+</ul>
 <!-- GETTING STARTED -->
 <h2 id="getting-started">Getting Started</h2>
 <p>To get started install the prerequisites and clone the repo to machine on which you wish to run the application.</p>
-<h2 id="architecture">Architecture</h2>
-<p><img alt="Architecture" src="../img/crowdsource_arch.png" /></p>
 <h3 id="prerequisites">Prerequisites</h3>
 <ol>
 <li>
@@ -280,6 +327,83 @@ PORT: Port to run the application on
 </code></pre>
 <p>To run application using a AWS cloud bucket</p>
 <pre><code>npm run aws
+</code></pre>
+<h2 id="testing">Testing</h2>
+<h3 id="unit-tests">Unit Tests</h3>
+<p>Unit tests can be run using below command</p>
+<pre><code class="language-sh">npm test
+</code></pre>
+<h3 id="functional-test">Functional Test</h3>
+<p>Functional tests can be run using below command</p>
+<pre><code class="language-sh">npm run functional_test -- --env (test|dev)
+</code></pre>
+<h3 id="scalabiity-test">Scalabiity Test</h3>
+<p>Scalabiity tests performed to verify that the system is elastically scalable
+Below tests were performed</p>
+<pre><code class="language-txt">Test Objective: Scalability Test - Validate elastic scalability
+Resource Configuration:
+  Environment: Dev
+  Pod resources: 0.25 CPU/ 250M RAM
+  Horizontal Pod Autoscaler : 
+    Scaling Threshold - 10% CPU Utilization
+    Min pods: 1
+    Max Pods: 10
+
+Test configuration:
+  Number of concurrent users: 1000
+  Total Requests : 15000
+
+Expected: Pods should scale if load increases and CPU utilization goes beyond 10% and should scale down after 5 mins
+Actual : Pods were scaled up after the CPU utilization went past 10%. Time to scale to desired state was around 2-3 mins
+
+</code></pre>
+<p>Result: - <img alt="#c5f015" src="https://via.placeholder.com/15/c5f015/000000?text=+" /> <code>PASSED</code></p>
+<p>As surge started, pods started spinning up
+<img alt="Scalability Test" src="../img/crowdsource/scale1.png" /></p>
+<p><img alt="Scalability Test" src="../img/crowdsource/scale2.png" /></p>
+<h3 id="load-test">Load Test</h3>
+<p>Load testing is performed to verify the system is able to handle 5K concurrent users without much impact on latency</p>
+<pre><code class="language-txt">Test Objective: Load Test - Validate if application can handle 5K concurrent users
+
+Resource Configuration:
+  Environment: Test
+  Initial Pods: 3
+  Pod resources: 2 CPU/ 2GB RAM
+  Horizontal Pod Autoscaler : 
+    Scaling Threshold - 40% CPU Utilization
+    Min pods: 3 , Max Pods: 10
+
+Test configuration:
+Number of concurrent users: 20000
+Requests per user : 3
+Ramp up time: 10 sec
+Iterations: 3
+</code></pre>
+<p>ELB stats:
+<img alt="ELB metrics" src="../img/crowdsource/elb_stats.png" /></p>
+<p>Database stats:
+<img alt="Database metrics" src="../img/crowdsource/db_stats.png" /></p>
+<p>Summary:</p>
+<p>Result: - <img alt="#c5f015" src="https://via.placeholder.com/15/c5f015/000000?text=+" /> <code>PASSED</code></p>
+<pre><code class="language-txt">- This test had 20000 users ramped up within 1 min (3 times). The test was performed from a single machine to 20K concurrent users could scale in 1 min.
+- All the requests were served within initial resources, no scaling was triggered.
+- All three endpoints served response in around 2 sec on an average.
+- The system was able to handle upto 12K concurrent users.
+- There were some errors thrown by AWS Load balancer may be due to single IP requests.
+- Database could handle the load and no connection leak is observed
+</code></pre>
+<h3 id="security">Security</h3>
+<p>We take Security as first step towards building the application.
+The OWASP top 10 are ingrained in the application security DNA.
+Please reach out to srajat@thoughtworks or heerabal@thoughtworks.com for more information around Security</p>
+<h3 id="running-cost-estimates">Running cost estimates</h3>
+<pre><code class="language-txt">Amazon RDS (4 CPU): $400 
+WAF: $30
+EKS + Fargate: $75 + $225 = $300
+ELB: $150
+Others: $200
+
+Total: ~ $1100-1200 per month
 </code></pre>
 <!-- CONTRIBUTING -->
 <h2 id="contributing">Contributing</h2>

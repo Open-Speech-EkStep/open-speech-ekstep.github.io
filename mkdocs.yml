@@ -196,11 +196,12 @@ nav:
               - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
               - "Model Training Pipeline": "model_training.md"
               - "Crowdsourcing Platform": "crowdsource_platform.md"
-              - "Architecture Decision Records" : "adr.md"
+              - "Architecture Decision Records": "adr.md"
       - About:
-              - "License": LICENSE
               - "Contributions": CONTRIBUTING.md
               - "Release notes": RELEASE_NOTES.md
+              - "License": LICENSE
+              
 
 
 # Google Analytics

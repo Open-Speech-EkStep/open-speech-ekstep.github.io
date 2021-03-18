@@ -50,13 +50,15 @@ clustering based on audio features (see Resymbleyr for more details).
 
 It leverages Kubernetes for parallel computing and below are the metrics we have acheived so far:
 
+Some stats for a language with 1000 hrs raw data
+
 * Raw data 1000 hrs
   
-* Time taken:
+* Time taken: 2-3 days
   
-* Final Usable Data of Pretraining:
+* Final Usable Data of Pretraining: 600
 
-* Final Usable Data of Fine Tuning:
+* Final Usable Data of Fine Tuning: 400
 
 <!-- GETTING STARTED -->
 ## Getting Started

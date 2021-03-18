@@ -22,6 +22,7 @@
       - [Bucket configuration](#bucket-configuration)
       - [Environment file configurations](#environment-file-configurations)
   - [Running services](#running-services)
+  - [Database migrations](#database-migrations)
   - [Testing](#testing)
     - [Unit Tests](#unit-tests)
     - [Functional Test](#functional-test)
@@ -204,6 +205,44 @@ To run application using a AWS cloud bucket
 npm run aws
 ```
 
+## Database migrations
+
+[This](https://www.npmjs.com/package/db-migrate) package is used to do migrations.
+
+To create the current database structure in your postgres instance, run the following command:
+
+```
+db-migrate up
+```
+
+It would read the configurations from the path
+
+```
+migations/config/migration_config.json
+```
+
+Once can also run the migrate up command by setting an environment variable
+
+```
+DATABASE_URL=postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}
+```
+
+To add a new migration 
+
+```
+db-migrate create add-new-table
+```
+
+Using the above command with the ```--sqlFile``` flag would create corresponding .sql files in which one can write sql commands to do the operation.
+
+To rollback the last migration, one can 
+
+```
+db-migrate down
+```
+
+Documentation for the package can be found [here](https://db-migrate.readthedocs.io/en/latest/)
+
 ## Testing
 
 Multiple types of tests are continously performed to make sure the application is in healthy state.
@@ -319,9 +358,9 @@ Total: ~ $1100-1200 per month
 
 ## Architecture Decision Records
 
-Decicion records are maintained [HERE](https://open-speech-ekstep.github.io/mkdocs/adr)
+Decicion records are maintained [HERE](https://open-speech-ekstep.github.io/adr)
 
-- [Cache above RDBMS](https://open-speech-ekstep.github.io/mkdocs/adr/#caching-layer-above-rdbms)
+- [Cache above RDBMS](https://open-speech-ekstep.github.io/adr/#caching-layer-above-rdbms)
   
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -345,8 +384,6 @@ Distributed under the [MIT] License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
 Project Link: [https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/](https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/)
 

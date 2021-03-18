@@ -71,7 +71,7 @@ We have used Node.js to build this platform.
 ![Dashboard Design](img/crowdsource/dashboard_arch.png)
 
 - The transactional tables and view tables are kept separate.
-- Materialized views are used which holds the data as well. This avoids on the fly computations for aggregation for each query.
+- [Materialized views](https://www.postgresql.org/docs/9.3/rules-materializedviews.html) are used which holds the data as well. This avoids on the fly computations for aggregation for each query.
 - The materizaled view are refreshed every 4 hours
 - As a part of the refresh job, the aggregated data is dumped as json that is be served directly via CDN.
 
@@ -85,7 +85,7 @@ Advantages:
 
 ## CI/CD
 
-- CircleCI is used for CI/CD.
+- [CircleCI](https://app.circleci.com/pipelines/github/Open-Speech-EkStep/crowdsource-dataplatform) is used for CI/CD.
 - Unit tests are run continously for each commit
 - Functional Tests are run continously for each commit and act as one if the quality gates before Production deployment
 - Automated deployment to K8s for multiple environments
@@ -313,9 +313,9 @@ Total: ~ $1100-1200 per month
 
 ## Architecture Decision Records
 
-Decicion records are maintained ![HERE](https://open-speech-ekstep.github.io/mkdocs/architecture_decision/)
+Decicion records are maintained [HERE](https://open-speech-ekstep.github.io/mkdocs/adr)
 
-- ![Cache above RDBMS]()
+- [Cache above RDBMS](https://open-speech-ekstep.github.io/mkdocs/adr/#caching-layer-above-rdbms)
   
 <!-- CONTRIBUTING -->
 ## Contributing

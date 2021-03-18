@@ -29,6 +29,7 @@
     - [Load Test](#load-test)
   - [Security](#security)
   - [Running cost estimates](#running-cost-estimates)
+  - [Architecture Decision Records](#architecture-decision-records)
   - [Contributing](#contributing)
   - [License](#license)
   - [Contact](#contact)
@@ -283,7 +284,8 @@ Database stats:
 Summary:
 
 ```txt
-- This test had 20000 users ramped up within 1 min (3 times). The test was performed from a single machine to 20K concurrent users could scale in 1 min.
+- This test had 20000 users ramped up within 1 min (3 times). 
+- The test was performed from a single machine so 20K concurrent users could scale in 1 min.
 - All the requests were served within initial resources, no scaling was triggered.
 - All three endpoints served response in around 2 sec on an average.
 - The system was able to handle upto 12K concurrent users.
@@ -309,6 +311,10 @@ Others: $200
 Total: ~ $1100-1200 per month
 ```
 
+## Architecture Decision Records
+Decicion records are maintained ![HERE](https://open-speech-ekstep.github.io/mkdocs/architecture_decision/)
+- ![Cache above RDBMS]()
+  
 <!-- CONTRIBUTING -->
 ## Contributing
 

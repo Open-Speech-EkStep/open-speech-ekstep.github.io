@@ -55,6 +55,14 @@
 <li>
     <a href="./" class="dropdown-item active">Crowdsourcing Platform</a>
 </li>
+                                    
+<li>
+    <a href="../adr/" class="dropdown-item">Architecture Decision Records</a>
+</li>
+                                    
+<li>
+    <a href="../adr_cache/" class="dropdown-item">ADR: Cache above RDBMS</a>
+</li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -88,7 +96,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../LICENSE" class="nav-link">
+                                <a rel="next" href="../adr/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -164,6 +172,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#architecture-decision-records" class="nav-link">Architecture Decision Records</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#contributing" class="nav-link">Contributing</a>
               <ul class="nav flex-column">
               </ul>
@@ -221,6 +233,7 @@
 </li>
 <li><a href="#security">Security</a></li>
 <li><a href="#running-cost-estimates">Running cost estimates</a></li>
+<li><a href="#architecture-decision-records">Architecture Decision Records</a></li>
 <li><a href="#contributing">Contributing</a></li>
 <li><a href="#license">License</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -413,7 +426,8 @@ Iterations: 3
 <p>Database stats:
 <img alt="Database metrics" src="../img/crowdsource/db_stats.png" /></p>
 <p>Summary:</p>
-<pre><code class="language-txt">- This test had 20000 users ramped up within 1 min (3 times). The test was performed from a single machine to 20K concurrent users could scale in 1 min.
+<pre><code class="language-txt">- This test had 20000 users ramped up within 1 min (3 times). 
+- The test was performed from a single machine so 20K concurrent users could scale in 1 min.
 - All the requests were served within initial resources, no scaling was triggered.
 - All three endpoints served response in around 2 sec on an average.
 - The system was able to handle upto 12K concurrent users.
@@ -421,7 +435,7 @@ Iterations: 3
 - Database could handle the load and no connection leak is observed
 </code></pre>
 <h2 id="security">Security</h2>
-<p>We take Security as first step towards building the application.
+<p>Security first approach is taken while building this application.
 The OWASP top 10 are ingrained in the application security DNA.
 Please reach out to srajat@thoughtworks or heerabal@thoughtworks.com for more information around Security</p>
 <h2 id="running-cost-estimates">Running cost estimates</h2>
@@ -433,6 +447,11 @@ Others: $200
 
 Total: ~ $1100-1200 per month
 </code></pre>
+<h2 id="architecture-decision-records">Architecture Decision Records</h2>
+<p>Decicion records are maintained <img alt="HERE" src="https://open-speech-ekstep.github.io/mkdocs/architecture_decision/" /></p>
+<ul>
+<li><img alt="Cache above RDBMS" src="" /></li>
+</ul>
 <!-- CONTRIBUTING -->
 <h2 id="contributing">Contributing</h2>
 <p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p>

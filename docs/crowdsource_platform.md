@@ -319,9 +319,9 @@ Total: ~ $1100-1200 per month
 
 ## Architecture Decision Records
 
-Decicion records are maintained [HERE](https://open-speech-ekstep.github.io/mkdocs/adr)
+Decicion records are maintained [HERE](https://open-speech-ekstep.github.io/adr)
 
-- [Cache above RDBMS](https://open-speech-ekstep.github.io/mkdocs/adr/#caching-layer-above-rdbms)
+- [Cache above RDBMS](https://open-speech-ekstep.github.io/adr/#caching-layer-above-rdbms)
   
 <!-- CONTRIBUTING -->
 ## Contributing

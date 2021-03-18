@@ -99,6 +99,7 @@ Advantages:
 - Infrastructure defined in code with Terraform and shell scripts
 - Easily migrate to another AWS account
 - Spin up new env easily
+![IAC](img/crowdsource/iac.png)
 
 <!-- GETTING STARTED -->
 ## Getting Started

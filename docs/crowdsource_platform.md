@@ -205,6 +205,11 @@ npm run aws
 
 ## Testing
 
+Multiple types of tests are continously performed to make sure the application is in healthy state.
+Pyramid approach is followed with Unit tests at the base and Exploratory tests on top.
+
+![Pyramid](img/crowdsource/pyramid.png)
+
 ### Unit Tests
 
 Unit tests can be run using below command

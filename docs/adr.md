@@ -1,12 +1,16 @@
 # Architecture Decision Records
 
+## Table of Contents
+
+- [Caching layer above RDBMS](caching_layer_above_rdbms)
+  
 ## Caching layer above RDBMS
 
-* Status: Proposed
-* Drivers: Rajat Singhal
-* Approvers: Pramod Verma, Vivek Raghavan
-* Contributers: Rajat Singhal, Soujyo Sen, Heera Ballabh, Umair Manzoor
-* Date: 2021-03-18
+- Status: Proposed
+- Drivers: Rajat Singhal
+- Approvers: Pramod Verma, Vivek Raghavan
+- Contributers: Rajat Singhal, Soujyo Sen, Heera Ballabh, Umair Manzoor
+- Date: 2021-03-18
 
 Technical Story: [ticket/issue URL]
 

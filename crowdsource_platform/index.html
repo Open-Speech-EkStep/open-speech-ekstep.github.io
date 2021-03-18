@@ -156,6 +156,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#database-migrations" class="nav-link">Database migrations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#testing" class="nav-link">Testing</a>
               <ul class="nav flex-column">
               </ul>
@@ -220,6 +224,7 @@
 </ul>
 </li>
 <li><a href="#running-services">Running services</a></li>
+<li><a href="#databbase-migrations">Database migrations</a></li>
 <li><a href="#testing">Testing</a><ul>
 <li><a href="#unit-tests">Unit Tests</a></li>
 <li><a href="#functional-test">Functional Test</a></li>
@@ -367,6 +372,25 @@ PORT: Port to run the application on
 <p>To run application using a AWS cloud bucket</p>
 <pre><code>npm run aws
 </code></pre>
+<h2 id="database-migrations">Database migrations</h2>
+<p><a href="https://www.npmjs.com/package/db-migrate">This</a> package is used to do migrations.</p>
+<p>To create the current database structure in your postgres instance, run the following command:</p>
+<pre><code>db-migrate up
+</code></pre>
+<p>It would read the configurations from the path</p>
+<pre><code>migations/config/migration_config.json
+</code></pre>
+<p>Once can also run the migrate up command by setting an environment variable</p>
+<pre><code>DATABASE_URL=postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}
+</code></pre>
+<p>To add a new migration </p>
+<pre><code>db-migrate create add-new-table
+</code></pre>
+<p>Using the above command with the <code>--sqlFile</code> flag would create corresponding .sql files in which one can write sql commands to do the operation.</p>
+<p>To rollback the last migration, one can </p>
+<pre><code>db-migrate down
+</code></pre>
+<p>Documentation for the package can be found <a href="https://db-migrate.readthedocs.io/en/latest/">here</a></p>
 <h2 id="testing">Testing</h2>
 <p>Multiple types of tests are continously performed to make sure the application is in healthy state.
 Pyramid approach is followed with Unit tests at the base and Exploratory tests on top.</p>

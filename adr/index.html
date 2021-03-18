@@ -59,10 +59,6 @@
 <li>
     <a href="./" class="dropdown-item active">Architecture Decision Records</a>
 </li>
-                                    
-<li>
-    <a href="../adr_cache/" class="dropdown-item">ADR: Cache above RDBMS</a>
-</li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -96,7 +92,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../adr_cache/" class="nav-link">
+                                <a rel="next" href="../LICENSE" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -133,7 +129,23 @@
 
 <h1 id="architecture-decision-records">Architecture Decision Records</h1>
 <h2 id="caching-layer-above-rdbms">Caching layer above RDBMS</h2>
-<p><img alt="Caching above RDBMS" src="https://open-speech-ekstep.github.io/mkdocs/adr_cache/" /> : Proposed</p></div>
+<ul>
+<li>Status: Proposed</li>
+<li>Drivers: Rajat Singhal</li>
+<li>Approvers: Pramod Verma, Vivek Raghavan</li>
+<li>Contributers: Rajat Singhal, Soujyo Sen, Heera Ballabh, Umair Manzoor</li>
+<li>Date: 2021-03-18</li>
+</ul>
+<p>Technical Story: [ticket/issue URL]</p>
+<h3 id="context-and-problem-statement">Context and Problem Statement</h3>
+<p>Currently, the application service directly talks with RDBMS to fetch the sentences shown while doing Contributions and to fetch contributions while doing the Validations.</p>
+<p>The sentences and contributions are fetched in batches to avoid hitting the databse frequently. When the application will scale, there may be some contention at RDBMS layer.</p>
+<p>To avoid that having a Cache above the RDBS layer is being considered</p>
+<h3 id="considered-options">Considered Options</h3>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<h4 id="positive-consequences">Positive Consequences</h4>
+<h4 id="negative-consequences">Negative Consequences</h4>
+<h3 id="pros-and-cons-of-the-options">Pros and Cons of the Options</h3></div>
             </div>
         </div>
 

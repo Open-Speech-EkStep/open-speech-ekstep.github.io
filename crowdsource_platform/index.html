@@ -59,10 +59,6 @@
 <li>
     <a href="../adr/" class="dropdown-item">Architecture Decision Records</a>
 </li>
-                                    
-<li>
-    <a href="../adr_cache/" class="dropdown-item">ADR: Cache above RDBMS</a>
-</li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -263,7 +259,7 @@ Crowdsourcing Platform’s developer documentation is meant for its adopters, de
 <p><img alt="Dashboard Design" src="../img/crowdsource/dashboard_arch.png" /></p>
 <ul>
 <li>The transactional tables and view tables are kept separate.</li>
-<li>Materialized views are used which holds the data as well. This avoids on the fly computations for aggregation for each query.</li>
+<li><a href="https://www.postgresql.org/docs/9.3/rules-materializedviews.html">Materialized views</a> are used which holds the data as well. This avoids on the fly computations for aggregation for each query.</li>
 <li>The materizaled view are refreshed every 4 hours</li>
 <li>As a part of the refresh job, the aggregated data is dumped as json that is be served directly via CDN.</li>
 </ul>
@@ -277,7 +273,7 @@ Crowdsourcing Platform’s developer documentation is meant for its adopters, de
 </ul>
 <h2 id="cicd">CI/CD</h2>
 <ul>
-<li>CircleCI is used for CI/CD.</li>
+<li><a href="https://app.circleci.com/pipelines/github/Open-Speech-EkStep/crowdsource-dataplatform">CircleCI</a> is used for CI/CD.</li>
 <li>Unit tests are run continously for each commit</li>
 <li>Functional Tests are run continously for each commit and act as one if the quality gates before Production deployment</li>
 <li>Automated deployment to K8s for multiple environments</li>
@@ -448,9 +444,9 @@ Others: $200
 Total: ~ $1100-1200 per month
 </code></pre>
 <h2 id="architecture-decision-records">Architecture Decision Records</h2>
-<p>Decicion records are maintained <img alt="HERE" src="https://open-speech-ekstep.github.io/mkdocs/architecture_decision/" /></p>
+<p>Decicion records are maintained <a href="https://open-speech-ekstep.github.io/mkdocs/adr">HERE</a></p>
 <ul>
-<li><img alt="Cache above RDBMS" src="" /></li>
+<li><a href="https://open-speech-ekstep.github.io/mkdocs/adr/#caching-layer-above-rdbms">Cache above RDBMS</a></li>
 </ul>
 <!-- CONTRIBUTING -->
 <h2 id="contributing">Contributing</h2>

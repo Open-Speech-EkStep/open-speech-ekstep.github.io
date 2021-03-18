@@ -295,7 +295,7 @@ Summary:
 
 ## Security
 
-We take Security as first step towards building the application.
+Security first approach is taken while building this application.
 The OWASP top 10 are ingrained in the application security DNA.
 Please reach out to srajat@thoughtworks or heerabal@thoughtworks.com for more information around Security
 
@@ -312,7 +312,9 @@ Total: ~ $1100-1200 per month
 ```
 
 ## Architecture Decision Records
+
 Decicion records are maintained ![HERE](https://open-speech-ekstep.github.io/mkdocs/architecture_decision/)
+
 - ![Cache above RDBMS]()
   
 <!-- CONTRIBUTING -->

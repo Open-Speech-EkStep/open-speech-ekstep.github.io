@@ -6,7 +6,7 @@ nav:
               - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
               - "Model Training Pipeline": "model_training.md"
               - "Crowdsourcing Platform": "crowdsource_platform.md"
-              - "Architecture Decision Records"
+              - "Architecture Decision Records" : "adr.md"
                 - "Cache above RDBMS" : "adr_cache.md"
       - About:
               - "License": LICENSE

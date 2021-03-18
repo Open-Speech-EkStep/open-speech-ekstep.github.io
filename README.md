@@ -1,3 +1,3 @@
 # mkdocs
 
-https://open-speech-ekstep.github.io/mkdocs/
+https://open-speech-ekstep.github.io/

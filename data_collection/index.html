@@ -1,359 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Data Collection Pipeine - Vakyansh</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
-
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="..">Vakyansh</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href=".." class="nav-link">Home</a>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="./" class="dropdown-item active">Data Collection Pipeine</a>
-</li>
-                                    
-<li>
-    <a href="../intelligent_data_pipelines/" class="dropdown-item">Intelligent Data Pipeline</a>
-</li>
-                                    
-<li>
-    <a href="../model_training/" class="dropdown-item">Model Training Pipeline</a>
-</li>
-                                    
-<li>
-    <a href="../crowdsource_platform/" class="dropdown-item">Crowdsourcing Platform</a>
-</li>
-                                    
-<li>
-    <a href="../adr/" class="dropdown-item">Architecture Decision Records</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../LICENSE" class="dropdown-item">License</a>
-</li>
-                                    
-<li>
-    <a href="../CONTRIBUTING/" class="dropdown-item">Contributions</a>
-</li>
-                                    
-<li>
-    <a href="../RELEASE_NOTES/" class="dropdown-item">Release notes</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href=".." class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../intelligent_data_pipelines/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#data-collection-pipeline" class="nav-link">Data Collection Pipeline</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#about-the-project" class="nav-link">About The Project</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#usage" class="nav-link">Usage</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#running-services" class="nav-link">Running services</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#contributing" class="nav-link">Contributing</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#license" class="nav-link">License</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#contact" class="nav-link">Contact</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#acknowledgements" class="nav-link">Acknowledgements</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
-
-<h1 id="data-collection-pipeline">Data Collection Pipeline</h1>
-<p><img alt="Screenshot" src="../img/Data_collection_pipeline.png" /></p>
-<!-- TABLE OF CONTENTS -->
-<h2 id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="#data-collection-pipeline">Data Collection Pipeline</a></li>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#about-the-project">About The Project</a><ul>
-<li><a href="#built-with">Built With</a></li>
-<li><a href="#summary">Summary</a></li>
-</ul>
-</li>
-<li><a href="#getting-started">Getting Started</a><ul>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#installation">Installation</a></li>
-</ul>
-</li>
-<li><a href="#usage">Usage</a><ul>
-<li><a href="#common-configuration-steps">Common configuration steps:</a></li>
-<li><a href="#setting-credentials-for-google-cloud-bucket">Setting credentials for Google cloud bucket</a></li>
-<li><a href="#bucket-configuration">Bucket configuration</a></li>
-<li><a href="#metadata-file-configurations">Metadata file configurations</a></li>
-<li><a href="#youtube-download-configurations">Youtube download configurations</a></li>
-<li><a href="#youtube-api-configuration">Youtube API configuration</a></li>
-<li><a href="#web-crawl-configuration">Web Crawl Configuration</a></li>
-<li><a href="#adding-new-spider">Adding new spider</a></li>
-</ul>
-</li>
-<li><a href="#running-services">Running services</a><ul>
-<li><a href="#youtube-spider-in-channel-mode">Youtube spider in channel mode:</a></li>
-<li><a href="#youtube-spider-in-file-mode">Youtube spider in file mode:</a></li>
-<li><a href="#bing-spider">Bing Spider</a></li>
-<li><a href="#urls-spider">Urls Spider</a></li>
-<li><a href="#selenium-google-crawler">Selenium google crawler</a></li>
-<li><a href="#selenium-youtube-crawler-for-file-mode-and-api-mode">Selenium youtube crawler for file mode and api mode</a></li>
-</ul>
-</li>
-<li><a href="#contributing">Contributing</a></li>
-<li><a href="#license">License</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a href="#acknowledgements">Acknowledgements</a></li>
-</ul>
-<!-- ABOUT THE PROJECT -->
-<h2 id="about-the-project">About The Project</h2>
-<p>This is downloading framework that is extensible and allows the user to add new source without much code changes. For each new source user need to write a scrapy spider script and rest of downloading and meta file creation is handled by repective pipelines. And if required user can add their custom pipelines. This framework automatically transfer the downloaded data to a Google cloud bucket automatically. For more info on writing scrapy spider and pipeline one can refer to the <a href="https://docs.scrapy.org/en/latest/intro/tutorial.html">documentation</a>. 
-Data Collection Pipeline’s developer documentation is meant for its adopters, developers and contributors.</p>
-<p>The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Data Collection Pipeline.</p>
-<p>Data Collection Pipeline is based on an open platform, you are free to use any programming language to extend or customize it but we prefer to use python to perform smart scraping.</p>
-<p>The Developer documentation provides you with a complete set of guidelines which you need to:</p>
-<ul>
-<li>Install Data Collection Pipeline  </li>
-<li>Configure Data Collection Pipeline  </li>
-<li>Customize Data Collection Pipeline  </li>
-<li>Extend Data Collection Pipeline  </li>
-<li>Contribute to Data Collection Pipeline  </li>
-</ul>
-<h3 id="built-with">Built With</h3>
-<p>We have used scrapy as the base of this framework.
-* <a href="https://github.com/scrapy/scrapy">Scrapy</a></p>
-<h3 id="summary">Summary</h3>
-<p>This summary mentions the key advantages and limitations of this smart crawler service. </p>
-<p><strong>Youtube Crawler</strong></p>
-<ul>
-<li>Key Points and Advantages:<ul>
-<li>Get language relevant channels from YouTube and download videos from them.(70%-80% relevancy with language - based on Manual Analysis)</li>
-<li>Can fetch channels with Creative Commons video and download the videos in them as well.(70% relevancy with language)</li>
-<li>Can download using file mode(manually filled with video Ids) or channel mode.</li>
-<li>Youtube-dl can fetch N number of videos from a channel and download them.</li>
-<li>YouTube crawler downloads files at a rate of maximum of 2000 hours per day  and minimum of 800 hours per day.</li>
-<li>Youtube crawler is more convenient and it’s a main source of Creative Commons data that can be accessed easily.</li>
-<li>It can be deployed in cloud service called zyte used for scraping/crawling.</li>
-<li>License information of videos are available in metadata.
-  <p>&nbsp;</p></li>
-</ul>
-</li>
-<li>Limitations:<ul>
-<li>Youtube-api cannot return more than 500 videos per channel.(when using YOUTUBE_API mode in configuration)</li>
-<li>Youtube-api is restricted to 10000 tokens per day in free mode.<ol>
-<li>10000 tokens can be used to get license info of 10000 videos.(in any mode)</li>
-<li>10000 tokens can be used to get 5000 channels.(in YOUTUBE_API mode)</li>
-<li>Youtube-dl can be used to get all videos freely.(in YOUTUBE_DL mode)</li>
-</ol>
-</li>
-<li>Cannot fetch data from specific playlist.
-    (Solution: Fetch videos Ids of a playlist using YouTube-dl and put them in a file and download in file mode.)</li>
-<li>Rare cases in which you might get Too many requests error from Youtube-DL.
-    (Solution: Rerun the application with same sources.)</li>
-<li>Cannot download videos which require user information and private videos.</li>
-</ul>
-</li>
-</ul>
-<p><strong>Web Crawler</strong></p>
-<ul>
-<li>Key Points and Advantages:<ul>
-<li>Web crawler can download specific language audio but with around 50 - 60% relevance.</li>
-<li>Web crawler downloads files at a rate of at least 2000 hours per day.</li>
-<li>It is a faster means of downloading data.</li>
-<li>Creative Commons license of videos can be identified if available while crawling websites.
-<p>&nbsp;</p></li>
-</ul>
-</li>
-<li>Limitations:<ul>
-<li>Web crawler is not finely tuned yet, so downloaded content might have low language relevance. </li>
-<li>It cannot be deployed in zyte service free accounts and can be only deployed in zyte service paid accounts where docker container creation can be customised.</li>
-<li>License information of videos in web crawler cannot be automatically identified but requires some manual intervention.</li>
-</ul>
-</li>
-</ul>
-<!-- GETTING STARTED -->
-<h2 id="getting-started">Getting Started</h2>
-<p>To get started install the prerequisites and clone the repo to machine on which you wish to run the framework.</p>
-<h3 id="prerequisites">Prerequisites</h3>
-<ol>
-<li>
-<p>Install <code>ffmpeg</code> library using commands mentioned below.</p>
-<ul>
-<li>
-<p>For any linux based operating system (preferred Ubuntu):</p>
-<p><code>sudo apt-get install ffmpeg</code></p>
-</li>
-<li>
-<p>For Mac-os:</p>
-<p><code>brew install ffmpeg</code></p>
-</li>
-<li>
-<p>Windows user can follow installation steps on <a href="https://www.ffmpeg.org">https://www.ffmpeg.org</a></p>
-</li>
-</ul>
-</li>
-<li>
-<p>Install Python Version = 3.6</p>
-</li>
-<li>
-<p>Get credentials from google developer console for google cloud storage access.</p>
-</li>
-</ol>
-<h3 id="installation">Installation</h3>
-<ol>
-<li>
-<p>Clone the repo using</p>
-<p><code>git clone https://github.com/Open-Speech-EkStep/data-acquisition-pipeline.git</code></p>
-</li>
-<li>
-<p>Go inside the directory</p>
-<p><code>cd data-acquisition-pipeline</code></p>
-</li>
-<li>
-<p>Install python requirements</p>
-<p><code>pip install -r requirements.txt</code></p>
-</li>
-</ol>
-<!-- USAGE EXAMPLES -->
-<h2 id="usage">Usage</h2>
-<p>This framework allows the user to download the media file from a websource(youtube, xyz.com, etc) and creates the respective metadata file from the data that is extracted from the file.For using any added source or to add new source refer to steps below.It can also crawl internet for media of a specific language. For web crawling, refer to the web crawl configuration below.</p>
-<h3 id="common-configuration-steps">Common configuration steps:</h3>
-<h4 id="setting-credentials-for-google-cloud-bucket">Setting credentials for Google cloud bucket</h4>
-<p>You can set credentials for Google cloud bucket in the <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/credentials.json">credentials.json</a> add the credentials in given manner
-It can be found in the project root folder.</p>
-<pre><code class="language-sh">{&quot;Credentials&quot;:{ YOUR ACCOUNT CREDENTIAL KEYS }}
-</code></pre>
-<p><strong>Note:</strong>
-All configuration files can be found in the following path  <code>data-acquisition-pipeline/data_acquisition_framework/configs/</code></p>
-<h4 id="bucket-configuration">Bucket configuration</h4>
-<p>Bucket configurations for data transfer in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/storage_config.json">storage_config.json</a> </p>
-<pre><code class="language-sh">&quot;bucket&quot;: &quot;ekstepspeechrecognition-dev&quot;,          Your bucket name
-&quot;channel_blob_path&quot;: &quot;scrapydump/refactor_test&quot;,  Path to directory where downloaded files is to be stored
-&quot;archive_blob_path&quot;: &quot;archive&quot;,                   Folder name in which history of download is to be maintained
-&quot;channels_file_blob_path&quot;: &quot;channels&quot;,            Folder name in which channels and its videos are saved 
-&quot;scraped_data_blob_path&quot;: &quot;data_to_be_scraped&quot;    Folder name in which CSV for youtube file mode is stored
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Create a branded static site from a set of Markdown files to host the documentation of your Open Source or commercial project – customizable, searchable, mobile-friendly, 40+ languages"><meta name=author content="Martin Donath"><link href=https://squidfunk.github.io/mkdocs-material/data_collection/ rel=canonical><link rel=icon href=../assets/favicon.png><meta name=generator content="mkdocs-1.1.2, mkdocs-material-7.0.6"><title>Data Collection Pipeine - Material for MkDocs</title><link rel=stylesheet href=../assets/stylesheets/main.7a40789f.min.css><link rel=stylesheet href=../assets/stylesheets/palette.7fa14f5b.min.css><meta name=theme-color content=#4051b5><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#data-collection-pipeline class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=.. title="Material for MkDocs" class="md-header__button md-logo" aria-label="Material for MkDocs" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"> <path d=M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z /> <path d=M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z style="fill-opacity: 0.5"/> <path d=M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z /> <path d=M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z style="fill-opacity: 0.25"/> </svg> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Material for MkDocs </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Data Collection Pipeine </span> </div> </div> </div> <div class=md-header__options> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query data-md-state=active required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/squidfunk/mkdocs-material title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> squidfunk/mkdocs-material </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class="md-tabs__inner md-grid"> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=.. class=md-tabs__link> Home </a> </li> <li class=md-tabs__item> <a href=./ class="md-tabs__link md-tabs__link--active"> User Guide </a> </li> <li class=md-tabs__item> <a href=../LICENSE class=md-tabs__link> About </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title="Material for MkDocs" class="md-nav__button md-logo" aria-label="Material for MkDocs" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"> <path d=M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z /> <path d=M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z style="fill-opacity: 0.5"/> <path d=M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z /> <path d=M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z style="fill-opacity: 0.25"/> </svg> </a> Material for MkDocs </label> <div class=md-nav__source> <a href=https://github.com/squidfunk/mkdocs-material title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> squidfunk/mkdocs-material </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. class=md-nav__link> Home </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_2 type=checkbox id=__nav_2 checked> <label class=md-nav__link for=__nav_2> User Guide <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="User Guide" data-md-level=1> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> User Guide </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Data Collection Pipeine <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> Data Collection Pipeine </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#table-of-contents class=md-nav__link> Table of Contents </a> </li> <li class=md-nav__item> <a href=#about-the-project class=md-nav__link> About The Project </a> <nav class=md-nav aria-label="About The Project"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#built-with class=md-nav__link> Built With </a> </li> <li class=md-nav__item> <a href=#summary class=md-nav__link> Summary </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#getting-started class=md-nav__link> Getting Started </a> <nav class=md-nav aria-label="Getting Started"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#prerequisites class=md-nav__link> Prerequisites </a> </li> <li class=md-nav__item> <a href=#installation class=md-nav__link> Installation </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#usage class=md-nav__link> Usage </a> <nav class=md-nav aria-label=Usage> <ul class=md-nav__list> <li class=md-nav__item> <a href=#common-configuration-steps class=md-nav__link> Common configuration steps: </a> <nav class=md-nav aria-label="Common configuration steps:"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#setting-credentials-for-google-cloud-bucket class=md-nav__link> Setting credentials for Google cloud bucket </a> </li> <li class=md-nav__item> <a href=#bucket-configuration class=md-nav__link> Bucket configuration </a> </li> <li class=md-nav__item> <a href=#metadata-file-configurations class=md-nav__link> Metadata file configurations </a> </li> <li class=md-nav__item> <a href=#youtube-download-configurations class=md-nav__link> Youtube download configurations </a> </li> <li class=md-nav__item> <a href=#youtube-api-configuration class=md-nav__link> Youtube API configuration </a> </li> <li class=md-nav__item> <a href=#web-crawl-configuration class=md-nav__link> Web Crawl Configuration </a> </li> <li class=md-nav__item> <a href=#adding-new-spider class=md-nav__link> Adding new spider </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#running-services class=md-nav__link> Running services </a> <nav class=md-nav aria-label="Running services"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#youtube-spider-in-channel-mode class=md-nav__link> Youtube spider in channel mode: </a> </li> <li class=md-nav__item> <a href=#youtube-spider-in-file-mode class=md-nav__link> Youtube spider in file mode: </a> </li> <li class=md-nav__item> <a href=#bing-spider class=md-nav__link> Bing Spider </a> </li> <li class=md-nav__item> <a href=#urls-spider class=md-nav__link> Urls Spider </a> </li> <li class=md-nav__item> <a href=#selenium-google-crawler class=md-nav__link> Selenium google crawler </a> </li> <li class=md-nav__item> <a href=#selenium-youtube-crawler-for-file-mode-and-api-mode class=md-nav__link> Selenium youtube crawler for file mode and api mode </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#contributing class=md-nav__link> Contributing </a> </li> <li class=md-nav__item> <a href=#license class=md-nav__link> License </a> </li> <li class=md-nav__item> <a href=#contact class=md-nav__link> Contact </a> </li> <li class=md-nav__item> <a href=#acknowledgements class=md-nav__link> Acknowledgements </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../intelligent_data_pipelines/ class=md-nav__link> Intelligent Data Pipeline </a> </li> <li class=md-nav__item> <a href=../model_training/ class=md-nav__link> Model Training Pipeline </a> </li> <li class=md-nav__item> <a href=../crowdsource_platform/ class=md-nav__link> Crowdsourcing Platform </a> </li> <li class=md-nav__item> <a href=../adr/ class=md-nav__link> Architecture Decision Records </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3 type=checkbox id=__nav_3> <label class=md-nav__link for=__nav_3> About <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=About data-md-level=1> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> About </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../LICENSE class=md-nav__link> License </a> </li> <li class=md-nav__item> <a href=../CONTRIBUTING/ class=md-nav__link> Contributions </a> </li> <li class=md-nav__item> <a href=../RELEASE_NOTES/ class=md-nav__link> Release notes </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#table-of-contents class=md-nav__link> Table of Contents </a> </li> <li class=md-nav__item> <a href=#about-the-project class=md-nav__link> About The Project </a> <nav class=md-nav aria-label="About The Project"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#built-with class=md-nav__link> Built With </a> </li> <li class=md-nav__item> <a href=#summary class=md-nav__link> Summary </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#getting-started class=md-nav__link> Getting Started </a> <nav class=md-nav aria-label="Getting Started"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#prerequisites class=md-nav__link> Prerequisites </a> </li> <li class=md-nav__item> <a href=#installation class=md-nav__link> Installation </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#usage class=md-nav__link> Usage </a> <nav class=md-nav aria-label=Usage> <ul class=md-nav__list> <li class=md-nav__item> <a href=#common-configuration-steps class=md-nav__link> Common configuration steps: </a> <nav class=md-nav aria-label="Common configuration steps:"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#setting-credentials-for-google-cloud-bucket class=md-nav__link> Setting credentials for Google cloud bucket </a> </li> <li class=md-nav__item> <a href=#bucket-configuration class=md-nav__link> Bucket configuration </a> </li> <li class=md-nav__item> <a href=#metadata-file-configurations class=md-nav__link> Metadata file configurations </a> </li> <li class=md-nav__item> <a href=#youtube-download-configurations class=md-nav__link> Youtube download configurations </a> </li> <li class=md-nav__item> <a href=#youtube-api-configuration class=md-nav__link> Youtube API configuration </a> </li> <li class=md-nav__item> <a href=#web-crawl-configuration class=md-nav__link> Web Crawl Configuration </a> </li> <li class=md-nav__item> <a href=#adding-new-spider class=md-nav__link> Adding new spider </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#running-services class=md-nav__link> Running services </a> <nav class=md-nav aria-label="Running services"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#youtube-spider-in-channel-mode class=md-nav__link> Youtube spider in channel mode: </a> </li> <li class=md-nav__item> <a href=#youtube-spider-in-file-mode class=md-nav__link> Youtube spider in file mode: </a> </li> <li class=md-nav__item> <a href=#bing-spider class=md-nav__link> Bing Spider </a> </li> <li class=md-nav__item> <a href=#urls-spider class=md-nav__link> Urls Spider </a> </li> <li class=md-nav__item> <a href=#selenium-google-crawler class=md-nav__link> Selenium google crawler </a> </li> <li class=md-nav__item> <a href=#selenium-youtube-crawler-for-file-mode-and-api-mode class=md-nav__link> Selenium youtube crawler for file mode and api mode </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#contributing class=md-nav__link> Contributing </a> </li> <li class=md-nav__item> <a href=#license class=md-nav__link> License </a> </li> <li class=md-nav__item> <a href=#contact class=md-nav__link> Contact </a> </li> <li class=md-nav__item> <a href=#acknowledgements class=md-nav__link> Acknowledgements </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=data-collection-pipeline>Data Collection Pipeline<a class=headerlink href=#data-collection-pipeline title="Permanent link">&para;</a></h1> <p><img alt=Screenshot src=../img/Data_collection_pipeline.png></p> <!-- TABLE OF CONTENTS --> <h2 id=table-of-contents>Table of Contents<a class=headerlink href=#table-of-contents title="Permanent link">&para;</a></h2> <ul> <li><a href=#data-collection-pipeline>Data Collection Pipeline</a></li> <li><a href=#table-of-contents>Table of Contents</a></li> <li><a href=#about-the-project>About The Project</a><ul> <li><a href=#built-with>Built With</a></li> <li><a href=#summary>Summary</a></li> </ul> </li> <li><a href=#getting-started>Getting Started</a><ul> <li><a href=#prerequisites>Prerequisites</a></li> <li><a href=#installation>Installation</a></li> </ul> </li> <li><a href=#usage>Usage</a><ul> <li><a href=#common-configuration-steps>Common configuration steps:</a></li> <li><a href=#setting-credentials-for-google-cloud-bucket>Setting credentials for Google cloud bucket</a></li> <li><a href=#bucket-configuration>Bucket configuration</a></li> <li><a href=#metadata-file-configurations>Metadata file configurations</a></li> <li><a href=#youtube-download-configurations>Youtube download configurations</a></li> <li><a href=#youtube-api-configuration>Youtube API configuration</a></li> <li><a href=#web-crawl-configuration>Web Crawl Configuration</a></li> <li><a href=#adding-new-spider>Adding new spider</a></li> </ul> </li> <li><a href=#running-services>Running services</a><ul> <li><a href=#youtube-spider-in-channel-mode>Youtube spider in channel mode:</a></li> <li><a href=#youtube-spider-in-file-mode>Youtube spider in file mode:</a></li> <li><a href=#bing-spider>Bing Spider</a></li> <li><a href=#urls-spider>Urls Spider</a></li> <li><a href=#selenium-google-crawler>Selenium google crawler</a></li> <li><a href=#selenium-youtube-crawler-for-file-mode-and-api-mode>Selenium youtube crawler for file mode and api mode</a></li> </ul> </li> <li><a href=#contributing>Contributing</a></li> <li><a href=#license>License</a></li> <li><a href=#contact>Contact</a></li> <li><a href=#acknowledgements>Acknowledgements</a></li> </ul> <!-- ABOUT THE PROJECT --> <h2 id=about-the-project>About The Project<a class=headerlink href=#about-the-project title="Permanent link">&para;</a></h2> <p>This is downloading framework that is extensible and allows the user to add new source without much code changes. For each new source user need to write a scrapy spider script and rest of downloading and meta file creation is handled by repective pipelines. And if required user can add their custom pipelines. This framework automatically transfer the downloaded data to a Google cloud bucket automatically. For more info on writing scrapy spider and pipeline one can refer to the <a href=https://docs.scrapy.org/en/latest/intro/tutorial.html>documentation</a>. Data Collection Pipeline’s developer documentation is meant for its adopters, developers and contributors.</p> <p>The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Data Collection Pipeline.</p> <p>Data Collection Pipeline is based on an open platform, you are free to use any programming language to extend or customize it but we prefer to use python to perform smart scraping.</p> <p>The Developer documentation provides you with a complete set of guidelines which you need to:</p> <ul> <li>Install Data Collection Pipeline </li> <li>Configure Data Collection Pipeline </li> <li>Customize Data Collection Pipeline </li> <li>Extend Data Collection Pipeline </li> <li>Contribute to Data Collection Pipeline </li> </ul> <h3 id=built-with>Built With<a class=headerlink href=#built-with title="Permanent link">&para;</a></h3> <p>We have used scrapy as the base of this framework. * <a href=https://github.com/scrapy/scrapy>Scrapy</a></p> <h3 id=summary>Summary<a class=headerlink href=#summary title="Permanent link">&para;</a></h3> <p>This summary mentions the key advantages and limitations of this smart crawler service. </p> <p><strong>Youtube Crawler</strong></p> <ul> <li>Key Points and Advantages:<ul> <li>Get language relevant channels from YouTube and download videos from them.(70%-80% relevancy with language - based on Manual Analysis)</li> <li>Can fetch channels with Creative Commons video and download the videos in them as well.(70% relevancy with language)</li> <li>Can download using file mode(manually filled with video Ids) or channel mode.</li> <li>Youtube-dl can fetch N number of videos from a channel and download them.</li> <li>YouTube crawler downloads files at a rate of maximum of 2000 hours per day and minimum of 800 hours per day.</li> <li>Youtube crawler is more convenient and it’s a main source of Creative Commons data that can be accessed easily.</li> <li>It can be deployed in cloud service called zyte used for scraping/crawling.</li> <li>License information of videos are available in metadata. <p>&nbsp;</p></li> </ul> </li> <li>Limitations:<ul> <li>Youtube-api cannot return more than 500 videos per channel.(when using YOUTUBE_API mode in configuration)</li> <li>Youtube-api is restricted to 10000 tokens per day in free mode.<ol> <li>10000 tokens can be used to get license info of 10000 videos.(in any mode)</li> <li>10000 tokens can be used to get 5000 channels.(in YOUTUBE_API mode)</li> <li>Youtube-dl can be used to get all videos freely.(in YOUTUBE_DL mode)</li> </ol> </li> <li>Cannot fetch data from specific playlist. (Solution: Fetch videos Ids of a playlist using YouTube-dl and put them in a file and download in file mode.)</li> <li>Rare cases in which you might get Too many requests error from Youtube-DL. (Solution: Rerun the application with same sources.)</li> <li>Cannot download videos which require user information and private videos.</li> </ul> </li> </ul> <p><strong>Web Crawler</strong></p> <ul> <li>Key Points and Advantages:<ul> <li>Web crawler can download specific language audio but with around 50 - 60% relevance.</li> <li>Web crawler downloads files at a rate of at least 2000 hours per day.</li> <li>It is a faster means of downloading data.</li> <li>Creative Commons license of videos can be identified if available while crawling websites. <p>&nbsp;</p></li> </ul> </li> <li>Limitations:<ul> <li>Web crawler is not finely tuned yet, so downloaded content might have low language relevance. </li> <li>It cannot be deployed in zyte service free accounts and can be only deployed in zyte service paid accounts where docker container creation can be customised.</li> <li>License information of videos in web crawler cannot be automatically identified but requires some manual intervention.</li> </ul> </li> </ul> <!-- GETTING STARTED --> <h2 id=getting-started>Getting Started<a class=headerlink href=#getting-started title="Permanent link">&para;</a></h2> <p>To get started install the prerequisites and clone the repo to machine on which you wish to run the framework.</p> <h3 id=prerequisites>Prerequisites<a class=headerlink href=#prerequisites title="Permanent link">&para;</a></h3> <ol> <li> <p>Install <code>ffmpeg</code> library using commands mentioned below.</p> <ul> <li> <p>For any linux based operating system (preferred Ubuntu):</p> <div class=highlight><pre><span></span><code>sudo apt-get install ffmpeg
+</code></pre></div> </li> <li> <p>For Mac-os:</p> <div class=highlight><pre><span></span><code>brew install ffmpeg
+</code></pre></div> </li> <li> <p>Windows user can follow installation steps on <a href=https://www.ffmpeg.org>https://www.ffmpeg.org</a></p> </li> </ul> </li> <li> <p>Install Python Version = 3.6</p> </li> <li> <p>Get credentials from google developer console for google cloud storage access.</p> </li> </ol> <h3 id=installation>Installation<a class=headerlink href=#installation title="Permanent link">&para;</a></h3> <ol> <li> <p>Clone the repo using</p> <div class=highlight><pre><span></span><code>git clone https://github.com/Open-Speech-EkStep/data-acquisition-pipeline.git
+</code></pre></div> </li> <li> <p>Go inside the directory</p> <div class=highlight><pre><span></span><code>cd data-acquisition-pipeline
+</code></pre></div> </li> <li> <p>Install python requirements</p> <div class=highlight><pre><span></span><code>pip install -r requirements.txt
+</code></pre></div> </li> </ol> <!-- USAGE EXAMPLES --> <h2 id=usage>Usage<a class=headerlink href=#usage title="Permanent link">&para;</a></h2> <p>This framework allows the user to download the media file from a websource(youtube, xyz.com, etc) and creates the respective metadata file from the data that is extracted from the file.For using any added source or to add new source refer to steps below.It can also crawl internet for media of a specific language. For web crawling, refer to the web crawl configuration below.</p> <h3 id=common-configuration-steps>Common configuration steps:<a class=headerlink href=#common-configuration-steps title="Permanent link">&para;</a></h3> <h4 id=setting-credentials-for-google-cloud-bucket>Setting credentials for Google cloud bucket<a class=headerlink href=#setting-credentials-for-google-cloud-bucket title="Permanent link">&para;</a></h4> <p>You can set credentials for Google cloud bucket in the <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/credentials.json>credentials.json</a> add the credentials in given manner It can be found in the project root folder. <div class=highlight><pre><span></span><code><span class=o>{</span><span class=s2>&quot;Credentials&quot;</span>:<span class=o>{</span> YOUR ACCOUNT CREDENTIAL KEYS <span class=o>}}</span>
+</code></pre></div></p> <p><strong>Note:</strong> All configuration files can be found in the following path <code>data-acquisition-pipeline/data_acquisition_framework/configs/</code></p> <h4 id=bucket-configuration>Bucket configuration<a class=headerlink href=#bucket-configuration title="Permanent link">&para;</a></h4> <p>Bucket configurations for data transfer in <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/storage_config.json>storage_config.json</a> <div class=highlight><pre><span></span><code><span class=s2>&quot;bucket&quot;</span>: <span class=s2>&quot;ekstepspeechrecognition-dev&quot;</span>,          Your bucket name
+<span class=s2>&quot;channel_blob_path&quot;</span>: <span class=s2>&quot;scrapydump/refactor_test&quot;</span>,  Path to directory where downloaded files is to be stored
+<span class=s2>&quot;archive_blob_path&quot;</span>: <span class=s2>&quot;archive&quot;</span>,                   Folder name <span class=k>in</span> which <span class=nb>history</span> of download is to be maintained
+<span class=s2>&quot;channels_file_blob_path&quot;</span>: <span class=s2>&quot;channels&quot;</span>,            Folder name <span class=k>in</span> which channels and its videos are saved 
+<span class=s2>&quot;scraped_data_blob_path&quot;</span>: <span class=s2>&quot;data_to_be_scraped&quot;</span>    Folder name <span class=k>in</span> which CSV <span class=k>for</span> youtube file mode is stored
 
 Note:
-1. The scraped_data_blob_path folder should be present inside the channel_blob_path folder.
-2. The CSV file used in file mode of youtube and its name must be same as source_name given above. 
-3. (only for datacollector_urls and datacollector_bing spiders) To autoconfigure language parameter to channel_blob_path from web_crawler_config.json, use &lt;language&gt; in channel_blob_path.  
-    &quot;eg: for tamil : data/download/&lt;language&gt;/audio - this will replace &lt;language&gt; with tamil.&quot;
-4. The archive_blob_path and channels_file_blob_path are folders that will be autogenerated in bucket with the given name.
-</code></pre>
-<h4 id="metadata-file-configurations">Metadata file configurations</h4>
-<p>Metadata file configurations in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/config.json">config.json</a></p>
-<pre><code class="language-sh">mode: 'complete'                        This should not be changed       
+<span class=m>1</span>. The scraped_data_blob_path folder should be present inside the channel_blob_path folder.
+<span class=m>2</span>. The CSV file used <span class=k>in</span> file mode of youtube and its name must be same as source_name given above. 
+<span class=m>3</span>. <span class=o>(</span>only <span class=k>for</span> datacollector_urls and datacollector_bing spiders<span class=o>)</span> To autoconfigure language parameter to channel_blob_path from web_crawler_config.json, use &lt;language&gt; <span class=k>in</span> channel_blob_path.  
+    <span class=s2>&quot;eg: for tamil : data/download/&lt;language&gt;/audio - this will replace &lt;language&gt; with tamil.&quot;</span>
+<span class=m>4</span>. The archive_blob_path and channels_file_blob_path are folders that will be autogenerated <span class=k>in</span> bucket with the given name.
+</code></pre></div></p> <h4 id=metadata-file-configurations>Metadata file configurations<a class=headerlink href=#metadata-file-configurations title="Permanent link">&para;</a></h4> <p>Metadata file configurations in <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/config.json>config.json</a> <div class=highlight><pre><span></span><code>mode: <span class=s1>&#39;complete&#39;</span>                        This should not be changed       
 audio_id: null                          If you want to give a custom audio id add here 
 cleaned_duration: null                  If you know the cleaned duration of audio add here
-num_of_speakers: null                   Number of speaker present in audio
+num_of_speakers: null                   Number of speaker present <span class=k>in</span> audio
 language: Hindi                         Language of audio
-has_other_audio_signature: False        If audio has multiple speaker in same file (True/False)
-type: 'audio'                           Type of media (audio or video)
-source: 'Demo_Source'                   Source name
-experiment_use: False                   If its for experimental use (True/False)
+has_other_audio_signature: False        If audio has multiple speaker <span class=k>in</span> same file <span class=o>(</span>True/False<span class=o>)</span>
+type: <span class=s1>&#39;audio&#39;</span>                           Type of media <span class=o>(</span>audio or video<span class=o>)</span>
+source: <span class=s1>&#39;Demo_Source&#39;</span>                   Source name
+experiment_use: False                   If its <span class=k>for</span> experimental use <span class=o>(</span>True/False<span class=o>)</span>
 utterances_files_list: null             
-source_website: ''                      Source website url
-experiment_name: null                   Name of experiment if experiment_use is True
-mother_tongue: null                     Accent of language(Bengali, Marathi, etc...)
-age_group: null                         Age group of speaker in audio
-recorded_state: null                    State in which audio is recorded
-recorded_district: null                 District of state in which audio is recorded
+source_website: <span class=s1>&#39;&#39;</span>                      Source website url
+experiment_name: null                   Name of experiment <span class=k>if</span> experiment_use is True
+mother_tongue: null                     Accent of language<span class=o>(</span>Bengali, Marathi, etc...<span class=o>)</span>
+age_group: null                         Age group of speaker <span class=k>in</span> audio
+recorded_state: null                    State <span class=k>in</span> which audio is recorded
+recorded_district: null                 District of state <span class=k>in</span> which audio is recorded
 recorded_place: null                    Recording location
 recorded_date: null                     Recording date
 purpose: null                           Purpose of recording
@@ -361,382 +39,73 @@ speaker_gender: null                    Gender of speaker
 speaker_name: null                      Name of speaker
 
 Note:
-1. If any of the field info is not available keep its value to null
-2. If speaker_name or speaker_gender is given then that same will be used for all the files in given source 
-</code></pre>
-<h4 id="youtube-download-configurations">Youtube download configurations</h4>
-<ul>
-<li>You can set download mode [file/channel] in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py">youtube_pipeline_config.py</a> </li>
-</ul>
-<pre><code class="language-sh">mode = 'file'  # [channel,file]
-</code></pre>
-<p>In file mode you will store a csv file whose name must be same as source name in scraped_data_blob_path. csv must  contain urls of youtube videos, speaker name and gender as three different columns. Urls is a must field. You can leave speaker name and gender blank if data is not available. <br>Given below is the structure of csv.</br></p>
-<pre><code class="language-sh"> video_url,speaker_name,speaker_gender
-https://www.youtube.com/watch?v=K1vW_ZikA5o,Ram_Singh,male
-https://www.youtube.com/watch?v=o82HIOgozi8,John_Doe,male
+<span class=m>1</span>. If any of the field info is not available keep its value to null
+<span class=m>2</span>. If speaker_name or speaker_gender is given <span class=k>then</span> that same will be used <span class=k>for</span> all the files <span class=k>in</span> given <span class=nb>source</span> 
+</code></pre></div></p> <h4 id=youtube-download-configurations>Youtube download configurations<a class=headerlink href=#youtube-download-configurations title="Permanent link">&para;</a></h4> <ul> <li>You can set download mode [file/channel] in <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py>youtube_pipeline_config.py</a> <div class=highlight><pre><span></span><code><span class=nv>mode</span> <span class=o>=</span> <span class=s1>&#39;file&#39;</span>  <span class=c1># [channel,file]</span>
+</code></pre></div> In file mode you will store a csv file whose name must be same as source name in scraped_data_blob_path. csv must contain urls of youtube videos, speaker name and gender as three different columns. Urls is a must field. You can leave speaker name and gender blank if data is not available. <br>Given below is the structure of csv. <div class=highlight><pre><span></span><code> video_url,speaker_name,speaker_gender
+https://www.youtube.com/watch?v<span class=o>=</span>K1vW_ZikA5o,Ram_Singh,male
+https://www.youtube.com/watch?v<span class=o>=</span>o82HIOgozi8,John_Doe,male
 ...
-</code></pre>
-<ul>
-<li>Common configurations in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py">youtube_pipeline_config.py</a></li>
-</ul>
-<pre><code class="language-sh"># Common configurations
-&quot;source_name&quot;: &quot;DEMO&quot;,                              This is the name of source you are downloading
-batch_num = 1                                       Number of videos to be downloaded as batches
-youtube_service_to_use = YoutubeService.YOUTUBE_DL  This field is to choose which service to use for getting video information
-only_creative_commons = False                       Should Download only creative commons(True, False)
-</code></pre>
-<p>Possible values for youtube_service_to_use: (YoutubeService.YOUTUBE_DL, YoutubeService.YOUTUBE_API)
-* File mode configurations in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py">youtube_pipeline_config.py</a> </p>
-<pre><code class="language-sh"># File Mode configurations
-file_speaker_gender_column = 'speaker_gender'     Gender column name in csv file
-file_speaker_name_column = &quot;speaker_name&quot;         Speaker name column name in csv file
-file_url_name_column = &quot;video_url&quot;                Video url column name in csv file
-license_column = &quot;license&quot;                        Video license column name in csv file
-</code></pre>
-<ul>
-<li>channel mode configuration in  <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/youtube/crawler/data_acquisition_framework/configs/youtube_pipeline_config.py">youtube_pipeline_config.py</a></li>
-</ul>
-<pre><code class="language-sh"># Channel mode configurations
-channel_url_dict = {}             Channel url dictionary (This will download all the videos from the given channels with corresponding source names)
+</code></pre></div></li> <li>Common configurations in <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py>youtube_pipeline_config.py</a> <div class=highlight><pre><span></span><code><span class=c1># Common configurations</span>
+<span class=s2>&quot;source_name&quot;</span>: <span class=s2>&quot;DEMO&quot;</span>,                              This is the name of <span class=nb>source</span> you are downloading
+<span class=nv>batch_num</span> <span class=o>=</span> <span class=m>1</span>                                       Number of videos to be downloaded as batches
+<span class=nv>youtube_service_to_use</span> <span class=o>=</span> YoutubeService.YOUTUBE_DL  This field is to choose which service to use <span class=k>for</span> getting video information
+<span class=nv>only_creative_commons</span> <span class=o>=</span> False                       Should Download only creative commons<span class=o>(</span>True, False<span class=o>)</span>
+</code></pre></div> Possible values for youtube_service_to_use: (YoutubeService.YOUTUBE_DL, YoutubeService.YOUTUBE_API)</li> <li>File mode configurations in <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_pipeline_config.py>youtube_pipeline_config.py</a> <div class=highlight><pre><span></span><code><span class=c1># File Mode configurations</span>
+<span class=nv>file_speaker_gender_column</span> <span class=o>=</span> <span class=s1>&#39;speaker_gender&#39;</span>     Gender column name <span class=k>in</span> csv file
+<span class=nv>file_speaker_name_column</span> <span class=o>=</span> <span class=s2>&quot;speaker_name&quot;</span>         Speaker name column name <span class=k>in</span> csv file
+<span class=nv>file_url_name_column</span> <span class=o>=</span> <span class=s2>&quot;video_url&quot;</span>                Video url column name <span class=k>in</span> csv file
+<span class=nv>license_column</span> <span class=o>=</span> <span class=s2>&quot;license&quot;</span>                        Video license column name <span class=k>in</span> csv file
+</code></pre></div></li> <li>channel mode configuration in <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/youtube/crawler/data_acquisition_framework/configs/youtube_pipeline_config.py>youtube_pipeline_config.py</a> <div class=highlight><pre><span></span><code><span class=c1># Channel mode configurations</span>
+<span class=nv>channel_url_dict</span> <span class=o>=</span> <span class=o>{}</span>             Channel url dictionary <span class=o>(</span>This will download all the videos from the given channels with corresponding <span class=nb>source</span> names<span class=o>)</span>
 
 Note:
-1. In channel_url_dict, the keys must be the urls and values must be their channel names
-2. To get list of channels from youtube API, channel_url_dict must be empty
-</code></pre>
-<h4 id="youtube-api-configuration">Youtube API configuration</h4>
-<ul>
-<li>Automated Youtube fetching configuration in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_api_config.json">youtube_api_config.json</a></li>
-</ul>
-<pre><code class="language-sh"># Youtube API configurations
-&quot;language&quot; : &quot;hindi&quot;,                             Type of language for which search results are required.
-&quot;language_code&quot;: &quot;hi&quot;,                            Language code for the specified language.
-&quot;keywords&quot;:[                                      The search keywords to be given in youtube API query
-    &quot;audio&quot;,
-    &quot;speech&quot;,
-    &quot;talk&quot;
-],
-&quot;words_to_ignore&quot;:[                               The words that are to be ignored in youtube API query
-    &quot;song&quot;,
-    &quot;music&quot;
-],
-&quot;max_results&quot;: 20                                 Maximum number of channels or results that is required.
-</code></pre>
-<h4 id="web-crawl-configuration">Web Crawl Configuration</h4>
-<ul>
-<li>web crawl configuration in <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/web_crawl_config.py">web_crawl_config.json</a> (Use this only for datacollector_bing and datacollector_urls spider)</li>
-</ul>
-<pre><code class="language-sh">&quot;language&quot;: &quot;gujarati&quot;,                           Language to be crawled
-&quot;language_code&quot;: &quot;gu&quot;,                            Language code for the specified language.
-&quot;keywords&quot;: [                                     Keywords to query
-    &quot;talks audio&quot;,
-    &quot;audiobooks&quot;,
-    &quot;speeches&quot;,
-],
-&quot;word_to_ignore&quot;: [                               Words to ignore while crawling
-    &quot;ieeexplore.ieee.org&quot;,
-    &quot;dl.acm.org&quot;,
-    &quot;www.microsoft.com&quot;
-],
-&quot;extensions_to_ignore&quot;: [                         Formats/extensions to ignore while crawling
-    &quot;.jpeg&quot;,
-    &quot;xlsx&quot;,
-    &quot;.xml&quot;
-],
-&quot;extensions_to_include&quot;: [                        Formats/extensions to include while crawling
-    &quot;.mp3&quot;,
-    &quot;.wav&quot;,
-    &quot;.mp4&quot;,
-],
-&quot;pages&quot;: 1,                                       Number of pages to crawl
-&quot;depth&quot;: 1,                                       Nesting depth for each website
-&quot;continue_page&quot;: &quot;NO&quot;,                            Field to continue/resume crawling
-&quot;last_visited&quot;: 200,                              Last visited results count
-&quot;enable_hours_restriction&quot;: &quot;YES&quot;,                Restrict crawling based on hours of data collected
-&quot;max_hours&quot;: 1                                    Maximum hours to crawl
-</code></pre>
-<h4 id="adding-new-spider">Adding new spider</h4>
-<p>As we already mentioned our framework is extensible for any new source. To add a new source user just need to write a spider for that source.<br>To add a spider you can follow the scrapy <a href="https://docs.scrapy.org/en/latest/intro/tutorial.html">documentation</a> or you can check our <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/spiders/datacollector_music.py">sample</a> spider.</br> </p>
-<!-- RUNNING THE SERVICES -->
-<h2 id="running-services">Running services</h2>
-<p>Make sure the google credentials are present in project root folder in credentials.json file.</p>
-<h4 id="youtube-spider-in-channel-mode">Youtube spider in channel mode:</h4>
-<ol>
-<li>
-<p>In <code>data_acqusition_framework/configs</code>, do the following:</p>
-<ul>
-<li>
-<p>Open <code>config.json</code> and change <code>language</code> and <code>type</code> to your respective use case.</p>
-</li>
-<li>
-<p>Open <code>storage_config.json</code> and change <code>bucket</code> and <code>channel_blob_path</code> to your respective gcp paths.(For more info on these fields, scroll above to Bucket configuration)</p>
-</li>
-<li>
-<p>Open <code>youtube_pipeline_config.py</code> and change mode to channel<code>(eg: mode='channel')</code></p>
-</li>
-</ul>
-</li>
-<li>
-<p>There are two ways to download videos of youtube channels:</p>
-<ul>
-<li>
-<p>You can hardcode the channel url and channel name.</p>
-</li>
-<li>
-<p>You can use youtube-utils service(youtube-dl/youtube data api) to fetch channels and its respective videos information.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>To download by hardcoding the channel urls, do the following:</p>
-<ul>
-<li>
-<p>Open <code>data_acqusition_framework/configs/youtube_pipeline_config.py</code> and do the following:</p>
-</li>
-<li>
-<p>Add the channel_urls and its names in <code>channel_url_dict</code> variable.</p>
-<p><code>eg. channel_url_dict = { 
-   "https://www.youtube.com/channel/UC2XEzs5R1mn2wTKgtjuMxiQ": "channel_name_a",
-   "https://www.youtube.com/channel/UC2XEzs5R1mn2wTKgtjuMxiQ":"channel_name_b" 
-}</code></p>
-</li>
-<li>
-<p>Set <code>youtube_service_to_use</code> variable value to either <code>YoutubeService.YOUTUBE_DL</code> or <code>YoutubeService.YOUTUBE_API</code> for collecting video info.</p>
-</li>
-<li>
-<p>If <code>YoutubeService.YOUTUBE_API</code> is chosen, then get APIKEY for youtube data api from google developer console and store it in a file called <code>.youtube_api_key</code> in project root folder.</p>
-</li>
-<li>
-<p>From the project root folder, run the following command:</p>
-<p><code>scrapy crawl datacollector_youtube --set=ITEM_PIPELINES='{"data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline": 1}'</code></p>
-</li>
-<li>
-<p>This will start fetching the videos from youtube for the given channels and download them to bucket.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>To download by using youtube-utils service, do the following:</p>
-<ul>
-<li>
-<p>Open <code>data_acqusition_framework/configs/youtube_pipeline_config.py</code> and do the following:</p>
-<ul>
-<li>Assign <code>channel_url_dict = {}</code>(If not empty, will not work).</li>
-<li>Set <code>youtube_service_to_use</code> variable value to either <code>YoutubeService.YOUTUBE_DL</code> or <code>YoutubeService.YOUTUBE_API</code> for collecting video info.</li>
-<li>If <code>YoutubeService.YOUTUBE_API</code> is chosen, then get APIKEY for youtube data api from google developer console and store it in a file called <code>.youtube_api_key</code> in project root folder.</li>
-</ul>
-</li>
-<li>
-<p>Open <code>data_acqusition_framework/configs/youtube_api_config.json</code> and change the fields to your requirements.(For more info: check above in Youtube api configuration)</p>
-</li>
-<li>
-<p>From the project root folder, run the following command:</p>
-<p><code>scrapy crawl datacollector_youtube --set=ITEM_PIPELINES='{"data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline": 1}'</code></p>
-</li>
-<li>
-<p>This will start fetching the videos from youtube for the given channels and download them to bucket.</p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="youtube-spider-in-file-mode">Youtube spider in file mode:</h4>
-<ol>
-<li>
-<p>In <code>data_acqusition_framework/configs</code>, do the following:</p>
-<ul>
-<li>
-<p>Open <code>config.json</code> and change <code>language</code> and <code>type</code> to your respective use case.</p>
-</li>
-<li>
-<p>Open <code>storage_config.json</code> and change <code>bucket</code> and <code>channel_blob_path</code> to your respective gcp paths.(For more info on these fields, scroll above to Bucket configuration)</p>
-</li>
-<li>
-<p>Open <code>youtube_pipeline_config.py</code> and do the following:</p>
-<ul>
-<li>change <code>mode</code> to <code>file</code>(eg: mode='file').</li>
-<li>change <code>source_name</code> to your requirement so that videos get downloaded to that folder in google storage bucket. </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Next Steps:</p>
-<ul>
-<li>
-<p>Create a file in the following format:</p>
-<p>eg. <code>source_name.csv</code> with content (license column is optional):
- Here <code>source_name</code> in <code>source_name.csv</code> is the name you gave in youtube_pipeline_config.py file. It should be the same.</p>
-<p><code>video_url,speaker_name,speaker_gender,license
-    https://www.youtube.com/watch?v=K1vW_ZikA5o,Ram_Singh,male,Creative Commons
-    https://www.youtube.com/watch?v=o82HIOgozi8,John_Doe,male,Standard Youtube
-    ...</code></p>
-</li>
-<li>
-<p>Now to upload this file to google cloud storage do the following:</p>
-<ul>
-<li>Open the <code>channel_blob_path</code> folder that you gave in <code>storage_config.json</code> and create a folder there named <code>data_to_be_scraped</code>.</li>
-<li>Upload the file that you created with previous step to this folder.</li>
-</ul>
-</li>
-<li>
-<p>From the project root folder, run the following command:</p>
-<p><code>scrapy crawl datacollector_youtube --set=ITEM_PIPELINES='{"data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline": 1}'</code></p>
-</li>
-<li>
-<p>This will start fetching the videos mentioned in the file from youtube and download them to bucket.</p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="bing-spider">Bing Spider</h4>
-<ul>
-<li>
-<p>Configure <code>data_acquisition_framework/configs/web_crawl_config.json</code> for your requirements.</p>
-</li>
-<li>
-<p>Starting datacollector_bing spider with audio pipeline.</p>
-<ul>
-<li>
-<p>From project root folder, run the following:</p>
-<p><code>scrapy crawl datacollector_bing</code></p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="urls-spider">Urls Spider</h4>
-<ul>
-<li>
-<p>Configure <code>data_acquisition_framework/configs/web_crawl_config.json</code> for your requirements.</p>
-</li>
-<li>
-<p>Starting datacollector_urls spider with audio pipeline.</p>
-<ul>
-<li>Make sure to put the urls to crawl in the <code>data_acquisition_framework/urls.txt</code>.</li>
-<li>
-<p>From project root folder, run the following:</p>
-<p><code>scrapy crawl datacollector_urls</code></p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="selenium-google-crawler">Selenium google crawler</h4>
-<ul>
-<li>
-<p>It is capable of crawling search results of google for a given language and exporting them to urls.txt file. This urls.txt file can be used with datacollector_urls spider to crawl all the search results website and download the media along with their metadata.</p>
-</li>
-<li>
-<p>A specified Readme can be found in selenium_google_crawler folder. <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/selenium_google_crawler/Readme.md">Readme for selenium google crawler</a></p>
-</li>
-</ul>
-<h4 id="selenium-youtube-crawler-for-file-mode-and-api-mode">Selenium youtube crawler for file mode and api mode</h4>
-<ul>
-<li>
-<p>It is capable of crawling youtube videos using youtube api or from a list of files with youtube video ids provided with channel name as filename.</p>
-</li>
-<li>
-<p>A specified Readme can be found in selenium_youtube_crawler folder. <a href="https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/selenium_youtube_crawler/Readme.md">Readme for selenium youtube crawler</a></p>
-</li>
-</ul>
-<!-- CONTRIBUTING -->
-<h2 id="contributing">Contributing</h2>
-<p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p>
-<ol>
-<li>Fork the Project</li>
-<li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li>
-<li>Commit your Changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li>
-<li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li>
-<li>Open a Pull Request</li>
-</ol>
-<!-- LICENSE -->
-<h2 id="license">License</h2>
-<p>Distributed under the [XYZ] License. See <code>LICENSE</code> for more information.</p>
-<!-- CONTACT -->
-<h2 id="contact">Contact</h2>
-<p>Your Name - <a href="https://twitter.com/your_username">@your_twitter</a> - email@example.com</p>
-<p>Project Link: <a href="https://github.com/your_username/repo_name">https://github.com/your_username/repo_name</a></p>
-<!-- ACKNOWLEDGEMENTS -->
-<h2 id="acknowledgements">Acknowledgements</h2>
-<ul>
-<li><a href="https://github.com/scrapy/scrapy">Scrapy</a></li>
-<li><a href="https://github.com/ytdl-org/youtube-dl">YouTube-dl</a></li>
-<li><a href="https://github.com/devsnd/tinytag">TinyTag</a></li>
-</ul></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div>
-
-    </body>
-</html>
+<span class=m>1</span>. In channel_url_dict, the keys must be the urls and values must be their channel names
+<span class=m>2</span>. To get list of channels from youtube API, channel_url_dict must be empty
+</code></pre></div></li> </ul> <h4 id=youtube-api-configuration>Youtube API configuration<a class=headerlink href=#youtube-api-configuration title="Permanent link">&para;</a></h4> <ul> <li>Automated Youtube fetching configuration in <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/youtube_api_config.json>youtube_api_config.json</a> <div class=highlight><pre><span></span><code><span class=c1># Youtube API configurations</span>
+<span class=s2>&quot;language&quot;</span> : <span class=s2>&quot;hindi&quot;</span>,                             Type of language <span class=k>for</span> which search results are required.
+<span class=s2>&quot;language_code&quot;</span>: <span class=s2>&quot;hi&quot;</span>,                            Language code <span class=k>for</span> the specified language.
+<span class=s2>&quot;keywords&quot;</span>:<span class=o>[</span>                                      The search keywords to be given <span class=k>in</span> youtube API query
+    <span class=s2>&quot;audio&quot;</span>,
+    <span class=s2>&quot;speech&quot;</span>,
+    <span class=s2>&quot;talk&quot;</span>
+<span class=o>]</span>,
+<span class=s2>&quot;words_to_ignore&quot;</span>:<span class=o>[</span>                               The words that are to be ignored <span class=k>in</span> youtube API query
+    <span class=s2>&quot;song&quot;</span>,
+    <span class=s2>&quot;music&quot;</span>
+<span class=o>]</span>,
+<span class=s2>&quot;max_results&quot;</span>: <span class=m>20</span>                                 Maximum number of channels or results that is required.
+</code></pre></div></li> </ul> <h4 id=web-crawl-configuration>Web Crawl Configuration<a class=headerlink href=#web-crawl-configuration title="Permanent link">&para;</a></h4> <ul> <li>web crawl configuration in <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/configs/web_crawl_config.py>web_crawl_config.json</a> (Use this only for datacollector_bing and datacollector_urls spider) <div class=highlight><pre><span></span><code><span class=s2>&quot;language&quot;</span>: <span class=s2>&quot;gujarati&quot;</span>,                           Language to be crawled
+<span class=s2>&quot;language_code&quot;</span>: <span class=s2>&quot;gu&quot;</span>,                            Language code <span class=k>for</span> the specified language.
+<span class=s2>&quot;keywords&quot;</span>: <span class=o>[</span>                                     Keywords to query
+    <span class=s2>&quot;talks audio&quot;</span>,
+    <span class=s2>&quot;audiobooks&quot;</span>,
+    <span class=s2>&quot;speeches&quot;</span>,
+<span class=o>]</span>,
+<span class=s2>&quot;word_to_ignore&quot;</span>: <span class=o>[</span>                               Words to ignore <span class=k>while</span> crawling
+    <span class=s2>&quot;ieeexplore.ieee.org&quot;</span>,
+    <span class=s2>&quot;dl.acm.org&quot;</span>,
+    <span class=s2>&quot;www.microsoft.com&quot;</span>
+<span class=o>]</span>,
+<span class=s2>&quot;extensions_to_ignore&quot;</span>: <span class=o>[</span>                         Formats/extensions to ignore <span class=k>while</span> crawling
+    <span class=s2>&quot;.jpeg&quot;</span>,
+    <span class=s2>&quot;xlsx&quot;</span>,
+    <span class=s2>&quot;.xml&quot;</span>
+<span class=o>]</span>,
+<span class=s2>&quot;extensions_to_include&quot;</span>: <span class=o>[</span>                        Formats/extensions to include <span class=k>while</span> crawling
+    <span class=s2>&quot;.mp3&quot;</span>,
+    <span class=s2>&quot;.wav&quot;</span>,
+    <span class=s2>&quot;.mp4&quot;</span>,
+<span class=o>]</span>,
+<span class=s2>&quot;pages&quot;</span>: <span class=m>1</span>,                                       Number of pages to crawl
+<span class=s2>&quot;depth&quot;</span>: <span class=m>1</span>,                                       Nesting depth <span class=k>for</span> each website
+<span class=s2>&quot;continue_page&quot;</span>: <span class=s2>&quot;NO&quot;</span>,                            Field to <span class=k>continue</span>/resume crawling
+<span class=s2>&quot;last_visited&quot;</span>: <span class=m>200</span>,                              Last visited results count
+<span class=s2>&quot;enable_hours_restriction&quot;</span>: <span class=s2>&quot;YES&quot;</span>,                Restrict crawling based on hours of data collected
+<span class=s2>&quot;max_hours&quot;</span>: <span class=m>1</span>                                    Maximum hours to crawl
+</code></pre></div></li> </ul> <h4 id=adding-new-spider>Adding new spider<a class=headerlink href=#adding-new-spider title="Permanent link">&para;</a></h4> <p>As we already mentioned our framework is extensible for any new source. To add a new source user just need to write a spider for that source.<br>To add a spider you can follow the scrapy <a href=https://docs.scrapy.org/en/latest/intro/tutorial.html>documentation</a> or you can check our <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/data_acquisition_framework/spiders/datacollector_music.py>sample</a> spider. </p> <!-- RUNNING THE SERVICES --> <h2 id=running-services>Running services<a class=headerlink href=#running-services title="Permanent link">&para;</a></h2> <p>Make sure the google credentials are present in project root folder in credentials.json file.</p> <h4 id=youtube-spider-in-channel-mode>Youtube spider in channel mode:<a class=headerlink href=#youtube-spider-in-channel-mode title="Permanent link">&para;</a></h4> <ol> <li> <p>In <code>data_acqusition_framework/configs</code>, do the following:</p> <ul> <li> <p>Open <code>config.json</code> and change <code>language</code> and <code>type</code> to your respective use case.</p> </li> <li> <p>Open <code>storage_config.json</code> and change <code>bucket</code> and <code>channel_blob_path</code> to your respective gcp paths.(For more info on these fields, scroll above to Bucket configuration)</p> </li> <li> <p>Open <code>youtube_pipeline_config.py</code> and change mode to channel<code>(eg: mode='channel')</code></p> </li> </ul> </li> <li> <p>There are two ways to download videos of youtube channels:</p> <ul> <li> <p>You can hardcode the channel url and channel name.</p> </li> <li> <p>You can use youtube-utils service(youtube-dl/youtube data api) to fetch channels and its respective videos information.</p> </li> </ul> </li> <li> <p>To download by hardcoding the channel urls, do the following:</p> <ul> <li> <p>Open <code>data_acqusition_framework/configs/youtube_pipeline_config.py</code> and do the following:</p> </li> <li> <p>Add the channel_urls and its names in <code>channel_url_dict</code> variable.</p> <p><code>eg. channel_url_dict = { "https://www.youtube.com/channel/UC2XEzs5R1mn2wTKgtjuMxiQ": "channel_name_a", "https://www.youtube.com/channel/UC2XEzs5R1mn2wTKgtjuMxiQ":"channel_name_b" }</code></p> </li> <li> <p>Set <code>youtube_service_to_use</code> variable value to either <code>YoutubeService.YOUTUBE_DL</code> or <code>YoutubeService.YOUTUBE_API</code> for collecting video info.</p> </li> <li> <p>If <code>YoutubeService.YOUTUBE_API</code> is chosen, then get APIKEY for youtube data api from google developer console and store it in a file called <code>.youtube_api_key</code> in project root folder.</p> </li> <li> <p>From the project root folder, run the following command:</p> <div class=highlight><pre><span></span><code>scrapy crawl datacollector_youtube --set=ITEM_PIPELINES=&#39;{&quot;data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline&quot;: 1}&#39;
+</code></pre></div> </li> <li> <p>This will start fetching the videos from youtube for the given channels and download them to bucket.</p> </li> </ul> </li> <li> <p>To download by using youtube-utils service, do the following:</p> <ul> <li> <p>Open <code>data_acqusition_framework/configs/youtube_pipeline_config.py</code> and do the following:</p> <ul> <li>Assign <code>channel_url_dict = {}</code>(If not empty, will not work).</li> <li>Set <code>youtube_service_to_use</code> variable value to either <code>YoutubeService.YOUTUBE_DL</code> or <code>YoutubeService.YOUTUBE_API</code> for collecting video info.</li> <li>If <code>YoutubeService.YOUTUBE_API</code> is chosen, then get APIKEY for youtube data api from google developer console and store it in a file called <code>.youtube_api_key</code> in project root folder.</li> </ul> </li> <li> <p>Open <code>data_acqusition_framework/configs/youtube_api_config.json</code> and change the fields to your requirements.(For more info: check above in Youtube api configuration)</p> </li> <li> <p>From the project root folder, run the following command:</p> <div class=highlight><pre><span></span><code> scrapy crawl datacollector_youtube --set=ITEM_PIPELINES=&#39;{&quot;data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline&quot;: 1}&#39;
+</code></pre></div> </li> <li> <p>This will start fetching the videos from youtube for the given channels and download them to bucket.</p> </li> </ul> </li> </ol> <h4 id=youtube-spider-in-file-mode>Youtube spider in file mode:<a class=headerlink href=#youtube-spider-in-file-mode title="Permanent link">&para;</a></h4> <ol> <li> <p>In <code>data_acqusition_framework/configs</code>, do the following:</p> <ul> <li> <p>Open <code>config.json</code> and change <code>language</code> and <code>type</code> to your respective use case.</p> </li> <li> <p>Open <code>storage_config.json</code> and change <code>bucket</code> and <code>channel_blob_path</code> to your respective gcp paths.(For more info on these fields, scroll above to Bucket configuration)</p> </li> <li> <p>Open <code>youtube_pipeline_config.py</code> and do the following:</p> <ul> <li>change <code>mode</code> to <code>file</code>(eg: mode='file').</li> <li>change <code>source_name</code> to your requirement so that videos get downloaded to that folder in google storage bucket. </li> </ul> </li> </ul> </li> <li> <p>Next Steps:</p> <ul> <li> <p>Create a file in the following format:</p> <p>eg. <code>source_name.csv</code> with content (license column is optional): Here <code>source_name</code> in <code>source_name.csv</code> is the name you gave in youtube_pipeline_config.py file. It should be the same.</p> <p><code>video_url,speaker_name,speaker_gender,license https://www.youtube.com/watch?v=K1vW_ZikA5o,Ram_Singh,male,Creative Commons https://www.youtube.com/watch?v=o82HIOgozi8,John_Doe,male,Standard Youtube ...</code></p> </li> <li> <p>Now to upload this file to google cloud storage do the following:</p> <ul> <li>Open the <code>channel_blob_path</code> folder that you gave in <code>storage_config.json</code> and create a folder there named <code>data_to_be_scraped</code>.</li> <li>Upload the file that you created with previous step to this folder.</li> </ul> </li> <li> <p>From the project root folder, run the following command:</p> <div class=highlight><pre><span></span><code> scrapy crawl datacollector_youtube --set=ITEM_PIPELINES=&#39;{&quot;data_acquisition_framework.pipelines.youtube_api_pipeline.YoutubeApiPipeline&quot;: 1}&#39;
+</code></pre></div> </li> <li> <p>This will start fetching the videos mentioned in the file from youtube and download them to bucket.</p> </li> </ul> </li> </ol> <h4 id=bing-spider>Bing Spider<a class=headerlink href=#bing-spider title="Permanent link">&para;</a></h4> <ul> <li> <p>Configure <code>data_acquisition_framework/configs/web_crawl_config.json</code> for your requirements.</p> </li> <li> <p>Starting datacollector_bing spider with audio pipeline.</p> <ul> <li> <p>From project root folder, run the following:</p> <div class=highlight><pre><span></span><code>scrapy crawl datacollector_bing
+</code></pre></div> </li> </ul> </li> </ul> <h4 id=urls-spider>Urls Spider<a class=headerlink href=#urls-spider title="Permanent link">&para;</a></h4> <ul> <li> <p>Configure <code>data_acquisition_framework/configs/web_crawl_config.json</code> for your requirements.</p> </li> <li> <p>Starting datacollector_urls spider with audio pipeline.</p> <ul> <li>Make sure to put the urls to crawl in the <code>data_acquisition_framework/urls.txt</code>.</li> <li> <p>From project root folder, run the following:</p> <div class=highlight><pre><span></span><code>scrapy crawl datacollector_urls
+</code></pre></div> </li> </ul> </li> </ul> <h4 id=selenium-google-crawler>Selenium google crawler<a class=headerlink href=#selenium-google-crawler title="Permanent link">&para;</a></h4> <ul> <li> <p>It is capable of crawling search results of google for a given language and exporting them to urls.txt file. This urls.txt file can be used with datacollector_urls spider to crawl all the search results website and download the media along with their metadata.</p> </li> <li> <p>A specified Readme can be found in selenium_google_crawler folder. <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/selenium_google_crawler/Readme.md>Readme for selenium google crawler</a></p> </li> </ul> <h4 id=selenium-youtube-crawler-for-file-mode-and-api-mode>Selenium youtube crawler for file mode and api mode<a class=headerlink href=#selenium-youtube-crawler-for-file-mode-and-api-mode title="Permanent link">&para;</a></h4> <ul> <li> <p>It is capable of crawling youtube videos using youtube api or from a list of files with youtube video ids provided with channel name as filename.</p> </li> <li> <p>A specified Readme can be found in selenium_youtube_crawler folder. <a href=https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/selenium_youtube_crawler/Readme.md>Readme for selenium youtube crawler</a></p> </li> </ul> <!-- CONTRIBUTING --> <h2 id=contributing>Contributing<a class=headerlink href=#contributing title="Permanent link">&para;</a></h2> <p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p> <ol> <li>Fork the Project</li> <li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li> <li>Commit your Changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li> <li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li> <li>Open a Pull Request</li> </ol> <!-- LICENSE --> <h2 id=license>License<a class=headerlink href=#license title="Permanent link">&para;</a></h2> <p>Distributed under the [XYZ] License. See <code>LICENSE</code> for more information.</p> <!-- CONTACT --> <h2 id=contact>Contact<a class=headerlink href=#contact title="Permanent link">&para;</a></h2> <p>Your Name - <a href=https://twitter.com/your_username>@your_twitter</a> - <a href=mailto:email@example.com>&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a></p> <p>Project Link: <a href=https://github.com/your_username/repo_name>https://github.com/your_username/repo_name</a></p> <!-- ACKNOWLEDGEMENTS --> <h2 id=acknowledgements>Acknowledgements<a class=headerlink href=#acknowledgements title="Permanent link">&para;</a></h2> <ul> <li><a href=https://github.com/scrapy/scrapy>Scrapy</a></li> <li><a href=https://github.com/ytdl-org/youtube-dl>YouTube-dl</a></li> <li><a href=https://github.com/devsnd/tinytag>TinyTag</a></li> </ul> </article> </div> </div> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=.. class="md-footer__link md-footer__link--prev" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> Home </div> </div> </a> <a href=../intelligent_data_pipelines/ class="md-footer__link md-footer__link--next" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> Intelligent Data Pipeline </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright &copy; 2016 - 2021 Martin Donath </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> <div class=md-footer-social> <a href=https://github.com/squidfunk target=_blank rel=noopener title=github.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </a> <a href=https://gitter.im/squidfunk/mkdocs-material target=_blank rel=noopener title=gitter.im class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 384 512"><path d="M66.4 322.5H16V0h50.4v322.5zM166.9 76.1h-50.4V512h50.4V76.1zm100.6 0h-50.4V512h50.4V76.1zM368 76h-50.4v247H368V76z"/></svg> </a> <a href=https://hub.docker.com/r/squidfunk/mkdocs-material/ target=_blank rel=noopener title=hub.docker.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 640 512"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg> </a> <a href=https://twitter.com/squidfunk target=_blank rel=noopener title=twitter.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg> </a> <a href=https://linkedin.com/in/squidfunk/ target=_blank rel=noopener title=linkedin.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg> </a> <a href=https://instagram.com/squidfunk target=_blank rel=noopener title=instagram.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "..", "features": ["navigation.sections", "navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script> <script src=../assets/javascripts/bundle.7865d441.min.js></script> </body> </html>

@@ -198,9 +198,10 @@ nav:
               - "Crowdsourcing Platform": "crowdsource_platform.md"
               - "Architecture Decision Records": "adr.md"
       - About:
-              - "License": LICENSE
               - "Contributions": CONTRIBUTING.md
               - "Release notes": RELEASE_NOTES.md
+              - "License": LICENSE
+              
 
 
 # Google Analytics

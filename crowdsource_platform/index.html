@@ -128,6 +128,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#dashboard-design" class="nav-link">Dashboard Design</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#cicd" class="nav-link">CI/CD</a>
               <ul class="nav flex-column">
               </ul>
@@ -183,6 +187,7 @@
 </li>
 <li><a href="#architecture">Architecture</a></li>
 <li><a href="#languages-and-tools">Languages and Tools</a></li>
+<li><a href="#dashboard-design">Dashboard Design</a></li>
 <li><a href="#cicd">CI/CD</a></li>
 <li><a href="#infrastructure-as-code">Infrastructure as Code</a></li>
 <li><a href="#getting-started">Getting Started</a><ul>
@@ -233,9 +238,25 @@ Crowdsourcing Platform’s developer documentation is meant for its adopters, de
 <p><img alt="Architecture" src="../img/crowdsource/arch.png" /></p>
 <h2 id="languages-and-tools">Languages and Tools</h2>
 <p><img alt="Languages and Tools" src="../img/crowdsource/lang.png" /></p>
+<h2 id="dashboard-design">Dashboard Design</h2>
+<p><img alt="Dashboard Design" src="../img/crowdsource/dashboard_arch.png" /></p>
+<ul>
+<li>The transactional tables and view tables are kept separate.</li>
+<li><img alt="Materialized views" src="(https://www.postgresql.org/docs/9.3/rules-materializedviews.html)" /> are used which holds the data as well. This avoids on the fly computations for aggregation for each query.</li>
+<li>The materizaled view are refreshed every 4 hours</li>
+<li>As a part of the refresh job, the aggregated data is dumped as json that is be served directly via CDN.</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>Faster reads: Separate view with only 365 aggregated data points per year.</li>
+<li>Less overhead on DB as data queried is on a very small data set and served from S3 buckets</li>
+<li>Transactional tables are optimized for faster writes as we have separate views for reads</li>
+<li>Simplified read queries as complexity is abstracted in views </li>
+<li>AWS RDS managed DB. Can be scaled horizontally and vertically easily if required in future.</li>
+</ul>
 <h2 id="cicd">CI/CD</h2>
 <ul>
-<li>CircleCI is used for CI/CD. </li>
+<li><img alt="CircleCI" src="https://app.circleci.com/pipelines/github/Open-Speech-EkStep/crowdsource-dataplatform" /> is used for CI/CD.</li>
 <li>Unit tests are run continously for each commit</li>
 <li>Functional Tests are run continously for each commit and act as one if the quality gates before Production deployment</li>
 <li>Automated deployment to K8s for multiple environments</li>

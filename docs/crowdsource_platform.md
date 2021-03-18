@@ -347,6 +347,7 @@ Please reach out to srajat@thoughtworks or heerabal@thoughtworks.com for more in
 ## Running cost estimates
 
 ```txt
+Cloud : AWS
 Amazon RDS (4 CPU): $400 
 WAF: $30
 EKS + Fargate: $75 + $225 = $300
@@ -358,7 +359,7 @@ Total: ~ $1100-1200 per month
 
 ## Architecture Decision Records
 
-Decicion records are maintained [HERE](https://open-speech-ekstep.github.io/adr)
+Decision records are maintained [HERE](https://open-speech-ekstep.github.io/adr)
 
 - [Cache above RDBMS](https://open-speech-ekstep.github.io/adr/#caching-layer-above-rdbms)
   

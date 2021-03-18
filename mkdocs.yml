@@ -19,21 +19,19 @@
 # IN THE SOFTWARE.
 
 # Project information
-site_name: Material for MkDocs
-site_url: https://squidfunk.github.io/mkdocs-material/
-site_author: Martin Donath
+site_name: Vakyansh
+site_url: https://open-speech-ekstep.github.io/
+site_author: Ekstep
 site_description: >-
-  Create a branded static site from a set of Markdown files to host the
-  documentation of your Open Source or commercial project – customizable,
-  searchable, mobile-friendly, 40+ languages
+  Create ASR using Wav2vec
 
 # Repository
-repo_name: squidfunk/mkdocs-material
-repo_url: https://github.com/squidfunk/mkdocs-material
+repo_name: Open-Speech-EkStep
+repo_url: https://github.com/Open-Speech-EkStep
 edit_uri: ""
 
 # Copyright
-copyright: Copyright &copy; 2016 - 2021 Martin Donath
+copyright: Copyright &copy; 2021 Vakyansh
 
 # Configuration
 theme:

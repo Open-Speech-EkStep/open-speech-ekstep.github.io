@@ -3,10 +3,14 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-- [Crowdsourcing Platform](#crowdsource_platform)
+- [Crowdsourcing Platform](#crowdsourcing-platform)
   - [Table of Contents](#table-of-contents)
   - [About The Project](#about-the-project)
     - [Built With](#built-with)
+  - [Architecture](#architecture)
+  - [Languages and Tools](#languages-and-tools)
+  - [CI/CD](#cicd)
+  - [Infrastructure as Code](#infrastructure-as-code)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
@@ -17,6 +21,13 @@
       - [Bucket configuration](#bucket-configuration)
       - [Environment file configurations](#environment-file-configurations)
   - [Running services](#running-services)
+  - [Testing](#testing)
+    - [Unit Tests](#unit-tests)
+    - [Functional Test](#functional-test)
+    - [Scalabiity Test](#scalabiity-test)
+    - [Load Test](#load-test)
+    - [Security](#security)
+    - [Running cost estimates](#running-cost-estimates)
   - [Contributing](#contributing)
   - [License](#license)
   - [Contact](#contact)
@@ -41,20 +52,37 @@ The Developer documentation provides you with a complete set of guidelines which
 * Contribute to Crowdsourcing Platform
 
 
-
-
 ### Built With
 We have used Node.js to build this platform.
 * [Node](https://nodejs.org/)
+
+## Architecture
+
+![Architecture](img/crowdsource/arch.png)
+
+## Languages and Tools
+![Languages and Tools](img/crowdsource/lang.png)
+
+## CI/CD
+- CircleCI is used for CI/CD. 
+- Unit tests are run continously for each commit
+- Functional Tests are run continously for each commit and act as one if the quality gates before Production deployment
+- Automated deployment to K8s for multiple environments
+- Database schema changes are done continously and automatically
+- Trunk based developement is followed
+  
+![CI/CD Pipeline](img/crowdsource/cicd.png)
+
+
+## Infrastructure as Code
+- Infrastructure defined in code with Terraform and shell scripts
+- Easily migrate to another AWS account
+- Spin up new env easily
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 To get started install the prerequisites and clone the repo to machine on which you wish to run the application.
-
-## Architecture
-
-![Architecture](img/crowdsource_arch.png)
 
 ### Prerequisites
 1. Install `node` library using commands mentioned below.
@@ -154,6 +182,112 @@ To run application using a AWS cloud bucket
 npm run aws
 ```
 
+## Testing
+
+### Unit Tests
+
+Unit tests can be run using below command
+
+```sh
+npm test
+```
+
+### Functional Test
+
+Functional tests can be run using below command
+
+```sh
+npm run functional_test -- --env (test|dev)
+```
+
+### Scalabiity Test
+
+Scalabiity tests performed to verify that the system is elastically scalable
+Below tests were performed
+
+```txt
+Test Objective: Scalability Test - Validate elastic scalability
+Resource Configuration:
+  Environment: Dev
+  Pod resources: 0.25 CPU/ 250M RAM
+  Horizontal Pod Autoscaler : 
+    Scaling Threshold - 10% CPU Utilization
+    Min pods: 1
+    Max Pods: 10
+
+Test configuration:
+  Number of concurrent users: 1000
+  Total Requests : 15000
+
+Expected: Pods should scale if load increases and CPU utilization goes beyond 10% and should scale down after 5 mins
+Actual : Pods were scaled up after the CPU utilization went past 10%. Time to scale to desired state was around 2-3 mins
+
+```
+Result: - ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `PASSED`
+
+As surge started, pods started spinning up
+![Scalability Test](img/crowdsource/scale1.png)
+
+![Scalability Test](img/crowdsource//scale2.png)
+
+### Load Test
+
+Load testing is performed to verify the system is able to handle 5K concurrent users without much impact on latency
+
+```txt
+Test Objective: Load Test - Validate if application can handle 5K concurrent users
+
+Resource Configuration:
+  Environment: Test
+  Initial Pods: 3
+  Pod resources: 2 CPU/ 2GB RAM
+  Horizontal Pod Autoscaler : 
+    Scaling Threshold - 40% CPU Utilization
+    Min pods: 3 , Max Pods: 10
+
+Test configuration:
+Number of concurrent users: 20000
+Requests per user : 3
+Ramp up time: 10 sec
+Iterations: 3
+```
+
+ELB stats:
+![ELB metrics](img/crowdsource/elb_stats.png)
+
+Database stats:
+![Database metrics](img/crowdsource//db_stats.png)
+
+Summary:
+
+Result: - ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `PASSED`
+
+```txt
+- This test had 20000 users ramped up within 1 min (3 times). The test was performed from a single machine to 20K concurrent users could scale in 1 min.
+- All the requests were served within initial resources, no scaling was triggered.
+- All three endpoints served response in around 2 sec on an average.
+- The system was able to handle upto 12K concurrent users.
+- There were some errors thrown by AWS Load balancer may be due to single IP requests.
+- Database could handle the load and no connection leak is observed
+```
+
+### Security
+
+We take Security as first step towards building the application.
+The OWASP top 10 are ingrained in the application security DNA.
+Please reach out to srajat@thoughtworks or heerabal@thoughtworks.com for more information around Security
+
+### Running cost estimates
+
+```txt
+Amazon RDS (4 CPU): $400 
+WAF: $30
+EKS + Fargate: $75 + $225 = $300
+ELB: $150
+Others: $200
+
+Total: ~ $1100-1200 per month
+```
 
 <!-- CONTRIBUTING -->
 ## Contributing

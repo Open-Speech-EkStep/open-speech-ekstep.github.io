@@ -9,6 +9,7 @@
     - [Built With](#built-with)
   - [Architecture](#architecture)
   - [Languages and Tools](#languages-and-tools)
+  - [Dashboard Design](#dashboard-design)
   - [CI/CD](#cicd)
   - [Infrastructure as Code](#infrastructure-as-code)
   - [Getting Started](#getting-started)
@@ -61,20 +62,39 @@ We have used Node.js to build this platform.
 ![Architecture](img/crowdsource/arch.png)
 
 ## Languages and Tools
+
 ![Languages and Tools](img/crowdsource/lang.png)
 
+## Dashboard Design
+
+![Dashboard Design](img/crowdsource/dashboard_arch.png)
+
+- The transactional tables and view tables are kept separate.
+- ![Materialized views]((https://www.postgresql.org/docs/9.3/rules-materializedviews.html)) are used which holds the data as well. This avoids on the fly computations for aggregation for each query.
+- The materizaled view are refreshed every 4 hours
+- As a part of the refresh job, the aggregated data is dumped as json that is be served directly via CDN.
+
+Advantages:
+
+- Faster reads: Separate view with only 365 aggregated data points per year.
+- Less overhead on DB as data queried is on a very small data set and served from S3 buckets
+- Transactional tables are optimized for faster writes as we have separate views for reads
+- Simplified read queries as complexity is abstracted in views 
+- AWS RDS managed DB. Can be scaled horizontally and vertically easily if required in future.
+
 ## CI/CD
-- CircleCI is used for CI/CD. 
+
+- ![CircleCI](https://app.circleci.com/pipelines/github/Open-Speech-EkStep/crowdsource-dataplatform) is used for CI/CD.
 - Unit tests are run continously for each commit
 - Functional Tests are run continously for each commit and act as one if the quality gates before Production deployment
 - Automated deployment to K8s for multiple environments
 - Database schema changes are done continously and automatically
 - Trunk based developement is followed
-  
+
 ![CI/CD Pipeline](img/crowdsource/cicd.png)
 
-
 ## Infrastructure as Code
+
 - Infrastructure defined in code with Terraform and shell scripts
 - Easily migrate to another AWS account
 - Spin up new env easily

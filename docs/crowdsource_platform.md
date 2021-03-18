@@ -22,7 +22,7 @@
       - [Bucket configuration](#bucket-configuration)
       - [Environment file configurations](#environment-file-configurations)
   - [Running services](#running-services)
-  - [Database migrations](#databbase-migrations)
+  - [Database migrations](#database-migrations)
   - [Testing](#testing)
     - [Unit Tests](#unit-tests)
     - [Functional Test](#functional-test)
@@ -384,8 +384,6 @@ Distributed under the [MIT] License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
 Project Link: [https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/](https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/)
 

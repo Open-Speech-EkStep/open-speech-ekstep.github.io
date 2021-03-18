@@ -22,6 +22,7 @@
       - [Bucket configuration](#bucket-configuration)
       - [Environment file configurations](#environment-file-configurations)
   - [Running services](#running-services)
+  - [Database migrations](#databbase-migrations)
   - [Testing](#testing)
     - [Unit Tests](#unit-tests)
     - [Functional Test](#functional-test)
@@ -203,6 +204,44 @@ To run application using a AWS cloud bucket
 ```
 npm run aws
 ```
+
+## Database migrations
+
+[This](https://www.npmjs.com/package/db-migrate) package is used to do migrations.
+
+To create the current database structure in your postgres instance, run the following command:
+
+```
+db-migrate up
+```
+
+It would read the configurations from the path
+
+```
+migations/config/migration_config.json
+```
+
+Once can also run the migrate up command by setting an environment variable
+
+```
+DATABASE_URL=postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}
+```
+
+To add a new migration 
+
+```
+db-migrate create add-new-table
+```
+
+Using the above command with the ```--sqlFile``` flag would create corresponding .sql files in which one can write sql commands to do the operation.
+
+To rollback the last migration, one can 
+
+```
+db-migrate down
+```
+
+Documentation for the package can be found [here](https://db-migrate.readthedocs.io/en/latest/)
 
 ## Testing
 

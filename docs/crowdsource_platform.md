@@ -27,8 +27,8 @@
     - [Functional Test](#functional-test)
     - [Scalabiity Test](#scalabiity-test)
     - [Load Test](#load-test)
-    - [Security](#security)
-    - [Running cost estimates](#running-cost-estimates)
+  - [Security](#security)
+  - [Running cost estimates](#running-cost-estimates)
   - [Contributing](#contributing)
   - [License](#license)
   - [Contact](#contact)
@@ -70,7 +70,7 @@ We have used Node.js to build this platform.
 ![Dashboard Design](img/crowdsource/dashboard_arch.png)
 
 - The transactional tables and view tables are kept separate.
-- ![Materialized views]((https://www.postgresql.org/docs/9.3/rules-materializedviews.html)) are used which holds the data as well. This avoids on the fly computations for aggregation for each query.
+- Materialized views are used which holds the data as well. This avoids on the fly computations for aggregation for each query.
 - The materizaled view are refreshed every 4 hours
 - As a part of the refresh job, the aggregated data is dumped as json that is be served directly via CDN.
 
@@ -84,7 +84,7 @@ Advantages:
 
 ## CI/CD
 
-- ![CircleCI](https://app.circleci.com/pipelines/github/Open-Speech-EkStep/crowdsource-dataplatform) is used for CI/CD.
+- CircleCI is used for CI/CD.
 - Unit tests are run continously for each commit
 - Functional Tests are run continously for each commit and act as one if the quality gates before Production deployment
 - Automated deployment to K8s for multiple environments
@@ -241,9 +241,9 @@ Test configuration:
 
 Expected: Pods should scale if load increases and CPU utilization goes beyond 10% and should scale down after 5 mins
 Actual : Pods were scaled up after the CPU utilization went past 10%. Time to scale to desired state was around 2-3 mins
-
 ```
-Result: - ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `PASSED`
+
+Outcome: ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `PASSED`
 
 As surge started, pods started spinning up
 ![Scalability Test](img/crowdsource/scale1.png)
@@ -272,6 +272,8 @@ Ramp up time: 10 sec
 Iterations: 3
 ```
 
+Outcome: ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `PASSED`
+
 ELB stats:
 ![ELB metrics](img/crowdsource/elb_stats.png)
 
@@ -279,8 +281,6 @@ Database stats:
 ![Database metrics](img/crowdsource//db_stats.png)
 
 Summary:
-
-Result: - ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `PASSED`
 
 ```txt
 - This test had 20000 users ramped up within 1 min (3 times). The test was performed from a single machine to 20K concurrent users could scale in 1 min.
@@ -291,13 +291,13 @@ Result: - ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `PASSE
 - Database could handle the load and no connection leak is observed
 ```
 
-### Security
+## Security
 
 We take Security as first step towards building the application.
 The OWASP top 10 are ingrained in the application security DNA.
 Please reach out to srajat@thoughtworks or heerabal@thoughtworks.com for more information around Security
 
-### Running cost estimates
+## Running cost estimates
 
 ```txt
 Amazon RDS (4 CPU): $400 

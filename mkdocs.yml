@@ -191,7 +191,7 @@ markdown_extensions:
 
 nav:
       - Home: index.md
-      - "User Guide":
+      - "Developer Guides":
               - "Data Collection Pipeine": "data_collection.md"
               - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
               - "Model Training Pipeline": "model_training.md"

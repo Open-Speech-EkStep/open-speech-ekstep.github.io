@@ -30,6 +30,7 @@
       - [Selenium youtube crawler for file mode and api mode](#selenium-youtube-crawler-for-file-mode-and-api-mode)
   - [Contributing](#contributing)
   - [License](#license)
+  - [Git Repository](#git-repository)
   - [Contact](#contact)
   - [Acknowledgements](#acknowledgements)
 
@@ -444,13 +445,16 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the [XYZ] License. See `LICENSE` for more information.
 
 
+## Git Repository
 
-<!-- CONTACT -->
+[https://github.com/Open-Speech-EkStep/data-acquisition-pipeline](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline)
+
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Connect with community on [Gitter](https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+
+
 
 
 

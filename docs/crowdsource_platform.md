@@ -33,6 +33,7 @@
   - [Architecture Decision Records](#architecture-decision-records)
   - [Contributing](#contributing)
   - [License](#license)
+  - [Git repository](#git-repository)
   - [Contact](#contact)
 
 
@@ -373,17 +374,14 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
-<!-- LICENSE -->
 ## License
 
 Distributed under the [MIT] License. See `LICENSE` for more information.
 
-
-
-<!-- CONTACT -->
-## Contact
+## Git repository
 
 Project Link: [https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/](https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/)
 
+## Contact
+
+Connect with community on [Gitter](https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)

@@ -38,6 +38,7 @@
       - [steps to run:](#steps-to-run-3)
   - [Contributing](#contributing)
   - [License](#license)
+  - [Git Repository](#git-repository)
   - [Contact](#contact)
 
 <!-- ABOUT THE PROJECT -->
@@ -455,11 +456,12 @@ We follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 Distributed under the [MIT] License. See [LICENSE](https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline/blob/master/LICENSE) for more information.
 
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+## Git Repository
 
 Project Link: [https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline](https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline)
+
+## Contact
+
+Connect with community on [Gitter](https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 <!-- ACKNOWLEDGEMENTS -->

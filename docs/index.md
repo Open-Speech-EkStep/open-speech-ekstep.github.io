@@ -32,16 +32,17 @@ It would enable people to innovate and improve and build Speech Recognition Mode
 
 Pipelines to collect data in automated way for the language you want
 
-### 2. [Intelligent Data Pipeline](https://open-speech-ekstep.github.io/intelligent_data_pipelines/)
+### 2. [Crowdsourcing Platform](https://open-speech-ekstep.github.io/crowdsource_platform/)
+
+Platform to record and validate voice data from various speakers.
+
+### 3. [Intelligent Data Pipeline](https://open-speech-ekstep.github.io/intelligent_data_pipelines/)
 
 Pipelines to transform raw data and prepare data for model training. They clean, process and balance data for model training
 
-### 3. [Model Training Pipeline](https://open-speech-ekstep.github.io/model_training/)
+### 4. [Model Training Pipeline](https://open-speech-ekstep.github.io/model_training/)
 
 Pipeline to build state of the art Speech Recognition Model using the data provided by Intelligent Data Pipeline
-### 4. [Crowdsourcing Platform](https://open-speech-ekstep.github.io/crowdsource_platform/)
-
-Platform to record and validate voice data from various speakers.
 
 ## Vakyansh Technical Overview
 

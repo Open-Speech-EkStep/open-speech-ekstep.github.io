@@ -54,3 +54,8 @@ The Developer documentation provides you with a complete set of guidelines which
 - Customize Vakyansh
 - Extend Vakyansh
 - Contribute to Vakyansh
+
+## Discussion
+Connect with community on [Gitter](https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+
+[![Gitter](https://badges.gitter.im/Vakyansh/community.svg)](https://gitter.im/Vakyansh/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)

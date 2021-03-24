@@ -380,7 +380,7 @@ Distributed under the [MIT] License. See `LICENSE` for more information.
 
 ## Git repository
 
-Project Link: [https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/](https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/)
+[https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/](https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/)
 
 ## Contact
 

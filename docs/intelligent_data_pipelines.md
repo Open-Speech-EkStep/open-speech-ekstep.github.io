@@ -458,7 +458,7 @@ Distributed under the [MIT] License. See [LICENSE](https://github.com/Open-Speec
 
 ## Git Repository
 
-Project Link: [https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline](https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline)
+[https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline](https://github.com/Open-Speech-EkStep/audio-to-speech-pipeline)
 
 ## Contact
 

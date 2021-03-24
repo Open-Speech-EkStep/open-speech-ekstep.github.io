@@ -2,9 +2,9 @@
 
 ## Table of Contents
 
-- [Caching layer above RDBMS](caching_layer_above_rdbms)
+- [Eliminiate direct RDBMS access](eliminate_direct_rdbs_access)
   
-## Caching layer above RDBMS
+## Eliminiate direct RDBMS access
 
 - Status: Proposed
 - Drivers: Rajat Singhal
@@ -18,16 +18,30 @@ Technical Story: [ticket/issue URL]
 
 Currently, the application service directly talks with RDBMS to fetch the sentences shown while doing Contributions and to fetch contributions while doing the Validations.
 
-The sentences and contributions are fetched in batches to avoid hitting the databse frequently. When the application will scale, there may be some contention at RDBMS layer.
+When the application will scale and more features are added, there may be some contention at RDBMS layer.
 
-To avoid that having a Cache above the RDBS layer is being considered
+### Architecture change
 
-### Considered Options
+- Add cache layer over RDMS for faster reads
+- Write to topics asynchronously for faster writes
+- Audio processing like 'automatic validation', 'SNR' etc can be done in 'contribution processor'
+- Contribution processor can be in any other langauge like Python which is more suited fo audio processing
+  
+Options for cache : AWS ElasticCache - Redis
+Options for queue: AWS Kafka, Redis, AWS SNS, AWS Kinesis
 
-### Decision Outcome
+![ADR](img/crowdsource/adr1.png)
 
 #### Positive Consequences
 
+- RDBMS will be off loaded from frequent reads and writes
+- Users will get better better performance
+- System will be able to scale easily
+
 #### Negative Consequences
 
-### Pros and Cons of the Options
+- Overhead of maintaining cache and queue system
+- The user experience will have to change for async behaviour of the system
+
+### Decision Outcome
+

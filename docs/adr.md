@@ -6,15 +6,16 @@
 
 ## Table of Contents
 
-- [Eliminite direct RDBMS access](#eliminate_direct_rdbs_access)
+- [Crowd Sourcing: Eliminate direct RDBMS access: IN_PROGRESS](#crowd-sourcing-eliminate-direct-rdbms-access)
+- [Continous Intelligent Data Pipelines: PROPOSED](#continous-intelligent-data-pipelines)
   
-## Eliminite direct RDBMS access
+## Crowd Sourcing: Eliminate direct RDBMS access
 
 - Status: PROPOSED
 - Deciders: [Rajat Singhal](https://github.com/srajat84), Pramod Verma, Vivek Raghavan
 - Date: 2021-03-24
 
-Technical Story: [Eliminiate direct RDBMS access](https://project-sunbird.atlassian.net/browse/SOC-2)
+Technical Story: [Eliminate direct RDBMS access](https://project-sunbird.atlassian.net/browse/SOC-2)
 
 ### Context and Problem Statement
 
@@ -22,7 +23,7 @@ Currently, the application service directly talks with RDBMS to fetch the senten
 
 When the application will scale and more features are added, there may be some contention at RDBMS layer.
 
-### Architecture change
+### Solutions
 
 - Add cache layer over RDMS for faster reads
 - Write to topics asynchronously for faster writes
@@ -50,3 +51,17 @@ Choices:
 ### Decision Outcome
 
 WIP
+
+## Continous Intelligent Data Pipelines
+
+- Status: PROPOSED
+- Deciders: [Rajat Singhal](https://github.com/srajat84), Pramod Verma, Vivek Raghavan
+- Date: 2021-03-24
+
+Technical Story: [Continous Intelligent Data Pipelines](https://project-sunbird.atlassian.net/browse/SOC-3)
+
+### Context and Problem Statement
+
+### Solutions
+
+### Decision Outcome

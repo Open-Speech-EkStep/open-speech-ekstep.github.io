@@ -26,8 +26,6 @@ When the application will scale and more features are added, there may be some c
 
 - Add cache layer over RDMS for faster reads
 - Write to topics asynchronously for faster writes
-- Audio processing like 'automatic validation', 'SNR' etc can be done in 'Contributions processor'
-- Contribution processor can be in any other langauge like Python which is more suited for audio processing
 
 Choices:
 
@@ -41,11 +39,13 @@ Choices:
 - RDBMS will be off loaded from frequent reads and writes
 - Users will experience lower latency
 - System will be able to scale easily at data layer
+- Audio processing like 'automatic validation', 'SNR' etc can be done in 'Contributions processor'
+- Contribution processor can be in any other langauge like Python which is more suited for audio processing
 
 #### Negative Consequences
 
 - Overhead of maintaining cache and queue system
-- The user experience will have to change for async behaviour of the system
+- The user experience will have to change due to async behaviour of the system
 
 ### Decision Outcome
 

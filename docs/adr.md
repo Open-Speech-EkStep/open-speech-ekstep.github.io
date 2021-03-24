@@ -1,18 +1,20 @@
 # Architecture Decision Records
 
+## Discuss
+
+[![Gitter](https://badges.gitter.im/Vakyansh/community.svg)](https://gitter.im/Vakyansh/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 ## Table of Contents
 
-- [Eliminiate direct RDBMS access](eliminate_direct_rdbs_access)
+- [Eliminite direct RDBMS access](#eliminate_direct_rdbs_access)
   
-## Eliminiate direct RDBMS access
+## Eliminite direct RDBMS access
 
-- Status: Proposed
-- Drivers: Rajat Singhal
-- Approvers: Pramod Verma, Vivek Raghavan
-- Contributers: Rajat Singhal, Soujyo Sen, Heera Ballabh, Umair Manzoor
-- Date: 2021-03-18
+- Status: PROPOSED
+- Deciders: [Rajat Singhal](https://github.com/srajat84), Pramod Verma, Vivek Raghavan
+- Date: 2021-03-24
 
-Technical Story: [ticket/issue URL]
+Technical Story/Epic: [Eliminiate direct RDBMS access](https://project-sunbird.atlassian.net/browse/SOC-1)
 
 ### Context and Problem Statement
 
@@ -45,3 +47,4 @@ Options for queue: AWS Kafka, Redis, AWS SNS, AWS Kinesis
 
 ### Decision Outcome
 
+WIP

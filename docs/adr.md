@@ -1,16 +1,15 @@
 # Architecture Decision Records
 
-## Discuss
-
-[![Gitter](https://badges.gitter.im/Vakyansh/community.svg)](https://gitter.im/Vakyansh/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-## Table of Contents
-
 - [Crowd Sourcing: Eliminate direct RDBMS access: IN_PROGRESS](#crowd-sourcing-eliminate-direct-rdbms-access)
 - [Cache above RDMS: PROPOSED](#choose-cache-above-rdbms)
 - [Messaging Queue System: PROPOSED](#choose-messaging-queue-system)
 - [Continous Intelligent Data Pipelines: PROPOSED](#continuous-intelligent-data-pipeline)
-  
+
+## Discuss
+
+[![Gitter](https://badges.gitter.im/Vakyansh/community.svg)](https://gitter.im/Vakyansh/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+
 ## **Crowd Sourcing: Eliminate direct RDBMS access**
 
 - Status: IN_PROGRESS

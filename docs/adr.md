@@ -1,6 +1,6 @@
 # Architecture Decision Records
 
-- [Crowd Sourcing: Eliminate direct RDBMS access: IN_PROGRESS](#crowd-sourcing-eliminate-direct-rdbms-access)
+- [Crowdsourcing: Eliminate direct RDBMS access: IN_PROGRESS](#crowdsourcing-platform-eliminate-direct-rdbms-access)
 - [Cache above RDMS: PROPOSED](#choose-cache-above-rdbms)
 - [Messaging Queue System: PROPOSED](#choose-messaging-queue-system)
 - [Continous Intelligent Data Pipelines: PROPOSED](#continuous-intelligent-data-pipeline)
@@ -10,7 +10,7 @@
 [![Gitter](https://badges.gitter.im/Vakyansh/community.svg)](https://gitter.im/Vakyansh/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
-## **Crowd Sourcing: Eliminate direct RDBMS access**
+## **Crowdsourcing platform: Eliminate direct RDBMS access**
 
 - Status: IN_PROGRESS
 - Driver(s): [Rajat Singhal](https://github.com/srajat84)
@@ -58,7 +58,7 @@ See [current architecture](https://open-speech-ekstep.github.io/crowdsource_plat
 #### Negative Consequences
 
 - Overhead of maintaining cache and queue system
-- The user experience will have to change due to async behaviour of the system
+- The user experience may change (may be for go) due to async behaviour of the system
 
 ### Decision Outcome
 

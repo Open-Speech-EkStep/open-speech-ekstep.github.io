@@ -30,8 +30,8 @@ See [current architecture](https://open-speech-ekstep.github.io/crowdsource_plat
 
 ### Solutions
 
-- Add cache layer over RDMS for faster reads
-- Write to topics asynchronously for faster writes
+- Add cache layer over RDMS
+- Write to topics asynchronously
 
 ### Tech Choices
 
@@ -42,6 +42,8 @@ See [current architecture](https://open-speech-ekstep.github.io/crowdsource_plat
 
 ![ADR](img/crowdsource/adr1.png)
 
+- Caching and messages layer can be added incrementally
+
 #### Positive Consequences
 
 - RDBMS will be off loaded from frequent reads and writes
@@ -49,6 +51,9 @@ See [current architecture](https://open-speech-ekstep.github.io/crowdsource_plat
 - System will be able to scale easily at data layer
 - Audio processing like 'automatic validation', 'SNR' etc can be done in 'Contributions processor'
 - Contribution processor can be in any other langauge like Python which is more suited for audio processing
+- If in future, analytics need to be moved to separate data store, rich application domain events can be used rather than crude CDC events.
+- Additional domains can be on boarded easily like 'Likho India' by adding new domain topics, processors and services
+- Can be easily evolved into event driven microservices architecture assuming more features will come onto this platform
 
 #### Negative Consequences
 

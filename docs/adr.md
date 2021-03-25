@@ -7,12 +7,15 @@
 ## Table of Contents
 
 - [Crowd Sourcing: Eliminate direct RDBMS access: IN_PROGRESS](#crowd-sourcing-eliminate-direct-rdbms-access)
-- [Continous Intelligent Data Pipelines: PROPOSED](#continous-intelligent-data-pipelines)
+- [Cache above RDMS: PROPOSED](#choose-cache-above-rdbms)
+- [Messaging Queue System: PROPOSED](#choose-messaging-queue-system)
+- [Continous Intelligent Data Pipelines: PROPOSED](#continuous-intelligent-data-pipeline)
   
 ## **Crowd Sourcing: Eliminate direct RDBMS access**
 
-- Status: PROPOSED
+- Status: IN_PROGRESS
 - Deciders: [Rajat Singhal](https://github.com/srajat84), Pramod Verma, Vivek Raghavan
+- Impact Area: High Level Architecture
 - Date: 2021-03-24
 
 Technical Story: [Eliminate direct RDBMS access](https://project-sunbird.atlassian.net/browse/SOC-2)
@@ -32,8 +35,9 @@ See [current architecture](https://open-speech-ekstep.github.io/crowdsource_plat
 
 Choices:
 
-- For cache : AWS ElasticCache - Redis
-- For queue: AWS Kafka, Redis, AWS SNS, AWS Kinesis
+- For cache : AWS ElasticCache - Redis, Apache Ignite : [ADR](#choose-cache-above-rdbms)
+- For queue: AWS Kafka, AWS Kinesis : [ADR](#choose-messaging-queue-system)
+  Separate ADR raised for tech choices
 
 ![ADR](img/crowdsource/adr1.png)
 
@@ -54,10 +58,55 @@ Choices:
 
 WIP
 
+## **Choose Cache above RDBMS**
+
+- Status: PROPOSED
+- Deciders: [Rajat Singhal](https://github.com/srajat84), Heera Ballabh, Soujyo Sen
+- Impact Area: Tools and frameworks
+- Date: 2021-03-24
+
+Technical Story: []
+
+### Context and Problem Statement
+
+### Options
+
+AWS ElasticCache(Redis), Apache Ignite
+
+### Solutions
+
+### Decision Outcome
+
+```not yet decided```
+
+
+## **Choose messaging queue system**
+
+- Status: PROPOSED
+- Deciders: [Rajat Singhal](https://github.com/srajat84), Heera Ballabh, Soujyo Sen
+- Impact Area: Tools and frameworks
+
+- Date: 2021-03-24
+
+Technical Story: []
+
+### Context and Problem Statement
+
+### Options
+
+Apache Kafka, AWS Kinesis
+
+### Solutions
+
+### Decision Outcome
+
+```not yet decided```
+
 ## **Continuous Intelligent Data Pipeline**
 
 - Status: PROPOSED
 - Deciders: [Rajat Singhal](https://github.com/srajat84), Pramod Verma, Vivek Raghavan
+- Impact Area: High Level Architecture
 - Date: 2021-03-24
 
 Technical Story: [Continous Intelligent Data Pipelines](https://project-sunbird.atlassian.net/browse/SOC-3)

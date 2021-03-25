@@ -9,7 +9,7 @@
 - [Crowd Sourcing: Eliminate direct RDBMS access: IN_PROGRESS](#crowd-sourcing-eliminate-direct-rdbms-access)
 - [Continous Intelligent Data Pipelines: PROPOSED](#continous-intelligent-data-pipelines)
   
-## Crowd Sourcing: Eliminate direct RDBMS access
+## **Crowd Sourcing: Eliminate direct RDBMS access**
 
 - Status: PROPOSED
 - Deciders: [Rajat Singhal](https://github.com/srajat84), Pramod Verma, Vivek Raghavan
@@ -22,6 +22,8 @@ Technical Story: [Eliminate direct RDBMS access](https://project-sunbird.atlassi
 Currently, the application service directly talks with RDBMS to fetch the sentences shown while doing Contributions and to fetch contributions while doing the Validations.
 
 When the application will scale and more features are added, there may be some contention at RDBMS layer.
+
+See [current architecture](https://open-speech-ekstep.github.io/crowdsource_platform/#architecture)
 
 ### Solutions
 
@@ -52,7 +54,7 @@ Choices:
 
 WIP
 
-## Continous Intelligent Data Pipelines
+## **Continuous Intelligent Data Pipeline**
 
 - Status: PROPOSED
 - Deciders: [Rajat Singhal](https://github.com/srajat84), Pramod Verma, Vivek Raghavan

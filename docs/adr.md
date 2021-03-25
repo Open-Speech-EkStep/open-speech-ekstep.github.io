@@ -15,7 +15,6 @@
 - Status: IN_PROGRESS
 - Drivers: [Rajat Singhal](https://github.com/srajat84)
 - Approvers: Pramod Verma, Vivek Raghavan
-- Contributers: Soujyo Sen, Heera Ballabh, Umair Manzoor
 - Impact Area: High Level Architecture
 - Date: 2021-03-24
 

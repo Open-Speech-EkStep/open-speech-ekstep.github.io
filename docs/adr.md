@@ -13,8 +13,8 @@
 ## **Crowd Sourcing: Eliminate direct RDBMS access**
 
 - Status: IN_PROGRESS
-- Drivers: [Rajat Singhal](https://github.com/srajat84)
-- Approvers: Pramod Verma, Vivek Raghavan
+- Driver(s): [Rajat Singhal](https://github.com/srajat84)
+- Approver(s): Pramod Verma, Vivek Raghavan
 - Impact Area: High Level Architecture
 - Date: 2021-03-24
 

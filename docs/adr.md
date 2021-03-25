@@ -42,7 +42,7 @@ See [current architecture](https://open-speech-ekstep.github.io/crowdsource_plat
 
 ![ADR](img/crowdsource/adr1.png)
 
-- Caching and messages layer can be added incrementally
+- Caching and messaging queue layer can be added with small imcremental changes
 
 #### Positive Consequences
 

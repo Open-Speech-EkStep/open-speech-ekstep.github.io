@@ -33,11 +33,12 @@ See [current architecture](https://open-speech-ekstep.github.io/crowdsource_plat
 - Add cache layer over RDMS for faster reads
 - Write to topics asynchronously for faster writes
 
-Choices:
+### Tech Choices
 
 - For cache : AWS ElasticCache - Redis, Apache Ignite : [ADR](#choose-cache-above-rdbms)
 - For queue: AWS Kafka, AWS Kinesis : [ADR](#choose-messaging-queue-system)
-  Separate ADR raised for tech choices
+
+### Proposed Architecture
 
 ![ADR](img/crowdsource/adr1.png)
 

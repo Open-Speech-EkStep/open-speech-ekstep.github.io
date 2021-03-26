@@ -12,11 +12,12 @@
 
 ## **Crowdsourcing platform: Eliminate direct RDBMS access**
 
-- Status: IN_PROGRESS
+- Status: APPROVED
 - Driver(s): [Rajat Singhal](https://github.com/srajat84)
 - Approver(s): Pramod Verma, Vivek Raghavan
 - Impact Area: High Level Architecture
-- Date: 2021-03-24
+- Date created: 2021-03-24
+- Date closed: 2021-03-26
 
 Technical Story: [Eliminate direct RDBMS access](https://project-sunbird.atlassian.net/browse/SOC-2)
 

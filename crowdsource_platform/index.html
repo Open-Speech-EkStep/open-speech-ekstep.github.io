@@ -39,6 +39,7 @@ Test configuration:
 Expected: Pods should scale if load increases and CPU utilization goes beyond 10% and should scale down after 5 mins
 Actual : Pods were scaled up after the CPU utilization went past 10%. Time to scale to desired state was around 2-3 mins
 </code></pre></div> <p>Outcome: <img alt=#c5f015 src="https://via.placeholder.com/15/c5f015/000000?text=+"> <code>PASSED</code></p> <p>As surge started, pods started spinning up <img alt="Scalability Test" src=../img/crowdsource/scale1.png></p> <p><img alt="Scalability Test" src=../img/crowdsource/scale2.png></p> <h3 id=load-test>Load Test<a class=headerlink href=#load-test title="Permanent link">&para;</a></h3> <p>Load testing is performed to verify the system is able to handle 5K concurrent users without much impact on latency</p> <div class=highlight><pre><span></span><code>Test Objective: Load Test - Validate if application can handle 5K concurrent users
+Date: 04/03/2021
 
 Resource Configuration:
   Environment: Test
@@ -47,6 +48,7 @@ Resource Configuration:
   Horizontal Pod Autoscaler : 
     Scaling Threshold - 40% CPU Utilization
     Min pods: 3 , Max Pods: 10
+  Database CPU : 4
 
 Test configuration:
 Number of concurrent users: 20000

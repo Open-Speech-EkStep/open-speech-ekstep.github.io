@@ -303,6 +303,7 @@ Load testing is performed to verify the system is able to handle 5K concurrent u
 
 ```txt
 Test Objective: Load Test - Validate if application can handle 5K concurrent users
+Date: 04/03/2021
 
 Resource Configuration:
   Environment: Test
@@ -311,6 +312,7 @@ Resource Configuration:
   Horizontal Pod Autoscaler : 
     Scaling Threshold - 40% CPU Utilization
     Min pods: 3 , Max Pods: 10
+  Database CPU : 4
 
 Test configuration:
 Number of concurrent users: 20000

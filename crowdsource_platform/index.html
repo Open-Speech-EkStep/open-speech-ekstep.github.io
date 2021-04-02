@@ -53,7 +53,7 @@ Number of concurrent users: 20000
 Requests per user : 3
 Ramp up time: 10 sec
 Iterations: 3
-</code></pre></div> <p>Outcome: <img alt=#c5f015 src="https://via.placeholder.com/15/c5f015/000000?text=+"> <code>PASSED</code></p> <p>ELB stats: <img alt="ELB metrics" src=../img/crowdsource/elb_stats.png></p> <p>Database stats: <img alt="Database metrics" src=../img/crowdsource/db_stats.png></p> <p>Summary:</p> <div class=highlight><pre><span></span><code>- This test had 20000 users ramped up within 1 min (3 times). 
+</code></pre></div> <p>Outcome: <img alt=#c5f015 src="https://via.placeholder.com/15/c5f015/000000?text=+"> <code>PASSED</code></p> <p>ELB stats: <img alt="ELB metrics" src=../img/crowdsource/elb_stats.png></p> <p>Database stats: <img alt="Database metrics" src=../img/crowdsource/db_stats.png></p> <p>Jmeter stats: <img alt="JMeter stats" src=../img/crowdsource/jmeter_stats.png></p> <p>Summary:</p> <div class=highlight><pre><span></span><code>- This test had 20000 users ramped up within 1 min (3 times). 
 - The test was performed from a single machine so 20K concurrent users could scale in 1 min.
 - All the requests were served within initial resources, no scaling was triggered.
 - All three endpoints served response in around 2 sec on an average.

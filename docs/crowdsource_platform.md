@@ -327,6 +327,9 @@ ELB stats:
 Database stats:
 ![Database metrics](img/crowdsource//db_stats.png)
 
+Jmeter stats:
+![JMeter stats](img/crowdsource/jmeter_stats.png)
+
 Summary:
 
 ```txt

@@ -353,6 +353,7 @@ Please reach out to srajat@thoughtworks or heerabal@thoughtworks.com for more in
 ## Running cost estimates
 
 ```txt
+Cloud : AWS
 Amazon RDS (4 CPU): $400 
 WAF: $30
 EKS + Fargate: $75 + $225 = $300
@@ -390,3 +391,6 @@ Distributed under the [MIT] License. See `LICENSE` for more information.
 ## Contact
 
 Connect with community on [Gitter](https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+
+Project Link: [https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/](https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/)
+

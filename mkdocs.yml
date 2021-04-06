@@ -188,21 +188,19 @@ markdown_extensions:
 #       - Upgrading: upgrading.md
 #       - Deprecations: deprecations.md
 
-
 nav:
-      - Home: index.md
-      - "Developer Guides":
-              - "Data Collection Pipeine": "data_collection.md"
-              - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
-              - "Model Training Pipeline": "model_training.md"
-              - "Crowdsourcing Platform": "crowdsource_platform.md"
-              - "Architecture Decision Records": "adr.md"
-      - About:
-              - "Contributions": CONTRIBUTING.md
-              - "Release notes": RELEASE_NOTES.md
-              - "License": LICENSE
-              
-
+  - Home: index.md
+  - "Developer Guides":
+      - "Data Collection Pipeine": "data_collection.md"
+      - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
+      - "Model Training Pipeline": "model_training.md"
+      - "Crowdsourcing Platform": "crowdsource_platform.md"
+      - "Architecture Decision Records": "adr.md"
+      - "Speaker Clustering": "speaker_clustering.md"
+  - About:
+      - "Contributions": CONTRIBUTING.md
+      - "Release notes": RELEASE_NOTES.md
+      - "License": LICENSE
 
 # Google Analytics
 google_analytics:

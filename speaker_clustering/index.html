@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>[short title of solved problem and solution] - Vakyansh</title>
+        <title>Speaker Clustering - Vakyansh</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                             <li class="navitem">
                                 <a href=".." class="nav-link">Home</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -61,7 +61,7 @@
 </li>
                                     
 <li>
-    <a href="../speaker_clustering/" class="dropdown-item">Speaker Clustering</a>
+    <a href="./" class="dropdown-item active">Speaker Clustering</a>
 </li>
                                 </ul>
                             </li>
@@ -90,6 +90,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../adr/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../LICENSE" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -108,29 +118,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#short-title-of-solved-problem-and-solution" class="nav-link">[short title of solved problem and solution]</a>
+            <li class="nav-item" data-level="1"><a href="#speaker-clustering" class="nav-link">Speaker Clustering</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#context-and-problem-statement" class="nav-link">Context and Problem Statement</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#decision-drivers" class="nav-link">Decision Drivers </a>
+            <li class="nav-item" data-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#considered-options" class="nav-link">Considered Options</a>
+            <li class="nav-item" data-level="2"><a href="#about-the-project" class="nav-link">About The Project</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#decision-outcome" class="nav-link">Decision Outcome</a>
+            <li class="nav-item" data-level="2"><a href="#working" class="nav-link">Working</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#pros-and-cons-of-the-options" class="nav-link">Pros and Cons of the Options </a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#links" class="nav-link">Links </a>
+            <li class="nav-item" data-level="2"><a href="#hyperparameters" class="nav-link">Hyperparameters</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -141,69 +143,83 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="short-title-of-solved-problem-and-solution">[short title of solved problem and solution]</h1>
+<h1 id="speaker-clustering">Speaker Clustering</h1>
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents">Table of Contents</h2>
 <ul>
-<li>Status: [proposed | rejected | accepted | deprecated | … | superseded by <a href="0005-example.md">ADR-0005</a>] <!-- optional --></li>
-<li>Deciders: [list everyone involved in the decision] <!-- optional --></li>
-<li>Date: [YYYY-MM-DD when the decision was last updated] <!-- optional --></li>
+<li><a href="#speaker-clustering">Speaker Clustering</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#about-the-project">About The Project</a></li>
+<li><a href="#working">Working</a><ul>
+<li><a href="#embeddings">Embeddings</a></li>
+<li><a href="#clustering-algorithm">Clustering algorithm</a></li>
+<li><a href="#merging-and-splitting">Merging and Splitting</a></li>
+<li><a href="#fitting-noise-points">Fitting Noise points</a></li>
 </ul>
-<p>Technical Story: [description | ticket/issue URL] <!-- optional --></p>
-<h2 id="context-and-problem-statement">Context and Problem Statement</h2>
-<p>[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]</p>
-<h2 id="decision-drivers">Decision Drivers <!-- optional --></h2>
-<ul>
-<li>[driver 1, e.g., a force, facing concern, …]</li>
-<li>[driver 2, e.g., a force, facing concern, …]</li>
-<li>… <!-- numbers of drivers can vary --></li>
+</li>
+<li><a href="#hyperparameters">Hyperparameters</a></li>
 </ul>
-<h2 id="considered-options">Considered Options</h2>
+<!-- ABOUT THE PROJECT -->
+<h2 id="about-the-project">About The Project</h2>
+<p>Speaker Clustering, or identification of spekaers in the wild is mainly useful for audio sources with no mapping between audios and a speaker label/name.</p>
+<p>It is the task of identifying the unique speakers in a set of audio recordings (each belonging to exactly one speaker) without knowing who and how many speakers are present in the entire data. </p>
+<p>Our intelligent data pipelines split each audio, based on Voice Activity Detection, as one of the starting steps. These shorter audio utterances are then used to train deep learning models. We assume that the utterances are short enough to have one speaker per utterance, since the splitting logic is using unvoiced segments as points to split an audio.</p>
+<!-- WORKING -->
+<h2 id="working">Working</h2>
+<p>This documentation will help you understand the various steps involved and take you through the hyperparameters, so you can tune them to achieve the best possible results.</p>
+<h3 id="embeddings">Embeddings</h3>
+<p>We use the Voice Encoder model proposed <a href="https://arxiv.org/abs/1710.10467">here</a>, and implemented <a href="https://github.com/resemble-ai/Resemblyzer">here</a> for converting our audio utterances into fixed length embeddings.</p>
+<p>Voice Encoder is speaker-discriminative model trained on a text-independent speaker verification task. Thus it allows us to derive a high-level representation of the voice present in an audio. An embedding is a 256 dimensional vector capable of summarizing the characteristics of the voice spoken.</p>
+<h3 id="clustering-algorithm">Clustering algorithm</h3>
+<p>Embeddings for a source are passed as a matrix for clustering to be performed using HDBSCAN.
+If the number of embeddings are greater than the parameter <em>partial_set_size</em>, they are divided into multiple partial sets of this size. This step is done to reduce the computational cost of calculating cosine distances and other internal matrices in HDBSCAN for a matrix.</p>
+<p>We use Hierarchical Density-Based Spatial Clustering of Applications with Noise (HDBSCAN) as our core clustering algorithm on each of these partial steps.
+This step also classifies some points as noise points - meaning they couldn't be used up in any clusters formed for this partial set. We keep a record of all these noise points for each partial set.</p>
+<h3 id="merging-and-splitting">Merging and Splitting</h3>
+<p>We found in our experiments that some of the speakers had their clusters distributed as separate ones - even in one partial set. This step helps in allowing such clusters to merge. Merging is based on cosine similarity (94-96% similar clusters are merged repetitively).
+Also, clusters for the same speaker but from different partial sets also get merged in this step.</p>
+<p>For some sources in our experiments, big clusters usually contained very high diversity of speakers. Splitting is done on such bigger clusters to make sure we have high cluster purity. A cluster is called big if it has more than 3 times the average number of points across all clusters.
+We also tried splitting a large cluster containing audios from one spekaer only and it was retianed as is. So this step should not affect large clusters for one speaker.
+Splitting is achieved by using Leaf HDBSCAN clustering on the big clusters. This allows for more more fine grained clustering.</p>
+<p>Repetitive merging is applied again after splitting to allow clusters with high cosine simialrities to be merged.</p>
+<h3 id="fitting-noise-points">Fitting Noise points</h3>
+<p>All the noise points - points which could not be put into a cluster, are allowed to merge with a clusters if they have a cosine similairy of &gt;= 80% with a noise point. This parameter is also configurable. </p>
+<!-- HYPERPARAMETERS -->
+<h2 id="hyperparameters">Hyperparameters</h2>
 <ul>
-<li>[option 1]</li>
-<li>[option 2]</li>
-<li>[option 3]</li>
-<li>… <!-- numbers of options can vary --></li>
+<li>
+<p>min_cluster_size: </p>
+<ul>
+<li>the smallest size grouping that you wish to consider a cluster</li>
 </ul>
-<h2 id="decision-outcome">Decision Outcome</h2>
-<p>Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].</p>
-<h3 id="positive-consequences">Positive Consequences <!-- optional --></h3>
+</li>
+<li>
+<p>min_samples: </p>
 <ul>
-<li>[e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]</li>
-<li>…</li>
+<li>number of points required in the neighborhood of a point to be considered a core point</li>
+<li>smallest value = 1, max value = min_cluster_size</li>
+<li>smaller values of min_samples have an effect of lowering the number of noise points</li>
 </ul>
-<h3 id="negative-consequences">Negative Consequences <!-- optional --></h3>
+</li>
+<li>
+<p>partial_set_size:</p>
 <ul>
-<li>[e.g., compromising quality attribute, follow-up decisions required, …]</li>
-<li>…</li>
+<li>number of utterances to treat as one set for clustering.</li>
 </ul>
-<h2 id="pros-and-cons-of-the-options">Pros and Cons of the Options <!-- optional --></h2>
-<h3 id="option-1">[option 1]</h3>
-<p>[example | description | pointer to more information | …] <!-- optional --></p>
+</li>
+<li>
+<p>fit_noise_on_similarity:</p>
 <ul>
-<li>Good, because [argument a]</li>
-<li>Good, because [argument b]</li>
-<li>Bad, because [argument c]</li>
-<li>… <!-- numbers of pros and cons can vary --></li>
+<li>cosine similarity between a noise point and a cluster, at which the point can be fit to a cluster.</li>
 </ul>
-<h3 id="option-2">[option 2]</h3>
-<p>[example | description | pointer to more information | …] <!-- optional --></p>
+</li>
+<li>
+<p>cluster_selection_method: can either be ‘eom’ or ‘leaf’</p>
 <ul>
-<li>Good, because [argument a]</li>
-<li>Good, because [argument b]</li>
-<li>Bad, because [argument c]</li>
-<li>… <!-- numbers of pros and cons can vary --></li>
+<li>'eom' or Excess of Mass is the default way of HDBSCAN working. </li>
+<li>'leaf' will select leaf nodes from the tree, producing many small homogeneous clusters. Allowing for fine-grained clusters. This is used while splitting clsuters into smaller ones.</li>
 </ul>
-<h3 id="option-3">[option 3]</h3>
-<p>[example | description | pointer to more information | …] <!-- optional --></p>
-<ul>
-<li>Good, because [argument a]</li>
-<li>Good, because [argument b]</li>
-<li>Bad, because [argument c]</li>
-<li>… <!-- numbers of pros and cons can vary --></li>
-</ul>
-<h2 id="links">Links <!-- optional --></h2>
-<ul>
-<li>[Link type] [Link to ADR] <!-- example: Refined by <a href="0005-example.md">ADR-0005</a> --></li>
-<li>… <!-- numbers of links can vary --></li>
+</li>
 </ul></div>
             </div>
         </div>

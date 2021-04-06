@@ -1,11 +1,361 @@
-<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Create ASR using Wav2vec"><meta name=author content=Ekstep><link href=https://open-speech-ekstep.github.io/crowdsource_platform/ rel=canonical><link rel=icon href=../assets/favicon.png><meta name=generator content="mkdocs-1.1.2, mkdocs-material-7.0.6"><title>Crowdsourcing Platform - Vakyansh</title><link rel=stylesheet href=../assets/stylesheets/main.7a40789f.min.css><link rel=stylesheet href=../assets/stylesheets/palette.7fa14f5b.min.css><meta name=theme-color content=#4051b5><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#crowdsourcing-platform class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=.. title=Vakyansh class="md-header__button md-logo" aria-label=Vakyansh data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"> <path d=M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z /> <path d=M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z style="fill-opacity: 0.5"/> <path d=M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z /> <path d=M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z style="fill-opacity: 0.25"/> </svg> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Vakyansh </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Crowdsourcing Platform </span> </div> </div> </div> <div class=md-header__options> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query data-md-state=active required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/Open-Speech-EkStep title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> Open-Speech-EkStep </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class="md-tabs__inner md-grid"> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=.. class=md-tabs__link> Home </a> </li> <li class=md-tabs__item> <a href=../data_collection/ class="md-tabs__link md-tabs__link--active"> Developer Guides </a> </li> <li class=md-tabs__item> <a href=../CONTRIBUTING/ class=md-tabs__link> About </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title=Vakyansh class="md-nav__button md-logo" aria-label=Vakyansh data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"> <path d=M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z /> <path d=M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z style="fill-opacity: 0.5"/> <path d=M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z /> <path d=M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z style="fill-opacity: 0.25"/> </svg> </a> Vakyansh </label> <div class=md-nav__source> <a href=https://github.com/Open-Speech-EkStep title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> Open-Speech-EkStep </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. class=md-nav__link> Home </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_2 type=checkbox id=__nav_2 checked> <label class=md-nav__link for=__nav_2> Developer Guides <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Developer Guides" data-md-level=1> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> Developer Guides </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../data_collection/ class=md-nav__link> Data Collection Pipeine </a> </li> <li class=md-nav__item> <a href=../intelligent_data_pipelines/ class=md-nav__link> Intelligent Data Pipeline </a> </li> <li class=md-nav__item> <a href=../model_training/ class=md-nav__link> Model Training Pipeline </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Crowdsourcing Platform <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> Crowdsourcing Platform </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#table-of-contents class=md-nav__link> Table of Contents </a> </li> <li class=md-nav__item> <a href=#about-the-project class=md-nav__link> About The Project </a> <nav class=md-nav aria-label="About The Project"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#built-with class=md-nav__link> Built With </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#architecture class=md-nav__link> Architecture </a> </li> <li class=md-nav__item> <a href=#languages-and-tools class=md-nav__link> Languages and Tools </a> </li> <li class=md-nav__item> <a href=#dashboard-design class=md-nav__link> Dashboard Design </a> </li> <li class=md-nav__item> <a href=#cicd class=md-nav__link> CI/CD </a> </li> <li class=md-nav__item> <a href=#infrastructure-as-code class=md-nav__link> Infrastructure as Code </a> </li> <li class=md-nav__item> <a href=#getting-started class=md-nav__link> Getting Started </a> <nav class=md-nav aria-label="Getting Started"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#prerequisites class=md-nav__link> Prerequisites </a> </li> <li class=md-nav__item> <a href=#installation class=md-nav__link> Installation </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#usage class=md-nav__link> Usage </a> <nav class=md-nav aria-label=Usage> <ul class=md-nav__list> <li class=md-nav__item> <a href=#common-configuration-steps class=md-nav__link> Common configuration steps: </a> <nav class=md-nav aria-label="Common configuration steps:"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#setting-credentials-for-google-cloud-bucket class=md-nav__link> Setting credentials for Google cloud bucket </a> </li> <li class=md-nav__item> <a href=#setting-credentials-for-aws-cloud-bucket class=md-nav__link> Setting credentials for AWS cloud bucket </a> </li> <li class=md-nav__item> <a href=#bucket-configuration class=md-nav__link> Bucket configuration </a> </li> <li class=md-nav__item> <a href=#environment-file-configurations class=md-nav__link> Environment file configurations </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#running-services class=md-nav__link> Running services </a> </li> <li class=md-nav__item> <a href=#database-migrations class=md-nav__link> Database migrations </a> </li> <li class=md-nav__item> <a href=#testing class=md-nav__link> Testing </a> <nav class=md-nav aria-label=Testing> <ul class=md-nav__list> <li class=md-nav__item> <a href=#unit-tests class=md-nav__link> Unit Tests </a> </li> <li class=md-nav__item> <a href=#functional-test class=md-nav__link> Functional Test </a> </li> <li class=md-nav__item> <a href=#scalabiity-test class=md-nav__link> Scalabiity Test </a> </li> <li class=md-nav__item> <a href=#load-test class=md-nav__link> Load Test </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#security class=md-nav__link> Security </a> </li> <li class=md-nav__item> <a href=#running-cost-estimates class=md-nav__link> Running cost estimates </a> </li> <li class=md-nav__item> <a href=#architecture-decision-records class=md-nav__link> Architecture Decision Records </a> </li> <li class=md-nav__item> <a href=#contributing class=md-nav__link> Contributing </a> </li> <li class=md-nav__item> <a href=#license class=md-nav__link> License </a> </li> <li class=md-nav__item> <a href=#git-repository class=md-nav__link> Git repository </a> </li> <li class=md-nav__item> <a href=#contact class=md-nav__link> Contact </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../adr/ class=md-nav__link> Architecture Decision Records </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3 type=checkbox id=__nav_3> <label class=md-nav__link for=__nav_3> About <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=About data-md-level=1> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> About </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../CONTRIBUTING/ class=md-nav__link> Contributions </a> </li> <li class=md-nav__item> <a href=../RELEASE_NOTES/ class=md-nav__link> Release notes </a> </li> <li class=md-nav__item> <a href=../LICENSE class=md-nav__link> License </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#table-of-contents class=md-nav__link> Table of Contents </a> </li> <li class=md-nav__item> <a href=#about-the-project class=md-nav__link> About The Project </a> <nav class=md-nav aria-label="About The Project"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#built-with class=md-nav__link> Built With </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#architecture class=md-nav__link> Architecture </a> </li> <li class=md-nav__item> <a href=#languages-and-tools class=md-nav__link> Languages and Tools </a> </li> <li class=md-nav__item> <a href=#dashboard-design class=md-nav__link> Dashboard Design </a> </li> <li class=md-nav__item> <a href=#cicd class=md-nav__link> CI/CD </a> </li> <li class=md-nav__item> <a href=#infrastructure-as-code class=md-nav__link> Infrastructure as Code </a> </li> <li class=md-nav__item> <a href=#getting-started class=md-nav__link> Getting Started </a> <nav class=md-nav aria-label="Getting Started"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#prerequisites class=md-nav__link> Prerequisites </a> </li> <li class=md-nav__item> <a href=#installation class=md-nav__link> Installation </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#usage class=md-nav__link> Usage </a> <nav class=md-nav aria-label=Usage> <ul class=md-nav__list> <li class=md-nav__item> <a href=#common-configuration-steps class=md-nav__link> Common configuration steps: </a> <nav class=md-nav aria-label="Common configuration steps:"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#setting-credentials-for-google-cloud-bucket class=md-nav__link> Setting credentials for Google cloud bucket </a> </li> <li class=md-nav__item> <a href=#setting-credentials-for-aws-cloud-bucket class=md-nav__link> Setting credentials for AWS cloud bucket </a> </li> <li class=md-nav__item> <a href=#bucket-configuration class=md-nav__link> Bucket configuration </a> </li> <li class=md-nav__item> <a href=#environment-file-configurations class=md-nav__link> Environment file configurations </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#running-services class=md-nav__link> Running services </a> </li> <li class=md-nav__item> <a href=#database-migrations class=md-nav__link> Database migrations </a> </li> <li class=md-nav__item> <a href=#testing class=md-nav__link> Testing </a> <nav class=md-nav aria-label=Testing> <ul class=md-nav__list> <li class=md-nav__item> <a href=#unit-tests class=md-nav__link> Unit Tests </a> </li> <li class=md-nav__item> <a href=#functional-test class=md-nav__link> Functional Test </a> </li> <li class=md-nav__item> <a href=#scalabiity-test class=md-nav__link> Scalabiity Test </a> </li> <li class=md-nav__item> <a href=#load-test class=md-nav__link> Load Test </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#security class=md-nav__link> Security </a> </li> <li class=md-nav__item> <a href=#running-cost-estimates class=md-nav__link> Running cost estimates </a> </li> <li class=md-nav__item> <a href=#architecture-decision-records class=md-nav__link> Architecture Decision Records </a> </li> <li class=md-nav__item> <a href=#contributing class=md-nav__link> Contributing </a> </li> <li class=md-nav__item> <a href=#license class=md-nav__link> License </a> </li> <li class=md-nav__item> <a href=#git-repository class=md-nav__link> Git repository </a> </li> <li class=md-nav__item> <a href=#contact class=md-nav__link> Contact </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=crowdsourcing-platform>Crowdsourcing Platform<a class=headerlink href=#crowdsourcing-platform title="Permanent link">&para;</a></h1> <!-- TABLE OF CONTENTS --> <h2 id=table-of-contents>Table of Contents<a class=headerlink href=#table-of-contents title="Permanent link">&para;</a></h2> <ul> <li><a href=#crowdsourcing-platform>Crowdsourcing Platform</a></li> <li><a href=#table-of-contents>Table of Contents</a></li> <li><a href=#about-the-project>About The Project</a><ul> <li><a href=#built-with>Built With</a></li> </ul> </li> <li><a href=#architecture>Architecture</a></li> <li><a href=#languages-and-tools>Languages and Tools</a></li> <li><a href=#dashboard-design>Dashboard Design</a></li> <li><a href=#cicd>CI/CD</a></li> <li><a href=#infrastructure-as-code>Infrastructure as Code</a></li> <li><a href=#getting-started>Getting Started</a><ul> <li><a href=#prerequisites>Prerequisites</a></li> <li><a href=#installation>Installation</a></li> </ul> </li> <li><a href=#usage>Usage</a><ul> <li><a href=#common-configuration-steps>Common configuration steps:</a></li> <li><a href=#setting-credentials-for-google-cloud-bucket>Setting credentials for Google cloud bucket</a></li> <li><a href=#setting-credentials-for-aws-cloud-bucket>Setting credentials for AWS cloud bucket</a></li> <li><a href=#bucket-configuration>Bucket configuration</a></li> <li><a href=#environment-file-configurations>Environment file configurations</a></li> </ul> </li> <li><a href=#running-services>Running services</a></li> <li><a href=#database-migrations>Database migrations</a></li> <li><a href=#testing>Testing</a><ul> <li><a href=#unit-tests>Unit Tests</a></li> <li><a href=#functional-test>Functional Test</a></li> <li><a href=#scalabiity-test>Scalabiity Test</a></li> <li><a href=#load-test>Load Test</a></li> </ul> </li> <li><a href=#security>Security</a></li> <li><a href=#running-cost-estimates>Running cost estimates</a></li> <li><a href=#architecture-decision-records>Architecture Decision Records</a></li> <li><a href=#contributing>Contributing</a></li> <li><a href=#license>License</a></li> <li><a href=#git-repository>Git repository</a></li> <li><a href=#contact>Contact</a></li> </ul> <!-- ABOUT THE PROJECT --> <h2 id=about-the-project>About The Project<a class=headerlink href=#about-the-project title="Permanent link">&para;</a></h2> <p>This is a web application which can be used to crowdsource audio and validate them for various languages. The application makes use of NodeJs, Postgres for Database. It can be hosted on any cloud platform. The current application has code to support AWS and GCP as providers to store the recorded information. Crowdsourcing Platform’s developer documentation is meant for its adopters, developers and contributors.</p> <p>The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Crowdsourcing Platform.</p> <p>Data Collection Pipeline is based on an open platform, you are free to use any programming language to extend or customize it but we prefer to use python to perform smart scraping.</p> <p>The Developer documentation provides you with a complete set of guidelines which you need to:</p> <ul> <li>Install dependencies for the Crowdsourcing Platform </li> <li>Configure Crowdsourcing Platform</li> <li>Customize Crowdsourcing Platform </li> <li>Extend Crowdsourcing Platform </li> <li>Contribute to Crowdsourcing Platform</li> </ul> <h3 id=built-with>Built With<a class=headerlink href=#built-with title="Permanent link">&para;</a></h3> <p>We have used Node.js to build this platform. * <a href=https://nodejs.org/ >Node</a></p> <h2 id=architecture>Architecture<a class=headerlink href=#architecture title="Permanent link">&para;</a></h2> <p><img alt=Architecture src=../img/crowdsource/arch.png></p> <h2 id=languages-and-tools>Languages and Tools<a class=headerlink href=#languages-and-tools title="Permanent link">&para;</a></h2> <p><img alt="Languages and Tools" src=../img/crowdsource/lang.png></p> <h2 id=dashboard-design>Dashboard Design<a class=headerlink href=#dashboard-design title="Permanent link">&para;</a></h2> <p><img alt="Dashboard Design" src=../img/crowdsource/dashboard_arch.png></p> <ul> <li>The transactional tables and view tables are kept separate.</li> <li><a href=https://www.postgresql.org/docs/9.3/rules-materializedviews.html>Materialized views</a> are used which holds the data as well. This avoids on the fly computations for aggregation for each query.</li> <li>The materizaled view are refreshed every 4 hours</li> <li>As a part of the refresh job, the aggregated data is dumped as json that is be served directly via CDN.</li> </ul> <p>Advantages:</p> <ul> <li>Faster reads: Separate view with only 365 aggregated data points per year.</li> <li>Less overhead on DB as data queried is on a very small data set and served from S3 buckets</li> <li>Transactional tables are optimized for faster writes as we have separate views for reads</li> <li>Simplified read queries as complexity is abstracted in views </li> <li>AWS RDS managed DB. Can be scaled horizontally and vertically easily if required in future.</li> </ul> <h2 id=cicd>CI/CD<a class=headerlink href=#cicd title="Permanent link">&para;</a></h2> <ul> <li><a href=https://app.circleci.com/pipelines/github/Open-Speech-EkStep/crowdsource-dataplatform>CircleCI</a> is used for CI/CD.</li> <li>Unit tests are run continously for each commit</li> <li>Functional Tests are run continously for each commit and act as one if the quality gates before Production deployment</li> <li>Automated deployment to K8s for multiple environments</li> <li>Database schema changes are done continously and automatically</li> <li>Trunk based developement is followed</li> </ul> <p><img alt="CI/CD Pipeline" src=../img/crowdsource/cicd.png></p> <h2 id=infrastructure-as-code>Infrastructure as Code<a class=headerlink href=#infrastructure-as-code title="Permanent link">&para;</a></h2> <ul> <li>Infrastructure defined in code with Terraform and shell scripts</li> <li>Easily migrate to another AWS account</li> <li>Spin up new env easily <img alt=IAC src=../img/crowdsource/iac.png></li> </ul> <!-- GETTING STARTED --> <h2 id=getting-started>Getting Started<a class=headerlink href=#getting-started title="Permanent link">&para;</a></h2> <p>To get started install the prerequisites and clone the repo to machine on which you wish to run the application.</p> <h3 id=prerequisites>Prerequisites<a class=headerlink href=#prerequisites title="Permanent link">&para;</a></h3> <ol> <li> <p>Install <code>node</code> library using commands mentioned below.</p> <ul> <li> <p>For any linux based operating system (preferred Ubuntu):</p> <div class=highlight><pre><span></span><code>sudo apt-get install nodejs
-</code></pre></div> </li> <li> <p>For Mac-os:</p> <div class=highlight><pre><span></span><code>brew install node
-</code></pre></div> </li> <li> <p>Windows user can follow installation steps on <a href=https://nodejs.org/en/#home-downloadhead>https://nodejs.org/en/#home-downloadhead</a></p> </li> </ul> </li> <li> <p>Install or connect to a postgres database</p> </li> <li> <p>Get credentials from google developer console for google cloud storage access/ or aws cli for amazon s3 storage access.</p> </li> </ol> <h3 id=installation>Installation<a class=headerlink href=#installation title="Permanent link">&para;</a></h3> <ol> <li> <p>Clone the repo using</p> <div class=highlight><pre><span></span><code>git clone https://github.com/Open-Speech-EkStep/crowdsource-dataplatform.git
-</code></pre></div> </li> <li> <p>Go inside the directory</p> <div class=highlight><pre><span></span><code>cd crowdsource-dataplatform
-</code></pre></div> </li> <li> <p>Install node requirements</p> <div class=highlight><pre><span></span><code>npm install
-</code></pre></div> </li> </ol> <!-- USAGE EXAMPLES --> <h2 id=usage>Usage<a class=headerlink href=#usage title="Permanent link">&para;</a></h2> <h3 id=common-configuration-steps>Common configuration steps:<a class=headerlink href=#common-configuration-steps title="Permanent link">&para;</a></h3> <h4 id=setting-credentials-for-google-cloud-bucket>Setting credentials for Google cloud bucket<a class=headerlink href=#setting-credentials-for-google-cloud-bucket title="Permanent link">&para;</a></h4> <p>You can set credentials for Google cloud bucket by running the following command <div class=highlight><pre><span></span><code>gcloud auth application-default login
-</code></pre></div></p> <h4 id=setting-credentials-for-aws-cloud-bucket>Setting credentials for AWS cloud bucket<a class=headerlink href=#setting-credentials-for-aws-cloud-bucket title="Permanent link">&para;</a></h4> <p>You can set credentials for AWS cloud bucket by running the following command <div class=highlight><pre><span></span><code>aws configure
-</code></pre></div></p> <h4 id=bucket-configuration>Bucket configuration<a class=headerlink href=#bucket-configuration title="Permanent link">&para;</a></h4> <p>You can create a specific bucket to store the recorded samples on aws or gcp. And mention those in the environment variables.</p> <h4 id=environment-file-configurations>Environment file configurations<a class=headerlink href=#environment-file-configurations title="Permanent link">&para;</a></h4> <p>The following are the variables required to run the application, for running on local these can be added to a .env file</p> <div class=highlight><pre><span></span><code>DB_HOST: The host url where your postgres instance is running
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Crowdsourcing Platform - Vakyansh</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Vakyansh</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../data_collection/" class="dropdown-item">Data Collection Pipeine</a>
+</li>
+                                    
+<li>
+    <a href="../intelligent_data_pipelines/" class="dropdown-item">Intelligent Data Pipeline</a>
+</li>
+                                    
+<li>
+    <a href="../model_training/" class="dropdown-item">Model Training Pipeline</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Crowdsourcing Platform</a>
+</li>
+                                    
+<li>
+    <a href="../adr/" class="dropdown-item">Architecture Decision Records</a>
+</li>
+                                    
+<li>
+    <a href="../speaker_clustering/" class="dropdown-item">Speaker Clustering</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../LICENSE" class="dropdown-item">License</a>
+</li>
+                                    
+<li>
+    <a href="../CONTRIBUTING/" class="dropdown-item">Contributions</a>
+</li>
+                                    
+<li>
+    <a href="../RELEASE_NOTES/" class="dropdown-item">Release notes</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../model_training/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../adr/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#crowdsourcing-platform" class="nav-link">Crowdsourcing Platform</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#about-the-project" class="nav-link">About The Project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#architecture" class="nav-link">Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#languages-and-tools" class="nav-link">Languages and Tools</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#dashboard-design" class="nav-link">Dashboard Design</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cicd" class="nav-link">CI/CD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#infrastructure-as-code" class="nav-link">Infrastructure as Code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#usage" class="nav-link">Usage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#running-services" class="nav-link">Running services</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#database-migrations" class="nav-link">Database migrations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#testing" class="nav-link">Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#security" class="nav-link">Security</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#running-cost-estimates" class="nav-link">Running cost estimates</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#architecture-decision-records" class="nav-link">Architecture Decision Records</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contributing" class="nav-link">Contributing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#license" class="nav-link">License</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contact" class="nav-link">Contact</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="crowdsourcing-platform">Crowdsourcing Platform</h1>
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#crowdsourcing-platform">Crowdsourcing Platform</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#about-the-project">About The Project</a><ul>
+<li><a href="#built-with">Built With</a></li>
+</ul>
+</li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#languages-and-tools">Languages and Tools</a></li>
+<li><a href="#dashboard-design">Dashboard Design</a></li>
+<li><a href="#cicd">CI/CD</a></li>
+<li><a href="#infrastructure-as-code">Infrastructure as Code</a></li>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#common-configuration-steps">Common configuration steps:</a></li>
+<li><a href="#setting-credentials-for-google-cloud-bucket">Setting credentials for Google cloud bucket</a></li>
+<li><a href="#setting-credentials-for-aws-cloud-bucket">Setting credentials for AWS cloud bucket</a></li>
+<li><a href="#bucket-configuration">Bucket configuration</a></li>
+<li><a href="#environment-file-configurations">Environment file configurations</a></li>
+</ul>
+</li>
+<li><a href="#running-services">Running services</a></li>
+<li><a href="#database-migrations">Database migrations</a></li>
+<li><a href="#testing">Testing</a><ul>
+<li><a href="#unit-tests">Unit Tests</a></li>
+<li><a href="#functional-test">Functional Test</a></li>
+<li><a href="#scalabiity-test">Scalabiity Test</a></li>
+<li><a href="#load-test">Load Test</a></li>
+</ul>
+</li>
+<li><a href="#security">Security</a></li>
+<li><a href="#running-cost-estimates">Running cost estimates</a></li>
+<li><a href="#architecture-decision-records">Architecture Decision Records</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<!-- ABOUT THE PROJECT -->
+<h2 id="about-the-project">About The Project</h2>
+<p>This is a web application which can be used to crowdsource audio and validate them for various languages. The application makes use of NodeJs, Postgres for Database. It can be hosted on any cloud platform. The current application has code to support AWS and GCP as providers to store the recorded information.
+Crowdsourcing Platform’s developer documentation is meant for its adopters, developers and contributors.</p>
+<p>The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Crowdsourcing Platform.</p>
+<p>Data Collection Pipeline is based on an open platform, you are free to use any programming language to extend or customize it but we prefer to use python to perform smart scraping.</p>
+<p>The Developer documentation provides you with a complete set of guidelines which you need to:</p>
+<ul>
+<li>Install dependencies for the Crowdsourcing Platform  </li>
+<li>Configure Crowdsourcing Platform</li>
+<li>Customize Crowdsourcing Platform  </li>
+<li>Extend Crowdsourcing Platform  </li>
+<li>Contribute to Crowdsourcing Platform</li>
+</ul>
+<h3 id="built-with">Built With</h3>
+<p>We have used Node.js to build this platform.
+* <a href="https://nodejs.org/">Node</a></p>
+<h2 id="architecture">Architecture</h2>
+<p><img alt="Architecture" src="../img/crowdsource/arch.png" /></p>
+<h2 id="languages-and-tools">Languages and Tools</h2>
+<p><img alt="Languages and Tools" src="../img/crowdsource/lang.png" /></p>
+<h2 id="dashboard-design">Dashboard Design</h2>
+<p><img alt="Dashboard Design" src="../img/crowdsource/dashboard_arch.png" /></p>
+<ul>
+<li>The transactional tables and view tables are kept separate.</li>
+<li><a href="https://www.postgresql.org/docs/9.3/rules-materializedviews.html">Materialized views</a> are used which holds the data as well. This avoids on the fly computations for aggregation for each query.</li>
+<li>The materizaled view are refreshed every 4 hours</li>
+<li>As a part of the refresh job, the aggregated data is dumped as json that is be served directly via CDN.</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>Faster reads: Separate view with only 365 aggregated data points per year.</li>
+<li>Less overhead on DB as data queried is on a very small data set and served from S3 buckets</li>
+<li>Transactional tables are optimized for faster writes as we have separate views for reads</li>
+<li>Simplified read queries as complexity is abstracted in views </li>
+<li>AWS RDS managed DB. Can be scaled horizontally and vertically easily if required in future.</li>
+</ul>
+<h2 id="cicd">CI/CD</h2>
+<ul>
+<li><a href="https://app.circleci.com/pipelines/github/Open-Speech-EkStep/crowdsource-dataplatform">CircleCI</a> is used for CI/CD.</li>
+<li>Unit tests are run continously for each commit</li>
+<li>Functional Tests are run continously for each commit and act as one if the quality gates before Production deployment</li>
+<li>Automated deployment to K8s for multiple environments</li>
+<li>Database schema changes are done continously and automatically</li>
+<li>Trunk based developement is followed</li>
+</ul>
+<p><img alt="CI/CD Pipeline" src="../img/crowdsource/cicd.png" /></p>
+<h2 id="infrastructure-as-code">Infrastructure as Code</h2>
+<ul>
+<li>Infrastructure defined in code with Terraform and shell scripts</li>
+<li>Easily migrate to another AWS account</li>
+<li>Spin up new env easily
+<img alt="IAC" src="../img/crowdsource/iac.png" /></li>
+</ul>
+<!-- GETTING STARTED -->
+<h2 id="getting-started">Getting Started</h2>
+<p>To get started install the prerequisites and clone the repo to machine on which you wish to run the application.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ol>
+<li>
+<p>Install <code>node</code> library using commands mentioned below.</p>
+<ul>
+<li>
+<p>For any linux based operating system (preferred Ubuntu):</p>
+<p><code>sudo apt-get install nodejs</code></p>
+</li>
+<li>
+<p>For Mac-os:</p>
+<p><code>brew install node</code></p>
+</li>
+<li>
+<p>Windows user can follow installation steps on <a href="https://nodejs.org/en/#home-downloadhead">https://nodejs.org/en/#home-downloadhead</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Install or connect to a postgres database</p>
+</li>
+<li>
+<p>Get credentials from google developer console for google cloud storage access/ or aws cli for amazon s3 storage access.</p>
+</li>
+</ol>
+<h3 id="installation">Installation</h3>
+<ol>
+<li>
+<p>Clone the repo using</p>
+<p><code>git clone https://github.com/Open-Speech-EkStep/crowdsource-dataplatform.git</code></p>
+</li>
+<li>
+<p>Go inside the directory</p>
+<p><code>cd crowdsource-dataplatform</code></p>
+</li>
+<li>
+<p>Install node requirements</p>
+<p><code>npm install</code></p>
+</li>
+</ol>
+<!-- USAGE EXAMPLES -->
+<h2 id="usage">Usage</h2>
+<h3 id="common-configuration-steps">Common configuration steps:</h3>
+<h4 id="setting-credentials-for-google-cloud-bucket">Setting credentials for Google cloud bucket</h4>
+<p>You can set credentials for Google cloud bucket by running the following command</p>
+<pre><code>gcloud auth application-default login
+</code></pre>
+<h4 id="setting-credentials-for-aws-cloud-bucket">Setting credentials for AWS cloud bucket</h4>
+<p>You can set credentials for AWS cloud bucket by running the following command</p>
+<pre><code>aws configure
+</code></pre>
+<h4 id="bucket-configuration">Bucket configuration</h4>
+<p>You can create a specific bucket to store the recorded samples on aws or gcp. And mention those in the environment variables.</p>
+<h4 id="environment-file-configurations">Environment file configurations</h4>
+<p>The following are the variables required to run the application, for running on local these can be added to a .env file</p>
+<pre><code>DB_HOST: The host url where your postgres instance is running
 DB_USER: The username to access the db
 DB_NAME: The database name
 DEV_DB_NAME: The database name specific to dev environment
@@ -13,17 +363,54 @@ DB_PASS: The database password
 BUCKET_NAME: The bucket name configured on aws or gcp
 ENCRYPTION_KEY: Key to run unit tests
 PORT: Port to run the application on
-</code></pre></div> <!-- RUNNING THE SERVICES --> <h2 id=running-services>Running services<a class=headerlink href=#running-services title="Permanent link">&para;</a></h2> <p>Make sure the google credentials are present in project root folder in credentials.json file.</p> <p>You can run the project using the command</p> <div class=highlight><pre><span></span><code>npm run
-</code></pre></div> <p>To run application using a Google cloud bucket</p> <div class=highlight><pre><span></span><code>npm run gcp
-</code></pre></div> <p>To run application using a AWS cloud bucket</p> <div class=highlight><pre><span></span><code>npm run aws
-</code></pre></div> <h2 id=database-migrations>Database migrations<a class=headerlink href=#database-migrations title="Permanent link">&para;</a></h2> <p><a href=https://www.npmjs.com/package/db-migrate>This</a> package is used to do migrations.</p> <p>To create the current database structure in your postgres instance, run the following command:</p> <div class=highlight><pre><span></span><code>db-migrate up
-</code></pre></div> <p>It would read the configurations from the path</p> <div class=highlight><pre><span></span><code>migations/config/migration_config.json
-</code></pre></div> <p>Once can also run the migrate up command by setting an environment variable</p> <div class=highlight><pre><span></span><code>DATABASE_URL=postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}
-</code></pre></div> <p>To add a new migration </p> <div class=highlight><pre><span></span><code>db-migrate create add-new-table
-</code></pre></div> <p>Using the above command with the <code>--sqlFile</code> flag would create corresponding .sql files in which one can write sql commands to do the operation.</p> <p>To rollback the last migration, one can </p> <div class=highlight><pre><span></span><code>db-migrate down
-</code></pre></div> <p>Documentation for the package can be found <a href=https://db-migrate.readthedocs.io/en/latest/ >here</a></p> <h2 id=testing>Testing<a class=headerlink href=#testing title="Permanent link">&para;</a></h2> <p>Multiple types of tests are continously performed to make sure the application is in healthy state. Pyramid approach is followed with Unit tests at the base and Exploratory tests on top.</p> <p><img alt=Pyramid src=../img/crowdsource/pyramid.png></p> <h3 id=unit-tests>Unit Tests<a class=headerlink href=#unit-tests title="Permanent link">&para;</a></h3> <p>Unit tests can be run using below command</p> <div class=highlight><pre><span></span><code>npm <span class=nb>test</span>
-</code></pre></div> <h3 id=functional-test>Functional Test<a class=headerlink href=#functional-test title="Permanent link">&para;</a></h3> <p>Functional tests can be run using below command</p> <div class=highlight><pre><span></span><code>npm run functional_test -- --env <span class=o>(</span>test<span class=p>|</span>dev<span class=o>)</span>
-</code></pre></div> <h3 id=scalabiity-test>Scalabiity Test<a class=headerlink href=#scalabiity-test title="Permanent link">&para;</a></h3> <p>Scalabiity tests performed to verify that the system is elastically scalable Below tests were performed</p> <div class=highlight><pre><span></span><code>Test Objective: Scalability Test - Validate elastic scalability
+</code></pre>
+<!-- RUNNING THE SERVICES -->
+<h2 id="running-services">Running services</h2>
+<p>Make sure the google credentials are present in project root folder in credentials.json file.</p>
+<p>You can run the project using the command</p>
+<pre><code>npm run
+</code></pre>
+<p>To run application using a Google cloud bucket</p>
+<pre><code>npm run gcp
+</code></pre>
+<p>To run application using a AWS cloud bucket</p>
+<pre><code>npm run aws
+</code></pre>
+<h2 id="database-migrations">Database migrations</h2>
+<p><a href="https://www.npmjs.com/package/db-migrate">This</a> package is used to do migrations.</p>
+<p>To create the current database structure in your postgres instance, run the following command:</p>
+<pre><code>db-migrate up
+</code></pre>
+<p>It would read the configurations from the path</p>
+<pre><code>migations/config/migration_config.json
+</code></pre>
+<p>Once can also run the migrate up command by setting an environment variable</p>
+<pre><code>DATABASE_URL=postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}
+</code></pre>
+<p>To add a new migration </p>
+<pre><code>db-migrate create add-new-table
+</code></pre>
+<p>Using the above command with the <code>--sqlFile</code> flag would create corresponding .sql files in which one can write sql commands to do the operation.</p>
+<p>To rollback the last migration, one can </p>
+<pre><code>db-migrate down
+</code></pre>
+<p>Documentation for the package can be found <a href="https://db-migrate.readthedocs.io/en/latest/">here</a></p>
+<h2 id="testing">Testing</h2>
+<p>Multiple types of tests are continously performed to make sure the application is in healthy state.
+Pyramid approach is followed with Unit tests at the base and Exploratory tests on top.</p>
+<p><img alt="Pyramid" src="../img/crowdsource/pyramid.png" /></p>
+<h3 id="unit-tests">Unit Tests</h3>
+<p>Unit tests can be run using below command</p>
+<pre><code class="language-sh">npm test
+</code></pre>
+<h3 id="functional-test">Functional Test</h3>
+<p>Functional tests can be run using below command</p>
+<pre><code class="language-sh">npm run functional_test -- --env (test|dev)
+</code></pre>
+<h3 id="scalabiity-test">Scalabiity Test</h3>
+<p>Scalabiity tests performed to verify that the system is elastically scalable
+Below tests were performed</p>
+<pre><code class="language-txt">Test Objective: Scalability Test - Validate elastic scalability
 Resource Configuration:
   Environment: Dev
   Pod resources: 0.25 CPU/ 250M RAM
@@ -38,8 +425,14 @@ Test configuration:
 
 Expected: Pods should scale if load increases and CPU utilization goes beyond 10% and should scale down after 5 mins
 Actual : Pods were scaled up after the CPU utilization went past 10%. Time to scale to desired state was around 2-3 mins
-</code></pre></div> <p>Outcome: <img alt=#c5f015 src="https://via.placeholder.com/15/c5f015/000000?text=+"> <code>PASSED</code></p> <p>As surge started, pods started spinning up <img alt="Scalability Test" src=../img/crowdsource/scale1.png></p> <p><img alt="Scalability Test" src=../img/crowdsource/scale2.png></p> <h3 id=load-test>Load Test<a class=headerlink href=#load-test title="Permanent link">&para;</a></h3> <p>Load testing is performed to verify the system is able to handle 5K concurrent users without much impact on latency</p> <div class=highlight><pre><span></span><code>Test Objective: Load Test - Validate if application can handle 5K concurrent users
-Date: 04/03/2021
+</code></pre>
+<p>Outcome: <img alt="#c5f015" src="https://via.placeholder.com/15/c5f015/000000?text=+" /> <code>PASSED</code></p>
+<p>As surge started, pods started spinning up
+<img alt="Scalability Test" src="../img/crowdsource/scale1.png" /></p>
+<p><img alt="Scalability Test" src="../img/crowdsource/scale2.png" /></p>
+<h3 id="load-test">Load Test</h3>
+<p>Load testing is performed to verify the system is able to handle 5K concurrent users without much impact on latency</p>
+<pre><code class="language-txt">Test Objective: Load Test - Validate if application can handle 5K concurrent users
 
 Resource Configuration:
   Environment: Test
@@ -48,28 +441,139 @@ Resource Configuration:
   Horizontal Pod Autoscaler : 
     Scaling Threshold - 40% CPU Utilization
     Min pods: 3 , Max Pods: 10
-  Database CPU : 4
 
 Test configuration:
 Number of concurrent users: 20000
 Requests per user : 3
 Ramp up time: 10 sec
 Iterations: 3
-</code></pre></div> <p>Outcome: <img alt=#c5f015 src="https://via.placeholder.com/15/c5f015/000000?text=+"> <code>PASSED</code></p> <p>ELB stats: <img alt="ELB metrics" src=../img/crowdsource/elb_stats.png></p> <p>Database stats: <img alt="Database metrics" src=../img/crowdsource/db_stats.png></p> <p>Jmeter stats: <img alt="JMeter stats" src=../img/crowdsource/jmeter_stats.png></p> <p>Summary:</p> <div class=highlight><pre><span></span><code>- This test had 20000 users ramped up within 1 min (3 times). 
+</code></pre>
+<p>Outcome: <img alt="#c5f015" src="https://via.placeholder.com/15/c5f015/000000?text=+" /> <code>PASSED</code></p>
+<p>ELB stats:
+<img alt="ELB metrics" src="../img/crowdsource/elb_stats.png" /></p>
+<p>Database stats:
+<img alt="Database metrics" src="../img/crowdsource/db_stats.png" /></p>
+<p>Summary:</p>
+<pre><code class="language-txt">- This test had 20000 users ramped up within 1 min (3 times). 
 - The test was performed from a single machine so 20K concurrent users could scale in 1 min.
 - All the requests were served within initial resources, no scaling was triggered.
 - All three endpoints served response in around 2 sec on an average.
 - The system was able to handle upto 12K concurrent users.
 - There were some errors thrown by AWS Load balancer may be due to single IP requests.
 - Database could handle the load and no connection leak is observed
-</code></pre></div> <h2 id=security>Security<a class=headerlink href=#security title="Permanent link">&para;</a></h2> <p>Security first approach is taken while building this application. The OWASP top 10 are ingrained in the application security DNA. Please reach out to srajat@thoughtworks or <a href=mailto:heerabal@thoughtworks.com>&#104;&#101;&#101;&#114;&#97;&#98;&#97;&#108;&#64;&#116;&#104;&#111;&#117;&#103;&#104;&#116;&#119;&#111;&#114;&#107;&#115;&#46;&#99;&#111;&#109;</a> for more information around Security</p> <h2 id=running-cost-estimates>Running cost estimates<a class=headerlink href=#running-cost-estimates title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code>Amazon RDS (4 CPU): $400 
+</code></pre>
+<h2 id="security">Security</h2>
+<p>Security first approach is taken while building this application.
+The OWASP top 10 are ingrained in the application security DNA.
+Please reach out to srajat@thoughtworks or heerabal@thoughtworks.com for more information around Security</p>
+<h2 id="running-cost-estimates">Running cost estimates</h2>
+<pre><code class="language-txt">Cloud : AWS
+Amazon RDS (4 CPU): $400 
 WAF: $30
 EKS + Fargate: $75 + $225 = $300
 ELB: $150
 Others: $200
 
 Total: ~ $1100-1200 per month
-</code></pre></div> <h2 id=architecture-decision-records>Architecture Decision Records<a class=headerlink href=#architecture-decision-records title="Permanent link">&para;</a></h2> <p>Decision records are maintained <a href=https://open-speech-ekstep.github.io/adr>HERE</a></p> <ul> <li><a href=https://open-speech-ekstep.github.io/adr/#caching-layer-above-rdbms>Cache above RDBMS</a></li> </ul> <!-- CONTRIBUTING --> <h2 id=contributing>Contributing<a class=headerlink href=#contributing title="Permanent link">&para;</a></h2> <p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p> <ol> <li>Fork the Project</li> <li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li> <li>Commit your Changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li> <li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li> <li>Open a Pull Request</li> </ol> <h2 id=license>License<a class=headerlink href=#license title="Permanent link">&para;</a></h2> <p>Distributed under the [MIT] License. See <code>LICENSE</code> for more information.</p> <h2 id=git-repository>Git repository<a class=headerlink href=#git-repository title="Permanent link">&para;</a></h2> <p><a href=https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/ >https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/</a></p> <h2 id=contact>Contact<a class=headerlink href=#contact title="Permanent link">&para;</a></h2> <p>Connect with community on <a href="https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link">Gitter</a></p> </article> </div> </div> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../model_training/ class="md-footer__link md-footer__link--prev" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> Model Training Pipeline </div> </div> </a> <a href=../adr/ class="md-footer__link md-footer__link--next" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> Architecture Decision Records </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright &copy; 2021 Vakyansh </div> <!--         Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a> --> Vakyansh </div> <!--        --> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "..", "features": ["navigation.sections", "navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script> <script src=../assets/javascripts/bundle.7865d441.min.js></script> </body> </html>
+</code></pre>
+<h2 id="architecture-decision-records">Architecture Decision Records</h2>
+<p>Decision records are maintained <a href="https://open-speech-ekstep.github.io/adr">HERE</a></p>
+<ul>
+<li><a href="https://open-speech-ekstep.github.io/adr/#caching-layer-above-rdbms">Cache above RDBMS</a></li>
+</ul>
+<!-- CONTRIBUTING -->
+<h2 id="contributing">Contributing</h2>
+<p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p>
+<ol>
+<li>Fork the Project</li>
+<li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li>
+<li>Commit your Changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li>
+<li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+<!-- LICENSE -->
+<h2 id="license">License</h2>
+<p>Distributed under the [MIT] License. See <code>LICENSE</code> for more information.</p>
+<!-- CONTACT -->
+<h2 id="contact">Contact</h2>
+<p>Project Link: <a href="https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/">https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

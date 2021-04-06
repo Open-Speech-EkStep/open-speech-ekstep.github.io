@@ -30,6 +30,7 @@
       - [Selenium youtube crawler for file mode and api mode](#selenium-youtube-crawler-for-file-mode-and-api-mode)
   - [Contributing](#contributing)
   - [License](#license)
+  - [Git Repository](#git-repository)
   - [Contact](#contact)
   - [Acknowledgements](#acknowledgements)
 
@@ -322,8 +323,8 @@ Make sure the google credentials are present in project root folder in credentia
         
         ```
         eg. channel_url_dict = { 
-           "https://www.youtube.com/channel/UC2XEzs5R1mn2wTKgtjuMxiQ": "channel_name_a",
-           "https://www.youtube.com/channel/UC2XEzs5R1mn2wTKgtjuMxiQ":"channel_name_b" 
+           "https://www.youtube.com/channel/1": "channel_name_a",
+           "https://www.youtube.com/channel/2":"channel_name_b" 
         }
        ```
    
@@ -444,18 +445,17 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the [XYZ] License. See `LICENSE` for more information.
 
 
+## Git Repository
 
-<!-- CONTACT -->
+[https://github.com/Open-Speech-EkStep/data-acquisition-pipeline](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline)
+
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
+Connect with community on [Gitter](https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
+
 * [Scrapy](https://github.com/scrapy/scrapy)
 * [YouTube-dl](https://github.com/ytdl-org/youtube-dl)
 * [TinyTag](https://github.com/devsnd/tinytag)

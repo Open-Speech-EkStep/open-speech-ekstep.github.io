@@ -7,6 +7,7 @@ nav:
               - "Model Training Pipeline": "model_training.md"
               - "Crowdsourcing Platform": "crowdsource_platform.md"
               - "Architecture Decision Records" : "adr.md"
+              - "Speaker Clustering" : "speaker_clustering.md"
       - About:
               - "License": LICENSE
               - "Contributions": CONTRIBUTING.md

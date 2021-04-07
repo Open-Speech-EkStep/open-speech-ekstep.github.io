@@ -38,7 +38,7 @@ We use the Voice Encoder model proposed [here](https://arxiv.org/abs/1710.10467)
 <img src="img/embeddings_ge2e.png" width=600>
 </p>
 <p align="center">
-<i>System overview for training embeddings from [Source](https://arxiv.org/abs/1710.10467). Different colours indicate utterances/embeddings from different speakers.</i> 
+<i>System overview for training Voice encoder. Different colours indicate utterances/embeddings from different speakers.</i> 
 </p>
 
 Voice Encoder is a speaker-discriminative model trained on a text-independent speaker verification task. Thus it allows us to derive a high-level representation of the voice present in an audio. An embedding is a 256 dimensional vector capable of summarizing the characteristics of the voice spoken. The data used to train the model contained 1.8k speakers from LibriSpeech-other, Voxceleb, Vox celeb2; making a final of more than 1000 hrs of data in English. Since our experiment sources for audios were in Hindi, we did a small experiment to determine whether embeddings on Hindi data using this pretrained model were able to separate speakers. The resulting _dist plot_ is presented below. x-axis is the Cosine Similarity.

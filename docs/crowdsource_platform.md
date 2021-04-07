@@ -33,6 +33,7 @@
   - [Architecture Decision Records](#architecture-decision-records)
   - [Contributing](#contributing)
   - [License](#license)
+  - [Git repository](#git-repository)
   - [Contact](#contact)
 
 
@@ -302,6 +303,7 @@ Load testing is performed to verify the system is able to handle 5K concurrent u
 
 ```txt
 Test Objective: Load Test - Validate if application can handle 5K concurrent users
+Date: 04/03/2021
 
 Resource Configuration:
   Environment: Test
@@ -310,6 +312,7 @@ Resource Configuration:
   Horizontal Pod Autoscaler : 
     Scaling Threshold - 40% CPU Utilization
     Min pods: 3 , Max Pods: 10
+  Database CPU : 4
 
 Test configuration:
 Number of concurrent users: 20000
@@ -325,6 +328,9 @@ ELB stats:
 
 Database stats:
 ![Database metrics](img/crowdsource//db_stats.png)
+
+Jmeter stats:
+![JMeter stats](img/crowdsource/jmeter_stats.png)
 
 Summary:
 
@@ -374,17 +380,17 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
-<!-- LICENSE -->
 ## License
 
 Distributed under the [MIT] License. See `LICENSE` for more information.
 
+## Git repository
 
+[https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/](https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/)
 
-<!-- CONTACT -->
 ## Contact
+
+Connect with community on [Gitter](https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 Project Link: [https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/](https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/)
 

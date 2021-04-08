@@ -197,6 +197,7 @@ nav:
       - "Crowdsourcing Platform": "crowdsource_platform.md"
       - "Architecture Decision Records": "adr.md"
       - "Speaker Clustering": "speaker_clustering.md"
+      - "Gender Identification": "gender_identification.md"
   - About:
       - "Contributions": CONTRIBUTING.md
       - "Release notes": RELEASE_NOTES.md

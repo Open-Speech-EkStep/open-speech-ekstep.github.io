@@ -8,7 +8,7 @@
   - [About The Project](#about-the-project)
   - [Working](#working)
     - [Embeddings](#embeddings)
-    - [Classification algorithm](#classifiaction-algorithm)
+    - [Classification algorithm](#classification-algorithm)
       - [Hyperparameters](#hyperparameters)
     - [Train data](#train-data)
     - [Test data](#test-data)

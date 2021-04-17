@@ -4,6 +4,7 @@
 - [Cache above RDMS: PROPOSED](#choose-cache-above-rdbms)
 - [Messaging Queue System: PROPOSED](#choose-messaging-queue-system)
 - [Continous Intelligent Data Pipelines: PROPOSED](#continuous-intelligent-data-pipeline)
+- [UI Framework: PROPOSED](#choose-a-ui-framework)
 
 ## Discuss
 
@@ -123,3 +124,25 @@ Technical Story: [Continous Intelligent Data Pipelines](https://project-sunbird.
 ### Solutions
 
 ### Decision Outcome
+
+
+## **Choose a UI framework**
+
+- Status: PROPOSED
+- Deciders: [Rajat Singhal](https://github.com/srajat84), Sunny Goel
+- Impact Area: Tools and frameworks
+- Date: 2021-04-17
+
+Technical Story: []
+
+### Context and Problem Statement
+
+### Options
+
+Vue, React
+
+### Solutions
+
+### Decision Outcome
+
+```not yet decided```

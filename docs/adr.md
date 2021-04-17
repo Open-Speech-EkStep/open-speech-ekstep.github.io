@@ -139,7 +139,7 @@ Technical Story: []
 
 ### Options
 
-Vue, React
+Vue, React, Custom framework
 
 ### Solutions
 

@@ -33,18 +33,21 @@ This documentation will help you understand the various steps involved and take 
 ### Embeddings
 We use the Voice Encoder model proposed [here](https://arxiv.org/abs/1710.10467), and implemented [here](https://github.com/resemble-ai/Resemblyzer) for converting our audio utterances into fixed length embeddings.
 
-
+![System Overview](img/embeddings_ge2e.png)
 <p align="center">
-<img src="img/embeddings_ge2e.png" width=600>
+
 </p>
 <p align="center">
 <i>System overview for training Voice encoder. Different colours indicate utterances/embeddings from different speakers.</i> 
 </p>
 
+
+
 Voice Encoder is a speaker-discriminative model trained on a text-independent speaker verification task. Thus it allows us to derive a high-level representation of the voice present in an audio. An embedding is a 256 dimensional vector capable of summarizing the characteristics of the voice spoken. The data used to train the model contained 1.8k speakers from LibriSpeech-other, Voxceleb, Vox celeb2; making a final of more than 1000 hrs of data in English. Since our experiment sources for audios were in Hindi, we did a small experiment to determine whether embeddings on Hindi data using this pretrained model were able to separate speakers. The resulting _dist plot_ is presented below. x-axis is the Cosine Similarity.
 
+![Distplot](img/speaker_vocoder_exp.png)
+
 <p align="center">
-<img src="img/speaker_vocoder_exp.png" width=400>
 </p>
 <p align="center">
 <i>A distplot showing separation between embeddings belonging to different speakers, based on Cosine similarity.</i> 
@@ -62,8 +65,8 @@ This step also classifies some points as noise points - meaning they couldn't be
 We found in our experiments that some of the speakers had their clusters distributed as separate ones - even in one partial set. This step helps in allowing such clusters to merge. Merging is based on cosine similarity (94-96% similar clusters are merged repetitively).
 Also, clusters for the same speaker but from different partial sets also get merged in this step.
 
+![Cluster and merge](img/cluster_and_merge.png)
 <p align="center">
-<img src="img/cluster_and_merge.png" width=400>
 </p>
 <p align="center">
 <i>Initial EOM clustering and repetitive merging of clusters.</i> 
@@ -76,8 +79,8 @@ Cluster splitting is achieved by using Leaf HDBSCAN clustering on the big cluste
 
 Repetitive merging is applied again after splitting to allow clusters with high cosine simialrities to be merged again, if any.
 
+![Split and merge](img/split_and_merge.png)
 <p align="center">
-<img src="img/split_and_merge.png" width=400>
 </p>
 <p align="center">
 <i>Splitting big clusters and repetitive merging of clusters.</i> 

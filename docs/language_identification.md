@@ -36,6 +36,10 @@ We don't use the pretrained version, and treat Language Identification as an ima
 
 Users can decide upon the number of classes they want to train on. We follow a one vs other approach where main language is the one we want to classify against. 
 
+Outputs for each audio are confidence scores for different labels.
+
+![LID](img/lid.png)
+
 ### Train data
 We trained a Tamil vs others classification model, with 30-40 hours data for each of the classes- Tamil and Other.
 

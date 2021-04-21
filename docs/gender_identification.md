@@ -37,9 +37,8 @@ To convert our audio utternaces into fixed length summary vectors, we use the Vo
 
 Voice Encoder is a speaker-discriminative model trained on a text-independent speaker verification task. Since these embeddings are able to summarise the characteristics of the voice spoken, they have been used for Gender Classification [here](https://github.com/resemble-ai/Resemblyzer), as shown in the diagram below.
 
-<p align="center">
-<img src="img/gender_classification.png" width=400>
-</p>
+![Gender classification](img/gender_classification.png)
+
 <p align="center">
 <i>The above plot shows a clear boundary for gender between embeddings from distinct speakers present in LibriSpeech dataset, when projected in 2D using umap.
 </i> 

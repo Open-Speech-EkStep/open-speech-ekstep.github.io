@@ -11,6 +11,7 @@
     - [Logical Architecture](#logical-architecture)
     - [Cloud Agnostic Architecture: Kubernetes](#cloud-agnostic-architecture-kubernetes)
     - [Deployment Architecture: AWS](#deployment-architecture-aws)
+    - [Architecture Improvements](#architecture-improvements)
   - [Languages and Tools](#languages-and-tools)
   - [Dashboard Design](#dashboard-design)
   - [CI/CD](#cicd)
@@ -80,6 +81,13 @@ This the architecture for deployment on Kubernetes, wherein the service layer is
 
 This is the deployement architecure for running portal on AWS infra. It leverages AWS manages services like EKS and Fargate for K8s cluster and AWS RDS for managed database. It also uses AWS managed Load Balancer 
 ![Deployment Architecture: AWS](img/crowdsource/deployment_aws_arch.png)
+
+### Architecture Improvements
+
+We believe in continously improving the architecture. 
+Here are some ADR opened : [Architecture Decision Records](https://open-speech-ekstep.github.io/adr)
+
+Proposed Architecture: ![ADR](img/crowdsource/adr1.png)
 
 ## Languages and Tools
 

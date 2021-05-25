@@ -8,6 +8,9 @@
   - [About The Project](#about-the-project)
     - [Built With](#built-with)
   - [Architecture](#architecture)
+    - [Logical Architecture](#logical-architecture)
+    - [Cloud Agnostic Architecture: Kubernetes](#cloud-agnostic-architecture-kubernetes)
+    - [Deployment Architecture: AWS](#deployment-architecture-aws)
   - [Languages and Tools](#languages-and-tools)
   - [Dashboard Design](#dashboard-design)
   - [CI/CD](#cicd)
@@ -62,7 +65,21 @@ We have used Node.js to build this platform.
 
 ## Architecture
 
-![Architecture](img/crowdsource/arch.png)
+### Logical Architecture
+
+The logical architecture is 3 layered with UI layer implemented using EJS templates, Service layer is implemented in Javascript which run on Nodejs server and storage layer which has RDBS and Object Storage
+
+![Logical Architecture](img/crowdsource/logical_arch.png)
+
+### Cloud Agnostic Architecture: Kubernetes
+
+This the architecture for deployment on Kubernetes, wherein the service layer is scalable leveraging K8s capabilities.
+![Cloud Agnostic Architecture](img/crowdsource/cloud_agnostic_arch.png)
+
+### Deployment Architecture: AWS
+
+This is the deployement architecure for running portal on AWS infra. It leverages AWS manages services like EKS and Fargate for K8s cluster and AWS RDS for managed database. It also uses AWS managed Load Balancer 
+![Deployment Architecture: AWS](img/crowdsource/deployment_aws_arch.png)
 
 ## Languages and Tools
 

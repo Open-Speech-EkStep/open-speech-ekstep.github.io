@@ -6,21 +6,24 @@
 
 
 
-
-
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 Our speech to text interface enables you to accurately convert speech into text using an API powered by deep learning neural network algorithms for automatic speech recognition (ASR).
+
 This is enabled to provide the following features:
+
 * Speech to text transcription support for a growing list of indic languages.
+
 * Transcribe your content in real time from stored files or audio bytes.
+
 * Generate subtitle or transcript for your audios as per your choice of output.
+
 * Support for various audio formats like WAV,MP3,PCM.
+
 * [beta]Enables transcription optimized for domain-specific quality requirements associating domain models in backend.
+
 * [beta]Speech-to-Text accurately punctuates transcriptions (e.g., commas, question marks, and periods).
+
 
 The Developer documentation provides you with a complete set of guidelines which you need to get started with:
 
@@ -49,7 +52,7 @@ Our API has predictable resource-oriented URLs, accepts form-encoded request bod
 
 **Base URL**
 ```
-https://speech-recog-model-api-gateway-h3dqga4.ue.gateway.dev/v1/recognize/
+https://<agteway-url>/v1/recognize/
 ```
 **Authentication**
 

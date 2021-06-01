@@ -199,6 +199,7 @@ nav:
       - "Speaker Clustering": "speaker_clustering.md"
       - "Gender Identification": "gender_identification.md"
       - "Language Identification": "language_identification.md"
+      - "Speech Recognititon Model API" : "model_api.md"
   - About:
       - "Contributions": CONTRIBUTING.md
       - "Release notes": RELEASE_NOTES.md

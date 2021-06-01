@@ -52,7 +52,7 @@ Our API has predictable resource-oriented URLs, accepts form-encoded request bod
 
 **Base URL**
 ```
-https://<agteway-url>/v1/recognize/
+https://<gateway-url>/v1/recognize/
 ```
 **Authentication**
 
@@ -116,7 +116,7 @@ transcript - The transcript as output if transcription format is chosen at TRANS
 
 **Sample Request**
 ```
-curl --location --request POST 'https://speech-recog-model-api-gateway-h3dqga4.ue.gateway.dev/v1/recognize/' \
+curl --location --request POST 'https://<gateway-url>/v1/recognize/' \
 --header 'Content-Type: text/plain' \
 --data-raw '{ "config": { "language": { "value": "hi" }, "transcriptionFormat": "SRT", "audioFormat": "WAV" }, "audio": { "audioUri": "https://codmento.com/ekstep/test/changed.wav" } }'
 ```
@@ -130,7 +130,7 @@ curl --location --request POST 'https://speech-recog-model-api-gateway-h3dqga4.u
 
 **Sample Request**
 ```
-curl --location --request POST 'https://speech-recog-model-api-gateway-h3dqga4.ue.gateway.dev/v1/recognize/' \
+curl --location --request POST 'https://<gateway-url>/v1/recognize/' \
 --header 'Content-Type: text/plain' \
 --data-raw '{ "config": { "language": { "value": "hi" }, "transcriptionFormat": "TRANSCRIPT", "audioFormat": "WAV" }, "audio": { "audioUri": "https://codmento.com/ekstep/test/changed.wav" } }'
 ```

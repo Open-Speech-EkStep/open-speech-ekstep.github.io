@@ -1,4 +1,4 @@
-<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Create ASR using Wav2vec"><meta name=author content=Ekstep><link href=https://open-speech-ekstep.github.io/model_api/ rel=canonical><link rel=icon href=../assets/favicon.png><meta name=generator content="mkdocs-1.1.2, mkdocs-material-7.0.6"><title>Speech Recognititon Model API - Vakyansh</title><link rel=stylesheet href=../assets/stylesheets/main.7a40789f.min.css><link rel=stylesheet href=../assets/stylesheets/palette.7fa14f5b.min.css><meta name=theme-color content=#4051b5><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#speech-recognition-model-api class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=.. title=Vakyansh class="md-header__button md-logo" aria-label=Vakyansh data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"> <path d=M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z /> <path d=M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z style="fill-opacity: 0.5"/> <path d=M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z /> <path d=M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z style="fill-opacity: 0.25"/> </svg> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Vakyansh </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Speech Recognititon Model API </span> </div> </div> </div> <div class=md-header__options> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query data-md-state=active required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/Open-Speech-EkStep title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> Open-Speech-EkStep </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class="md-tabs__inner md-grid"> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=.. class=md-tabs__link> Home </a> </li> <li class=md-tabs__item> <a href=../data_collection/ class="md-tabs__link md-tabs__link--active"> Developer Guides </a> </li> <li class=md-tabs__item> <a href=../CONTRIBUTING/ class=md-tabs__link> About </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title=Vakyansh class="md-nav__button md-logo" aria-label=Vakyansh data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"> <path d=M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z /> <path d=M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z style="fill-opacity: 0.5"/> <path d=M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z /> <path d=M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z style="fill-opacity: 0.25"/> </svg> </a> Vakyansh </label> <div class=md-nav__source> <a href=https://github.com/Open-Speech-EkStep title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> Open-Speech-EkStep </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. class=md-nav__link> Home </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_2 type=checkbox id=__nav_2 checked> <label class=md-nav__link for=__nav_2> Developer Guides <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Developer Guides" data-md-level=1> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> Developer Guides </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../data_collection/ class=md-nav__link> Data Collection Pipeine </a> </li> <li class=md-nav__item> <a href=../intelligent_data_pipelines/ class=md-nav__link> Intelligent Data Pipeline </a> </li> <li class=md-nav__item> <a href=../model_training/ class=md-nav__link> Model Training Pipeline </a> </li> <li class=md-nav__item> <a href=../crowdsource_platform/ class=md-nav__link> Crowdsourcing Platform </a> </li> <li class=md-nav__item> <a href=../adr/ class=md-nav__link> Architecture Decision Records </a> </li> <li class=md-nav__item> <a href=../speaker_clustering/ class=md-nav__link> Speaker Clustering </a> </li> <li class=md-nav__item> <a href=../gender_identification/ class=md-nav__link> Gender Identification </a> </li> <li class=md-nav__item> <a href=../language_identification/ class=md-nav__link> Language Identification </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Speech Recognititon Model API <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> Speech Recognititon Model API </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#about-the-project class=md-nav__link> About The Project </a> </li> <li class=md-nav__item> <a href=#architecture-overview class=md-nav__link> Architecture Overview </a> </li> <li class=md-nav__item> <a href=#api-reference class=md-nav__link> API reference </a> </li> <li class=md-nav__item> <a href=#client-code-reference class=md-nav__link> Client Code reference </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3 type=checkbox id=__nav_3> <label class=md-nav__link for=__nav_3> About <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=About data-md-level=1> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> About </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../CONTRIBUTING/ class=md-nav__link> Contributions </a> </li> <li class=md-nav__item> <a href=../RELEASE_NOTES/ class=md-nav__link> Release notes </a> </li> <li class=md-nav__item> <a href=../LICENSE class=md-nav__link> License </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#about-the-project class=md-nav__link> About The Project </a> </li> <li class=md-nav__item> <a href=#architecture-overview class=md-nav__link> Architecture Overview </a> </li> <li class=md-nav__item> <a href=#api-reference class=md-nav__link> API reference </a> </li> <li class=md-nav__item> <a href=#client-code-reference class=md-nav__link> Client Code reference </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=speech-recognition-model-api>Speech Recognition model API<a class=headerlink href=#speech-recognition-model-api title="Permanent link">&para;</a></h1> <!-- TABLE OF CONTENTS --> <!-- ABOUT THE PROJECT --> <h2 id=about-the-project>About The Project<a class=headerlink href=#about-the-project title="Permanent link">&para;</a></h2> <p>Our speech to text interface enables you to accurately convert speech into text using an API powered by deep learning neural network algorithms for automatic speech recognition (ASR).</p> <p>This is enabled to provide the following features:</p> <ul> <li> <p>Speech to text transcription support for a growing list of indic languages.</p> </li> <li> <p>Transcribe your content in real time from stored files or audio bytes.</p> </li> <li> <p>Generate subtitle or transcript for your audios as per your choice of output.</p> </li> <li> <p>Support for various audio formats like WAV,MP3,PCM.</p> </li> <li> <p>[beta]Enables transcription optimized for domain-specific quality requirements associating domain models in backend.</p> </li> <li> <p>[beta]Speech-to-Text accurately punctuates transcriptions (e.g., commas, question marks, and periods).</p> </li> </ul> <p>The Developer documentation provides you with a complete set of guidelines which you need to get started with:</p> <ul> <li>Architecture overview</li> <li>API reference </li> <li>Client Code reference</li> <li>Setup and getting started guide</li> <li>Extend this project</li> <li>Contribute to this project</li> </ul> <h2 id=architecture-overview>Architecture Overview<a class=headerlink href=#architecture-overview title="Permanent link">&para;</a></h2> <p><img alt=Screenshot src=../img/open-api.png></p> <p>The logical architecture here is built with a grpc server hosting our speech recognition models and dependencies, which cna be run in any environment or docker. With gRPC we can define our service once in a .proto file and generate clients and servers in any of gRPC’s supported languages, which in turn can be run in environments ranging from servers inside a large data center to your own tablet — all the complexity of communication between different languages and environments is handled for you by gRPC. We also get all the advantages of working with protocol buffers, including efficient serialization, a simple IDL, and easy interface updating. In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. Here we can use the grpc generated stubs from client code in any language and make requests using gRPC calls and receive the responses from the server.On the server side, the server implements this interface and runs a gRPC server to handle client calls. By default, gRPC uses Protocol Buffers, Google’s mature open source mechanism for serializing structured data (although it can be used with other data formats such as JSON). gRPC uses protoc with a special gRPC plugin to generate code from your proto file: you get generated gRPC client and server code, as well as the regular protocol buffer code for populating, serializing, and retrieving your message types. Apart from using gRPC stubs, we have added the support for REST calls to the gRPC server via an api-gateway. With API Gateway for gRPC, you can use the API management capabilities of API Gateway to add monitoring, hosting, tracing, authentication, and more to your gRPC services on Cloud Run. In addition, once you specify special mapping rules, API Gateway translates RESTful JSON over HTTP into gRPC requests. This means that you can deploy a gRPC server managed by API Gateway and call its API using a gRPC or JSON/HTTP client, giving you much more flexibility and ease of integration with other systems.</p> <h2 id=api-reference>API reference<a class=headerlink href=#api-reference title="Permanent link">&para;</a></h2> <p>Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.</p> <p><strong>Base URL</strong> <div class=highlight><pre><span></span><code>https://&lt;gateway-url&gt;/v1/recognize/
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Create ASR using Wav2vec"><meta name=author content=Ekstep><link href=https://open-speech-ekstep.github.io/model_api/ rel=canonical><link rel=icon href=../assets/favicon.png><meta name=generator content="mkdocs-1.1.2, mkdocs-material-7.0.6"><title>Speech Recognititon Model API - Vakyansh</title><link rel=stylesheet href=../assets/stylesheets/main.7a40789f.min.css><link rel=stylesheet href=../assets/stylesheets/palette.7fa14f5b.min.css><meta name=theme-color content=#4051b5><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#speech-recognition-model-api class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=.. title=Vakyansh class="md-header__button md-logo" aria-label=Vakyansh data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"> <path d=M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z /> <path d=M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z style="fill-opacity: 0.5"/> <path d=M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z /> <path d=M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z style="fill-opacity: 0.25"/> </svg> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Vakyansh </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Speech Recognititon Model API </span> </div> </div> </div> <div class=md-header__options> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query data-md-state=active required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/Open-Speech-EkStep title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> Open-Speech-EkStep </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class="md-tabs__inner md-grid"> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=.. class=md-tabs__link> Home </a> </li> <li class=md-tabs__item> <a href=../data_collection/ class="md-tabs__link md-tabs__link--active"> Developer Guides </a> </li> <li class=md-tabs__item> <a href=../CONTRIBUTING/ class=md-tabs__link> About </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title=Vakyansh class="md-nav__button md-logo" aria-label=Vakyansh data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"> <path d=M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z /> <path d=M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z style="fill-opacity: 0.5"/> <path d=M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z /> <path d=M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z style="fill-opacity: 0.25"/> </svg> </a> Vakyansh </label> <div class=md-nav__source> <a href=https://github.com/Open-Speech-EkStep title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> Open-Speech-EkStep </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. class=md-nav__link> Home </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_2 type=checkbox id=__nav_2 checked> <label class=md-nav__link for=__nav_2> Developer Guides <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="Developer Guides" data-md-level=1> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> Developer Guides </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../data_collection/ class=md-nav__link> Data Collection Pipeine </a> </li> <li class=md-nav__item> <a href=../intelligent_data_pipelines/ class=md-nav__link> Intelligent Data Pipeline </a> </li> <li class=md-nav__item> <a href=../model_training/ class=md-nav__link> Model Training Pipeline </a> </li> <li class=md-nav__item> <a href=../crowdsource_platform/ class=md-nav__link> Crowdsourcing Platform </a> </li> <li class=md-nav__item> <a href=../adr/ class=md-nav__link> Architecture Decision Records </a> </li> <li class=md-nav__item> <a href=../speaker_clustering/ class=md-nav__link> Speaker Clustering </a> </li> <li class=md-nav__item> <a href=../gender_identification/ class=md-nav__link> Gender Identification </a> </li> <li class=md-nav__item> <a href=../language_identification/ class=md-nav__link> Language Identification </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Speech Recognititon Model API <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> Speech Recognititon Model API </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#about-the-project class=md-nav__link> About The Project </a> </li> <li class=md-nav__item> <a href=#architecture-overview class=md-nav__link> Architecture Overview </a> </li> <li class=md-nav__item> <a href=#api-reference class=md-nav__link> API reference </a> </li> <li class=md-nav__item> <a href=#client-code-reference class=md-nav__link> Client Code reference </a> </li> <li class=md-nav__item> <a href=#setup-and-getting-started-guide class=md-nav__link> Setup and getting started guide </a> </li> <li class=md-nav__item> <a href=#contributing class=md-nav__link> Contributing </a> </li> <li class=md-nav__item> <a href=#license class=md-nav__link> License </a> </li> <li class=md-nav__item> <a href=#git-repository class=md-nav__link> Git repository </a> </li> <li class=md-nav__item> <a href=#contact class=md-nav__link> Contact </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_3 type=checkbox id=__nav_3> <label class=md-nav__link for=__nav_3> About <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=About data-md-level=1> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> About </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../CONTRIBUTING/ class=md-nav__link> Contributions </a> </li> <li class=md-nav__item> <a href=../RELEASE_NOTES/ class=md-nav__link> Release notes </a> </li> <li class=md-nav__item> <a href=../LICENSE class=md-nav__link> License </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#about-the-project class=md-nav__link> About The Project </a> </li> <li class=md-nav__item> <a href=#architecture-overview class=md-nav__link> Architecture Overview </a> </li> <li class=md-nav__item> <a href=#api-reference class=md-nav__link> API reference </a> </li> <li class=md-nav__item> <a href=#client-code-reference class=md-nav__link> Client Code reference </a> </li> <li class=md-nav__item> <a href=#setup-and-getting-started-guide class=md-nav__link> Setup and getting started guide </a> </li> <li class=md-nav__item> <a href=#contributing class=md-nav__link> Contributing </a> </li> <li class=md-nav__item> <a href=#license class=md-nav__link> License </a> </li> <li class=md-nav__item> <a href=#git-repository class=md-nav__link> Git repository </a> </li> <li class=md-nav__item> <a href=#contact class=md-nav__link> Contact </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=speech-recognition-model-api>Speech Recognition model API<a class=headerlink href=#speech-recognition-model-api title="Permanent link">&para;</a></h1> <!-- ABOUT THE PROJECT --> <h2 id=about-the-project>About The Project<a class=headerlink href=#about-the-project title="Permanent link">&para;</a></h2> <p>Our speech to text interface enables you to accurately convert speech into text using an API powered by deep learning neural network algorithms for automatic speech recognition (ASR).</p> <p>This is enabled to provide the following features:</p> <ul> <li> <p>Speech to text transcription support for a growing list of indic languages.</p> </li> <li> <p>Transcribe your content in real time from stored files or audio bytes.</p> </li> <li> <p>Generate subtitle or transcript for your audios as per your choice of output.</p> </li> <li> <p>Support for various audio formats like WAV,MP3,PCM.</p> </li> <li> <p>[beta]Enables transcription optimized for domain-specific quality requirements associating domain models in backend.</p> </li> <li> <p>[beta]Speech-to-Text accurately punctuates transcriptions (e.g., commas, question marks, and periods).</p> </li> </ul> <p>The Developer documentation provides you with a complete set of guidelines which you need to get started with:</p> <ul> <li>Architecture overview</li> <li>API reference </li> <li>Client Code reference</li> <li>Setup and getting started guide</li> <li>Extend this project</li> <li>Contribute to this project</li> </ul> <h2 id=architecture-overview>Architecture Overview<a class=headerlink href=#architecture-overview title="Permanent link">&para;</a></h2> <p><img alt=Screenshot src=../img/open-api.png></p> <p>The logical architecture here is built with a grpc server hosting our speech recognition models and dependencies, which cna be run in any environment or docker. With gRPC we can define our service once in a .proto file and generate clients and servers in any of gRPC’s supported languages, which in turn can be run in environments ranging from servers inside a large data center to your own tablet — all the complexity of communication between different languages and environments is handled for you by gRPC. We also get all the advantages of working with protocol buffers, including efficient serialization, a simple IDL, and easy interface updating. In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. Here we can use the grpc generated stubs from client code in any language and make requests using gRPC calls and receive the responses from the server.On the server side, the server implements this interface and runs a gRPC server to handle client calls. By default, gRPC uses Protocol Buffers, Google’s mature open source mechanism for serializing structured data (although it can be used with other data formats such as JSON). gRPC uses protoc with a special gRPC plugin to generate code from your proto file: you get generated gRPC client and server code, as well as the regular protocol buffer code for populating, serializing, and retrieving your message types. Apart from using gRPC stubs, we have added the support for REST calls to the gRPC server via an api-gateway. With API Gateway for gRPC, you can use the API management capabilities of API Gateway to add monitoring, hosting, tracing, authentication, and more to your gRPC services on Cloud Run. In addition, once you specify special mapping rules, API Gateway translates RESTful JSON over HTTP into gRPC requests. This means that you can deploy a gRPC server managed by API Gateway and call its API using a gRPC or JSON/HTTP client, giving you much more flexibility and ease of integration with other systems.</p> <h2 id=api-reference>API reference<a class=headerlink href=#api-reference title="Permanent link">&para;</a></h2> <p>Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.</p> <p><strong>Base URL</strong> <div class=highlight><pre><span></span><code>https://&lt;gateway-url&gt;/v1/recognize/
 </code></pre></div> <strong>Authentication</strong></p> <p>Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password. The Stripe API uses API keys to authenticate requests. If you need to authenticate via bearer auth (e.g., for a cross-origin request), use -H "Authorization: Bearer sk_test_4eC39HqLyjWDarjtT1zdp7dc" As of now all API requests can be made over HTTPS or HTTP both. Calls made over plain HTTP will fail going ahead.</p> <p><strong>Errors</strong></p> <p>Our API uses HTTP response codes to indicate the success or failure of an API request. <div class=highlight><pre><span></span><code>200 - OK    Everything worked as expected.
 400 - Bad Request   The request was unacceptable, often due to missing a required parameter.
 401 - Unauthorized  No valid API key provided.
@@ -10,17 +10,46 @@
 500, 502, 503, 504 - Server Errors  Something went wrong on Stripe&#39;s end. (These are rare.)
 </code></pre></div> <strong>Handling errors</strong></p> <p>We are in process of writing code that gracefully handles all possible API exceptions. This is something work in progress and will be available soon.</p> <p><strong>Endpoints Supported</strong></p> <p>The recognize object <div class=highlight><pre><span></span><code>POST /v1/recognize/
 </code></pre></div> <strong>Request Attributes</strong> <div class=highlight><pre><span></span><code>config - Holds the configuration objects for language,transcriptionFormat and audio format.
-</code></pre></div> Child parameters:</p> <div class=highlight><pre><span></span><code>    language - Can hold language codes supported.Valid options are [&#39;en&#39;, &#39;hi&#39;, &#39;ta&#39;, &#39;te&#39;, &#39;kn&#39;, &#39;or&#39;, &#39;gu&#39;, &#39;en-IN&#39;]
+</code></pre></div> Child Attributes:</p> <div class=highlight><pre><span></span><code>    language : REQUIRED - Specify the value of the language and its attributes
 
-    transcriptionFormat - Determine the output format as either SRT or TRANSCRIPT.Default value is TRANSCRIPT.
+    Child Attributes:
 
-    audioFormat - Determine the input audio formats supported like [&#39;WAV&#39;, &#39;MP3&#39;, &#39;PCM&#39;].Default value is WAV.
+        value : string : REQUIRED - Specify a langauge code for the audio transcription.
+                        Enum: [&#39;en&#39;, &#39;hi&#39;, &#39;ta&#39;, &#39;te&#39;, &#39;kn&#39;, &#39;or&#39;, &#39;gu&#39;, &#39;en-IN&#39;]
+
+    transcriptionFormat : string : OPTIONAL - Determine the output format as either SRT or TRANSCRIPT.Default value is TRANSCRIPT.
+                                   Enum : [&#39;SRT&#39;,&#39;TRANSCRIPT&#39;]
+
+    audioFormat : string : OPTIONAL - Determine the input audio formats from the list supported.Default value is WAV. 
+                           Enum : [&#39;WAV&#39;, &#39;MP3&#39;, &#39;PCM&#39;]
 </code></pre></div> <p><div class=highlight><pre><span></span><code>audio - Specify the audio properties configuration. Either provide the audio URL or the audio bytes.
-</code></pre></div> Child parameters:</p> <div class=highlight><pre><span></span><code>    audioUri - Specify the audio URL path
+</code></pre></div> Child Attributes:</p> <p>Either of the below attributes is REQUIRED.</p> <div class=highlight><pre><span></span><code>    audioUri : string : REQUIRED - Specify the audio URL path
 
-    audioContent - Specify the byte representation of the audio as part of the request.
-</code></pre></div> <p><strong>Response Attributes</strong> <div class=highlight><pre><span></span><code>srt - The subtitle as output if transcription format is chosen at SRT.
-</code></pre></div> <div class=highlight><pre><span></span><code>transcript - The transcript as output if transcription format is chosen at TRANSCRIPT.
+    audioContent : string : REQUIRED - Specify the byte representation of the audio as part of the request.
+</code></pre></div> <p><em>Request body Example Schema</em> <code>{ "config": { "language": { "value": "hi" }, "transcriptionFormat": "SRT", "audioFormat": "WAV" }, "audio": { "audioUri": "https://codmento.com/ekstep/test/changed.wav" } }</code> <strong>Responses</strong> <code>Code Description 200 On successful completion of the job.</code></p> <p><em>Response Attributes</em> <div class=highlight><pre><span></span><code>srt : string - The subtitle as output if transcription format is chosen at SRT.
+</code></pre></div> <div class=highlight><pre><span></span><code>transcript : string - The transcript as output if transcription format is chosen at TRANSCRIPT.
+</code></pre></div> <em>Response body Example Schema</em> <div class=highlight><pre><span></span><code>{
+    &quot;srt&quot;: &quot;1\n00:00:01,29 --&gt; 00:00:04,88\nहिंदी मॉडल टेस्ट कर रही हूं\n\n2\n00:00:05,00 --&gt; 00:00:09,89\nकैसा चल रहा है मेरे विंडोज लैपटॉप से\n\n&quot;
+}
+</code></pre></div> <div class=highlight><pre><span></span><code>{
+    &quot;transcript&quot;: &quot;हिंदी मॉडल टेस्ट कर रही हूं कैसा चल रहा है मेरे विंडोज लैपटॉप से&quot;
+}
+</code></pre></div> <strong>Responses</strong> <div class=highlight><pre><span></span><code>Code    Description
+400     On input errors causing a failure in the job.
+</code></pre></div> <em>Response Attributes</em> <div class=highlight><pre><span></span><code>code : string - status code as encountered in the processing life-cycle.
+</code></pre></div> <div class=highlight><pre><span></span><code>message : string - human understandable format.
+</code></pre></div> <em>Response body Example Schema</em> <div class=highlight><pre><span></span><code>{
+    &quot;code&quot;: 400,
+    &quot;message&quot;: &quot;config.audioFormat: invalid value \&quot;MP4\&quot; for type type.googleapis.com/ekstep.speech_recognition.RecognitionConfig.AudioFormat&quot;
+}
+</code></pre></div> <strong>Responses</strong> <div class=highlight><pre><span></span><code>Code    Description
+500     Internal error causing a failure in the job.
+</code></pre></div> <em>Response Attributes</em> <div class=highlight><pre><span></span><code>code : string - status code as encountered in the processing life-cycle.
+</code></pre></div> <div class=highlight><pre><span></span><code>message : string - human understandable format.
+</code></pre></div> <em>Response body Example Schema</em> <div class=highlight><pre><span></span><code>{
+    &quot;code&quot;: 2,
+    &quot;message&quot;: &quot;Exception calling application: An unknown error has occurred.Please try again.&quot;
+}
 </code></pre></div></p> <p><strong>Sample Request</strong> <div class=highlight><pre><span></span><code>curl --location --request POST &#39;https://&lt;gateway-url&gt;/v1/recognize/&#39; \
 --header &#39;Content-Type: text/plain&#39; \
 --data-raw &#39;{ &quot;config&quot;: { &quot;language&quot;: { &quot;value&quot;: &quot;hi&quot; }, &quot;transcriptionFormat&quot;: &quot;SRT&quot;, &quot;audioFormat&quot;: &quot;WAV&quot; }, &quot;audio&quot;: { &quot;audioUri&quot;: &quot;https://codmento.com/ekstep/test/changed.wav&quot; } }&#39;
@@ -33,7 +62,282 @@
 </code></pre></div></p> <p><strong>Sample Response</strong></p> <div class=highlight><pre><span></span><code>{
     &quot;transcript&quot;: &quot;हिंदी मॉडल टेस्ट कर रही हूं कैसा चल रहा है मेरे विंडोज लैपटॉप से&quot;
 }
-</code></pre></div> <h2 id=client-code-reference>Client Code reference<a class=headerlink href=#client-code-reference title="Permanent link">&para;</a></h2> <p>TBD</p> </article> </div> </div> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../language_identification/ class="md-footer__link md-footer__link--prev" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> Language Identification </div> </div> </a> <a href=../CONTRIBUTING/ class="md-footer__link md-footer__link--next" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> Contributions </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright &copy; 2021 Vakyansh </div> <!--         Made with
+</code></pre></div> <h2 id=client-code-reference>Client Code reference<a class=headerlink href=#client-code-reference title="Permanent link">&para;</a></h2> <p>We provide client libraries as stubs for different programming languages.</p> <p>python</p> <div class=highlight><pre><span></span><code>import grpc
+from stub.speech_recognition_open_api_pb2_grpc import SpeechRecognizerStub
+from stub.speech_recognition_open_api_pb2 import Language, RecognitionConfig, RecognitionAudio, \
+    SpeechRecognitionRequest
+import wave
+from grpc_interceptor import ClientCallDetails, ClientInterceptor
+
+
+class GrpcAuth(grpc.AuthMetadataPlugin):
+    def __init__(self, key):
+        self._key = key
+
+    def __call__(self, context, callback):
+        callback(((&#39;rpc-auth-header&#39;, self._key),), None)
+
+
+class MetadataClientInterceptor(ClientInterceptor):
+
+    def __init__(self, key):
+        self._key = key
+
+    def intercept(
+            self,
+            method,
+            request_or_iterator,
+            call_details: grpc.ClientCallDetails,
+    ):
+        new_details = ClientCallDetails(
+            call_details.method,
+            call_details.timeout,
+            [(&quot;authorization&quot;, &quot;Bearer &quot; + self._key)],
+            call_details.credentials,
+            call_details.wait_for_ready,
+            call_details.compression,
+        )
+
+        return method(request_or_iterator, new_details)
+
+
+def read_audio():
+    with wave.open(&#39;changed.wav&#39;, &#39;rb&#39;) as f:
+        return f.readframes(f.getnframes())
+
+
+def transcribe_audio_bytes(stub):
+    language = &quot;hi&quot;
+    audio_bytes = read_audio()
+    lang = Language(value=language, name=&#39;Hindi&#39;)
+    config = RecognitionConfig(language=lang, audioFormat=&#39;WAV&#39;, transcriptionFormat=&#39;TRANSCRIPT&#39;)
+    audio = RecognitionAudio(audioContent=audio_bytes)
+    request = SpeechRecognitionRequest(audio=audio, config=config)
+
+    # creds = grpc.metadata_call_credentials(
+    #     metadata_plugin=GrpcAuth(&#39;access_key&#39;)
+    # )
+    response = stub.recognize(request)
+
+    print(response.transcript)
+
+
+def transcribe_audio_url(stub):
+    language = &quot;hi&quot;
+    url = &quot;https://codmento.com/ekstep/test/changed.wav&quot;
+    lang = Language(value=language, name=&#39;Hindi&#39;)
+    config = RecognitionConfig(language=lang, audioFormat=&#39;WAV&#39;)
+    audio = RecognitionAudio(audioUri=url)
+    request = SpeechRecognitionRequest(audio=audio, config=config)
+
+    response = stub.recognize(request)
+
+    print(response.transcript)
+
+
+def get_srt_audio_bytes(stub):
+    language = &quot;hi&quot;
+    audio_bytes = read_audio()
+    lang = Language(value=language, name=&#39;Hindi&#39;)
+    config = RecognitionConfig(language=lang, audioFormat=&#39;WAV&#39;, transcriptionFormat=&#39;SRT&#39;)
+    audio = RecognitionAudio(audioContent=audio_bytes)
+    request = SpeechRecognitionRequest(audio=audio, config=config)
+
+    # creds = grpc.metadata_call_credentials(
+    #     metadata_plugin=GrpcAuth(&#39;access_key&#39;)
+    # )
+    response = stub.recognize(request)
+
+    print(response.srt)
+
+
+def get_srt_audio_url(stub):
+    language = &quot;hi&quot;
+    url = &quot;https://codmento.com/ekstep/test/changed.wav&quot;
+    lang = Language(value=language, name=&#39;Hindi&#39;)
+    config = RecognitionConfig(language=lang, audioFormat=&#39;WAV&#39;, transcriptionFormat=&#39;SRT&#39;)
+    audio = RecognitionAudio(audioUri=url)
+    request = SpeechRecognitionRequest(audio=audio, config=config)
+
+    response = stub.recognize(request)
+
+    print(response.srt)
+
+
+if __name__ == &#39;__main__&#39;:
+    key = &quot;mysecrettoken&quot;
+    interceptors = [MetadataClientInterceptor(key)]
+    with grpc.insecure_channel(&#39;34.70.114.226:50051&#39;) as channel:
+        channel = grpc.intercept_channel(channel, *interceptors)
+        stub = SpeechRecognizerStub(channel)
+        transcribe_audio_url(stub)
+        transcribe_audio_bytes(stub)
+        get_srt_audio_url(stub)
+        get_srt_audio_bytes(stub)
+</code></pre></div> <p>Java <div class=highlight><pre><span></span><code>package com.ekstep.endpoints.speech_recognition;
+
+import com.google.protobuf.ByteString;
+import io.grpc.Channel;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
+
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class SpeechRecognitionClient {
+    private static final Logger logger = Logger.getLogger(SpeechRecognitionClient.class.getName());
+
+    private final SpeechRecognizerGrpc.SpeechRecognizerBlockingStub blockingStub;
+
+    public SpeechRecognitionClient(Channel channel) {
+        blockingStub = SpeechRecognizerGrpc.newBlockingStub(channel);
+    }
+
+    public SpeechRecognitionResult transcribeUrlV2() {
+        String audioUrl = &quot;https://codmento.com/ekstep/test/changed.wav&quot;;
+        logger.info(&quot;Will try to request &quot; + audioUrl + &quot; ...&quot;);
+        RecognitionConfig config = RecognitionConfig.newBuilder()
+                .setLanguage(Language.newBuilder().setValue(Language.LanguageCode.hi).build())
+                .setAudioFormat(RecognitionConfig.AudioFormat.WAV)
+                .build();
+        RecognitionAudio audio = RecognitionAudio.newBuilder().setAudioUri(audioUrl).build();
+        SpeechRecognitionRequest request = SpeechRecognitionRequest.newBuilder()
+                .setAudio(audio)
+                .setConfig(config)
+                .build();
+        SpeechRecognitionResult response;
+
+        try {
+            response = blockingStub.recognize(request);
+            return response;
+        } catch (StatusRuntimeException e) {
+            logger.log(Level.WARNING, &quot;RPC failed: {0}&quot;, e.getStatus());
+            return SpeechRecognitionResult.newBuilder().build();
+        }
+    }
+
+    public SpeechRecognitionResult transcribeBytesV2() {
+        logger.info(&quot;Will try to request ...&quot;);
+        AudioFiles audioFiles = new AudioFiles();
+        String file = &quot;/Users/nireshkumarr/Documents/ekstep/speech-recognition-open-api/examples/python/speech-recognition/changed.wav&quot;;
+        byte[] data2 = audioFiles.readAudioFileData(file);
+        ByteString byteString = ByteString.copyFrom(data2);
+
+        RecognitionConfig config = RecognitionConfig.newBuilder()
+                .setLanguage(Language.newBuilder().setValue(Language.LanguageCode.hi).build())
+                .setAudioFormat(RecognitionConfig.AudioFormat.WAV)
+                .build();
+        RecognitionAudio audio = RecognitionAudio.newBuilder().setAudioContent(byteString).build();
+        SpeechRecognitionRequest request = SpeechRecognitionRequest.newBuilder()
+                .setAudio(audio)
+                .setConfig(config)
+                .build();
+
+        SpeechRecognitionResult response;
+        try {
+            response = blockingStub.recognize(request);
+            return response;
+        } catch (StatusRuntimeException e) {
+            logger.log(Level.WARNING, &quot;RPC failed: {0}&quot;, e.getStatus());
+            return SpeechRecognitionResult.newBuilder().build();
+        }
+    }
+
+    public SpeechRecognitionResult srtUrlV2() {
+        String audioUrl = &quot;https://codmento.com/ekstep/test/changed.wav&quot;;
+        logger.info(&quot;Will try to request &quot; + audioUrl + &quot; ...&quot;);
+        RecognitionConfig config = RecognitionConfig.newBuilder()
+                .setLanguage(Language.newBuilder().setValue(Language.LanguageCode.hi).build())
+                .setAudioFormat(RecognitionConfig.AudioFormat.WAV)
+                .setTranscriptionFormat(RecognitionConfig.TranscriptionFormat.SRT)
+                .build();
+        RecognitionAudio audio = RecognitionAudio.newBuilder().setAudioUri(audioUrl).build();
+        SpeechRecognitionRequest request = SpeechRecognitionRequest.newBuilder()
+                .setAudio(audio)
+                .setConfig(config)
+                .build();
+        SpeechRecognitionResult response;
+
+        try {
+            response = blockingStub.recognize(request);
+            return response;
+        } catch (StatusRuntimeException e) {
+            logger.log(Level.WARNING, &quot;RPC failed: {0}&quot;, e.getStatus());
+            return SpeechRecognitionResult.newBuilder().build();
+        }
+    }
+
+
+
+    public SpeechRecognitionResult srtBytesV2() {
+        logger.info(&quot;Will try to request ...&quot;);
+        AudioFiles audioFiles = new AudioFiles();
+        String file = &quot;/Users/nireshkumarr/Documents/ekstep/speech-recognition-open-api/examples/python/speech-recognition/changed.wav&quot;;
+        byte[] data2 = audioFiles.readAudioFileData(file);
+        ByteString byteString = ByteString.copyFrom(data2);
+
+        RecognitionConfig config = RecognitionConfig.newBuilder()
+                .setLanguage(Language.newBuilder().setValue(Language.LanguageCode.hi).build())
+                .setAudioFormat(RecognitionConfig.AudioFormat.WAV)
+                .setTranscriptionFormat(RecognitionConfig.TranscriptionFormat.SRT)
+                .build();
+        RecognitionAudio audio = RecognitionAudio.newBuilder().setAudioContent(byteString).build();
+        SpeechRecognitionRequest request = SpeechRecognitionRequest.newBuilder()
+                .setAudio(audio)
+                .setConfig(config)
+                .build();
+
+        SpeechRecognitionResult response;
+        try {
+            response = blockingStub.recognize(request);
+            return response;
+        } catch (StatusRuntimeException e) {
+            logger.log(Level.WARNING, &quot;RPC failed: {0}&quot;, e.getStatus());
+            return SpeechRecognitionResult.newBuilder().build();
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        String target = &quot;34.70.114.226:50051&quot;;
+
+        ManagedChannel channel = ManagedChannelBuilder.forTarget(target)
+                .usePlaintext()
+                .build();
+        try {
+            SpeechRecognitionClient client = new SpeechRecognitionClient(channel);
+            SpeechRecognitionResult srtUrlResponse = client.srtUrlV2()
+            SpeechRecognitionResult srtBytesResponse = client.srtBytesV2();
+            SpeechRecognitionResult bytesResponse = client.transcribeBytesV2();
+            SpeechRecognitionResult urlResponse = client.transcribeUrlV2();
+            System.out.println(bytesResponse.getTranscript());
+            System.out.println(urlResponse.getTranscript());
+            System.out.println(srtBytesResponse.getSrt());
+            System.out.println(srtUrlResponse.getSrt());
+
+        } finally {
+            channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
+        }
+    }
+}
+</code></pre></div></p> <h2 id=setup-and-getting-started-guide>Setup and getting started guide<a class=headerlink href=#setup-and-getting-started-guide title="Permanent link">&para;</a></h2> <p>Clone our github repo : <a href=https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git>https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git</a></p> <p>Setup the grpc server:</p> <p><strong>Without docker</strong> 1. Create and activate a new environment :</p> <div class=highlight><pre><span></span><code>```conda create --name &lt;env&gt; python=3.8 &amp;&amp; conda activate &lt;env&gt;```
+</code></pre></div> <ol> <li> <p>Install required libraries using the following command:</p> <div class=highlight><pre><span></span><code>pip install -r requirements.txt
+</code></pre></div> </li> <li> <p>Bootstrap the model code and other models as pre requisites:</p> <p><div class=highlight><pre><span></span><code>sh model_bootstrap.sh
+</code></pre></div> 4. Download models and update the right model paths in model_dict.json. 5. Start the server at port 50051:</p> <p><div class=highlight><pre><span></span><code>python server.py
+</code></pre></div> <strong>With docker</strong></p> </li> </ol> <div class=highlight><pre><span></span><code>docker build -t speech_recognition_model_api .
+</code></pre></div> <div class=highlight><pre><span></span><code>sudo docker run --cpus=6 -m 20000m -itd -p &lt;&lt;host_port&gt;&gt;:50051 --name speech_recognition_model_api -v &lt;&lt;host_model_path&gt;&gt;/deployed_models:&lt;&lt;container_model_path&gt;&gt;/deployed_models/ -i -t speech_recognition_model_api
+</code></pre></div> <p>Using the model api as part of client code:</p> <p>In python, <div class=highlight><pre><span></span><code>python examples/python/speech-recognition/main.py
+</code></pre></div></p> <p>Using the model api as part of REST call using api-gateway:</p> <p>Create api config in api gateway: <div class=highlight><pre><span></span><code>gcloud api-gateway api-configs create CONFIG_ID \
+--api=API_ID --project=PROJECT_ID \
+--grpc-files=api_descriptor.pb,api_config.yaml
+</code></pre></div></p> <p>Deploy gateway in api gateway: <div class=highlight><pre><span></span><code>gcloud api-gateway gateways create GATEWAY_ID \
+  --api=API_ID --api-config=CONFIG_ID \
+  --location=GCP_REGION --project=PROJECT_ID
+</code></pre></div> View gateway information: <div class=highlight><pre><span></span><code>gcloud api-gateway gateways describe GATEWAY_ID \
+  --location=GCP_REGION --project=PROJECT_ID
+</code></pre></div></p> <p>To run tests, use the following command: <div class=highlight><pre><span></span><code>py.test --grpc-fake-server --ignore=wav2letter --ignore=wav2vec-infer --ignore=kenlm
+</code></pre></div></p> <h2 id=contributing>Contributing<a class=headerlink href=#contributing title="Permanent link">&para;</a></h2> <p>Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p> <ol> <li>Fork the Project</li> <li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li> <li>Commit your Changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li> <li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li> <li>Open a Pull Request</li> </ol> <h2 id=license>License<a class=headerlink href=#license title="Permanent link">&para;</a></h2> <p>Distributed under the [MIT] License. See <code>LICENSE</code> for more information.</p> <h2 id=git-repository>Git repository<a class=headerlink href=#git-repository title="Permanent link">&para;</a></h2> <p><a href=https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git>https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git</a></p> <h2 id=contact>Contact<a class=headerlink href=#contact title="Permanent link">&para;</a></h2> <p>Connect with community on <a href="https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link">Gitter</a></p> <p>Project Link: <a href=https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git>https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git</a></p> </article> </div> </div> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../language_identification/ class="md-footer__link md-footer__link--prev" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> Language Identification </div> </div> </a> <a href=../CONTRIBUTING/ class="md-footer__link md-footer__link--next" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> Contributions </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright &copy; 2021 Vakyansh </div> <!--         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs
         </a> --> Vakyansh </div> <!--        --> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "..", "features": ["navigation.sections", "navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script> <script src=../assets/javascripts/bundle.7865d441.min.js></script> </body> </html>

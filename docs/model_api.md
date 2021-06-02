@@ -109,7 +109,9 @@ Either of the below attributes is REQUIRED.
         audioUri : string : REQUIRED - Specify the audio URL path
         
         audioContent : string : REQUIRED - Specify the byte representation of the audio as part of the request.
+
 *Request body Example Schema* 
+
 ```
 {
     "config": {
@@ -125,12 +127,14 @@ Either of the below attributes is REQUIRED.
 }
 ```
 **Responses**
+
 ```
 Code	Description
 200     On successful completion of the job.
 ```
    
 *Response Attributes*
+
 ```
 srt : string - The subtitle as output if transcription format is chosen at SRT.
 ```

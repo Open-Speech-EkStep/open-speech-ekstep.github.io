@@ -26,7 +26,21 @@
 </code></pre></div> Child Attributes:</p> <p>Either of the below attributes is REQUIRED.</p> <div class=highlight><pre><span></span><code>    audioUri : string : REQUIRED - Specify the audio URL path
 
     audioContent : string : REQUIRED - Specify the byte representation of the audio as part of the request.
-</code></pre></div> <p><em>Request body Example Schema</em> <code>{ "config": { "language": { "value": "hi" }, "transcriptionFormat": "SRT", "audioFormat": "WAV" }, "audio": { "audioUri": "https://codmento.com/ekstep/test/changed.wav" } }</code> <strong>Responses</strong> <code>Code Description 200 On successful completion of the job.</code></p> <p><em>Response Attributes</em> <div class=highlight><pre><span></span><code>srt : string - The subtitle as output if transcription format is chosen at SRT.
+</code></pre></div> <p><em>Request body Example Schema</em> </p> <p><div class=highlight><pre><span></span><code>{
+    &quot;config&quot;: {
+        &quot;language&quot;: {
+            &quot;value&quot;: &quot;hi&quot;
+        },
+        &quot;transcriptionFormat&quot;: &quot;SRT&quot;,
+        &quot;audioFormat&quot;: &quot;WAV&quot;
+    },
+    &quot;audio&quot;: {
+        &quot;audioUri&quot;: &quot;https://codmento.com/ekstep/test/changed.wav&quot;
+    }
+}
+</code></pre></div> <strong>Responses</strong></p> <div class=highlight><pre><span></span><code>Code    Description
+200     On successful completion of the job.
+</code></pre></div> <p><em>Response Attributes</em></p> <p><div class=highlight><pre><span></span><code>srt : string - The subtitle as output if transcription format is chosen at SRT.
 </code></pre></div> <div class=highlight><pre><span></span><code>transcript : string - The transcript as output if transcription format is chosen at TRANSCRIPT.
 </code></pre></div> <em>Response body Example Schema</em> <div class=highlight><pre><span></span><code>{
     &quot;srt&quot;: &quot;1\n00:00:01,29 --&gt; 00:00:04,88\nहिंदी मॉडल टेस्ट कर रही हूं\n\n2\n00:00:05,00 --&gt; 00:00:09,89\nकैसा चल रहा है मेरे विंडोज लैपटॉप से\n\n&quot;

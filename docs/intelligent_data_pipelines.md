@@ -237,7 +237,21 @@ variable "sql_disk_size" {
 }
 ```
 
-5. Run specific modules as per requirements.  
+6. Create Service account :
+7. 
+   ```
+   terraform apply -target=module.service-accounts
+   ```
+
+8. Create keys from console.cloud.google.com
+   
+9.  Set env variable
+    
+10. 
+   ```export GOOGLE_APPLICATION_CREDENTIAL_SERVICE_ACC= </path/to/key.json>
+   ```
+
+11. Run specific modules as per requirements.  
   
 ```sh
 terraform apply -target=module.<module-name>

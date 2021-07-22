@@ -155,7 +155,7 @@ eg: ```terraform workspace select prod```
 
 4. Configure
  
- ```
+```json
  variable "project" {
   description = "The name of the Google Cloud Project."
   default = "<project-name>"
@@ -239,7 +239,7 @@ variable "sql_disk_size" {
 ```
 
 6. Create Service account :
-7. 
+
    ```
    terraform apply -target=module.service-accounts
    ```

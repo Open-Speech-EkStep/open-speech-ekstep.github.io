@@ -145,8 +145,13 @@ To get started install the prerequisites and clone the repo to machine on which 
    
     ```
     pip install -r requirements.txt
-    ```
 
+4. Install gcloud utils
+    ``` 
+    Download from: https://cloud.google.com/sdk/docs/install#linux
+    
+    > gcloud init
+    ```
 
 
 <!-- USAGE EXAMPLES -->
@@ -331,7 +336,7 @@ Make sure the google credentials are present in project root folder in credentia
     - Set `youtube_service_to_use` variable value to either `YoutubeService.YOUTUBE_DL` or `YoutubeService.YOUTUBE_API` for collecting video info.
     
     - If `YoutubeService.YOUTUBE_API` is chosen, then get APIKEY for youtube data api from google developer console and store it in a file called `.youtube_api_key` in project root folder.
-   
+    Generate `.youtube_api_key` from 
     - From the project root folder, run the following command:
         
         ```

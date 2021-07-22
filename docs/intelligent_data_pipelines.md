@@ -182,6 +182,7 @@ So that while deploying code image should easily push into google container regi
 3. POSTGRES_DB # Database host ip that is created using terraform
 4. POSTGRES_PASSWORD  # Database password
 5. POSTGRES_USER # Database user name
+6. DB_INSTANCE # Database instance name
 ```
   
 ### Audio Processing

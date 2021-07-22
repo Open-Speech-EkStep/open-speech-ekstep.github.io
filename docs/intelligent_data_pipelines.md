@@ -153,7 +153,90 @@ pip install -r requirements.txt
 ```terraform workspace select <env_name>```  
 eg: ```terraform workspace select prod``` 
 
-4. Run specific modules as per requirements.  
+4. Configure
+ ```json
+ variable "project" {
+  description = "The name of the Google Cloud Project."
+  default = "<project-name>"
+}
+
+variable "composer_env_name" {
+  description = "The name of the Google composer_env_name."
+  default = "ekstepcomposer"
+}
+
+variable "script_path" {
+  description = "The path of the working dir."
+  default = "./modules/gcp-composer/"
+}
+
+variable "bucket_name" {
+  description = "The name of the gcp bucket"
+  default = "<bucket-name>"
+}
+
+
+variable "database_version" {
+  description = "The name of the database_version."
+  type = string
+  default = "POSTGRES_11"
+}
+
+variable "database_instance_name" {
+  description = "The name of the database_instance."
+  type = string
+  default = "<db-instance-name>"
+}
+
+variable "db_region" {
+  description = "The name of the db region."
+  type = string
+  default = "us-central1"
+}
+
+variable "database1" {
+  description = "The name of the database1."
+  type = string
+  default = "speech_recognition_data_catalog-1"
+}
+
+variable "database2" {
+  description = "The name of the database2."
+  type = string
+  default = "speech_recognition_data_catalog-2"
+}
+
+variable "speechrecognition_service_account" {
+  description = "The name of the speechrecognition_service_account."
+  type = string
+  default = "service-account-1"
+}
+
+variable "circleci_service_account" {
+  description = "The name of the circleci_service_account."
+  type = string
+  default = "servacct-circleci"
+}
+
+variable "sql_instance_size" {
+  default = "db-custom-2-7680"
+  type = string
+  description = "Size of Cloud SQL instances"
+}
+
+variable "sql_disk_type" {
+  default = "PD_HDD"
+  type = string
+  description = "Cloud SQL instance disk type"
+}
+
+variable "sql_disk_size" {
+  default = "20"
+  type = string
+  description = "Storage size in GB"
+}
+
+5. Run specific modules as per requirements.  
   
 ```sh
 terraform apply -target=module.<module-name>

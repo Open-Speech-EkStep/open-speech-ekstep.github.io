@@ -155,7 +155,7 @@ eg: ```terraform workspace select prod```
 
 4. Configure
  
- ```json
+ ```
  variable "project" {
   description = "The name of the Google Cloud Project."
   default = "<project-name>"
@@ -263,12 +263,21 @@ eg:
 terraform apply -target=module.sql-database
 ```  
 
-5. Run all modules at once.
+11. Run all modules at once.
 
 ```sh
 terraform apply
 ```
-  
+
+12. Connect to DB from local:
+Setup proxy
+```sh
+./cloud_sql_proxy -dir=./cloudsql -instances=<project-id>:<zone>:<db-instance-name>=tcp:5432
+```
+Create username and password from console. Then connect to localhost
+
+13. Whitelist composer worker IP in DB Network
+    
 ### CI/CD setup
 
 Once you pull code you have to configure some variable in your [circle-ci](https://circleci.com/ "circle-ci").

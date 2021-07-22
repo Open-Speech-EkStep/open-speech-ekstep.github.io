@@ -235,6 +235,7 @@ variable "sql_disk_size" {
   type = string
   description = "Storage size in GB"
 }
+```
 
 5. Run specific modules as per requirements.  
   

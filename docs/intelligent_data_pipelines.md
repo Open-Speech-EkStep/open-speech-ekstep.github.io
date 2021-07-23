@@ -23,14 +23,14 @@
     - [Requirements](#requirements)
     - [Infra Setup](#infra-setup)
     - [CI/CD setup](#cicd-setup)
-    - [Audio Processing](#audio-processing)
+    - [Audio Processing Config](#audio-processing-config)
       - [Description](#description)
       - [Config](#config)
       - [Steps to run](#steps-to-run)
-    - [Audio Analysis](#audio-analysis-1)
+    - [Audio Analysis Config](#audio-analysis-config)
       - [Config](#config-1)
       - [Steps to run](#steps-to-run-1)
-    - [Data Balancing](#data-balancing)
+    - [Data Balancing Config](#data-balancing-config)
       - [config](#config-2)
       - [steps to run:](#steps-to-run-2)
     - [Audio Transcription (with config):](#audio-transcription-with-config)
@@ -292,7 +292,7 @@ So that while deploying code image should easily push into google container regi
 6. DB_INSTANCE # Database instance name
 ```
   
-### Audio Processing
+### Audio Processing Config
 
 #### Description
 
@@ -374,7 +374,7 @@ run if parallelism is not define number of pod = count ex:
        **remote_raw_audio_file_path** to **snr_done_folder_path**. and update DB also with the metadata which we created using circle-ci.
 
 
-### Audio Analysis
+### Audio Analysis Config
 
 #### Config
 
@@ -414,7 +414,7 @@ run if parallelism is not define number of pod = count ex:
        and upload processed file to **remote_processed_audio_file_path** that we mentioned in config file.
        and update DB also with the metadata which we created using circle-ci.
 
-### Data Balancing
+### Data Balancing Config
 
 #### config
 

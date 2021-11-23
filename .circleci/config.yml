@@ -31,7 +31,7 @@ jobs:
                   pip install -r requirements.txt
                   python --version ; pip --version ; pwd ; ls
                   python -m mkdocs build --clean
-                  mkdocs build ; mkdocs gh-deploy
+                  python -m mkdocs build ; python -m mkdocs gh-deploy
 
 workflows:
   version: 2

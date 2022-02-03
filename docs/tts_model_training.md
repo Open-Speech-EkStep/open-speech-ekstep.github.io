@@ -22,7 +22,7 @@ There are two models at work that convert your text to an audio. First of all, w
 You can find the original source code implemented by the authors [here](https://github.com/jik876/hifi-gan).
 
     
-    ![glow](img/hifi_GAN.png)
+    ![hifi](img/hifi_GAN.png)
     <p align="center">
 
     </p>

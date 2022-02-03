@@ -1,7 +1,7 @@
 # vakyansh-tts
-Text to Speech for Indic languages
+
 ## Models
-Our open-sourced TTS models are present in this [repo](https://github.com/Open-Speech-EkStep/vakyansh-models).
+Our open-sourced TTS models for Indic languages are present in this [repo](https://github.com/Open-Speech-EkStep/vakyansh-models).
 
 ## Components
 There are two models at work that convert your text to an audio. First of all, we train a glow-TTS text-to-mel model to convert text to mel spectrogram. This mel spectrogram is then passed as input to a mel-to-wav model (HiFi-GAN) which converts it to an audio.
@@ -9,12 +9,25 @@ There are two models at work that convert your text to an audio. First of all, w
 
 1. Text to Mel: We use _Glow-TTS: A Generative Flow for Text-to-Speech via Monotonic Alignment Search_ proposed [here](https://arxiv.org/abs/2005.11129). You can find the original source code implemented by the authors [here](https://github.com/jaywalnut310/glow-tts).
 
-    <img src="img/glow_training_and_inference.png" alt="Glow-TTS at training" height="250" width="500">
+    
+    ![glow](img/glow_training_and_inference.png)
+    <p align="center">
+
+    </p>
+    <p align="center">
+    </p>
+
 
 2. Mel to Wav: We use _HiFi-GAN: a GAN-based model capable of generating high fidelity speech efficiently_ proposed [here](https://arxiv.org/abs/2010.05646).
 You can find the original source code implemented by the authors [here](https://github.com/jik876/hifi-gan).
 
-    <img src="img/hifi_GAN.png" alt="Glow-TTS at training" height="250" width="500">
+    
+    ![glow](img/hifi_GAN.png)
+    <p align="center">
+
+    </p>
+    <p align="center">
+    </p>
 
 
 

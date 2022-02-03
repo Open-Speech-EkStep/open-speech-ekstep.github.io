@@ -200,7 +200,7 @@ nav:
       - "Gender Identification": "gender_identification.md"
       - "Language Identification": "language_identification.md"
       - "Speech Recognititon Model API" : "asr_model_api.md"
-      - "Text To Speech model training: "tts_model_training.md""
+      - "Text To Speech model training": "tts_model_training.md"
       - "Text To Speech Model API" : "tts_model_api.md"
   
   - About:

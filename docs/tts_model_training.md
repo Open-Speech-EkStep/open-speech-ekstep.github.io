@@ -54,7 +54,7 @@ _Hifi-GAN trained for_: 200k steps
 
 </p>
 <p align="center">
-<i>Logs for Glow-TTS training</i>
+<i>Logs for Hifi GAN training</i>
 </p>
 
 

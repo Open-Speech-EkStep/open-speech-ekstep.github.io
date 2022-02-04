@@ -29,9 +29,36 @@ You can find the original source code implemented by the authors [here](https://
     <p align="center">
     </p>
 
+## Training logs
+_Language_: Hindi
+
+_Data used for training_: Monolingual Hindi male corpus (4.5 hrs) from [IndicCorp](https://www.iitm.ac.in/donlab/tts/database.php). 
+
+_Sample Rate_: 22050 Hz
+
+_Glow-TTS trained for_: 100 epochs
+_Hifi-GAN trained for_: 200k steps
+
+### Tensorboard Logs
+
+![glow logs](img/glow_hi_male_logs.png)
+<p align="center">
+
+</p>
+<p align="center">
+<i>Logs for Glow-TTS training</i>
+</p>
+
+![hifi logs](img/hifi_hi_male_logs.png)
+<p align="center">
+
+</p>
+<p align="center">
+<i>Logs for Hifi GAN training</i>
+</p>
 
 
-### 1. Installation and Setup for training
+## 1. Installation and Setup for training
 
 Clone repo
 ```
@@ -65,7 +92,7 @@ Build Monotonic Alignment Search Code (Cython)
 ```
 bash install.sh
 ```
-### 1.1 Installation of tts_infer package 
+## 1.1 Installation of tts_infer package 
 #### [Only for inferencing, if you have trained models]
 
 In tts_infer package, we currently have two components:
@@ -114,7 +141,7 @@ def run_tts(text, lang):
 ```
 
 
-### 2. Spectogram Training (glow-tts)
+## 2. Spectogram Training (glow-tts)
 
 filelists for glow-tts
 
@@ -130,13 +157,13 @@ Note - speaker id should be zero indexed
 cd ./scripts
 bash train_glow.sh
 ```
-### 3. Genrate Mels
+## 3. Genrate Mels
 
 ```
 cd ./scripts
 bash generate_mels.sh
 ```
-### 4. Vocoder Training (hifi-gan)
+## 4. Vocoder Training (hifi-gan)
 filelists for glow-tts
 
 train.txt
@@ -147,7 +174,7 @@ train.txt
 cd ./scripts
 bash train_hifi.sh
 ```
-### 5. Inference
+## 5. Inference
 ```
 cd ./scripts
 bash infer.sh

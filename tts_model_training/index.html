@@ -44,7 +44,7 @@ def run_tts(text, lang):
 bash train_glow.sh
 </code></pre></div> <h2 id=3-genrate-mels>3. Genrate Mels<a class=headerlink href=#3-genrate-mels title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code>cd ./scripts
 bash generate_mels.sh
-</code></pre></div> <h2 id=4-vocoder-training-hifi-gan>4. Vocoder Training (hifi-gan)<a class=headerlink href=#4-vocoder-training-hifi-gan title="Permanent link">&para;</a></h2> <p>filelists for glow-tts</p> <p>train.txt</p> <blockquote> <p>absolute_filepath_1</p> </blockquote> <div class=highlight><pre><span></span><code>cd ./scripts
+</code></pre></div> <h2 id=4-vocoder-training-hifi-gan>4. Vocoder Training (hifi-gan)<a class=headerlink href=#4-vocoder-training-hifi-gan title="Permanent link">&para;</a></h2> <p>filelists for hifi-gan</p> <p>train.txt</p> <blockquote> <p>absolute_filepath_1</p> </blockquote> <div class=highlight><pre><span></span><code>cd ./scripts
 bash train_hifi.sh
 </code></pre></div> <h2 id=5-inference>5. Inference<a class=headerlink href=#5-inference title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code>cd ./scripts
 bash infer.sh

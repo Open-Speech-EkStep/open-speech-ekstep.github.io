@@ -1,6 +1,7 @@
 # Crowdsourcing Platform
 
 <!-- TABLE OF CONTENTS -->
+
 ## Table of Contents
 
 - [Crowdsourcing Platform](#crowdsourcing-platform)
@@ -14,6 +15,7 @@
     - [Architecture Improvements](#architecture-improvements)
   - [Languages and Tools](#languages-and-tools)
   - [Dashboard Design](#dashboard-design)
+  - [UI Details](#ui-details)
   - [CI/CD](#cicd)
   - [Infrastructure as Code](#infrastructure-as-code)
   - [Getting Started](#getting-started)
@@ -40,10 +42,10 @@
   - [Git repository](#git-repository)
   - [Contact](#contact)
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
+
 This is a web application which can be used to crowdsource audio and validate them for various languages. The application makes use of NodeJs, Postgres for Database. It can be hosted on any cloud platform. The current application has code to support AWS and GCP as providers to store the recorded information.
 Crowdsourcing Platform’s developer documentation is meant for its adopters, developers and contributors.
 
@@ -53,16 +55,17 @@ Data Collection Pipeline is based on an open platform, you are free to use any p
 
 The Developer documentation provides you with a complete set of guidelines which you need to:
 
-* Install dependencies for the Crowdsourcing Platform  
-* Configure Crowdsourcing Platform
-* Customize Crowdsourcing Platform  
-* Extend Crowdsourcing Platform  
-* Contribute to Crowdsourcing Platform
-
+- Install dependencies for the Crowdsourcing Platform
+- Configure Crowdsourcing Platform
+- Customize Crowdsourcing Platform
+- Extend Crowdsourcing Platform
+- Contribute to Crowdsourcing Platform
 
 ### Built With
+
 We have used Node.js to build this platform.
-* [Node](https://nodejs.org/)
+
+- [Node](https://nodejs.org/)
 
 ## Architecture
 
@@ -79,12 +82,12 @@ This the architecture for deployment on Kubernetes, wherein the service layer is
 
 ### Deployment Architecture: AWS
 
-This is the deployement architecure for running portal on AWS infra. It leverages AWS manages services like EKS and Fargate for K8s cluster and AWS RDS for managed database. It also uses AWS managed Load Balancer 
+This is the deployement architecure for running portal on AWS infra. It leverages AWS manages services like EKS and Fargate for K8s cluster and AWS RDS for managed database. It also uses AWS managed Load Balancer
 ![Deployment Architecture: AWS](img/crowdsource/deployment_aws_arch.png)
 
 ### Architecture Improvements
 
-We believe in continously improving the architecture. 
+We believe in continously improving the architecture.
 Here are some ADR opened : [Architecture Decision Records](https://open-speech-ekstep.github.io/adr)
 
 Proposed Architecture: ![ADR](img/crowdsource/adr1.png)
@@ -107,8 +110,138 @@ Advantages:
 - Faster reads: Separate view with only 365 aggregated data points per year.
 - Less overhead on DB as data queried is on a very small data set and served from S3 buckets
 - Transactional tables are optimized for faster writes as we have separate views for reads
-- Simplified read queries as complexity is abstracted in views 
+- Simplified read queries as complexity is abstracted in views
 - AWS RDS managed DB. Can be scaled horizontally and vertically easily if required in future.
+
+## UI Details
+
+Tech Stack : React, NextJs, HTML, CSS
+
+Libraries :
+
+| Libraries       | Name                        | Type                       | License          |
+| --------------- | --------------------------- | -------------------------- | ---------------- |
+| Chart           | Amcharts 4                  | Free version               | linkware license |
+| Keyboard        | react-simple-keyboard       | Open Source                | MIT              |
+| Fonts           | Lato, Helvetica, sans serif | Google fonts (Open Source) | OFL              |
+| Bootstrap       | Bootstrap                   | Open Source                | MIT              |
+| React Class     | Classnames                  | Open Source                | MIT              |
+| Blob            | get-blob-duratio            | Open Source                | MIT              |
+| PDF             | jspdf                       | Open Source                | MIT              |
+| Date & Time     | moment                      | Open Source                | MIT              |
+| platform        | platform                    | Open Source                | MIT              |
+| Localisation    | next-i18next                | Open Source                | MIT              |
+| Image           | sharp                       | Open Source                | MIT              |
+| react-slick     | react-slick                 | Open Source                | MIT              |
+| swr             | swr                         | Open Source                | MIT              |
+| js-levenshtein  | js-levenshtein              | Open Source                | MIT              |
+| word-error-rate | word-error-rate             | Open Source                | MIT              |
+
+### Frontend for Crowdsourcing Platform.
+
+## Features
+
+- Supports [these](https://nextjs.org/docs/basic-features/supported-browsers-features) browsers and features.
+
+## Development
+
+- Make sure your following requirements for npm and node are met:
+
+| Package | Version |
+| ------- | ------- |
+| npm     | 6.14.14 |
+| node    | 14.17.5 |
+
+If you are using [nvm](https://github.com/nvm-sh/nvm), you can run `nvm use` in the root directory to install the correct version of node.
+
+- Open your favorite Terminal and run these commands:
+
+```bash
+npm install
+
+npm run dev
+
+# Local dev server will automatically starts on http://localhost:8080
+```
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm run clean`
+
+Clean up cached or build folders.
+
+### `npm run dev`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+
+The page will reload if you make edits.
+
+### `npm run dev:axe`
+
+Similar to `npm run dev` but also runs [@axe-core/react](https://github.com/dequelabs/axe-core-npm).
+
+### `npm run lint`
+
+For running eslint on source code.
+
+### `npm run lint:fix`
+
+For fixing eslint errors.
+
+### `npm run stylelint`
+
+For running stylelint on source code.
+
+### `npm run stylelint:fix`
+
+For fixing stylelint errors.
+
+### `npm run format`
+
+For running prettier on the source code.
+
+### `npm run typecheck`
+
+For running typescript typecheck.
+
+### `npm run test`
+
+Launches the test runner in the interactive watch mode.
+
+### `npm run test:coverage`
+
+Launches the test runner with coverage.
+
+### `npm run test:lh-ci`
+
+For running [lighthouse-ci](https://github.com/GoogleChrome/lighthouse-ci). Please ensure you ran `npm run build` first before running this command.
+
+### `npm run node-talisman`
+
+For running talisman on the source code.
+
+### `npm run check`
+
+For running lint, stylelint, typecheck, test with coverage and talisman.
+
+### `npm run build`
+
+Builds the app for production to the `.next` folder.
+
+### `npm run build:docker`
+
+Same as `npm run build` but for docker.
+
+### `npm start`
+
+It will start the production server on [http://localhost:8080](http://localhost:8080). Please ensure you ran `npm run build` first before running this command.
+
+### `npm run start:docker`
+
+It will start the production server on [http://localhost:3000](http://localhost:3000) for docker. Please ensure you ran `npm run build:docker` first before running this command.
 
 ## CI/CD
 
@@ -126,28 +259,31 @@ Advantages:
 - Infrastructure defined in code with Terraform and shell scripts
 - Easily migrate to another AWS account
 - Spin up new env easily
-![IAC](img/crowdsource/iac.png)
+  ![IAC](img/crowdsource/iac.png)
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 To get started install the prerequisites and clone the repo to machine on which you wish to run the application.
 
 ### Prerequisites
+
 1. Install `node` library using commands mentioned below.
-    * For any linux based operating system (preferred Ubuntu):
-      
-        ```
-        sudo apt-get install nodejs
-        ```
-      
-    * For Mac-os:
-      
-        ```
-        brew install node
-        ```
-      
-    * Windows user can follow installation steps on [https://nodejs.org/en/#home-downloadhead](https://nodejs.org/en/#home-downloadhead)
+
+   - For any linux based operating system (preferred Ubuntu):
+
+     ```
+     sudo apt-get install nodejs
+     ```
+
+   - For Mac-os:
+
+     ```
+     brew install node
+     ```
+
+   - Windows user can follow installation steps on [https://nodejs.org/en/#home-downloadhead](https://nodejs.org/en/#home-downloadhead)
 
 2. Install or connect to a postgres database
 
@@ -156,45 +292,51 @@ To get started install the prerequisites and clone the repo to machine on which 
 ### Installation
 
 1. Clone the repo using
-   
-    ```
-    git clone https://github.com/Open-Speech-EkStep/crowdsource-dataplatform.git
-    ```
-   
+
+   ```
+   git clone https://github.com/Open-Speech-EkStep/crowdsource-dataplatform.git
+   ```
+
 2. Go inside the directory
-   
-    ```
-    cd crowdsource-dataplatform
-    ```
-   
+
+   ```
+   cd crowdsource-dataplatform
+   ```
+
 3. Install node requirements
-   
-    ```
-    npm install
-    ```
 
-
+   ```
+   npm install
+   ```
 
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
 ### Common configuration steps:
+
 #### Setting credentials for Google cloud bucket
+
 You can set credentials for Google cloud bucket by running the following command
+
 ```
 gcloud auth application-default login
 ```
 
 #### Setting credentials for AWS cloud bucket
+
 You can set credentials for AWS cloud bucket by running the following command
+
 ```
 aws configure
 ```
 
 #### Bucket configuration
+
 You can create a specific bucket to store the recorded samples on aws or gcp. And mention those in the environment variables.
 
 #### Environment file configurations
+
 The following are the variables required to run the application, for running on local these can be added to a .env file
 
 ```
@@ -207,8 +349,9 @@ BUCKET_NAME: The bucket name configured on aws or gcp
 ENCRYPTION_KEY: Key to run unit tests
 PORT: Port to run the application on
 ```
-        
+
 <!-- RUNNING THE SERVICES -->
+
 ## Running services
 
 Make sure the google credentials are present in project root folder in credentials.json file.
@@ -253,15 +396,15 @@ Once can also run the migrate up command by setting an environment variable
 DATABASE_URL=postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}
 ```
 
-To add a new migration 
+To add a new migration
 
 ```
 db-migrate create add-new-table
 ```
 
-Using the above command with the ```--sqlFile``` flag would create corresponding .sql files in which one can write sql commands to do the operation.
+Using the above command with the `--sqlFile` flag would create corresponding .sql files in which one can write sql commands to do the operation.
 
-To rollback the last migration, one can 
+To rollback the last migration, one can
 
 ```
 db-migrate down
@@ -302,7 +445,7 @@ Test Objective: Scalability Test - Validate elastic scalability
 Resource Configuration:
   Environment: Dev
   Pod resources: 0.25 CPU/ 250M RAM
-  Horizontal Pod Autoscaler : 
+  Horizontal Pod Autoscaler :
     Scaling Threshold - 10% CPU Utilization
     Min pods: 1
     Max Pods: 10
@@ -334,7 +477,7 @@ Resource Configuration:
   Environment: Test
   Initial Pods: 3
   Pod resources: 2 CPU/ 2GB RAM
-  Horizontal Pod Autoscaler : 
+  Horizontal Pod Autoscaler :
     Scaling Threshold - 40% CPU Utilization
     Min pods: 3 , Max Pods: 10
   Database CPU : 4
@@ -360,7 +503,7 @@ Jmeter stats:
 Summary:
 
 ```txt
-- This test had 20000 users ramped up within 1 min (3 times). 
+- This test had 20000 users ramped up within 1 min (3 times).
 - The test was performed from a single machine so 20K concurrent users could scale in 1 min.
 - All the requests were served within initial resources, no scaling was triggered.
 - All three endpoints served response in around 2 sec on an average.
@@ -379,7 +522,7 @@ Please reach out to srajat@thoughtworks or heerabal@thoughtworks.com for more in
 
 ```txt
 Cloud : AWS
-Amazon RDS (4 CPU): $400 
+Amazon RDS (4 CPU): $400
 WAF: $30
 EKS + Fargate: $75 + $225 = $300
 ELB: $150
@@ -393,8 +536,9 @@ Total: ~ $1100-1200 per month
 Decision records are maintained [HERE](https://open-speech-ekstep.github.io/adr)
 
 - [Cache above RDBMS](https://open-speech-ekstep.github.io/adr/#caching-layer-above-rdbms)
-  
+
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -418,4 +562,3 @@ Distributed under the [MIT] License. See `LICENSE` for more information.
 Connect with community on [Gitter](https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 Project Link: [https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/](https://github.com/Open-Speech-EkStep/crowdsource-dataplatform/)
-

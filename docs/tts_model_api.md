@@ -126,7 +126,8 @@ Prepare the model_dict.json and place it in <local path>/tts_models/
 The model_dict.json sample :
 
 ```
-{ "hi" : { "male_glow" : "hindi/male/glow_tts",
+{ 
+    "hi" : { "male_glow" : "hindi/male/glow_tts",
            "male_hifi" : "hindi/male/hifi_tts",
            "female_glow" : "hindi/female/glow_tts",
            "female_hifi" : "hindi/female/hifi_tts" }

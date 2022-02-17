@@ -52,7 +52,7 @@ Method: `POST`
 
 Headers: 
 
-`[{"key":"Content-Type","value":"application/json","description":"","type":"text","enabled":true}]`
+`[{ "key": "Content-Type", "value": "application/json", "description": "", "type": "text", "enabled": true }]`
 
 Body:
 
@@ -71,9 +71,9 @@ Example Request Body -
             "sourceLanguage": "hi"
         }
     }
-}
-
+} 
 ```
+
 The attributes "input" and "config" are the mandatory attributes for the the request to process.
 The child attribute for "input" is "source" which should hold the text to synthesize.
 The child attributes for "config" are "gender" and "sourceLanguage".
@@ -92,7 +92,7 @@ The child attribute "audioContent" of attribute "audio" would provide the audio 
 Audio Format and sampling rate are also returned as part of the response schema.
 Example:
 ```
-{"audio":[{"audioContent":"UklGRiS4AgBXQVZFZm10"}],"config":{"language":{"sourceLanguage":"hi"},"audioFormat":"wav","encoding":"base64","samplingRate":22050}}
+{ "audio": [{ "audioContent": "UklGRiS4AgBXQVZFZm10" }], "config": { "language": { "sourceLanguage": "hi" }, "audioFormat": "wav", "encoding": "base64", "samplingRate": 22050 }}
 
 ```
 
@@ -123,21 +123,20 @@ Download all tts models in the local path using gsutil -m cp -r ```gs://vakyaans
 Download all transliteration models into local using gsutil -m cp -r ```gs://vakyaansh-open-models/translit_models <local path>/translit_models/```
 Prepare the model_dict.json and place it in <local path>/tts_models/
 The model_dict.json sample :
+
 ```
-{
-"hi" : {"male_glow" : "hindi/male/glow_tts",
-        "male_hifi" : "hindi/male/hifi_tts",
-        "female_glow" : "hindi/female/glow_tts",
-        "female_hifi" : "hindi/female/hifi_tts"
-}
+{ "hi" : { "male_glow" : "hindi/male/glow_tts",
+           "male_hifi" : "hindi/male/hifi_tts",
+           "female_glow" : "hindi/female/glow_tts",
+           "female_hifi" : "hindi/female/hifi_tts" }
 }
 ```
 
 
 Sample docker run command:
+
 ```
 docker run -itd -p 5000:5000 --gpus all --env languages='["hi","ml"]' -v <local path>/tts_models/:/opt/text_to_speech_open_api/deployed_models/ -v <local path>/translit_models/:/opt/text_to_speech_open_api/vakyansh-tts/src/glow_tts/tts_infer/translit_models/ gcr.io/ekstepspeechrecognition/text_to_speech_open_api:2.1.4 
-
 ```
 
 Once the docker container is up and running, the api can be tested from localhost on port 5000.

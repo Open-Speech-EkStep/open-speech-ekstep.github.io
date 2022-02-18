@@ -64,18 +64,25 @@ See [current architecture](https://open-speech-ekstep.github.io/crowdsource_plat
 
 ### Decision Outcome
 
-WIP
+Cache: Redis
+A cache layer has been added to offload RDBMS from frequent reads.
+
+Queue was not added for purpose of offloading writes, as it would have impacted the application flow.
 
 ## **Choose Cache above RDBMS**
 
-- Status: PROPOSED
-- Deciders: [Rajat Singhal](https://github.com/srajat84), Heera Ballabh, Soujyo Sen
+- Status: IMPLEMENTED
+- Deciders: [Rajat Singhal](https://github.com/srajat84), Heera Ballabh, Umair Manzoor
 - Impact Area: Tools and frameworks
 - Date: 2021-03-24
 
 Technical Story: []
 
 ### Context and Problem Statement
+
+Currently, the application service directly talks with RDBMS to fetch the sentences shown while doing Contributions and to fetch contributions while doing the Validations.
+
+When the application will scale and more features are added, there may be some contention at RDBMS layer.
 
 ### Options
 
@@ -83,15 +90,18 @@ AWS ElasticCache(Redis), Apache Ignite
 
 ### Solutions
 
+- Add cache layer over RDMS
+
 ### Decision Outcome
 
-```not yet decided```
+Cache: Redis
+A cache layer has been added to offload RDBMS from frequent reads.
 
 
 ## **Choose messaging queue system**
 
-- Status: PROPOSED
-- Deciders: [Rajat Singhal](https://github.com/srajat84), Heera Ballabh, Soujyo Sen
+- Status: IMPLEMENTED
+- Deciders: [Rajat Singhal](https://github.com/srajat84), Heera Ballabh, Umair Manzoor
 - Impact Area: Tools and frameworks
 
 - Date: 2021-03-24
@@ -100,15 +110,22 @@ Technical Story: []
 
 ### Context and Problem Statement
 
+Currently, the application service directly talks with RDBMS to fetch the sentences shown while doing Contributions and to fetch contributions while doing the Validations.
+
+When the application will scale and more features are added, there may be some contention at RDBMS layer.
+
 ### Options
 
 Apache Kafka, AWS Kinesis
 
 ### Solutions
 
+- Write to topics asynchronously
+
 ### Decision Outcome
 
-```not yet decided```
+Kafka was chosen as the message queue.
+Asynchronous writes are done only for auto-validations, other writes have not been migrated as they impacted existing application flow.
 
 ## **Continuous Intelligent Data Pipeline**
 
@@ -128,8 +145,8 @@ Technical Story: [Continous Intelligent Data Pipelines](https://project-sunbird.
 
 ## **Choose a UI framework**
 
-- Status: PROPOSED
-- Deciders: [Rajat Singhal](https://github.com/srajat84), Sunny Goel
+- Status: IMPLEMENTED
+- Deciders: [Rajat Singhal](https://github.com/srajat84), Ayush Singhal
 - Impact Area: Tools and frameworks
 - Date: 2021-04-17
 
@@ -137,12 +154,14 @@ Technical Story: []
 
 ### Context and Problem Statement
 
+The current application written in vanilla javascript has become difficult to maintain and incorporating new features is taking a lot of time
 ### Options
 
-Vue, React, Custom framework
+Vue, React, Custom framework, NextJs
 
 ### Solutions
 
+Switching to a UI framework and off load the developers and they will be able to respond better to changing requirements.
 ### Decision Outcome
 
-```not yet decided```
+NextJs, has been chosen as the framework we will be migrating to.

@@ -33,7 +33,7 @@ The Developer documentation provides you with a complete set of guidelines which
 
 ![Screenshot](img/open-api.png)
 
-The logical architecture here is built with a grpc server hosting our speech recognition models and dependencies, which cna be run in any environment or docker.
+The logical architecture here is built with a grpc server hosting our speech recognition models and dependencies, which can be run in any environment or docker.
 With gRPC we can define our service once in a .proto file and generate clients and servers in any of gRPC’s supported languages, which in turn can be run in environments ranging from servers inside a large data center to your own tablet — all the complexity of communication between different languages and environments is handled for you by gRPC. We also get all the advantages of working with protocol buffers, including efficient serialization, a simple IDL, and easy interface updating.
 In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. Here we can use the grpc generated stubs from client code in any language and make requests using gRPC calls and receive the responses from the server.On the server side, the server implements this interface and runs a gRPC server to handle client calls.
 By default, gRPC uses Protocol Buffers, Google’s mature open source mechanism for serializing structured data (although it can be used with other data formats such as JSON).

@@ -1,6 +1,6 @@
 # Speech Recognition Streaming Service
 
-Our speech to text interface enables you to accurately convert speech into text using an API powered by deep learning neural network algorithms for automatic speech recognition (ASR). To know more, [Click Here](/docs/asr_model_api.md)
+Our speech to text interface enables you to accurately convert speech into text using an API powered by deep learning neural network algorithms for automatic speech recognition (ASR). To know more, [Click Here](/asr_model_api/)
 
 This Streaming API provides an interface to accept chunks of continuous audio stream that can be transcribed in realtime to text by using the above mentioned speech to text interface.
 
@@ -74,7 +74,7 @@ It is available in the following [Github Link](https://github.com/Open-Speech-Ek
 
 To use grpc client in browsers, we need to use a library called grpc-web. To know more about why grpc-web is needed, refer [here](https://grpc.io/blog/state-of-grpc-web/).
 
-But, in the grpc-web library, there is no support for bi-directional streaming currently when this project is developed. So we have adopted to create our proxy service to create a realtime processing environment.
+But, in the grpc-web library, there was no support for bi-directional streaming currently when this project was developed. So we have adopted to create our proxy service to create a realtime processing environment.
 
 The proxy service is developed using `nodejs`.
 
@@ -97,6 +97,8 @@ To connect to the proxy and stream audio, we can use a socket.io client. Since w
 
 This client sdk can be imported in any node related frameworks such as React, angular, etc.
 It will provide methods to connect and stream audio to the proxy service.
+
+![Screenshot](img/streaming-client-sdk.png)
 
 To know more, refer to this [Github link](https://github.com/Open-Speech-EkStep/speech-recognition-open-api-client).
 

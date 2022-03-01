@@ -47,7 +47,15 @@
 
 ## About The Project
 
-This is a web application which can be used to crowdsource audio and validate them for various languages. The application makes use of NodeJs, Postgres for Database. It can be hosted on any cloud platform. The current application has code to support AWS and GCP as providers to store the recorded information.
+This web app is a crowdsourcing platform that aims to create open datasets to develop Speech Recognition, Text-to-Speech, Machine Translation and Optical Character Recognition for Indian languages. This will empower our technologists, language enthusiasts and language communities to build world class digital applications in our own local languages. It can be used to crowdsource audio and validate them for various languages.
+
+It comprises four initiatives:
+Speech Contribution: It creates a repository of diverse voices speaking Indian languages, where volunteers record their voice by reading a text. They can also choose to validate the audio and corresponding text of other volunteers. 
+Speech Validation: It creates an open dataset through transcription of audio files. Volunteers can validate the transcriptions for audio files in different languages. 
+Translation Validation: It creates open parallel translation datasets between corresponding sentences in two languages. Volunteers validate these translations.
+Image Validation: It creates an open data repository of images and the corresponding text. Similar to other initiatives, volunteers can validate the labels against the image.
+
+The application makes use of NodeJs, Postgres for Database. It can be hosted on any cloud platform. The current application has code to support AWS and GCP as providers to store the recorded information.
 Crowdsourcing Platform’s developer documentation is meant for its adopters, developers and contributors.
 
 The developer documentation helps you to get familiar with the bare necessities, giving you a quick and clean approach to get you up and running. If you are looking for ways to customize the workflow, or just breaking things down to build them back up, head to the reference section to dig into the mechanics of Crowdsourcing Platform.

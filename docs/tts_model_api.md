@@ -6,9 +6,9 @@
 
 Text To Speech (TTS), also known as Speech Synthesis, is a process where text is converted into a human-sounding voice. TTS has been a popular choice for developers and business users alike when building IVR (Interactive Voice Response) solutions and other voice applications, as it accelerates time to production without having to record audio files with human voices. Using recorded files requires recording each message with a human voice, whereas TTS prompts can be dynamically generated from raw text.
 
-Our TTS service can enable us to generate life-like speech synthesis in both male and females voices for an array of Indic languages like Hindi,Tamil,Malayalam,Kannada and many more.
+Our TTS service can enable us to generate life-like speech synthesis in both male and female voices for an array of Indic languages like Hindi, Tamil,Malayalam, Kannada and many more.
 
-This API is enabled to provide the following features:
+API enable us to provide the following features:
 
 * Support for Indic only languages.
 
@@ -20,7 +20,7 @@ This API is enabled to provide the following features:
 
 * Fast and easy integration.
 
-* Cross platform capability.
+* Cross-platform capability.
 
 The Developer documentation provides you with a complete set of guidelines which you need to get started with:
 
@@ -33,10 +33,11 @@ The Developer documentation provides you with a complete set of guidelines which
 
 ## Architecture Overview
 
-![Screenshot](img/tts_api.png)
+![TTS Architecture](img/tts_api.png)
 
-The logical architecture here is built with a REST API server hosting our text to speech models and dependencies, which cna be run in any environment like a VM, a docker or in a Kubernetes cluster.
-Our REST API is only supported by REST clients with a request/response framework with a text as input and the synthesized audio bytes as output. Our internal architecture deployed in Kubernetes is depicted in the above image. In a Kubernetes environment, our model API is deployed along with an ENVOY to provide load balancing of requests and Ngninx is have been used for routing of requests.
+We built this REST API using [Fast API](https://fastapi.tiangolo.com/) that can run in any python enabled environment. We have made prebuilt docker images available to run them without dealing with code built or deploy directly on Kubernetes. The above diagram represents our internal deployment using Kubernetes. We use [envoy](https://www.envoyproxy.io/) as Load Balancer and reverse proxy to forward requests to a specific instance.
+
+REST API request takes text and config as input and returns Audio bytes. Response Audio bytes encoded as base64. Bytes can directly be embedded in a web page using an HTML Audio tag.
 
 ## API reference
 
@@ -56,9 +57,9 @@ Headers:
 
 Body:
 
-The body for TTS request schema can be found at  https://github.com/ULCA-IN/ulca/blob/master/specs/model-schema.yml
-Example Request Body -
+Schema for TTS request and response defined at  https://github.com/ULCA-IN/ulca/blob/master/specs/model-schema.yml
 
+Example Request Body -
 ``` 
 {
     "input": [
@@ -75,26 +76,40 @@ Example Request Body -
 } 
 ```
 
-The attributes "input" and "config" are the mandatory attributes for the the request to process.
-The child attribute for "input" is "source" which should hold the text to synthesize.
-The child attributes for "config" are "gender" and "sourceLanguage".
+The attributes `input` and `config` are the mandatory attributes for the request to process.
+The child attribute for `input` is `source` which should hold the text to synthesize.
+The child attributes for `config` are `gender` and `sourceLanguage`.
 
 **Responses**
 
 ```
-Code	Description
-200     On successful completion of the job.
+| Code | Description                          |
+|------|--------------------------------------|
+| 200  | On successful completion of the job. |
 ```
 
 *Response Attributes*
 
 Body:
 The child attribute "audioContent" of attribute "audio" would provide the audio bytes of the synthesized speech.
-Audio Format and sampling rate are also returned as part of the response schema.
+The response also contains Audio Format and sampling as part of the response schema.
 Example:
 ```
-{ "audio": [{ "audioContent": "UklGRiS4AgBXQVZFZm10" }], "config": { "language": { "sourceLanguage": "hi" }, "audioFormat": "wav", "encoding": "base64", "samplingRate": 22050 }}
-
+{
+  "audio": [
+    {
+      "audioContent": "UklGRiS4AgBXQVZFZm10"
+    }
+  ],
+  "config": {
+    "language": {
+      "sourceLanguage": "hi"
+    },
+    "audioFormat": "wav",
+    "encoding": "base64",
+    "samplingRate": 22050
+  }
+}
 ```
 
 
@@ -102,21 +117,21 @@ Example:
 
 Our API uses HTTP response codes to indicate the success or failure of an API request.
 ```
-200 - OK	Everything worked as expected.
-400 - Bad Request	The request was unacceptable, often due to missing a required parameter.
-401 - Unauthorized	No valid API key provided.
-402 - Request Failed	The parameters were valid but the request failed.
-403 - Forbidden	The API key doesn't have permissions to perform the request.
-404 - Not Found	The requested resource doesn't exist.
-409 - Conflict	The request conflicts with another request (perhaps due to using the same idempotent key).
-429 - Too Many Requests	Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.
-500, 502, 503, 504 - Server Errors	Something went wrong on Stripe's end. (These are rare.)
+| 200 	|  OK                            	| Everything worked as expected.                                                                     	|
+| 400 	|  Bad Request                   	| The request was unacceptable, often due to missing a required parameter.                           	|
+| 401 	|  Unauthorized                  	| No valid API key provided.                                                                         	|
+| 402 	|  Request Failed                	| The parameters were valid but the request failed.                                                  	|
+| 403 	|  Forbidden                     	| The API key doesn't have permissions to perform the request.                                       	|
+| 404 	|  Not Found                     	| The requested resource doesn't exist.                                                              	|
+| 409 	|  Conflict                      	| The request conflicts with another request (perhaps due to using the same   idempotent key).       	|
+| 429 	|  Too Many Requests             	| Too many requests hit the API too quickly. We recommend an exponential   backoff of your requests. 	|
+| 50X 	|  Server Errors                 	| Something went wrong on Stripe's end. (These are rare.)                                            	|
 ```
 
 **Implementing the api from local using Docker**
 
-Our API server can be hosted from any environment which supports Dockerised containers as we have pre-built images packaging the API server code and dependencies.
-Our latest container images can be pulled directly from gcr.io/ekstepspeechrecognition/text_to_speech_open_api:<version tag>
+Our API server can be hosted from any environment which supports Docker containers as we have pre-built images packaging the API and dependencies.
+Our latest container images can be pulled directly from `gcr.io/ekstepspeechrecognition/text_to_speech_open_api:<version tag>`
 
 *Pre-requisites*:
 

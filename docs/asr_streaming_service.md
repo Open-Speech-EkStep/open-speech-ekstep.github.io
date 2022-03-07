@@ -24,6 +24,10 @@ The Developer documentation provides you with a complete set of guidelines which
     * [Nodejs Grpc client](#Nodejs-Grpc-client)
   * [Browser Client SDK](#Browser-Client-SDK)
 * [Quick Start](#quick-start)
+  * [Pre-requisites](#pre-requisites)
+  * [Streaming server setup](#streaming-server-setup)
+  * [Streaming proxy server setup](#streaming-proxy-service-setup)
+  * [Website UI setup with streaming client sdk](#website-ui-setup-with-streaming-client-sdk)
 * [Tips](#tips)
 * [Contribute to the project](#contribute-to-the-project)
 * [License](#license)
@@ -106,17 +110,24 @@ To get started with this Browser client sdk, refer to the Readme in the above gi
 
 ## Quick Start
 
-1. Download and install docker.
-2. Pre-built docker images are hosted on gcr.io/ekstepspeechrecognition/speech_recognition_model_api. We do not follow the latest tag, so you have to use a specific tag. You can pull the image using the command given below:
+### Pre-requisites
+
+1. Download and install `docker`.
+2. Download and install `git`.
+3. Download latest stable version of `nodejs`.
+
+### Streaming server setup
+
+1. Pre-built docker images are hosted on gcr.io/ekstepspeechrecognition/speech_recognition_model_api. We do not follow the latest tag, so you have to use a specific tag. You can pull the image using the command given below:
 
     ```docker
     docker pull gcr.io/ekstepspeechrecognition/speech_recognition_model_api:3.2.25
     ```
 
-3. Create a directory deployed_models using the command: `mkdir deployed_models`
-4. Inside deployed_models folder, create a folder for each language. eg: `mkdir hindi`
-5. Download asr fine-tuned models and language models for the languages you need from the link given [here](https://github.com/Open-Speech-EkStep/vakyansh-models#finetuned-asr-models-works-on-v2-hydra-branch).
-6. Directory structure of `deployed_models/`:
+2. Create a directory deployed_models using the command: `mkdir deployed_models`
+3. Inside deployed_models folder, create a folder for each language. eg: `mkdir hindi`
+4. Download asr fine-tuned models and language models for the languages you need from the link given [here](https://github.com/Open-Speech-EkStep/vakyansh-models#finetuned-asr-models-works-on-v2-hydra-branch).
+5. Directory structure of `deployed_models/`:
 
     ```shell
     .
@@ -133,6 +144,26 @@ To get started with this Browser client sdk, refer to the Readme in the above gi
     |-- model_dict.json
     ```
 
+6. The contents of the `model_dict.json` file mentioned in above step should contain the path of the model files.
+For example:
+
+    ```json
+    {
+        "en": {
+            "path": "/english/english_infer.pt",
+            "enablePunctuation": true,
+            "enableITN": true
+        },
+        "hi": {
+            "path": "/hindi/hindi_infer.pt",
+            "enablePunctuation": true,
+            "enableITN": true
+        },
+    }
+    ```
+
+    **Note:** `enablePunctuation` flag is used if the transcription from the model needs to be punctuated. `enabledITN` flag is used if the inverse text normalization is needed for the transcripts from the model. Streaming text from server will not have the response punctuated or ITN applied. It needs to be done separately. Refer, streaming client sdk readme for more details.
+
 7. Run the streaming grpc server using the following command:
 
     ```docker
@@ -140,16 +171,18 @@ To get started with this Browser client sdk, refer to the Readme in the above gi
     ```
 
 8. This will keep the streaming grpc server up and running in port `50051` as mentioned in the above docker command.
-9. Download nodejs.
-10. Clone the proxy service from github:
+
+### Streaming proxy service setup
+
+1. Clone the proxy service from github:
 
     ```git
     git clone https://github.com/Open-Speech-EkStep/speech-recognition-open-api-proxy.git
     ```
 
-11. Run `cd speech-recognition-open-api-proxy`.
-12. Install the project dependencies: `npm i`.
-13. Configure the `language_map.json` file so that it points to the grpc server which is hosted in port `50051` in the above steps.
+2. Run `cd speech-recognition-open-api-proxy`.
+3. Install the project dependencies: `npm i`.
+4. Configure the `language_map.json` file (in `project-root-folder` eg: /users/node/speech-recognition-open-api-proxy/language_map.json), so that it points to the grpc server which is hosted in port `50051` in the above steps.
 For example:
 
     ```json
@@ -165,28 +198,31 @@ For example:
     }
     ```
 
-14. Set the folder path of language_map.json as env variable `config_base_path="<project-root-folder>"`(eg: /users/node/speech-recognition-open-api-proxy).
-15. Run the proxy service: `npm start`.
-16. The proxy service will be up and running in port `9009`.
-17. To create a streaming web ui, clone the below repository from github:
+5. Set the folder path of language_map.json as env variable `config_base_path="<project-root-folder>"`(eg: /users/node/speech-recognition-open-api-proxy).
+6. Run the proxy service: `npm start`.
+7. The proxy service will be up and running in port `9009`.
+
+### Website UI setup with Streaming client sdk
+
+1. To create a streaming web ui, clone the below repository from github:
 
     ```git
     git clone https://github.com/Open-Speech-EkStep/speech-recognition-open-api-client.git
     ```
 
-18. Run `cd speech-recognition-open-api-client && cd examples/react-example`.
-19. Install the project dependencies: `npm i`.
-20. Open the file : `src/App.js`.
-21. In this file, in handleStart() method in line 25 and 26, modify the url and language as you need: example
+2. Run `cd speech-recognition-open-api-client && cd examples/react-example`.
+3. Install the project dependencies: `npm i`.
+4. Open the file : `src/App.js`.
+5. In this file, in handleStart() method in line 25 and 26, modify the url and language as you need: example
 
     ```javascript
       const url = 'http://localhost:9009'; // url of the proxy service
       const language = 'hi'; // this can be en, gu depends on what models you have hosted.
     ```
 
-22. Save and Close the file once the changes are done.
-23. Run the service using `npm start`.
-24. This will open a browser where you can click on the start button and start speaking. For every pause you provide, you will be getting a streamed transcription output.
+6. Save and Close the file once the changes are done.
+7. Run the service using `npm start`.
+8. This will open a browser where you can click on the start button and start speaking. For every pause you provide, you will be getting a streamed transcription output.
 
 ## Tips
 

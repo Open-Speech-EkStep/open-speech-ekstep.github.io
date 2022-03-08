@@ -87,20 +87,20 @@ Audio Analysis job takes processed and filtered audio chunks generated from Audi
 
 #### Language identification
 
-It predicts the language of each audio chunk in a source using a pre-trained language identification model for a language.
+It predicts the language spoken in each audio chunk using a pre-trained language identification model for a language.
 It gives the confidence score of the language for each audio chunk.
-Please see [this]() for more details.
+Please see [this](https://open-speech-ekstep.github.io/language_identification/) for more details.
 
-#### Speaker identification
+#### Speaker Clustering
 
-It estimates the total number of speakers in a source. It also maps the utterances to the speaker.
-That metadata is required for data balancing.
-Please see [this]() for more details.
+It estimates the total number of speakers in a particular source and maps speaker to audio chunks.
+That mapping of speaker to audio chunk is required for data balancing.
+Please see [this](https://open-speech-ekstep.github.io/speaker_clustering/) for more details.
 
 #### Gender identification
 
-It estimates the gender of each utterance in a source using a pre trained model.
-Please see [this]() for more details.
+It predicts the speaker gender for each audio chunk using a pre-trained gender identification model.
+Please see [this](https://open-speech-ekstep.github.io/gender_identification/) for more details.
 
 
  ### [Audio Data Balancing](#audio-data-balancing)

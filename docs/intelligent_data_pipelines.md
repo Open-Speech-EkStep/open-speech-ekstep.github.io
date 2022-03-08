@@ -351,7 +351,7 @@ So that while deploying code image should easily push into google container regi
 in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
 run if parallelism is not define number of pod = count ex:-
 
- ```json
+```json
  "snrcatalogue": {
     "<source_name>": {
     "count": 5,
@@ -359,16 +359,14 @@ run if parallelism is not define number of pod = count ex:-
     "language": "telugu",
     "parallelism":2 
     }
-
 ```
 
 * We have to also set **audiofilelist** with whatever source we want to run with empty array that will store our file path ex:-
 
- ```json
+```json
  "audiofilelist": {
       "<source_name>": []
       }
-
 ```
 
 * That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
@@ -380,7 +378,7 @@ run if parallelism is not define number of pod = count ex:-
 
 #### Config
 
-  ```yaml
+```yaml
     audio_analysis_config:
 
     analysis_options:
@@ -398,7 +396,7 @@ run if parallelism is not define number of pod = count ex:-
       partial_set_size: 8000 # number of utterances for create embeddings for a given source 
       fit_noise_on_similarity: 0.77 
       min_samples: 2 
-  ```
+```
 
 #### Steps to run
 
@@ -410,7 +408,6 @@ run if parallelism is not define number of pod = count ex:-
     "language" : "hindi"
      }
 }
-
 ```
 
 * That will create a dag audio_analysis now we can trigger that dag that will process given sources.

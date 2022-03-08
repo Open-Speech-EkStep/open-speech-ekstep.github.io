@@ -105,17 +105,17 @@ Please see [this](https://open-speech-ekstep.github.io/gender_identification/) f
 
  ### [Audio Data Balancing](#audio-data-balancing)
   
-The model training data requires data with right ratio of gender. Also the data should be balanced based on speaker duration. It also provides capability to filter and choose data based on certain metadata filter criteria.
+The model training data requires data with proper gender ratio. Also, the data should be balanced based on speaker duration. It also provides capability to filter and choose data based on certain metadata filter criteria.
 
 ### [Audio Validation](#audio-validation)
 
 The data that goes into model training should be of good quality.
-This job validates data that is not adhereing to quiality standards required by the model. It generates csv reports that can be analysed by data scientists to further filter out the best data for model training.
+This job validates data that is not adhereing to quality standards required by the model. It generates csv reports that can be analysed by data scientists to further filter out the best data for model training.
 
 ### [Audio Transcription](#audio-transcription)
   
 For model fine-tuning, the paired audio data is required (audio with labeled text).
-This job generates text for the utterances using Google or Azure API's. The texts generated are further sanitized based on the rules defined for the language.
+This job generates text for each audio chunk using Google or Azure API's. The texts generated are further sanitized based on the rules defined for the language.
 
 ### Installation
 

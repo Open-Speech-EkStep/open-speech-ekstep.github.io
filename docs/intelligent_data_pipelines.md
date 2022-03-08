@@ -103,7 +103,7 @@ It predicts the speaker gender for each audio chunk using a pre-trained gender i
 Please see [this](https://open-speech-ekstep.github.io/gender_identification/) for more details.
 
 
- ### [Audio Data Balancing](#audio-data-balancing)
+### [Audio Data Balancing](#audio-data-balancing)
   
 The model training data requires data with proper gender ratio. Also, the data should be balanced based on speaker duration. It also provides capability to filter and choose data based on certain metadata filter criteria.
 
@@ -349,7 +349,7 @@ So that while deploying code image should easily push into google container regi
 
 * Other variable is **snrcatalogue** in that we update our source which we want to run and count how many file should run 
 in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
-run if parallelism is not define number of pod = count ex:
+run if parallelism is not define number of pod = count ex:-
 
  ```json
  "snrcatalogue": {
@@ -357,17 +357,19 @@ run if parallelism is not define number of pod = count ex:
     "count": 5,
     "format": "mp3",
     "language": "telugu",
-    "parallelism":2
-}
+    "parallelism":2 
+    }
+
 ```
 
-* We have to also set **audiofilelist** with whatever source we want to run with empty array that will store our file path ex:
+* We have to also set **audiofilelist** with whatever source we want to run with empty array that will store our file path ex:-
 
  ```json
  "audiofilelist": {
       "<source_name>": []
- }
- ```
+      }
+
+```
 
 * That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
        and upload processed file to **remote_processed_audio_file_path** that we mentioned in config file. and move raw data from 
@@ -408,6 +410,7 @@ run if parallelism is not define number of pod = count ex:
     "language" : "hindi"
      }
 }
+
 ```
 
 * That will create a dag audio_analysis now we can trigger that dag that will process given sources.

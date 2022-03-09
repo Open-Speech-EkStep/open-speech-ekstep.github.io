@@ -119,13 +119,13 @@ This job generates text for each audio chunk using Google or Azure API's. The te
 
 ### Installation
 
-1. Clone the repo
+  1. Clone the repo
 
 ```sh
 git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
 ```
 
-2. Install python requirements
+  2. Install python requirements
 
 ```sh
 pip install -r requirements.txt
@@ -298,6 +298,8 @@ So that while deploying code image should easily push into google container regi
 
 #### Description
 
+Create a yaml file using following config format and configure paths and other parameters.
+
 #### Config
 
 ```yaml
@@ -347,11 +349,15 @@ So that while deploying code image should easily push into google container regi
 
 #### Steps to run
 
-* We have to configure **sourcepathforsnr** in airflow variable where our raw data stored.
+* We have to configure **sourcepathforsnr** in airflow variable where our raw data is stored.
 
-* Other variable is **snrcatalogue** in that we update our source which we want to run and count how many file should run 
-in one trigger.and format is what raw audio file format in bucket and language and parallelism is how many pod will up in one
-run if parallelism is not define number of pod = count ex:-
+* Other variable that we need to configure is **snrcatalogue** in that we need to add our source(s) name which we want to process and following parameters:
+    1. count: Count of files that we want to process in one trigger.
+    2. format: The format of the raw audio file in bucket.
+    3. language: Language of source(s).
+    4. parallelism: Number of pods that will be up in one run. If parallelism is not defined then number of pod = count. 
+    
+    ex:-
 
 ```json
  "snrcatalogue": {
@@ -360,20 +366,27 @@ run if parallelism is not define number of pod = count ex:-
     "format": "mp3",
     "language": "telugu",
     "parallelism":2 
-    }
+     },
+    "<other_source_name>": {
+    "count": 5,
+    "format": "mp3",
+    "language": "telugu",
+    "parallelism":5 
+     } 
+   }
 ```
 
-* We have to also set **audiofilelist** with whatever source we want to run with empty array that will store our file path ex:-
+* We have to also set **audiofilelist** with whatever source(s) we want to run with empty array that will store our file path ex:-
 
 ```json
  "audiofilelist": {
-      "<source_name>": []
+      "<source_name>": [], "<other_source_name>": []
       }
 ```
 
-* That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
-       and upload processed file to **remote_processed_audio_file_path** that we mentioned in config file. and move raw data from 
-       **remote_raw_audio_file_path** to **snr_done_folder_path**. and update DB also with the metadata which we created using circle-ci.
+* That will create a DAG with the source_name(s) now we can trigger that DAG, that will process given number(count) of file
+  and upload processed file to **remote_processed_audio_file_path** that we mentioned in the config file. And move raw data from 
+  **remote_raw_audio_file_path** to **snr_done_folder_path**. Also, Database will be updated with the metadata which we created using CircleCI.
 
 
 ### Audio Analysis Config
@@ -385,24 +398,24 @@ run if parallelism is not define number of pod = count ex:-
 
     analysis_options:
 
-      gender_analysis: 1 # It should be 1 or 0 if you want to run gender_analysis it should be 1 else 0
-      speaker_analysis: 0 # It should be 1 or 0 if you want to run speaker_analysis it should be 1 else 0
+      gender_analysis: 1 # It should 1 if you want run gender analysis for a source else it should be 0.
+      speaker_analysis: 0 # It should 1 if you want run speaker analysis for a source else it should be 0.
 
-    # path where the processed files need to be uploaded
-    remote_processed_audio_file_path: '<bucket_name>/data/audiotospeech/raw/download/catalogued/{language}/audio'
-    
-    # speaker_analysis_config it's for gender_analysis module
-    speaker_analysis_config:
+      # path where the processed files need to be uploaded
+      remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/audio>
 
-      min_cluster_size: 4 # min_cluster_size is least number of cluster for one speaker
-      partial_set_size: 8000 # number of utterances for create embeddings for a given source 
+      # path where the embeddings need to be uploaded
+      path_for_embeddings: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/embeddings/>
+
+      min_cluster_size: 4 # It is least number of cluster for one speaker.
+      partial_set_size: 15000 # Number of audio chunks to create embeddings for a given source.
       fit_noise_on_similarity: 0.77 
       min_samples: 2 
 ```
 
 #### Steps to run
 
-* We have to configure **audio_analysis_config** in airflow variable in this json we have to mention source name and language.
+* We have to configure **audio_analysis_config** in airflow variable using this json, we have to mention source name, language, parallelism and batch size.
 
 ```json
 "audio_analysis_config" : {
@@ -411,14 +424,14 @@ run if parallelism is not define number of pod = count ex:-
     "format": "wav",
     "parallelism": 5,
     "batch_size": 5000
-
      }
 }
 ```
 
-* That will create a dag audio_analysis now we can trigger that dag that will process given sources.
-       and upload processed file to **remote_processed_audio_file_path** that we mentioned in config file.
-       and update DB also with the metadata which we created using circle-ci.
+* That will create a audio_analysis DAG with name **source name_audio_embedding_analysis"**. Now, we can trigger that DAG and that will process given    
+  sources. It will create embeddings, processed files and upload them to **path_for_embeddings** and **remote_processed_audio_file_path** respectively  
+  that we have mentioned in config file. Also, Database will be updated with the metadata which we created using CircleCI.
+  
 
 ### Data Balancing Config
 

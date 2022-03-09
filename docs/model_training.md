@@ -158,8 +158,8 @@ root-directory
     * Check dict.ltr.txt file generated after prepare_data so that it does not contain any foreign language character
 * For Language Model
     * Character set of text used for language model should be same as character set used for training
-    * Sample code for cleaning text file for english language is given here [clean_text.py](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/utils/lm/clean_text.py)
-    * Sample code for removing duplicate line from text file is given here [remove_duplicate_lines.py](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/utils/lm/remove_duplicate_lines.py)
+    * Sample code for cleaning text file for english language is given here [clean_text.py](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/blob/main/utils/lm/clean_text.py)
+    * Sample code for removing duplicate line from text file is given here [remove_duplicate_lines.py](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/blob/main/utils/lm/remove_duplicate_lines.py)
 <!--te-->
 
 # Usage

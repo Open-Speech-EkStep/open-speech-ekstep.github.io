@@ -349,9 +349,9 @@ config:
 
 #### Steps to run:
 
-* We have to configure **sourcepathforsnr** in airflow variable where our raw data is stored.
+- We have to configure **sourcepathforsnr** in airflow variable where our raw data is stored.
 
-* Other variable that we need to configure is **snrcatalogue** in that we need to add our source(s) name which we want to process and following parameters:
+- Other variable that we need to configure is **snrcatalogue** in that we need to add our source(s) name which we want to process and following parameters:
   - count: Count of files that we want to process in one trigger.
   - format: The format of the raw audio file in bucket.
   - language: Language of source(s).
@@ -376,7 +376,7 @@ config:
  }
 ```
 
-* We have to also set **audiofilelist** with whatever source(s) we want to run with empty array that will store our file path ex:-
+- We have to also set **audiofilelist** with whatever source(s) we want to run with empty array that will store our file path ex:-
 
 ```json
  "audiofilelist": {
@@ -384,7 +384,7 @@ config:
       }
 ```
 
-* That will create a DAG with the source_name(s) now we can trigger that DAG, that will process given number(count) of file and upload processed file to
+- That will create a DAG with the source_name(s) now we can trigger that DAG, that will process given number(count) of file and upload processed file to
   **remote_processed_audio_file_path** that we mentioned in the config file. And move raw data from **remote_raw_audio_file_path** to **snr_done_folder_path**. 
   Also, Database will be updated with the metadata which we created using CircleCI.
 
@@ -415,7 +415,7 @@ analysis_options:
 
 #### Steps to run
 
-* We have to configure **audio_analysis_config** in airflow variable using this json, we have to mention source name, language, parallelism and batch size.
+- We have to configure **audio_analysis_config** in airflow variable using this json, we have to mention source name, language, parallelism and batch size.
 
 ```json
 "audio_analysis_config" : {
@@ -428,7 +428,7 @@ analysis_options:
 }
 ```
 
-* That will create a audio_analysis DAG with name **source_name_audio_embedding_analysis**. Now, we can trigger that DAG and that will process given sources. 
+- That will create a audio_analysis DAG with name **source_name_audio_embedding_analysis**. Now, we can trigger that DAG and that will process given sources. 
   It will create embeddings, processed files and upload them to **path_for_embeddings** and **remote_processed_audio_file_path** respectively that we have
   mentioned in config file. Also, Database will be updated with the metadata which we created using CircleCI.
   
@@ -449,22 +449,22 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
 ```
 
 #### Steps to run: 
-1. We need to configure **data_filter_config** airflow variable for each source. We provide 2 modes of filtration **file mode** and **filter mode**. Only, one mode can be used at a time. To use filter mode, **"file_mode": "n"**. If **"file_mode": "y"**, then snr filter, duration filter etc. won't work.
-
-   - **data_set**: select data set type from 'train' and 'test'.
+- We need to configure **data_filter_config** airflow variable for each source. We provide 2 modes of filtration **file mode** and **filter mode**. Only, one mode can be used at a time. To use filter mode, **"file_mode": "n"**. If **"file_mode": "y"**, then snr filter, duration filter etc. won't work.
    
-   - **file_mode**: It should be 'y' if you want to use file_mode for a source else it should be 'n'. This mode can be used when we need to filter out some   
+  - **data_set**: select data set type from 'train' and 'test'.
+   
+  - **file_mode**: It should be 'y' if you want to use file_mode for a source else it should be 'n'. This mode can be used when we need to filter out some   
                     specific files that we found after analysis by providing path of the CSV file in file_path parameter.
-   - **file_path**: path of the CSV file
+  - **file_path**: path of the CSV file
    
-   - We have multiple filters:
-     - **by_snr**: filter based on SNR value. "lte" means lower than and "gte" means greater than
-     - **by_duration**:total duration from a given source.
-     - **by_speaker**: we can configure how much data per speaker we want.
-     - **by_utterance_duration**: we can required duration of utterance.
-     - **exclude_audio_ids**: we can pass a list of audio_ids that we want to skip.
-     - **exclude_speaker_ids**: we can pass a list of speaker_ids that we want to skip.
-     - **with_randomness**: It is a boolean value if it's true it will pickup random data from DB.
+  - We have multiple filters:
+    - **by_snr**: filter based on SNR value. "lte" means lower than and "gte" means greater than
+    - **by_duration**:total duration from a given source.
+    - **by_speaker**: we can configure how much data per speaker we want.
+    - **by_utterance_duration**: we can required duration of utterance.
+    - **exclude_audio_ids**: we can pass a list of audio_ids that we want to skip.
+    - **exclude_speaker_ids**: we can pass a list of speaker_ids that we want to skip.
+    - **with_randomness**: It is a boolean value if it's true it will pickup random data from DB.
    
 
 ```json
@@ -500,7 +500,7 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
   }
 ```
 
-2. After configuring all values, one DAG will created **data_marker_pipeline** we can trigger that DAG. This DAG will filter out all audio chunks on the basis of   
+- After configuring all values, one DAG will created **data_marker_pipeline** we can trigger that DAG. This DAG will filter out all audio chunks on the basis of   
    the given criteria's and it will pick audio chunks from **source_directory_path**. After filtration, audio chunks will be moved to **landing_directory_path**.
 
 ### Audio Transcription (with config):
@@ -550,15 +550,14 @@ config:
 
 #### Steps to run: 
 
-1. We have to configure **sttsourcepath** in airflow variable where our filtered audio chunks are stored.
+- We have to configure **sttsourcepath** in airflow variable where our filtered audio chunks are stored.
 
-2. Other variable is **sourceinfo** in that we update our source(s) which we want to process through Speech-to-Text API (STT). 
-   - **count**: Count of files that we want to process in one trigger.
-   - **stt**: STT API we want to use for transcription generation. We have support for Google & Azure STT API and you can add rapper as well for other API's.
-   - **language**: Language of source(s).
-   - **data_set**: Category of data "train" or "test".
-  
-   ex:
+- Other variable is **sourceinfo** in that we update our source(s) which we want to process through Speech-to-Text API (STT). 
+  - **count**: Count of files that we want to process in one trigger.
+  - **stt**: STT API we want to use for transcription generation. We have support for Google & Azure STT API and you can add rapper as well for other API's.
+  - **language**: Language of source(s).
+  - **data_set**: Category of data "train" or "test".
+    ex:
 
 ```json
  "sourceinfo": {
@@ -570,8 +569,8 @@ config:
   }
 ```
 
-3. We have to also set **audioidsforstt** and  with whatever source(s) we want to run with empty array that will store audio_id 
-   ex:
+- We have to also set **audioidsforstt** and with source(s) we want to run with empty array that will store audio_id. 
+  ex:
 
 ```json
 "audioidsforstt": {
@@ -579,15 +578,15 @@ config:
 }
 ```
 
-4. Also, configure **integrationprocessedpath** variable with the path of folder where we want move transcribed data.
+- Also, configure **integrationprocessedpath** variable with the path of folder where we want move transcribed data.
 
 ```yaml
 integrationprocessedpath:"" # path of folder where we want move transcribed data.
 ```
 
-5. That will create a DAG with the source_name now we can trigger that DAG. And that will process given number(count) of audio chunks and upload processed files to
-   **remote_stt_audio_file_path** that we mentioned in config file. Also, it will move raw data from **remote_clean_audio_file_path** to
-   **integrationprocessedpath** and database will be updated with the metadata which we created using CircleCI.
+- That will create a DAG with the source_name now we can trigger that DAG. And that will process given number(count) of audio chunks and upload processed files to
+  **remote_stt_audio_file_path** that we mentioned in config file. Also, it will move raw data from **remote_clean_audio_file_path** to
+  **integrationprocessedpath** and database will be updated with the metadata which we created using CircleCI.
    
 
 <!-- CONTRIBUTING -->

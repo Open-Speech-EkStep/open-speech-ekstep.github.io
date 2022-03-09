@@ -379,9 +379,9 @@ config:
 - We have to also set **audiofilelist** with whatever source(s) we want to run with empty array that will store our file path ex:-
 
 ```json
- "audiofilelist": {
-      "<source_name>": [], "<other_source_name>": []
-      }
+"audiofilelist": {
+    "<source_name>": [], "<other_source_name>": []
+    }
 ```
 
 - That will create a DAG with the source_name(s) now we can trigger that DAG, that will process given number(count) of file and upload processed file to
@@ -453,8 +453,9 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
    
   - **data_set**: select data set type from 'train' and 'test'.
    
-  - **file_mode**: It should be 'y' if you want to use file_mode for a source else it should be 'n'. This mode can be used when we need to filter out some   
-                    specific files that we found after analysis by providing path of the CSV file in file_path parameter.
+  - **file_mode**: It should be 'y' if you want to use file_mode for a source else it should be 'n'. This mode can be used when we need to
+                   filter out some specific files that we found after analysis by providing path of the CSV file in file_path parameter.
+
   - **file_path**: path of the CSV file
    
   - We have multiple filters:
@@ -495,9 +496,9 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
           "with_threshold": 0
         },
         "by_duration": 2
-      }
     }
   }
+}
 ```
 
 - After configuring all values, one DAG will created **data_marker_pipeline** we can trigger that DAG. This DAG will filter out all audio chunks on the basis of   
@@ -560,13 +561,20 @@ config:
     ex:
 
 ```json
- "sourceinfo": {
-    "<source_name>": {
-    "count": 5,
-    "stt":"google"
-    "language": "telugu",
-    "data_set":"train"
+"sourceinfo": {
+  "<source_name>": {
+  "count": 5,
+  "stt":"google"
+  "language": "telugu",
+  "data_set":"train"
+  },
+  "<source2_name>": {
+  "count": 5,
+  "stt":"google"
+  "language": "telugu",
+  "data_set":"train"
   }
+}
 ```
 
 - We have to also set **audioidsforstt** and with source(s) we want to run with empty array that will store audio_id. 
@@ -574,19 +582,18 @@ config:
 
 ```json
 "audioidsforstt": {
-    "<source_name>": []
+    "<source_name>": [], "<source2_name>": []
 }
 ```
 
 - Also, configure **integrationprocessedpath** variable with the path of folder where we want move transcribed data.
 
 ```yaml
-integrationprocessedpath:"" # path of folder where we want move transcribed data.
+integrationprocessedpath: ''
 ```
 
-- That will create a DAG with the source_name now we can trigger that DAG. And that will process given number(count) of audio chunks and upload processed files to
-  **remote_stt_audio_file_path** that we mentioned in config file. Also, it will move raw data from **remote_clean_audio_file_path** to
-  **integrationprocessedpath** and database will be updated with the metadata which we created using CircleCI.
+- That will create a DAG with the source_name now we can trigger that DAG. And that will process given number(count) of audio chunks and upload
+  processed files to **remote_stt_audio_file_path** that we mentioned in config file. Also, it will move raw data from **remote_clean_audio_file_path** to **integrationprocessedpath** and database will be updated with the metadata which we created using CircleCI.
    
 
 <!-- CONTRIBUTING -->

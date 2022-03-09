@@ -140,6 +140,8 @@ pip install -r requirements.txt
   1. Terraform [https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
 
   2. gcloud [https://cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install)
+  
+  3. kubectl [https://kubernetes.io/docs/tasks/tools/install-kubectl-linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
 ### Infra Setup
 
@@ -405,7 +407,11 @@ run if parallelism is not define number of pod = count ex:-
 ```json
 "audio_analysis_config" : {
     "<source name>" : {
-    "language" : "hindi"
+    "language" : "hindi",
+    "format": "wav",
+    "parallelism": 5,
+    "batch_size": 5000
+
      }
 }
 ```
@@ -443,6 +449,9 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
 "data_filter_config": {
     "test_source1": {
       "language": "hindi",
+      "file_mode": "n",
+      "data_set": "train",
+      "file_path": "data/audiotospeech/raw/download/duplicate/test_source1.csv",
       "filter": {
         "by_snr": {
           "lte": 75,
@@ -454,6 +463,9 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
     },
     "test_source2": {
       "language": "hindi",
+      "file_mode": "n",
+      "data_set": "train",
+      "file_path": "data/audiotospeech/raw/download/duplicate/test_source1.csv",
       "filter": {
         "by_speaker": {
           "lte_per_speaker_duration": 60,
@@ -521,12 +533,12 @@ in one trigger.stt is whatever api we want to call for STT for google and azure 
 run if parallelism is not define number of pod = count ex:
 
 ```json
- "snrcatalogue": {
+ "sourceinfo": {
     "<source_name>": {
     "count": 5,
     "stt":"google"
     "language": "telugu",
-    "parallelism":2
+    "data_set":"train"
   }
 ```
 

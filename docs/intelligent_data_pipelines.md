@@ -119,13 +119,13 @@ This job generates text for each audio chunk using Google or Azure API's. The te
 
 ### Installation
 
-  1. Clone the repo 
+  Clone the repo 
   
   ```sh 
   git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
   ```
   
-  2. Install python requirements
+  Install python requirements
 
   ```sh 
   pip install -r requirements.txt
@@ -146,15 +146,14 @@ This job generates text for each audio chunk using Google or Azure API's. The te
 ### Infra Setup
 
 1. Clone the repo:
- ```sh git clone https://github.com/Open-Speech-EkStep/ekstep-deep-speech-infra.git```
+```sh git clone https://github.com/Open-Speech-EkStep/ekstep-deep-speech-infra.git```
 
 2. Initialize terraform modules  
 ```terraform init```  
 
 3. Select a workspace as per the environments(dev,test,prod).  
 ```terraform workspace select <env_name>``` 
-
-eg: ```terraform workspace select prod``` 
+   eg: ```terraform workspace select prod``` 
 
 4. Configure
  
@@ -242,44 +241,40 @@ variable "sql_disk_size" {
 ```
 
 6. Create Service account:
+```terraform apply -target=module.service-accounts
+```
 
-   ```
-   terraform apply -target=module.service-accounts
-   ```
 
 8. Create keys from console.cloud.google.com
    
 9.  Set env variable
-
-   ```export GOOGLE_APPLICATION_CREDENTIAL_SERVICE_ACC= </path/to/key.json>
-   ```
+```export GOOGLE_APPLICATION_CREDENTIAL_SERVICE_ACC= </path/to/key.json>
+```
 
 10. Run specific modules as per requirements.  
-  
 ```sh
-terraform apply -target=module.<module-name>
+    terraform apply -target=module.<module-name>
 ```
 
-eg:
+    eg:
 
-```sh
-terraform apply -target=module.sql-database
-```  
+    ```sh
+    terraform apply -target=module.sql-database
+    ```  
 
 11. Run all modules at once.
-
 ```sh
-terraform apply
-```
+    terraform apply```
 
-12. Connect to DB from local:
+12. Connect to Database from local:
 Setup proxy
 ```sh
 ./cloud_sql_proxy -dir=./cloudsql -instances=<project-id>:<zone>:<db-instance-name>=tcp:5432
 ```
+
 Create username and password from console. Then connect to localhost
 
-13. Whitelist composer worker IP in DB Network
+13. Whitelist composer worker IP in Database Network.
     
 ### CI/CD setup
 

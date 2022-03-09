@@ -121,7 +121,7 @@ This job generates text for each audio chunk using Google or Azure API's. The te
 
 - Clone the repo 
 ```sh 
-  git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
+git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
 ```
   
 - Install python requirements
@@ -272,11 +272,11 @@ terraform apply
 ```
 
 10. Connect to Database from local:
-    - Setup proxy
+   Setup proxy
 ```sh
 ./cloud_sql_proxy -dir=./cloudsql -instances=<project-id>:<zone>:<db-instance-name>=tcp:5432
 ```
-  Create username and password from console. Then connect to localhost
+   Create username and password from console. Then connect to localhost
 
 11. Whitelist composer worker IP in Database Network.
     
@@ -303,48 +303,48 @@ Create a yaml file using following config format and configure paths and other p
 #### Config
 
 ```yaml
-  config:
-    common:
-      db_configuration:
-          db_name: ''
-          db_pass: ''
-          db_user: ''
-          cloud_sql_connection_name: '<DB Host>'
+config:
+  common:
+    db_configuration:
+        db_name: ''
+        db_pass: ''
+        db_user: ''
+        cloud_sql_connection_name: '<DB Host>'
 
-      gcs_config:
-        # master data bucket
-        master_bucket: '<Name of the bucket>'
+    gcs_config:
+      # master data bucket
+      master_bucket: '<Name of the bucket>'
 
-    audio_processor_config:
+  audio_processor_config:
 
-      # feat_language_identification should true if you want run language identification for a source
-      feat_language_identification: False 
-      # language of the audio 
-      language: '' 
+    # feat_language_identification should true if you want run language identification for a source
+    feat_language_identification: False 
+    # language of the audio 
+    language: '' 
 
-      # path of the files on gcs which need to be processed
-      # path eg: <bucket-name/data/audiotospeech/raw/download/downloaded/{language}/audio>
-      remote_raw_audio_file_path: ''
+    # path of the files on gcs which need to be processed
+    # path eg: <bucket-name/data/audiotospeech/raw/download/downloaded/{language}/audio>
+    remote_raw_audio_file_path: ''
 
-      # after processing where we want to move raw data
-      snr_done_folder_path: '' # <bucket-name/data/audiotospeech/raw/download/snr_done/{language}/audio>
+    # after processing where we want to move raw data
+    snr_done_folder_path: '' # <bucket-name/data/audiotospeech/raw/download/snr_done/{language}/audio>
 
-      # path where the processed files need to be uploaded
-      remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogue/{language}/audio>
+    # path where the processed files need to be uploaded
+    remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogue/{language}/audio>
 
-      # path where Duplicate files need to be uploaded based on checksum
-      duplicate_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/duplicate/{language}/audio>
+    # path where Duplicate files need to be uploaded based on checksum
+    duplicate_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/duplicate/{language}/audio>
 
-      chunking_conversion_configuration:
-        aggressiveness: '' # using for vad by default it's value is 2 the more the value that aggressive vad for chunking audio 
-        max_duration: ''   # max duration is second if chunk is more than that vad will retry chunking with inc aggressiveness 
+    chunking_conversion_configuration:
+      aggressiveness: '' # using for vad by default it's value is 2 the more the value that aggressive vad for chunking audio 
+      max_duration: ''   # max duration is second if chunk is more than that vad will retry chunking with inc aggressiveness 
 
-      # SNR specific configurations
-      snr_configuration:
+    # SNR specific configurations
+    snr_configuration:
 
-        max_snr_threshold: '' # less than max_snr_threshold utterance will move to rejected folder.
-        local_input_file_path: ''
-        local_output_file_path: ''
+      max_snr_threshold: '' # less than max_snr_threshold utterance will move to rejected folder.
+      local_input_file_path: ''
+      local_output_file_path: ''
 ```
 
 #### Steps to run:
@@ -394,23 +394,23 @@ Create a yaml file using following config format and configure paths and other p
 #### Config
 
 ```yaml
-    audio_analysis_config:
+  audio_analysis_config:
 
-    analysis_options:
+  analysis_options:
 
-      gender_analysis: 1 # It should be 1 if you want run gender analysis for a source else it should be 0.
-      speaker_analysis: 0 # It should be 1 if you want run speaker analysis for a source else it should be 0.
+    gender_analysis: 1 # It should be 1 if you want run gender analysis for a source else it should be 0.
+    speaker_analysis: 0 # It should be 1 if you want run speaker analysis for a source else it should be 0.
 
-      # path where the processed files need to be uploaded
-      remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/audio>
+    # path where the processed files need to be uploaded
+    remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/audio>
 
-      # path where the embeddings need to be uploaded
-      path_for_embeddings: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/embeddings/>
+    # path where the embeddings need to be uploaded
+    path_for_embeddings: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/embeddings/>
 
-      min_cluster_size: 4 # It is least number of cluster for one speaker.
-      partial_set_size: 15000 # Number of audio chunks to create embeddings for a given source.
-      fit_noise_on_similarity: 0.77 
-      min_samples: 2 
+    min_cluster_size: 4 # It is least number of cluster for one speaker.
+    partial_set_size: 15000 # Number of audio chunks to create embeddings for a given source.
+    fit_noise_on_similarity: 0.77 
+    min_samples: 2 
 ```
 
 #### Steps to run
@@ -428,7 +428,7 @@ Create a yaml file using following config format and configure paths and other p
 }
 ```
 
-* That will create a audio_analysis DAG with name **source name_audio_embedding_analysis"**. Now, we can trigger that DAG and that will process given sources. 
+* That will create a audio_analysis DAG with name **source_name_audio_embedding_analysis**. Now, we can trigger that DAG and that will process given sources. 
   It will create embeddings, processed files and upload them to **path_for_embeddings** and **remote_processed_audio_file_path** respectively that we have
   mentioned in config file. Also, Database will be updated with the metadata which we created using CircleCI.
   
@@ -449,14 +449,15 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
 ```
 
 #### Steps to run: 
-1. We need to configure **data_filter_config** airflow variable for each source. We provide 2 modes of filtration **file mode** and **filter mode**.Only, one mode can be
-   - **data_set**: select data set type from 'train' and 'test'.
+1. We need to configure **data_filter_config** airflow variable for each source. We provide 2 modes of filtration **file mode** and **filter mode**. Only, one mode can be used at a time. To use filter mode, **"file_mode": "n"**. If **"file_mode": "y"**, then snr filter, duration filter etc. won't work.
+
+  - **data_set**: select data set type from 'train' and 'test'.
    
-   - **file_mode**: It should be 'y' if you want to use file_mode for a source else it should be 'n'. This mode can be used when we need to filter out some   
+  - **file_mode**: It should be 'y' if you want to use file_mode for a source else it should be 'n'. This mode can be used when we need to filter out some   
                     specific files that we found after analysis by providing path of the CSV file in file_path parameter.
-   - **file_path**: path of the CSV file
+  - **file_path**: path of the CSV file
    
-   - We have multiple filters:
+  - We have multiple filters:
     - **by_snr**: filter based on SNR value.
     - **by_duration**:total duration from a given source.
     - **by_speaker**: we can configure how much data per speaker we want.
@@ -496,6 +497,7 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
         "by_duration": 2
       }
     }
+  }
 ```
 
 2. After configuring all values, one DAG will created **data_marker_pipeline** we can trigger that DAG. This DAG will filter out all data 

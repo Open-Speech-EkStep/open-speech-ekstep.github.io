@@ -9,7 +9,7 @@ We are releasing pretrained models in various Indic Languages. Please head over 
    * [Usage](#usage)
       * [For Pretraining](#for-pretraining)
       * [For Finetuning](#for-finetuning)
-      * [For Inference](#for-inferences)
+      * [For Inference](#for-inference)
       * [For Single File Inference](#for-single-file-inference)
    * [License](#license)
 <!--te-->
@@ -158,8 +158,8 @@ root-directory
     * Check dict.ltr.txt file generated after prepare_data so that it does not contain any foreign language character
 * For Language Model
     * Character set of text used for language model should be same as character set used for training
-    * Sample code for cleaning text file for english language is given here [clean_text.py](utils/lm/clean_text.py)
-    * Sample code for removing duplicate line from text file is given here [remove_duplicate_lines.py](utils/lm/remove_duplicate_lines.py)
+    * Sample code for cleaning text file for english language is given here [clean_text.py](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/utils/lm/clean_text.py)
+    * Sample code for removing duplicate line from text file is given here [remove_duplicate_lines.py](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/utils/lm/remove_duplicate_lines.py)
 <!--te-->
 
 # Usage
@@ -170,13 +170,13 @@ Edit the path to data in the scripts/pretraining/prepare_data.sh file. To prepar
 $ cd scripts/pretraining
 $ bash prepare_data.sh
 ```
-Edit the config/pretraining_base.yaml or config/pretraining_large.yaml for different parameter configurations.Check the required paths and values in start_pretraining_base.sh or start_pretraining_large.sh. Refer to [config README](config/README.md)
+Edit the config/pretraining_base.yaml or config/pretraining_large.yaml for different parameter configurations.Check the required paths and values in start_pretraining_base.sh or start_pretraining_large.sh. Refer to [config README](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/blob/main/config/README.md)
 To start run:
 ```
 
 $ bash start_pretraining_base.sh
 ```
-Refer [this](scripts/pretraining/README.md) for pretraining parameters.
+Refer [this](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/tree/main/scripts/pretraining/README.md) for pretraining parameters.
 
 ## For Finetuning
 Edit the path to data in the scripts/finetuning/prepare_data.sh file. To prepare the data:
@@ -184,13 +184,13 @@ Edit the path to data in the scripts/finetuning/prepare_data.sh file. To prepare
 $ cd scripts/finetuning
 $ bash prepare_data.sh
 ```
-Edit the config/finetuning.yaml for different parameter configurations.Check the required paths and values in start_finetuning.sh. Refer to [config README](config/README.md)
+Edit the config/finetuning.yaml for different parameter configurations.Check the required paths and values in start_finetuning.sh. Refer to [config README](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/blob/main/config/README.md)
 To start run:
 ```
 $ bash start_finetuning.sh
 ```
 
-Refer [this](scripts/finetuning/README.md) for finetuning parameters.
+Refer [this](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/tree/main/scripts/finetuning/README.md) for finetuning parameters.
 
 ## For Inference
 Edit the path to data in the scripts/inference/prepare_data.sh file. To prepare the test data run:
@@ -202,7 +202,7 @@ Edit the infer.sh file for required paths. To start inference run:
 ```
 $ bash infer.sh
 ```
-Refer [this](scripts/inference/README.md) for inference parameters.
+Refer [this](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/tree/main/scripts/inference/README.md) for inference parameters.
 
 ## For Single File Inference
 To generate custom model, run: 
@@ -221,7 +221,7 @@ Edit the run_lm_pipeline.sh variables as required, then run:
 $ cd scripts/lm
 $ bash run_lm_pipeline.sh
 ```
-Refer [this](scripts/lm/README.md) for LM pipeline.
+Refer [this](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/tree/main/scripts/lm/README.md) for LM pipeline.
 
 # License
 

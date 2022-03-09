@@ -121,15 +121,11 @@ This job generates text for each audio chunk using Google or Azure API's. The te
 
   1. Clone the repo
 
-```sh
-git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git
-```
+  ```sh git clone git@github.com:Open-Speech-EkStep/audio-to-speech-pipeline.git```
 
   2. Install python requirements
 
-```sh
-pip install -r requirements.txt
-```
+  ```sh pip install -r requirements.txt```
 
 ## Run on Kubernetes
 
@@ -152,7 +148,8 @@ pip install -r requirements.txt
 ```terraform init```  
 
 3. Select a workspace as per the environments(dev,test,prod).  
-```terraform workspace select <env_name>```  
+```terraform workspace select <env_name>``` 
+
 eg: ```terraform workspace select prod``` 
 
 4. Configure

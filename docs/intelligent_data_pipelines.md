@@ -151,8 +151,12 @@ pip install -r requirements.txt
 
 3. Select a workspace as per the environments(dev,test,prod).  
 
-```terraform workspace select <env_name>``` 
-eg: ```terraform workspace select prod``` 
+```terraform workspace select <env_name>
+``` 
+
+eg: 
+```terraform workspace select prod
+``` 
 
 4. Configure
  
@@ -240,14 +244,13 @@ variable "sql_disk_size" {
 ```
 
 5. Create Service account:
-
-```
-terraform apply -target=module.service-accounts
-```
+  ```
+  terraform apply -target=module.service-accounts
+  ```
 
 6. Create keys from console.cloud.google.com
    
-7.  Set env variable
+7. Set env variable
 ```
 export GOOGLE_APPLICATION_CREDENTIAL_SERVICE_ACC= </path/to/key.json>
 ```
@@ -256,7 +259,8 @@ export GOOGLE_APPLICATION_CREDENTIAL_SERVICE_ACC= </path/to/key.json>
 ```sh
 terraform apply -target=module.<module-name>
 ```
-eg: ```sh
+eg: 
+```sh
 terraform apply -target=module.sql-database
 ```  
 

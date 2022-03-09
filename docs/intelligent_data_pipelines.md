@@ -162,89 +162,88 @@ pip install -r requirements.txt
   terraform workspace select prod
   ``` 
 4. Configure  
- 
-```json
- variable "project" {
-  description = "The name of the Google Cloud Project."
-  default = "<project-name>"
-}
+  ```json
+   variable "project" {
+    description = "The name of the Google Cloud Project."
+    default = "<project-name>"
+  }
 
-variable "composer_env_name" {
-  description = "The name of the Google composer_env_name."
-  default = "ekstepcomposer"
-}
+  variable "composer_env_name" {
+    description = "The name of the Google composer_env_name."
+    default = "ekstepcomposer"
+  }
 
-variable "script_path" {
-  description = "The path of the working dir."
-  default = "./modules/gcp-composer/"
-}
+  variable "script_path" {
+    description = "The path of the working dir."
+    default = "./modules/gcp-composer/"
+  }
 
-variable "bucket_name" {
-  description = "The name of the gcp bucket"
-  default = "<bucket-name>"
-}
+  variable "bucket_name" {
+    description = "The name of the gcp bucket"
+    default = "<bucket-name>"
+  }
 
 
-variable "database_version" {
-  description = "The name of the database_version."
-  type = string
-  default = "POSTGRES_11"
-}
+  variable "database_version" {
+    description = "The name of the database_version."
+    type = string
+    default = "POSTGRES_11"
+  }
 
-variable "database_instance_name" {
-  description = "The name of the database_instance."
-  type = string
-  default = "<db-instance-name>"
-}
+  variable "database_instance_name" {
+    description = "The name of the database_instance."
+    type = string
+    default = "<db-instance-name>"
+  }
 
-variable "db_region" {
-  description = "The name of the db region."
-  type = string
-  default = "us-central1"
-}
+  variable "db_region" {
+    description = "The name of the db region."
+    type = string
+    default = "us-central1"
+  }
 
-variable "database1" {
-  description = "The name of the database1."
-  type = string
-  default = "speech_recognition_data_catalog-1"
-}
+  variable "database1" {
+    description = "The name of the database1."
+    type = string
+    default = "speech_recognition_data_catalog-1"
+  }
 
-variable "database2" {
-  description = "The name of the database2."
-  type = string
-  default = "speech_recognition_data_catalog-2"
-}
+  variable "database2" {
+    description = "The name of the database2."
+    type = string
+    default = "speech_recognition_data_catalog-2"
+  }
 
-variable "speechrecognition_service_account" {
-  description = "The name of the speechrecognition_service_account."
-  type = string
-  default = "service-account-1"
-}
+  variable "speechrecognition_service_account" {
+    description = "The name of the speechrecognition_service_account."
+    type = string
+    default = "service-account-1"
+  }
 
-variable "circleci_service_account" {
-  description = "The name of the circleci_service_account."
-  type = string
-  default = "servacct-circleci"
-}
+  variable "circleci_service_account" {
+    description = "The name of the circleci_service_account."
+    type = string
+    default = "servacct-circleci"
+  }
 
-variable "sql_instance_size" {
-  default = "db-custom-2-7680"
-  type = string
-  description = "Size of Cloud SQL instances"
-}
+  variable "sql_instance_size" {
+    default = "db-custom-2-7680"
+    type = string
+    description = "Size of Cloud SQL instances"
+  }
 
-variable "sql_disk_type" {
-  default = "PD_HDD"
-  type = string
-  description = "Cloud SQL instance disk type"
-}
+  variable "sql_disk_type" {
+    default = "PD_HDD"
+    type = string
+    description = "Cloud SQL instance disk type"
+  }
 
-variable "sql_disk_size" {
-  default = "20"
-  type = string
-  description = "Storage size in GB"
-}
-```
+  variable "sql_disk_size" {
+    default = "20"
+    type = string
+    description = "Storage size in GB"
+  }
+  ```
 
 5. Create Service account:
   ```
@@ -283,7 +282,7 @@ terraform apply
     
 ### CI/CD setup
 
-Once you pull code you have to configure some variable in your [circle-ci](https://circleci.com/ "circle-ci").
+Once you pull code you have to configure some variable in your [CircleCI](https://circleci.com/ "circle-ci").
 So that while deploying code image should easily push into google container registry.
 
 ```txt
@@ -348,15 +347,15 @@ Create a yaml file using following config format and configure paths and other p
         local_output_file_path: ''
 ```
 
-#### Steps to run
+#### Steps to run:
 
 * We have to configure **sourcepathforsnr** in airflow variable where our raw data is stored.
 
 * Other variable that we need to configure is **snrcatalogue** in that we need to add our source(s) name which we want to process and following parameters:
-    1. count: Count of files that we want to process in one trigger.
-    2. format: The format of the raw audio file in bucket.
-    3. language: Language of source(s).
-    4. parallelism: Number of pods that will be up in one run. If parallelism is not defined then number of pod = count. 
+  - count: Count of files that we want to process in one trigger.
+  - format: The format of the raw audio file in bucket.
+  - language: Language of source(s).
+  - parallelism: Number of pods that will be up in one run. If parallelism is not defined then number of pod = count. 
     
     ex:-
 
@@ -399,8 +398,8 @@ Create a yaml file using following config format and configure paths and other p
 
     analysis_options:
 
-      gender_analysis: 1 # It should 1 if you want run gender analysis for a source else it should be 0.
-      speaker_analysis: 0 # It should 1 if you want run speaker analysis for a source else it should be 0.
+      gender_analysis: 1 # It should be 1 if you want run gender analysis for a source else it should be 0.
+      speaker_analysis: 0 # It should be 1 if you want run speaker analysis for a source else it should be 0.
 
       # path where the processed files need to be uploaded
       remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/audio>
@@ -429,9 +428,9 @@ Create a yaml file using following config format and configure paths and other p
 }
 ```
 
-* That will create a audio_analysis DAG with name **source name_audio_embedding_analysis"**. Now, we can trigger that DAG and that will process given    
-  sources. It will create embeddings, processed files and upload them to **path_for_embeddings** and **remote_processed_audio_file_path** respectively  
-  that we have mentioned in config file. Also, Database will be updated with the metadata which we created using CircleCI.
+* That will create a audio_analysis DAG with name **source name_audio_embedding_analysis"**. Now, we can trigger that DAG and that will process given sources. 
+  It will create embeddings, processed files and upload them to **path_for_embeddings** and **remote_processed_audio_file_path** respectively that we have
+  mentioned in config file. Also, Database will be updated with the metadata which we created using CircleCI.
   
 
 ### Data Balancing Config
@@ -449,15 +448,23 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
 
 ```
 
-#### steps to run: 
-1. We need to configure **data_filter_config** airflow variable for each source. we have multiple filters 
- 1. **by_snr** # filter based on SNR value
- 2. **by_duration** # total duration from a given source.
- 3. **by_speaker** # we can configure how much data per speaker we want.
- 4. **by_utterance_duration** # we can required duration of utterance.
- 5. **exclude_audio_ids** # we can pass a list of audio_ids that we want to skip.
- 6. **exclude_speaker_ids** # we can pass a list of speaker_ids that we want to skip.
- 7. **with_randomness** # It is a boolean value if it's it will pickup random data from DB.
+#### Steps to run: 
+1. We need to configure **data_filter_config** airflow variable for each source. We provide 2 modes of filtration **file mode** and **filter mode**.Only, one mode can be
+   - **data_set**: select data set type from 'train' and 'test'.
+   
+   - **file_mode**: It should be 'y' if you want to use file_mode for a source else it should be 'n'. This mode can be used when we need to filter out some   
+                    specific files that we found after analysis by providing path of the CSV file in file_path parameter.
+   - **file_path**: path of the CSV file
+   
+   - We have multiple filters:
+    - **by_snr**: filter based on SNR value.
+    - **by_duration**:total duration from a given source.
+    - **by_speaker**: we can configure how much data per speaker we want.
+    - **by_utterance_duration**: we can required duration of utterance.
+    - **exclude_audio_ids**: we can pass a list of audio_ids that we want to skip.
+    - **exclude_speaker_ids**: we can pass a list of speaker_ids that we want to skip.
+    - **with_randomness**: It is a boolean value if it's true it will pickup random data from DB.
+   
 
 ```json
 "data_filter_config": {
@@ -479,7 +486,7 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
       "language": "hindi",
       "file_mode": "n",
       "data_set": "train",
-      "file_path": "data/audiotospeech/raw/download/duplicate/test_source1.csv",
+      "file_path": "data/audiotospeech/raw/download/duplicate/test_source2.csv",
       "filter": {
         "by_speaker": {
           "lte_per_speaker_duration": 60,
@@ -491,8 +498,9 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
     }
 ```
 
-2. After configure all value one dag will created **data_marker_pipeline** we can trigger that dag. this dag filter out all data 
-from given criteria It will pick data from **source_directory_path** and after filtering move data to **landing_directory_path**.
+2. After configuring all values, one DAG will created **data_marker_pipeline** we can trigger that DAG. This DAG will filter out all data 
+from given criteria and it will pick data from **source_directory_path**. After filtration, data will be moved to **landing_directory_path**.
+
 ### Audio Transcription (with config):
 #### config:
 

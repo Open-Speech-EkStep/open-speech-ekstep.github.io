@@ -360,20 +360,20 @@ config:
     ex:-
 
 ```json
- "snrcatalogue": {
-    "<source_name>": {
-    "count": 5,
-    "format": "mp3",
-    "language": "telugu",
-    "parallelism":2 
-     },
-    "<other_source_name>": {
-    "count": 5,
-    "format": "mp3",
-    "language": "telugu",
-    "parallelism":5 
-     } 
-   }
+"snrcatalogue": {
+  "<source_name>": {
+  "count": 5,
+  "format": "mp3",
+  "language": "telugu",
+  "parallelism":2 
+   },
+  "<other_source_name>": {
+  "count": 5,
+  "format": "mp3",
+  "language": "telugu",
+  "parallelism":5 
+   } 
+ }
 ```
 
 * We have to also set **audiofilelist** with whatever source(s) we want to run with empty array that will store our file path ex:-
@@ -384,9 +384,9 @@ config:
       }
 ```
 
-* That will create a DAG with the source_name(s) now we can trigger that DAG, that will process given number(count) of file
-  and upload processed file to **remote_processed_audio_file_path** that we mentioned in the config file. And move raw data from 
-  **remote_raw_audio_file_path** to **snr_done_folder_path**. Also, Database will be updated with the metadata which we created using CircleCI.
+* That will create a DAG with the source_name(s) now we can trigger that DAG, that will process given number(count) of file and upload processed file to
+  **remote_processed_audio_file_path** that we mentioned in the config file. And move raw data from **remote_raw_audio_file_path** to **snr_done_folder_path**. 
+  Also, Database will be updated with the metadata which we created using CircleCI.
 
 
 ### Audio Analysis Config
@@ -394,23 +394,23 @@ config:
 #### Config
 
 ```yaml
-  audio_analysis_config:
+audio_analysis_config:
 
-  analysis_options:
+analysis_options:
 
-    gender_analysis: 1 # It should be 1 if you want run gender analysis for a source else it should be 0.
-    speaker_analysis: 0 # It should be 1 if you want run speaker analysis for a source else it should be 0.
+  gender_analysis: 1 # It should be 1 if you want run gender analysis for a source else it should be 0.
+  speaker_analysis: 0 # It should be 1 if you want run speaker analysis for a source else it should be 0.
 
-    # path where the processed files need to be uploaded
-    remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/audio>
+  # path where the processed files need to be uploaded
+  remote_processed_audio_file_path: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/audio>
 
-    # path where the embeddings need to be uploaded
-    path_for_embeddings: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/embeddings/>
+  # path where the embeddings need to be uploaded
+  path_for_embeddings: '' # <bucket-name/data/audiotospeech/raw/download/catalogued/{language}/embeddings/>
 
-    min_cluster_size: 4 # It is least number of cluster for one speaker.
-    partial_set_size: 15000 # Number of audio chunks to create embeddings for a given source.
-    fit_noise_on_similarity: 0.77 
-    min_samples: 2 
+  min_cluster_size: 4 # It is least number of cluster for one speaker.
+  partial_set_size: 15000 # Number of audio chunks to create embeddings for a given source.
+  fit_noise_on_similarity: 0.77 
+  min_samples: 2 
 ```
 
 #### Steps to run
@@ -451,20 +451,20 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
 #### Steps to run: 
 1. We need to configure **data_filter_config** airflow variable for each source. We provide 2 modes of filtration **file mode** and **filter mode**. Only, one mode can be used at a time. To use filter mode, **"file_mode": "n"**. If **"file_mode": "y"**, then snr filter, duration filter etc. won't work.
 
-  - **data_set**: select data set type from 'train' and 'test'.
+   - **data_set**: select data set type from 'train' and 'test'.
    
-  - **file_mode**: It should be 'y' if you want to use file_mode for a source else it should be 'n'. This mode can be used when we need to filter out some   
+   - **file_mode**: It should be 'y' if you want to use file_mode for a source else it should be 'n'. This mode can be used when we need to filter out some   
                     specific files that we found after analysis by providing path of the CSV file in file_path parameter.
-  - **file_path**: path of the CSV file
+   - **file_path**: path of the CSV file
    
-  - We have multiple filters:
-    - **by_snr**: filter based on SNR value.
-    - **by_duration**:total duration from a given source.
-    - **by_speaker**: we can configure how much data per speaker we want.
-    - **by_utterance_duration**: we can required duration of utterance.
-    - **exclude_audio_ids**: we can pass a list of audio_ids that we want to skip.
-    - **exclude_speaker_ids**: we can pass a list of speaker_ids that we want to skip.
-    - **with_randomness**: It is a boolean value if it's true it will pickup random data from DB.
+   - We have multiple filters:
+     - **by_snr**: filter based on SNR value. "lte" means lower than and "gte" means greater than
+     - **by_duration**:total duration from a given source.
+     - **by_speaker**: we can configure how much data per speaker we want.
+     - **by_utterance_duration**: we can required duration of utterance.
+     - **exclude_audio_ids**: we can pass a list of audio_ids that we want to skip.
+     - **exclude_speaker_ids**: we can pass a list of speaker_ids that we want to skip.
+     - **with_randomness**: It is a boolean value if it's true it will pickup random data from DB.
    
 
 ```json
@@ -500,61 +500,65 @@ source_directory_path: '' #'<bucket_name>/data/audiotospeech/raw/landing/{langua
   }
 ```
 
-2. After configuring all values, one DAG will created **data_marker_pipeline** we can trigger that DAG. This DAG will filter out all data 
-from given criteria and it will pick data from **source_directory_path**. After filtration, data will be moved to **landing_directory_path**.
+2. After configuring all values, one DAG will created **data_marker_pipeline** we can trigger that DAG. This DAG will filter out all audio chunks on the basis of   
+   the given criteria's and it will pick audio chunks from **source_directory_path**. After filtration, audio chunks will be moved to **landing_directory_path**.
 
 ### Audio Transcription (with config):
 #### config:
 
-  ```
-    config:
-      common:
+```
+config:
+  common:
 
-        db_configuration:
-            db_name: ''
-            db_pass: ''
-            db_user: ''
-            cloud_sql_connection_name: '<DB host>'
+    db_configuration:
+        db_name: ''
+        db_pass: ''
+        db_user: ''
+        cloud_sql_connection_name: '<DB host>'
 
-        gcs_config:
-          # master data bucket 
-          master_bucket: '<bucket name>'
+    gcs_config:
+      # master data bucket 
+      master_bucket: '<bucket name>'
 
-        azure_transcription_client:
-          speech_key: '<key of the api>'
-          service_region: 'centralindia' # service region
+    azure_transcription_client:
+      speech_key: '<key of the api>'
+      service_region: 'centralindia' # service region
 
-        google_transcription_client:
-          bucket: '<bucket name>'
-          language: 'hi-IN' # It is BCP-47 language tag with this we call STT api.
-          sample_rate: 16000 # Sample rate of audio utterance
-          audio_channel_count: 1 #The number of channels in the input audio data
+    google_transcription_client:
+      bucket: '<bucket name>'
+      language: 'hi-IN' # It is BCP-47 language tag with this we call STT api.
+      sample_rate: 16000 # Sample rate of audio utterance
+      audio_channel_count: 1 #The number of channels in the input audio data
 
-      audio_transcription_config:
-      # defaults to hi-IN
+  audio_transcription_config:
+  # defaults to hi-IN
 
-      language: 'hi-IN' # language 
+  language: 'hi-IN' # language 
 
-      # audio_language it's used for sanitization rule whichever language you choose you need to add a rule class for the same.
-      # You can use reference of hindi sanitization
-      # sanitization rule eg: empty transcription, strip, char etc
+  # audio_language it's used for sanitization rule whichever language you choose you need to add a rule class for the same.
+  # You can use reference of hindi sanitization
+  # sanitization rule eg: empty transcription, strip, char etc
 
-      audio_language: 'kannada' 
+  audio_language: 'kannada' 
 
-      # Bucket bath of wav file 
-      remote_clean_audio_file_path: '<bucketname>/data/audiotospeech/raw/landing/{language}/audio'
+  # Bucket bath of wav file 
+  remote_clean_audio_file_path: '<bucketname>/data/audiotospeech/raw/landing/{language}/audio'
 
-      # path where the processed files need to be uploaded
-      remote_stt_audio_file_path: '<bucketname>/data/audiotospeech/integration/processed/{language}/audio'
+  # path where the processed files need to be uploaded
+  remote_stt_audio_file_path: '<bucketname>/data/audiotospeech/integration/processed/{language}/audio'
+```
 
-  ```
-#### steps to run: 
+#### Steps to run: 
 
-1. We have to configure **sttsourcepath** in airflow variable where our raw data stored.
+1. We have to configure **sttsourcepath** in airflow variable where our filtered audio chunks are stored.
 
-2. Other variable is **sourceinfo** in that we update our source which we want to run for STT and count how many file should run 
-in one trigger.stt is whatever api we want to call for STT for google and azure we have all rapper for other API you can add rapper as well. language and parallelism is how many pod will up in one
-run if parallelism is not define number of pod = count ex:
+2. Other variable is **sourceinfo** in that we update our source(s) which we want to process through Speech-to-Text API (STT). 
+   - **count**: Count of files that we want to process in one trigger.
+   - **stt**: STT API we want to use for transcription generation. We have support for Google & Azure STT API and you can add rapper as well for other API's.
+   - **language**: Language of source(s).
+   - **data_set**: Category of data "train" or "test".
+  
+   ex:
 
 ```json
  "sourceinfo": {
@@ -566,21 +570,25 @@ run if parallelism is not define number of pod = count ex:
   }
 ```
 
-3. We have to also set **audioidsforstt** and **integrationprocessedpath** with whatever source we want to run with empty array that will store audio_id ex:
+3. We have to also set **audioidsforstt** and  with whatever source(s) we want to run with empty array that will store audio_id 
+   ex:
 
- ```json
- "audioidsforstt": {
-      "<source_name>": []
- }
- ```
+```json
+"audioidsforstt": {
+    "<source_name>": []
+}
+```
 
- ```yaml
- integrationprocessedpath:"" # path of folder where we want move transcribed data.
- ```
+4. Also, configure **integrationprocessedpath** variable with the path of folder where we want move transcribed data.
 
-4. That will create a dag with the source_name now we can trigger that dag that will process given number(count) of file.
-and upload processed file to **remote_stt_audio_file_path** that we mentioned in config file. and move raw data from **remote_clean_audio_file_path** to **integrationprocessedpath**. and update DB also with the metadata which we created using circle-ci.
+```yaml
+integrationprocessedpath:"" # path of folder where we want move transcribed data.
+```
 
+5. That will create a DAG with the source_name now we can trigger that DAG. And that will process given number(count) of audio chunks and upload processed files to
+   **remote_stt_audio_file_path** that we mentioned in config file. Also, it will move raw data from **remote_clean_audio_file_path** to
+   **integrationprocessedpath** and database will be updated with the metadata which we created using CircleCI.
+   
 
 <!-- CONTRIBUTING -->
 ## Contributing

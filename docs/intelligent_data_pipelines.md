@@ -144,27 +144,24 @@ pip install -r requirements.txt
 ### Infra Setup
 
 1. Clone the repo:
-```sh 
-git clone https://github.com/Open-Speech-EkStep/ekstep-deep-speech-infra.git
-```
+  ```sh 
+  git clone https://github.com/Open-Speech-EkStep/ekstep-deep-speech-infra.git
+  ```
 
 2. Initialize terraform modules  
-```
-terraform init
-```  
+  ```
+  terraform init
+  ```  
 
-3. Select a workspace as per the environments(dev,test,prod).  
-
-```
-terraform workspace select <env_name>
-```
-
-eg: 
-```
-terraform workspace select prod
-``` 
-
-4. Configure
+3. Select a workspace as per the environments(dev,test,prod).
+  ```
+  terraform workspace select <env_name>
+  ```
+  eg: 
+  ```
+  terraform workspace select prod
+  ``` 
+4. Configure  
  
 ```json
  variable "project" {

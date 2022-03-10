@@ -203,6 +203,7 @@ nav:
       - "Speech Recognititon Streaming API" : "asr_streaming_service.md"
       - "Text To Speech Model training": "tts_model_training.md"
       - "Text To Speech Model API" : "tts_model_api.md"
+      - "API Deployment Guide" : "api_deployment.md"
 
   - About:
       - "Contributions": CONTRIBUTING.md

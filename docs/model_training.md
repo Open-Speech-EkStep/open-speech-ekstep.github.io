@@ -1,18 +1,21 @@
 ## Pretrained Models
 We are releasing pretrained models in various Indic Languages. Please head over to [this repo](https://github.com/Open-Speech-EkStep/vakyansh-models).
+
+<!-- TABLE OF CONTENTS -->
 ## Table of contents
 
-<!--ts-->  
-   * [Installation and Setup](#installation-and-setup)
-   * [Directory Structure](#directory-structure)
-   * [Data Description](#data-description)
-   * [Usage](#usage)
-      * [For Pretraining](#for-pretraining)
-      * [For Finetuning](#for-finetuning)
-      * [For Inference](#for-inference)
-      * [For Single File Inference](#for-single-file-inference)
-   * [License](#license)
-<!--te-->
+
+- [Installation and Setup](#installation-and-setup)
+- [Directory Structure](#directory-structure)
+- [Data Description](#data-description)
+- [Usage](#usage)
+  - [For Pretraining](#for-pretraining)
+  - [For Finetuning](#for-finetuning)
+  - [For Inference](#for-inference)
+  - [For Single File Inference](#for-single-file-inference)
+- [Tutorials Reference](#tutorials-reference)
+- [License](#license)
+
 
 ## Installation and Setup 
 ```
@@ -222,6 +225,16 @@ $ cd scripts/lm
 $ bash run_lm_pipeline.sh
 ```
 Refer [this](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/tree/main/scripts/lm/README.md) for LM pipeline.
+   
+<!-- TUTOTIALS REFERENCE -->
+## Tutorials Reference
+
+- https://www.youtube.com/watch?v=X-etVH5yvX4&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=15
+- https://www.youtube.com/watch?v=IhN6pM15e6U&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=17
+- https://www.youtube.com/watch?v=-U1mWvEjygs&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=19
+- https://www.youtube.com/watch?v=Sv_rRFvNvrA&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=20
+- https://www.youtube.com/watch?v=iKgOikAXLwM&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=21
+
 
 # License
 

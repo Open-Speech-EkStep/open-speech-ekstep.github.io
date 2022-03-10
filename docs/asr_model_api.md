@@ -22,19 +22,17 @@ This is enabled to provide the following features:
 
 The Developer documentation provides you with a complete set of guidelines which you need to get started with:
 
-* Architecture overview
-* API reference  
-* Client Code reference
-* Setup and getting started guide
-* Extend this project
-* Contribute to this project
+* [Architecture overview](#architecture-overview)
+* [API reference](#api-reference)
+* [Developer Documentation](#developer-documentation)
+* [Contribute to this project](#contributing)
 
 ## Architecture Overview
 
 ![ASR Architecture](img/streaming-service.jpg)
 
 The logical architecture here is built with a grpc server hosting our speech recognition models and dependencies, which can be run in any environment or docker.
-With gRPC, we can define our service once in a proto file and generate clients and servers in any of gRPC’s supported languages. Which in turn can be run in environments ranging from servers inside a large data center to your own tablet. All the complexity of communication between different languages and environments is handled for you by gRPC. We also get all the advantages of working with protocol buffers, including efficient serialization, a simple IDL, and easy interface updating. You can read about gRPC in the[doc](https://grpc.io/docs/).
+With gRPC, we can define our service once in a proto file and generate clients and servers in any of gRPC’s supported languages. Which in turn can be run in environments ranging from servers inside a large data center to your own tablet. All the complexity of communication between different languages and environments is handled for you by gRPC. We also get all the advantages of working with protocol buffers, including efficient serialization, a simple IDL, and easy interface updating. You can read about gRPC in the [gRPC doc](https://grpc.io/docs/).
 
 Apart from using gRPC stubs, we have added the support for REST calls to the gRPC server via [envoy](https://envoyproxy.io/) as API gateway.
 Once you specify special mapping rules, API Gateway translates RESTful JSON over HTTP into gRPC requests. This means that you can deploy a gRPC server with envoy and call its API using a gRPC or JSON/HTTP client, giving you much more flexibility and ease of integration with other systems.

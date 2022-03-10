@@ -4,7 +4,7 @@ Our speech to text interface enables you to accurately convert speech into text 
 
 This Streaming API provides an interface to accept chunks of continuous audio stream that can be transcribed in realtime to text by using the above mentioned speech to text interface.
 
-This service is enabled to provide the following features:
+This service provides the following features:
 
 * Speech to text transcription support for a growing list of indic languages.
 
@@ -129,46 +129,46 @@ To get started with this Browser client sdk, refer to the Readme in the above gi
 4. Download asr fine-tuned models and language models for the languages you need from the link given [here](https://github.com/Open-Speech-EkStep/vakyansh-models#finetuned-asr-models-works-on-v2-hydra-branch).
 5. Directory structure of `deployed_models/`:
 
-    ```shell
-    .
-    |-- hindi
-    |   |-- hindi_infer.pt
-    |   |-- dict.ltr.txt
-    |   |-- lexicon.lst
-    |   |-- lm.binary
-    |-- english
-    |   |-- english_infer.pt
-    |   |-- dict.ltr.txt
-    |   |-- lexicon.lst
-    |   |-- lm.binary
-    |-- model_dict.json
-    ```
+```shell
+.
+|-- hindi
+|   |-- hindi_infer.pt
+|   |-- dict.ltr.txt
+|   |-- lexicon.lst
+|   |-- lm.binary
+|-- english
+|   |-- english_infer.pt
+|   |-- dict.ltr.txt
+|   |-- lexicon.lst
+|   |-- lm.binary
+|-- model_dict.json
+```
 
 6. The contents of the `model_dict.json` file mentioned in above step should contain the path of the model files.
 For example:
 
-    ```json
-    {
-        "en": {
-            "path": "/english/english_infer.pt",
-            "enablePunctuation": true,
-            "enableITN": true
-        },
-        "hi": {
-            "path": "/hindi/hindi_infer.pt",
-            "enablePunctuation": true,
-            "enableITN": true
-        },
+```json
+{
+    "en": {
+        "path": "/english/english_infer.pt",
+        "enablePunctuation": true,
+        "enableITN": true
+    },
+    "hi": {
+        "path": "/hindi/hindi_infer.pt",
+        "enablePunctuation": true,
+        "enableITN": true
     }
-    ```
+}
+```
 
-    **Note:** `enablePunctuation` flag is used if the transcription from the model needs to be punctuated. `enabledITN` flag is used if the inverse text normalization is needed for the transcripts from the model. Streaming text from server will not have the response punctuated or ITN applied. It needs to be done separately. Refer, streaming client sdk readme for more details.
+**Note:** `enablePunctuation` flag is used if the transcription from the model needs to be punctuated. `enabledITN` flag is used if the inverse text normalization is needed for the transcripts from the model. Streaming text from server will not have the response punctuated or ITN applied. It needs to be done separately. Refer, streaming client sdk readme for more details.
 
 7. Run the streaming grpc server using the following command:
 
-    ```docker
-    docker run -itd -p 50051:50051  --env gpu=True --env languages=['en'] --gpus all -v /home/user/project/deployed_models/:/opt/speech_recognition_open_api/deployed_models/ gcr.io/ekstepspeechrecognition/speech_recognition_model_api:3.2.25
-    ```
+```shell
+docker run -itd -p 50051:50051  --env gpu=True --env languages=['en'] --gpus all -v /home/user/project/deployed_models/:/opt/speech_recognition_open_api/deployed_models/ gcr.io/ekstepspeechrecognition/speech_recognition_model_api:3.2.25
+```
 
 8. This will keep the streaming grpc server up and running in port `50051` as mentioned in the above docker command.
 
@@ -176,27 +176,27 @@ For example:
 
 1. Clone the proxy service from github:
 
-    ```git
-    git clone https://github.com/Open-Speech-EkStep/speech-recognition-open-api-proxy.git
-    ```
+```shell
+git clone https://github.com/Open-Speech-EkStep/speech-recognition-open-api-proxy.git
+```
 
 2. Run `cd speech-recognition-open-api-proxy`.
 3. Install the project dependencies: `npm i`.
 4. Configure the `language_map.json` file (in `project-root-folder` eg: /users/node/speech-recognition-open-api-proxy/language_map.json), so that it points to the grpc server which is hosted in port `50051` in the above steps.
 For example:
 
-    ```json
-    {
-        "<ip-address/host>:<port>": [
-            "hi",
-            "en"
-        ],
-        "localhost:50051": [
-            "ta",
-            "te"
-        ],
-    }
-    ```
+```json
+{
+    "<ip-address/host>:<port>": [
+        "hi",
+        "en"
+    ],
+    "localhost:50051": [
+        "ta",
+        "te"
+    ]
+}
+```
 
 5. Set the folder path of language_map.json as env variable `config_base_path="<project-root-folder>"`(eg: /users/node/speech-recognition-open-api-proxy).
 6. Run the proxy service: `npm start`.
@@ -206,19 +206,19 @@ For example:
 
 1. To create a streaming web ui, clone the below repository from github:
 
-    ```git
-    git clone https://github.com/Open-Speech-EkStep/speech-recognition-open-api-client.git
-    ```
+```shell
+git clone https://github.com/Open-Speech-EkStep/speech-recognition-open-api-client.git
+```
 
 2. Run `cd speech-recognition-open-api-client && cd examples/react-example`.
 3. Install the project dependencies: `npm i`.
 4. Open the file : `src/App.js`.
 5. In this file, in handleStart() method in line 25 and 26, modify the url and language as you need: example
 
-    ```javascript
-      const url = 'http://localhost:9009'; // url of the proxy service
-      const language = 'hi'; // this can be en, gu depends on what models you have hosted.
-    ```
+```javascript
+  const url = 'http://localhost:9009'; // url of the proxy service
+  const language = 'hi'; // this can be en, gu depends on what models you have hosted.
+```
 
 6. Save and Close the file once the changes are done.
 7. Run the service using `npm start`.
@@ -228,24 +228,24 @@ For example:
 
 1. In step 7, multiple languages can be given in one docker container by doing the following for languages env variable.
 
-    ```sh
-    --env languages=['en', 'hi']
-    ```
+```shell
+--env languages=['en', 'hi']
+```
 
 2. Multiple docker containers can be created with different language sets and they can all be accessed by using the proxy service. For example, docker container1 is hosted with en,hi on port 50051 and docker container2 is hosted with ta,te on port 50052, then `language_config.json` file content will be as follows:
 
-    ```sh
-    {
-        "localhost:50051": [
-            "hi",
-            "en"
-        ],
-        "localhost:50052": [
-            "ta",
-            "te"
-        ],
-    }
-    ```
+```shell
+{
+    "localhost:50051": [
+        "hi",
+        "en"
+    ],
+    "localhost:50052": [
+        "ta",
+        "te"
+    ],
+}
+```
 
 3. Port of the proxy service can be changed `PORT` env variable.
 

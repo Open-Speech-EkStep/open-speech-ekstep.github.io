@@ -24,12 +24,9 @@ API enable us to provide the following features:
 
 The Developer documentation provides you with a complete set of guidelines which you need to get started with:
 
-* Architecture overview
-* API reference  
-* Client Code reference
-* Setup and getting started guide
-* Extend this project
-* Contribute to this project
+* [Architecture overview](#architecture-overview)
+* [API reference](#api-reference)
+* [Contribute to this project](#contributing)
 
 ## Architecture Overview
 
@@ -60,7 +57,7 @@ Body:
 Schema for TTS request and response defined at  https://github.com/ULCA-IN/ulca/blob/master/specs/model-schema.yml
 
 Example Request Body -
-``` 
+```json
 {
     "input": [
         {
@@ -95,7 +92,7 @@ Body:
 The child attribute "audioContent" of attribute "audio" would provide the audio bytes of the synthesized speech.
 The response also contains Audio Format and sampling as part of the response schema.
 Example:
-```
+```json
 {
   "audio": [
     {
@@ -143,7 +140,7 @@ Download all transliteration models into local using gsutil -m cp -r ```gs://vak
 Prepare the model_dict.json and place it in <local path>/tts_models/
 The model_dict.json sample :
 
-```
+```json
 { 
     "hi" : { "male_glow" : "hindi/male/glow_tts",
            "male_hifi" : "hindi/male/hifi_tts",
@@ -155,7 +152,7 @@ The model_dict.json sample :
 
 Sample docker run command:
 
-```
+```shell
 docker run -itd -p 5000:5000 --gpus all --env languages='["hi","ml"]' -v <local path>/tts_models/:/opt/text_to_speech_open_api/deployed_models/ -v <local path>/translit_models/:/opt/text_to_speech_open_api/vakyansh-tts/src/glow_tts/tts_infer/translit_models/ gcr.io/ekstepspeechrecognition/text_to_speech_open_api:2.1.4 
 ```
 

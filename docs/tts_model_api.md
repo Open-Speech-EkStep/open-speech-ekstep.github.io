@@ -82,11 +82,12 @@ The child attributes for `config` are `gender` and `sourceLanguage`.
 
 **Responses**
 
-```
+
 | Code | Description                          |
 |------|--------------------------------------|
 | 200  | On successful completion of the job. |
-```
+| 40X, 50X  | Defined in Errors section |
+
 
 *Response Attributes*
 
@@ -116,7 +117,9 @@ Example:
 **Errors**
 
 Our API uses HTTP response codes to indicate the success or failure of an API request.
-```
+
+| Status| Meaning                           | Description                                                                                           |
+|-------|-----------------------------------|-------------------------------------------------------------------------------------------------------|
 | 200 	|  OK                            	| Everything worked as expected.                                                                     	|
 | 400 	|  Bad Request                   	| The request was unacceptable, often due to missing a required parameter.                           	|
 | 401 	|  Unauthorized                  	| No valid API key provided.                                                                         	|
@@ -126,7 +129,7 @@ Our API uses HTTP response codes to indicate the success or failure of an API re
 | 409 	|  Conflict                      	| The request conflicts with another request (perhaps due to using the same   idempotent key).       	|
 | 429 	|  Too Many Requests             	| Too many requests hit the API too quickly. We recommend an exponential   backoff of your requests. 	|
 | 50X 	|  Server Errors                 	| Something went wrong on Stripe's end. (These are rare.)                                            	|
-```
+
 
 **Implementing the api from local using Docker**
 

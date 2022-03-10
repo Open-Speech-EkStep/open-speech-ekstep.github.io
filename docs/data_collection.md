@@ -28,6 +28,7 @@
       - [Urls Spider](#urls-spider)
       - [Selenium google crawler](#selenium-google-crawler)
       - [Selenium youtube crawler for file mode and api mode](#selenium-youtube-crawler-for-file-mode-and-api-mode)
+  - [Tutorial Reference](#tutorial-reference)
   - [Contributing](#contributing)
   - [License](#license)
   - [Git Repository](#git-repository)
@@ -429,6 +430,12 @@ Make sure the google credentials are present in project root folder in credentia
 * It is capable of crawling youtube videos using youtube api or from a list of files with youtube video ids provided with channel name as filename.
 
 * A specified Readme can be found in selenium_youtube_crawler folder. [Readme for selenium youtube crawler](https://github.com/Open-Speech-EkStep/data-acquisition-pipeline/blob/master/selenium_youtube_crawler/Readme.md)
+
+<!-- TUTORIALS REFERENCE -->
+## Tutorials Reference
+
+- https://www.youtube.com/watch?v=VPZfntRpNqQ&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=10
+- https://www.youtube.com/watch?v=iySYi3Uwp1U&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=12
 
 
 <!-- CONTRIBUTING -->

@@ -315,6 +315,7 @@ The contents of the default_lineup.json should be:
         "vocab"   : "urdu/ur_words_ccset.json",
         "weight"  : "urdu/ur_101_model.pth"
     }
+}
 ```
 The models from the external volume needs to be mounted at `/opt/text_to_speech_open_api/deployed_models/`  inside the pod. The volume mounts are specified in `https://github.com/Open-Speech-EkStep/text-to-speech-open-api-infra` 
 

@@ -363,13 +363,13 @@ Distributed under the [MIT] License. See `LICENSE` for more information.
 
 ## Git repository
 
-[https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git](https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git)
+[https://github.com/Open-Speech-EkStep/text-to-speech-open-api-infra.git](https://github.com/Open-Speech-EkStep/text-to-speech-open-api-infra.git)
 
 ## Contact
 
 Connect with community on [Gitter](https://gitter.im/Vakyansh/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-Project Link: [https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git](https://github.com/Open-Speech-EkStep/speech-recognition-open-api.git)
+Project Link: [https://github.com/Open-Speech-EkStep/text-to-speech-open-api-infra.git](https://github.com/Open-Speech-EkStep/text-to-speech-open-api-infra.git)
 
 
 

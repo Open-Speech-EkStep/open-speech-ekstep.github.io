@@ -36,6 +36,7 @@
     - [Audio Transcription (with config):](#audio-transcription-with-config)
       - [config:](#config-3)
       - [steps to run:](#steps-to-run-3)
+  - [Tutorials Reference](#tutorials-reference)
   - [Contributing](#contributing)
   - [License](#license)
   - [Git Repository](#git-repository)
@@ -595,6 +596,14 @@ integrationprocessedpath: ''
 - That will create a DAG with the source_name now we can trigger that DAG. And that will process given number(count) of audio chunks and upload
   processed files to **remote_stt_audio_file_path** that we mentioned in config file. Also, it will move raw data from **remote_clean_audio_file_path** to **integrationprocessedpath** and database will be updated with the metadata which we created using CircleCI.
    
+<!-- TUTOTIALS REFERENCE -->
+## Tutorials Reference
+
+- https://www.youtube.com/watch?v=VPZfntRpNqQ&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=10
+- https://www.youtube.com/watch?v=PyAn2FDYeOQ&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=13
+- https://www.youtube.com/watch?v=eOiBPH9MZ6Q&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=14
+- https://www.youtube.com/watch?v=X-etVH5yvX4&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=15
+
 
 <!-- CONTRIBUTING -->
 ## Contributing

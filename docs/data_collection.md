@@ -28,7 +28,7 @@
       - [Urls Spider](#urls-spider)
       - [Selenium google crawler](#selenium-google-crawler)
       - [Selenium youtube crawler for file mode and api mode](#selenium-youtube-crawler-for-file-mode-and-api-mode)
-  - [Tutorial Reference](#tutorial-reference)
+  - [Tutorials Reference](#tutorials-reference)
   - [Contributing](#contributing)
   - [License](#license)
   - [Git Repository](#git-repository)

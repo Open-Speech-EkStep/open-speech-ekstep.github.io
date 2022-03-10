@@ -16,7 +16,8 @@
   - [Usage](#usage)
     - [Parameters to change](#parameters-to-change)
     - [Commands for Inference](#commands-for-inference)
-
+    
+  - [Tutorials Reference](#tutorials-reference)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -108,3 +109,8 @@ Create a csv containing multiple file paths
  ```
  python scripts/inference.py --model-path model/clf_svc.sav --csv-path <file_paths>.csv --save-dir <destination path>
  ```
+
+<!-- TUTOTIALS REFERENCE -->
+## Tutorials Reference
+
+- https://www.youtube.com/watch?v=PyAn2FDYeOQ&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=13

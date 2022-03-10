@@ -26,6 +26,7 @@ The Developer documentation provides you with a complete set of guidelines which
 * [API reference](#api-reference)
 * [Developer Documentation](#developer-documentation)
 * [Contribute to this project](#contributing)
+* [Tutorials Reference](#tutorials-reference)
 
 ## Architecture Overview
 
@@ -77,6 +78,13 @@ API and all dependent components are open sourced.
 
 [API](https://github.com/Open-Speech-EkStep/speech-recognition-open-api)
 [Realtime Inferencing](https://open-speech-ekstep.github.io/asr_streaming_service/)
+
+<!-- TUTOTIALS REFERENCE -->
+## Tutorials Reference
+
+- https://www.youtube.com/watch?v=2Jm5cN_Wd00&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=23
+- https://www.youtube.com/watch?v=wCASFbughCw&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=24
+
 
 
 ## Contributing

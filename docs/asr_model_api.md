@@ -15,9 +15,9 @@ This is enabled to provide the following features:
 
 * Support for various audio formats like WAV, MP3, PCM.
 
-* [beta]Enables transcription optimized for domain-specific quality requirements associating domain models in backend.
+* Speech-to-Text accurately punctuates transcriptions (e.g., commas, question marks, and periods).
 
-* [beta]Speech-to-Text accurately punctuates transcriptions (e.g., commas, question marks, and periods).
+* [beta]Enables transcription optimized for domain-specific quality requirements associating domain models in backend.
 
 
 The Developer documentation provides you with a complete set of guidelines which you need to get started with:

@@ -43,11 +43,11 @@ ULCA Pipeline works primarily in continuation of Intelligent Data pipeline on sa
 
 ULCA datasets can be categorised into 3 types:
 
-  - [Unlabeled Dataset](#unlabeled_dataset)
-  - [Labeled Dataset](#labeled_dataset)
-  - [External Dataset](#external_dataset)
-    - [Unlabeled External Dataset](#unlabeled_external_dataset)
-    - [Labeled External Dataset](#labeled_external_dataset)
+- [Unlabeled Dataset](#unlabeled_dataset)
+- [Labeled Dataset](#labeled_dataset)
+- [External Dataset](#external_dataset)
+  - [Unlabeled External Dataset](#unlabeled_external_dataset)
+  - [Labeled External Dataset](#labeled_external_dataset)
 
 
 ### Unlabeled Dataset
@@ -57,26 +57,25 @@ Dataset that only contains audio files but not corresponding text files. And gen
 #### Steps to Run:
 
 - We have to configure **ulca_dataset_config** in airflow variables where we need to add our source(s) name which we want to process and configure following parameters:
-
-  - **language**: Source language name.
-  - **source_path**: path of the data
-  - **export_count**: Count of audio files that you want in one ULCA format zip file. Ingesting zip file with more than 10,000 files cause an error.
-  - **is_transcribed**: This should be **False** in case of unlabeled dataset.
-  - **include_rejected**: This should be **False** if you don't want to include rejected audio files by Intelligent data pipeline while True if you want to include rejected audio files too.
-  - **labelled**: This should be **False** in case of unlabeled dataset.
-  - **publish_path**: path where you want to store ULCA format zip files.
-  - **datasetType**: This should be **asr-unlabeled-corpus** in case of unlabeled dataset.
-  - **sourceLanguage**: Source language ISO Code.
-  - **collectionSource**: Source name.
-  - **domain**: Domain of data. Domain should be present in this list. If not, then domain should be **general**.
-  - **license**: Type of license.
-  - **name**: Name of organization or contributor.
-  - **oauthId**: Email address.
-  - **provider**: Name of organization or contributor.
-  - **format**: Format of the audio file.
-  - **methodType**: Method type of SNR used to prepare data.
-  - **snrTool**: Name of SNR tool used to prepare data.
-  - **snrToolVersion**: Version number of SNR tool used to prepare data.
+    - **language**: Source language name.
+    - **source_path**: path of the data
+    - **export_count**: Count of audio files that you want in one ULCA format zip file. Ingesting zip file with more than 10,000 files cause an error.
+    - **is_transcribed**: This should be **False** in case of unlabeled dataset.
+    - **include_rejected**: This should be **False** if you don't want to include rejected audio files by Intelligent data pipeline while True if you want to  include rejected audio files too.
+    - **labelled**: This should be **False** in case of unlabeled dataset.
+    - **publish_path**: path where you want to store ULCA format zip files.
+    - **datasetType**: This should be **asr-unlabeled-corpus** in case of unlabeled dataset.
+    - **sourceLanguage**: Source language ISO Code.
+    - **collectionSource**: Source name.
+    - **domain**: Domain of data. Domain should be present in this list. If not, then domain should be **general**.
+    - **license**: Type of license.
+    - **name**: Name of organization or contributor.
+    - **oauthId**: Email address.
+    - **provider**: Name of organization or contributor.
+    - **format**: Format of the audio file.
+    - **methodType**: Method type of SNR used to prepare data.
+    - **snrTool**: Name of SNR tool used to prepare data.
+    - **snrToolVersion**: Version number of SNR tool used to prepare data.
 
     ex:-
 

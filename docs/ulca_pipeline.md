@@ -8,11 +8,12 @@
   - [About](#about)
   - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [ULCA Dataset Generation](#ulca_dataset_generation)
-    - [Unlabeled Dataset](#unlabeled_dataset)
-    - [Labeled Dataset](#labeled_dataset)
-    - [Unlabeled External Dataset](#unlabeled_external_dataset)
-    - [Labeled External Dataset](#labeled_external_dataset)
+  - [ULCA Dataset Generation](#ulca-dataset-generation)
+    - [Unlabeled Dataset](#unlabeled-dataset)
+    - [Labeled Dataset](#labeled-dataset)
+    - [Unlabeled External Dataset](#unlabeled-external-dataset)
+    - [Labeled External Dataset](#labeled-external-dataset)
+  - [Domains of Data](#domains-of-data)
   - [Contributing](#contributing)
   - [License](#license)
   - [Git Repository](#git-repository)
@@ -32,7 +33,7 @@ ULCA Pipeline works primarily in continuation of Intelligent Data pipeline on sa
 <!-- Prerequisites-->
 ## Prerequisites
 
-- Well configured Composer setup and Airflow similar to Intelligent Data Pipeline.
+- Well configured **Composer and Airflow setup** similar to Intelligent Data Pipeline.
 
 - Data should be stored on Bucket.
 
@@ -42,10 +43,10 @@ ULCA Pipeline works primarily in continuation of Intelligent Data pipeline on sa
 
 ULCA datasets can be categorised into 4 types:
 
-- [Unlabeled Dataset](#unlabeled_dataset)
-- [Labeled Dataset](#labeled_dataset)
-- [Unlabeled External Dataset](#unlabeled_external_dataset)
-- [Labeled External Dataset](#labeled_external_dataset)
+- [Unlabeled Dataset](#unlabeled-dataset)
+- [Labeled Dataset](#labeled-dataset)
+- [Unlabeled External Dataset](#unlabeled-external-dataset)
+- [Labeled External Dataset](#labeled-external-dataset)
 
 
 ### Unlabeled Dataset
@@ -65,7 +66,7 @@ Dataset that only contains audio files but not corresponding text files. And gen
     - **datasetType**: This should be **asr-unlabeled-corpus** in case of unlabeled dataset.
     - **sourceLanguage**: Source language ISO Code.
     - **collectionSource**: Source name.
-    - **domain**: Domain of data. Domain should be present in this list. If not, then domain should be **general**.
+    - **domain**: Domain of data. Domain should be present in this [domain list](#domains-of-data). If not, then domain should be **general**.
     - **license**: Type of license.
     - **name**: Name of organization or contributor.
     - **oauthId**: Email address.
@@ -383,6 +384,37 @@ Dataset that is not generated through Intelligent Data Pipeline and contains bot
 ```
 
 - That will create a DAG named **ulca_dataset_pipeline**. Now, we can trigger that DAG and that will process given source(s) and upload ULCA format dataset zip file to **publish_path** that we mentioned in the Airflow variable. And, database will be updated with the metadata.
+
+<!-- DOMAINS OF DATA-->
+## Domains of Data
+
+ULCA has support for tagging dataset with domain. Following are the supported domains: 
+
+- general
+- news
+- education
+- legal
+- government-press-release
+- healthcare
+- agriculture
+- automobile
+- tourism
+- financial
+- movies
+- subtitles
+- sports
+- technology
+- lifestyle
+- entertainment
+- parliamentary
+- art-and-culture
+- economy
+- history
+- philosophy
+- religion
+- national-security-and-defence
+- literature
+- geography
 
 
 <!-- CONTRIBUTING -->

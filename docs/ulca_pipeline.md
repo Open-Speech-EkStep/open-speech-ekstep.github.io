@@ -11,9 +11,8 @@
   - [ULCA Dataset Generation](#ulca_dataset_generation)
     - [Unlabeled Dataset](#unlabeled_dataset)
     - [Labeled Dataset](#labeled_dataset)
-    - [External Dataset](#external_dataset)
-      - [Unlabeled External Dataset](#unlabeled_external_dataset)
-      - [Labeled External Dataset](#labeled_external_dataset)
+    - [Unlabeled External Dataset](#unlabeled_external_dataset)
+    - [Labeled External Dataset](#labeled_external_dataset)
   - [Contributing](#contributing)
   - [License](#license)
   - [Git Repository](#git-repository)
@@ -41,13 +40,12 @@ ULCA Pipeline works primarily in continuation of Intelligent Data pipeline on sa
 <!-- ULCA_DATASET_GENERATION-->  
 ## ULCA Dataset Generation
 
-ULCA datasets can be categorised into 3 types:
+ULCA datasets can be categorised into 4 types:
 
 - [Unlabeled Dataset](#unlabeled_dataset)
 - [Labeled Dataset](#labeled_dataset)
-- [External Dataset](#external_dataset)
-  - [Unlabeled External Dataset](#unlabeled_external_dataset)
-  - [Labeled External Dataset](#labeled_external_dataset)
+- [Unlabeled External Dataset](#unlabeled_external_dataset)
+- [Labeled External Dataset](#labeled_external_dataset)
 
 
 ### Unlabeled Dataset
@@ -187,12 +185,12 @@ Dataset that contains both audio files and corresponding text files. And generat
 
 - We have to configure **ulca_dataset_config** in airflow variables where we need to add our source(s) name which we want to process and configure certain parameters alike Unlabeled dataset except following parameters:
 
-  - **is_transcribed**: This should be **True** in case of labeled dataset.
-  - **labelled**: This should be **True** in case of labeled dataset.
-  - **datasetType**: This should be **asr-corpus** in case of unlabeled dataset.
-  - **collectionDescription**: This should be **machine-generated-transcript** if transcriptions are generated using ASR model.
-  - **asrModel**: Name of Automatic Speech Recognition (ASR) model used to generate transcriptions.
-  - **wer**: Word Error Rate of ASR Model used to generate transcriptions.
+    - **is_transcribed**: This should be **True** in case of labeled dataset.
+    - **labelled**: This should be **True** in case of labeled dataset.
+    - **datasetType**: This should be **asr-corpus** in case of unlabeled dataset.
+    - **collectionDescription**: This should be **machine-generated-transcript** if transcriptions are generated using ASR model.
+    - **asrModel**: Name of Automatic Speech Recognition (ASR) model used to generate transcriptions.
+    - **wer**: Word Error Rate of ASR Model used to generate transcriptions.
  
     ex:-
 
@@ -261,26 +259,18 @@ Dataset that contains both audio files and corresponding text files. And generat
 - That will create a DAG named **ulca_dataset_pipeline**. Now, we can trigger that DAG and that will process given source(s) and upload ULCA format dataset zip file to **publish_path** that we mentioned in the Airflow variable. And, database will be updated with the metadata.
 
 
-### External Dataset
-
-Dataset that is not generated through Intelligent Data Pipeline is considered as External Dataset. Depending on transcripted text file it is further divided into 2 categories: 
-  - Unlabeled External Dataset
-  - Labeled External Dataset
-
-
 ### Unlabeled External Dataset
 
 Dataset that is not generated through Intelligent Data Pipeline and only contains audio files but not corresponding text files.
-
 
 #### Steps to Run:
 
 - We have to configure **ulca_dataset_config** in airflow variables where we need to add our source(s) name which we want to process and configure certain parameters alike Unlabeled dataset except following parameters:
 
-  - **is_external**: This should be **True** in case of unlabeled external dataset.
-  - **is_transcribed**: This should be **False** in case of unlabeled dataset.
-  - **labelled**: This should be **False** in case of unlabeled dataset.
-  - **datasetType**: This should be **asr-unlabeled-corpus** in case of unlabeled dataset.
+    - **is_external**: This should be **True** in case of unlabeled external dataset.
+    - **is_transcribed**: This should be **False** in case of unlabeled dataset.
+    - **labelled**: This should be **False** in case of unlabeled dataset.
+    - **datasetType**: This should be **asr-unlabeled-corpus** in case of unlabeled dataset.
 
   ex:-
 
@@ -332,20 +322,18 @@ Dataset that is not generated through Intelligent Data Pipeline and only contain
 - That will create a DAG named **ulca_dataset_pipeline**. Now, we can trigger that DAG and that will process given source(s) and upload ULCA format dataset zip file to **publish_path** that we mentioned in the Airflow variable. And, database will be updated with the metadata.
 
 
-
 ### Labeled External Dataset
 
 Dataset that is not generated through Intelligent Data Pipeline and contains both audio files and corresponding text files.
-
 
 #### Steps to Run:
 
 - We have to configure **ulca_dataset_config** in airflow variables where we need to add our source(s) name which we want to process and configure certain parameters alike labeled dataset except following parameters:
 
-  - **is_external**: This should be **True** in case of unlabeled external dataset.
-  - **is_transcribed**: This should be **True** in case of labeled dataset.
-  - **labelled**: This should be **True** in case of labeled dataset.
-  - **datasetType**: This should be **asr-corpus** in case of labeled dataset.
+    - **is_external**: This should be **True** in case of unlabeled external dataset.
+    - **is_transcribed**: This should be **True** in case of labeled dataset.
+    - **labelled**: This should be **True** in case of labeled dataset.
+    - **datasetType**: This should be **asr-corpus** in case of labeled dataset.
 
   ex:-
 

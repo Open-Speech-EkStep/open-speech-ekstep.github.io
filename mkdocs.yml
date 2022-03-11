@@ -193,6 +193,7 @@ nav:
   - "Developer Guides":
       - "Data Collection Pipeine": "data_collection.md"
       - "Intelligent Data Pipeline": "intelligent_data_pipelines.md"
+      - "ULCA Pipeline": "ulca_pipeline.md"
       - "Model Training Pipeline": "model_training.md"
       - "Crowdsourcing Platform": "crowdsource_platform.md"
       - "Architecture Decision Records": "adr.md"

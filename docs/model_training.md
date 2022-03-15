@@ -4,15 +4,14 @@ We are releasing pretrained models in various Indic Languages. Please head over 
 <!-- TABLE OF CONTENTS -->
 ## Table of contents
 
-
 - [Installation and Setup](#installation-and-setup)
 - [Directory Structure](#directory-structure)
 - [Data Description](#data-description)
 - [Usage](#usage)
-  - [For Pretraining](#for-pretraining)
-  - [For Finetuning](#for-finetuning)
-  - [For Inference](#for-inference)
-  - [For Single File Inference](#for-single-file-inference)
+    - [For Pretraining](#for-pretraining)
+    - [For Finetuning](#for-finetuning)
+    - [For Inference](#for-inference)
+    - [For Single File Inference](#for-single-file-inference)
 - [For Language Model generation](#for-language-model-generation)
 - [Tutorials Reference](#tutorials-reference)
 - [License](#license)
@@ -225,17 +224,19 @@ Edit the run_lm_pipeline.sh variables as required, then run:
 $ cd scripts/lm
 $ bash run_lm_pipeline.sh
 ```
+Refer [this](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/tree/main/scripts/lm/README.md) for LM pipeline.
+
+### Domain specific Language Model generation 
 
 To add support for proper nouns or to generate any domain specific language model for a language:
 
-  - Collect proper nouns or domain specific text for a language and process it using [lm data preparation scripts](https://github.com/Open-Speech-EkStep/common_scripts/tree/main/lm):
+  - Collect proper nouns or domain specific text for a language.
+  - Process raw text using [lm data preparation scripts](https://github.com/Open-Speech-EkStep/common_scripts/tree/main/lm):
       - Normalize raw text using [normalize_file.py](https://github.com/Open-Speech-EkStep/common_scripts/blob/main/lm/normalize_file.py)
       - Clean text using [clean_text.py](https://github.com/Open-Speech-EkStep/common_scripts/blob/main/lm/clean_text.py)
       - Remove duplicate lines using [remove_duplicate_lines.py](https://github.com/Open-Speech-EkStep/common_scripts/blob/main/lm/remove_duplicate_lines.py)    
   - Append proper nouns or domain specific text to existing text corpus for a specific language.
   - Train Language model using [generate_lm.sh](https://github.com/Open-Speech-EkStep/common_scripts/blob/main/lm/generate_lm.sh) on newly prepared text corpus.
-
-Refer [this](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/tree/main/scripts/lm/README.md) for LM pipeline.
 
    
 <!-- TUTOTIALS REFERENCE -->

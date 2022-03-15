@@ -13,6 +13,7 @@ We are releasing pretrained models in various Indic Languages. Please head over 
   - [For Finetuning](#for-finetuning)
   - [For Inference](#for-inference)
   - [For Single File Inference](#for-single-file-inference)
+- [For Language Model generation](#for-language-model-generation)
 - [Tutorials Reference](#tutorials-reference)
 - [License](#license)
 
@@ -218,13 +219,21 @@ To infer for single file, change path in single_file_inference.sh. Then run:
 $ bash single_file_inference.sh
 ```
 
-## For generating LM
+## For Language Model generation
 Edit the run_lm_pipeline.sh variables as required, then run:
 ```
 $ cd scripts/lm
 $ bash run_lm_pipeline.sh
 ```
+
+To add support for proper nouns or to generate any domain specific language model for a language:
+  - Collect proper nouns or domain specific text for a language and process it using [lm data preparation scripts](https://github.com/Open-Speech-EkStep/common_scripts/tree/main/lm).
+  - Append proper nouns or domain specific text to existing text corpus for a specific language.
+  - Train Language model using newly prepared text corpus and use newly trained Language model.
+
 Refer [this](https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation/tree/main/scripts/lm/README.md) for LM pipeline.
+
+
    
 <!-- TUTOTIALS REFERENCE -->
 ## Tutorials Reference

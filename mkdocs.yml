@@ -200,6 +200,7 @@ nav:
       - "Speaker Clustering": "speaker_clustering.md"
       - "Gender Identification": "gender_identification.md"
       - "Language Identification": "language_identification.md"
+      - "Punctation Model Training": "punctuation_model_training.md"
       - "Speech Recognititon Model API" : "asr_model_api.md"
       - "Speech Recognititon Streaming API" : "asr_streaming_service.md"
       - "Text To Speech Model training": "tts_model_training.md"

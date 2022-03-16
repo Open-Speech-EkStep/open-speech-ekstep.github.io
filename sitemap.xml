@@ -76,6 +76,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://open-speech-ekstep.github.io/punctuation_model_training/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://open-speech-ekstep.github.io/speaker_clustering/</loc>
          <lastmod>2022-03-16</lastmod>
          <changefreq>daily</changefreq>

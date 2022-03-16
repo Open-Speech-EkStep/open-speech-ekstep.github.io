@@ -1,6 +1,8 @@
 # Training punctuation model
 
 
+[Repo](https://github.com/Open-Speech-EkStep/punctuation-ITN/tree/wandb-v1)
+
 In this we finetune a [IndicBERT](https://indicnlp.ai4bharat.org/indic-bert/) model (multilingual ALBERT model trained on large-scale corpora, covering 12 major Indian languages: Assamese, Bengali, English, Gujarati, Hindi, Kannada, Malayalam, Marathi, Oriya, Punjabi, Tamil, Telugu.) 
 
 Code is linked with Wandb to monitor our training in real-time. And all input data, intermediate reults and resulting checkpoint are picked and stored in Google Cloud Platform (GCP) bucket

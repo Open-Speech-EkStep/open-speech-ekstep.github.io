@@ -33,7 +33,7 @@ ULCA Pipeline works primarily in continuation of Intelligent Data pipeline on sa
 <!-- Prerequisites-->
 ## Prerequisites
 
-- Well configured **Composer and Airflow setup** similar to Intelligent Data Pipeline.
+- **Composer and Airflow** should be well configured alike [Intelligent Data Pipeline](https://open-speech-ekstep.github.io/intelligent_data_pipelines/#using-composer).
 
 - Data should be stored on Bucket.
 

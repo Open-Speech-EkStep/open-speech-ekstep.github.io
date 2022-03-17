@@ -24,12 +24,9 @@ API enable us to provide the following features:
 
 The Developer documentation provides you with a complete set of guidelines which you need to get started with:
 
-* Architecture overview
-* API reference  
-* Client Code reference
-* Setup and getting started guide
-* Extend this project
-* Contribute to this project
+* [Architecture overview](#architecture-overview)
+* [API reference](#api-reference)
+* [Contribute to this project](#contributing)
 
 ## Architecture Overview
 
@@ -60,7 +57,7 @@ Body:
 Schema for TTS request and response defined at  https://github.com/ULCA-IN/ulca/blob/master/specs/model-schema.yml
 
 Example Request Body -
-``` 
+```json
 {
     "input": [
         {
@@ -82,11 +79,12 @@ The child attributes for `config` are `gender` and `sourceLanguage`.
 
 **Responses**
 
-```
+
 | Code | Description                          |
 |------|--------------------------------------|
 | 200  | On successful completion of the job. |
-```
+| 40X, 50X  | Defined in Errors section |
+
 
 *Response Attributes*
 
@@ -94,7 +92,7 @@ Body:
 The child attribute "audioContent" of attribute "audio" would provide the audio bytes of the synthesized speech.
 The response also contains Audio Format and sampling as part of the response schema.
 Example:
-```
+```json
 {
   "audio": [
     {
@@ -116,7 +114,9 @@ Example:
 **Errors**
 
 Our API uses HTTP response codes to indicate the success or failure of an API request.
-```
+
+| Status| Meaning                           | Description                                                                                           |
+|-------|-----------------------------------|-------------------------------------------------------------------------------------------------------|
 | 200 	|  OK                            	| Everything worked as expected.                                                                     	|
 | 400 	|  Bad Request                   	| The request was unacceptable, often due to missing a required parameter.                           	|
 | 401 	|  Unauthorized                  	| No valid API key provided.                                                                         	|
@@ -126,7 +126,7 @@ Our API uses HTTP response codes to indicate the success or failure of an API re
 | 409 	|  Conflict                      	| The request conflicts with another request (perhaps due to using the same   idempotent key).       	|
 | 429 	|  Too Many Requests             	| Too many requests hit the API too quickly. We recommend an exponential   backoff of your requests. 	|
 | 50X 	|  Server Errors                 	| Something went wrong on Stripe's end. (These are rare.)                                            	|
-```
+
 
 **Implementing the api from local using Docker**
 
@@ -140,7 +140,7 @@ Download all transliteration models into local using gsutil -m cp -r ```gs://vak
 Prepare the model_dict.json and place it in <local path>/tts_models/
 The model_dict.json sample :
 
-```
+```json
 { 
     "hi" : { "male_glow" : "hindi/male/glow_tts",
            "male_hifi" : "hindi/male/hifi_tts",
@@ -152,7 +152,7 @@ The model_dict.json sample :
 
 Sample docker run command:
 
-```
+```shell
 docker run -itd -p 5000:5000 --gpus all --env languages='["hi","ml"]' -v <local path>/tts_models/:/opt/text_to_speech_open_api/deployed_models/ -v <local path>/translit_models/:/opt/text_to_speech_open_api/vakyansh-tts/src/glow_tts/tts_infer/translit_models/ gcr.io/ekstepspeechrecognition/text_to_speech_open_api:2.1.4 
 ```
 

@@ -13,7 +13,8 @@
     - [Splitting](#splitting)
     - [Fitting Noise points](#fitting-noise-points)
   - [Hyperparameters](#hyperparameters)
-
+  - [Tutorials Reference](#tutorials-reference)
+  
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -116,3 +117,9 @@ All the noise points - points which could not be put into a cluster, are allowed
 - cluster_selection_method: can either be ‘eom’ or ‘leaf’
     - 'eom' or Excess of Mass is the default way of HDBSCAN's working. 
     - 'leaf' will select leaf nodes from the tree, producing many small homogeneous clusters. Allowing for fine-grained clusters. This is used while splitting clusters into smaller ones.
+
+
+<!-- TUTOTIALS REFERENCE -->
+## Tutorials Reference
+
+- https://www.youtube.com/watch?v=PyAn2FDYeOQ&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=13

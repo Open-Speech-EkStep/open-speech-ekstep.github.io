@@ -15,6 +15,8 @@
     - [Preparing the Data](#preparing-the-data)
     - [Training the Model](#training-the-model)
     - [Inference](#inference)
+  
+  - [Tutorials Reference](#tutorials-reference)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -83,3 +85,8 @@ python inference.py
 ```
 This runs on a single audio file.
 
+<!-- TUTOTIALS REFERENCE -->
+## Tutorials Reference
+
+- https://www.youtube.com/watch?v=uAjSB1gxoyA&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=16
+- https://www.youtube.com/watch?v=pugqpoLZ9lo&list=PLA97EDXt7HiUF56ueLGPk3WixYmKC4QGe&index=18

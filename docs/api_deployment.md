@@ -1,18 +1,24 @@
 # ASR and TTS API Deployment Guide
 
 We have developed two services for deployment in the CDAC Kubernetes environment. The services are:
+1) ASR
+2) TTS
 
 
 <!-- ABOUT THE PROJECT -->
 ## AUTOMATIC SPEECH RECOGNITION(ASR)
 
-Our speech-to-text interface enables you to accurately convert speech into text using an API powered by deep learning neural network algorithms for automatic speech recognition (ASR) in Indic languages. This service enables us to infer in a batch mode over REST protocol to transcribe speech audio files. This also has a streaming service that provides an interface to accept chunks of the continuous audio stream that can be transcribed in real-time to text.
+Our speech-to-text interface enables us to accurately convert speech into text using an API powered by deep learning neural network algorithms for automatic speech recognition (ASR) in Indic languages. This service also enables us to infer in a batch mode over REST protocol to transcribe speech audio files. This also has a streaming service that provides an interface to accept chunks of the continuous audio stream that can be transcribed in real-time to text.
 
 ### Architecture
 
 The architecture for ASR service with both batch and real-time mode is shown here. 
 
-![Screenshot](img/streaming-service.jpg) Fig 1
+![Screenshot](img/streaming-service.jpg)    
+<div align="center">
+Fig 1
+</div>
+
 
 ### Artifacts
 
@@ -37,7 +43,7 @@ https://github.com/Open-Speech-EkStep/speech-recognition-open-api-infra
 
 The various components or modules as shown in the above Fig 1 are required to be installed in a package for the service to work successfully.
 
-**Loading models files and artifacts**: The first towards deployment is dumping the model files for every language into their respective language directories and placing them inside the external mountable disk at a designated location. Once the models are placed, create a file named ‘model_dict.json’ in the same hierarchy as the language directories. The model_dict.json should have the respective paths of the language model files and the setting for ITN and punctuation for every language. The ASR models for every languauge can be downloaded from ​​https://storage.googleapis.com/asr-public-models/data-sources-deployment/.
+**Loading models files and artifacts**: The first step towards deployment is dumping the model files for every language into their respective language directories and placing them inside the external mountable disk at a designated location. Once the models are placed, create a file named ‘model_dict.json’ in the same hierarchy as the language directories. The model_dict.json should have the respective paths of the language model files and the setting for ITN and punctuation for every language. The ASR models for every languauge can be downloaded from ​​https://storage.googleapis.com/asr-public-models/data-sources-deployment/.
 ITN and punctuation models are downloaded automatically from the buckets,so not needed to be placed manually.
 
 Sample model_dict.json
@@ -67,7 +73,7 @@ Sample ngnix.conf
 
 ```json
 server {
-    server_name  meity-dev-asr.ulcacontrib.org;
+    server_name  <server-name>;
     listen 443 ssl default http2;
     listen [::]:443 ssl default http2 ipv6only=on;
     ssl_certificate    /etc/ssl/ulcacontrib_ssl.crt;
@@ -132,7 +138,7 @@ server {
 ```
 Ngnix is a manual deployment by the infra team and used as a common component for all services.
 
-**Streaming Proxy**: This is an important component for the streaming service to work with Socket.io connections from the browser clients.
+**Streaming Proxy**: This is an important component for the streaming service to work with Socket.io connections from the browser clients. The proxy is deployed automatically as part of the deployment package with envoy and ASR service. No explicit install are required.
 
 **Envoy**: This is a transcoder that helps to convert REST calls from the batch API to GRPC calls to the API. All GRPC and REST connections have to pass through the envoy before it reaches the ASR API servers.
 
@@ -159,7 +165,10 @@ Our TTS service can enable us to generate life-like speech synthesis in both mal
 
 The architecture for TTS service is shown here. This service only supports batch inference from REST clients via POST requests. The response returned by the API contains an audio bytes payload for successful inference.
 
-![Screenshot](img/tts_api.png) Fig 2
+![Screenshot](img/tts_api.png) 
+<p align="justify">
+Fig 2
+</p>
 
 ### Artifacts:
 

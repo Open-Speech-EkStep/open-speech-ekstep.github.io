@@ -159,9 +159,9 @@ Our TTS service can enable us to generate life-like speech synthesis in both mal
 The architecture for TTS service is shown here. This service only supports batch inference from REST clients via POST requests. The response returned by the API contains an audio bytes payload for successful inference.
 
 ![Screenshot](img/tts_api.png) 
-<p align="justify">
+<div align="center">
 Fig 2
-</p>
+</div>
 
 ### Artifacts:
 

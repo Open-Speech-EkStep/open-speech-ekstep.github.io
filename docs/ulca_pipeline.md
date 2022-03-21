@@ -87,6 +87,7 @@ Dataset that only contains audio files but not corresponding text files. And gen
     "is_transcribed":"False",
     "include_rejected":"False",
     "labelled":"False",
+    "is_external":"False",
     "publish_path":"<OUTPUT PATH>",
     "params":{
       "datasetType":"asr-unlabeled-corpus",
@@ -204,6 +205,7 @@ Dataset that contains both audio files and corresponding text files. And generat
     "is_transcribed":"True",
     "include_rejected":"False",
     "labelled":"True",
+    "is_external":"False",
     "publish_path":"<OUTPUT PATH>",
     "params":{
       "datasetType":"asr-corpus",

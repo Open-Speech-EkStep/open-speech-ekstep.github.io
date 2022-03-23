@@ -51,19 +51,21 @@ pip install -e .
 ```
 
 Currently (v 2.0.6) we are supporting the following languages:
-- Punctuation:
-  - Hindi ('hi')
-  - English ('en')
-  - Gujarati ('gu')
-  - Telugu ('te')
-  - Marathi ('mr')
-  - Kannada ('kn')
-  - Punjabi ('pa')
-  - Tamil ('ta')
-  - Bengali ('bn')
-  - Odia ('or')
-  - Malayalam ('ml')
-  - Assamese ('as')
+Punctuation:
+
+- Hindi ('hi')
+- English ('en')
+- Gujarati ('gu')
+- Telugu ('te')
+- Marathi ('mr')
+- Kannada ('kn')
+- Punjabi ('pa')
+- Tamil ('ta')
+- Bengali ('bn')
+- Odia ('or')
+- Malayalam ('ml')
+- Assamese ('as')
+
 
 ```python
 from punctuate.punctuate_text import Punctuation

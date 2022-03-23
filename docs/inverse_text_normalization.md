@@ -16,18 +16,20 @@ pip install -e .
 ## Usage
 
 Inverse Text Normalization:
-  - Hindi
-  - English
-  - Gujarati
-  - Telugu
-  - Marathi
-  - Punjabi
-  - Tamil
-  - Bengali
-  - Malayalam
-  - Odia
-  - Assamese
-  - Kannada
+- Hindi
+- English
+- Gujarati
+- Telugu
+- Marathi
+- Punjabi
+- Tamil
+- Bengali
+- Malayalam
+- Odia
+- Assamese
+- Kannada
+
+
 
 We are planning to add other Indic languages. 
 

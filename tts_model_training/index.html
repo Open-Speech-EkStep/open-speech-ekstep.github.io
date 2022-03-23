@@ -50,12 +50,19 @@ length_scale : can vary from 0 to 2 for changing the speed of the generated audi
 transliteration : whether to switch on/off transliteration. 1: ON, 0: OFF
 number_conversion : whether to switch on/off number to words conversion. 1: ON, 0: OFF
 split_sentences : whether to switch on/off splitting of sentences. 1: ON, 0: OFF
-</code></pre></div> To run: <div class=highlight><pre><span></span><code>cd scripts/inference/
+</code></pre></div> To run: <div class=highlight><pre><span></span><code><span class=nb>cd</span> scripts/inference/
 bash advanced_infer.sh
 </code></pre></div></p> <h3 id=54-installation-of-tts_infer-package>5.4 Installation of tts_infer package<a class=headerlink href=#54-installation-of-tts_infer-package title="Permanent link">&para;</a></h3> <p>In tts_infer package, we currently have two components:</p> <div class=highlight><pre><span></span><code>1. Transliteration (AI4bharat&#39;s open sourced models) (Languages supported: {&#39;hi&#39;, &#39;gu&#39;, &#39;mr&#39;, &#39;bn&#39;, &#39;te&#39;, &#39;ta&#39;, &#39;kn&#39;, &#39;pa&#39;, &#39;gom&#39;, &#39;mai&#39;, &#39;ml&#39;, &#39;sd&#39;, &#39;si&#39;, &#39;ur&#39;} )
 
 2. Num to Word (Languages supported: {&#39;en&#39;, &#39;hi&#39;, &#39;gu&#39;, &#39;mr&#39;, &#39;bn&#39;, &#39;te&#39;, &#39;ta&#39;, &#39;kn&#39;, &#39;or&#39;, &#39;pa&#39;} )
-</code></pre></div> <p><code>git clone https://github.com/Open-Speech-EkStep/vakyansh-tts cd vakyansh-tts bash install.sh python setup.py bdist_wheel pip install -e . cd tts_infer gsutil -m cp -r gs://vakyaansh-open-models/translit_models .</code></p> <p>Usage: Refer to example file in tts_infer/ <div class=highlight><pre><span></span><code>from tts_infer.tts import TextToMel, MelToWav
+</code></pre></div> <div class=highlight><pre><span></span><code>git clone https://github.com/Open-Speech-EkStep/vakyansh-tts
+<span class=nb>cd</span> vakyansh-tts
+bash install.sh
+python setup.py bdist_wheel
+pip install -e .
+<span class=nb>cd</span> tts_infer
+wget https://storage.googleapis.com/vakyansh-open-models/translit_models.zip <span class=o>&amp;&amp;</span> unzip -q translit_models.zip
+</code></pre></div> <p>Usage: Refer to example file in tts_infer/ <div class=highlight><pre><span></span><code>from tts_infer.tts import TextToMel, MelToWav
 from tts_infer.transliterate import XlitEngine
 from tts_infer.num_to_word_on_sent import normalize_nums
 

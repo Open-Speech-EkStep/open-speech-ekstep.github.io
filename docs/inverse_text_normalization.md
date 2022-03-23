@@ -15,7 +15,7 @@ pip install -e .
 
 ## Usage
 
-- Inverse Text Normalization:
+Inverse Text Normalization:
   - Hindi
   - English
   - Gujarati

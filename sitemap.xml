@@ -66,6 +66,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://open-speech-ekstep.github.io/inverse_text_normalization/</loc>
+         <lastmod>2022-03-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://open-speech-ekstep.github.io/language_identification/</loc>
          <lastmod>2022-03-23</lastmod>
          <changefreq>daily</changefreq>

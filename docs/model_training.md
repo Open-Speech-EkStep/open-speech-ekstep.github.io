@@ -16,7 +16,10 @@ We are releasing pretrained models in various Indic Languages. Please head over 
 - [Tutorials Reference](#tutorials-reference)
 - [License](#license)
 
-
+![Screenshot](img/model_training.png) 
+<div align="center">
+Model training Pipeline
+</div>
 ## Installation and Setup 
 ```
 git clone https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentation.git

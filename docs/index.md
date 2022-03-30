@@ -44,7 +44,7 @@ Pipelines to transform raw data and prepare data for model training. They clean,
 
 Pipeline to build state of the art Speech Recognition Model using the data provided by Intelligent Data Pipeline
 
-### 4. CD4ML
+### 5. CD4ML
 
 MLOPS and CD4ML has been implemented as part of the platform from data preprocessing, model training,data and model versioning upto model hosting. User feedback from the inference service is also incorporated for model improvisations. 
 

@@ -38,3 +38,37 @@ To start training change training parameters from [training_params.py](https://g
 To infer sentences check this file [inference.py](https://github.com/Open-Speech-EkStep/punctuation-ITN/blob/wandb-v1/sequence_labelling/token_classification/inference.py)
 
 Also there is a spearate repository to try already built punctation model in indic langauges [indic-punct](https://github.com/Open-Speech-EkStep/indic-punct#punctuation)
+
+## 4 To use our models
+
+
+```bash
+git clone https://github.com/Open-Speech-EkStep/indic-punct.git
+cd indic-punct
+bash install.sh
+python setup.py bdist_wheel
+pip install -e .
+```
+
+Currently (v 2.0.6) we are supporting the following languages:
+Punctuation:
+
+- Hindi ('hi')
+- English ('en')
+- Gujarati ('gu')
+- Telugu ('te')
+- Marathi ('mr')
+- Kannada ('kn')
+- Punjabi ('pa')
+- Tamil ('ta')
+- Bengali ('bn')
+- Odia ('or')
+- Malayalam ('ml')
+- Assamese ('as')
+
+
+```python
+from punctuate.punctuate_text import Punctuation
+hindi = Punctuation('hi') #loads model in memory
+hindi.punctuate_text(["इस श्रेणी में केवल निम्नलिखित उपश्रेणी है", "मेहुल को भारत को सौंप दिया जाए"])
+```

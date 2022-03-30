@@ -226,7 +226,7 @@ number_conversion : whether to switch on/off number to words conversion. 1: ON, 
 split_sentences : whether to switch on/off splitting of sentences. 1: ON, 0: OFF
 ```
 To run:
-```
+```bash
 cd scripts/inference/
 bash advanced_infer.sh
 ```
@@ -238,14 +238,16 @@ In tts_infer package, we currently have two components:
     1. Transliteration (AI4bharat's open sourced models) (Languages supported: {'hi', 'gu', 'mr', 'bn', 'te', 'ta', 'kn', 'pa', 'gom', 'mai', 'ml', 'sd', 'si', 'ur'} )
     
     2. Num to Word (Languages supported: {'en', 'hi', 'gu', 'mr', 'bn', 'te', 'ta', 'kn', 'or', 'pa'} )
-```
+
+
+```bash
 git clone https://github.com/Open-Speech-EkStep/vakyansh-tts
 cd vakyansh-tts
 bash install.sh
 python setup.py bdist_wheel
 pip install -e .
 cd tts_infer
-gsutil -m cp -r gs://vakyaansh-open-models/translit_models .
+wget https://storage.googleapis.com/vakyansh-open-models/translit_models.zip && unzip -q translit_models.zip
 ```
 
 Usage: Refer to example file in tts_infer/

@@ -1,20 +1,5 @@
 # Speaker Clustering
 
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-- [Speaker Clustering](#speaker-clustering)
-  - [Table of Contents](#table-of-contents)
-  - [About The Project](#about-the-project)
-  - [Working](#working)
-    - [Embeddings](#embeddings)
-    - [Clustering algorithm](#clustering-algorithm)
-    - [Repetitive merging](#repetitive-merging)
-    - [Splitting](#splitting)
-    - [Fitting Noise points](#fitting-noise-points)
-  - [Hyperparameters](#hyperparameters)
-  - [Tutorials Reference](#tutorials-reference)
-  
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project

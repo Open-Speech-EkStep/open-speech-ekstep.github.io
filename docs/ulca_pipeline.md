@@ -1,25 +1,6 @@
 # ULCA Pipeline
 
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
 
-- [ULCA Pipeline](#ulca-pipeline)
-  - [Table of Contents](#table-of-contents)
-  - [About](#about)
-  - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [ULCA Dataset Generation](#ulca-dataset-generation)
-    - [Unlabeled Dataset](#unlabeled-dataset)
-    - [Labeled Dataset](#labeled-dataset)
-    - [Unlabeled External Dataset](#unlabeled-external-dataset)
-    - [Labeled External Dataset](#labeled-external-dataset)
-  - [Domains of Data](#domains-of-data)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Git Repository](#git-repository)
-  - [Contact](#contact)
-
-<!-- ABOUT-->
 ## About
 
 ULCA Pipeline is built to create the audio data set that can be contributed to [UNIVERSAL LANGUAGE CONTRIBUTION API (ULCA)](https://bhashini.gov.in/ulca). The aim is to allow easy, quick and fast ULCA format dataset generation without doing manual work.

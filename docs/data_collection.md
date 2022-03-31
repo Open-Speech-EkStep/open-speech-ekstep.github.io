@@ -1,43 +1,8 @@
 # Data Collection Pipeline
 
 ![Screenshot](img/Data_collection_pipeline.png)
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-- [Data Collection Pipeline](#data-collection-pipeline)
-  - [Table of Contents](#table-of-contents)
-  - [About The Project](#about-the-project)
-    - [Built With](#built-with)
-    - [Summary](#summary)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-  - [Usage](#usage)
-    - [Common configuration steps:](#common-configuration-steps)
-      - [Setting credentials for Google cloud bucket](#setting-credentials-for-google-cloud-bucket)
-      - [Bucket configuration](#bucket-configuration)
-      - [Metadata file configurations](#metadata-file-configurations)
-      - [Youtube download configurations](#youtube-download-configurations)
-      - [Youtube API configuration](#youtube-api-configuration)
-      - [Web Crawl Configuration](#web-crawl-configuration)
-      - [Adding new spider](#adding-new-spider)
-  - [Running services](#running-services)
-      - [Youtube spider in channel mode:](#youtube-spider-in-channel-mode)
-      - [Youtube spider in file mode:](#youtube-spider-in-file-mode)
-      - [Bing Spider](#bing-spider)
-      - [Urls Spider](#urls-spider)
-      - [Selenium google crawler](#selenium-google-crawler)
-      - [Selenium youtube crawler for file mode and api mode](#selenium-youtube-crawler-for-file-mode-and-api-mode)
-  - [Tutorials Reference](#tutorials-reference)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Git Repository](#git-repository)
-  - [Contact](#contact)
-  - [Acknowledgements](#acknowledgements)
 
 
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 This is downloading framework that is extensible and allows the user to add new source without much code changes. For each new source user need to write a scrapy spider script and rest of downloading and meta file creation is handled by repective pipelines. And if required user can add their custom pipelines. This framework automatically transfer the downloaded data to a Google cloud bucket automatically. For more info on writing scrapy spider and pipeline one can refer to the [documentation](https://docs.scrapy.org/en/latest/intro/tutorial.html). 
 Data Collection Pipeline’s developer documentation is meant for its adopters, developers and contributors.

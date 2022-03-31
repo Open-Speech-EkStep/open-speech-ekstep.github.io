@@ -1,48 +1,6 @@
 # Intelligent Data Pipeline
 
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
 
-- [Intelligent Data Pipeline](#intelligent-data-pipeline)
-  - [Table of Contents](#table-of-contents)
-  - [About The Project](#about-the-project)
-  - [Getting Started](#getting-started)
-  - [Architecture](#architecture)
-  - [Intelligent Data Pipeline - Jobs](#intelligent-data-pipeline---jobs)
-    - [Audio Processor](#audio-processor)
-    - [Audio Analysis](#audio-analysis)
-        - [Language identification](#language-identification)
-        - [Speaker identification](#speaker-identification)
-        - [Gender identification](#gender-identification)
-    - [Audio Data Balancing](#audio-data-balancing)
-    - [Audio Validation](#audio-validation)
-    - [Audio Transcription](#audio-transcription)
-    - [Installation](#installation)
-  - [Run on Kubernetes](#run-on-kubernetes)
-    - [Using Composer](#using-composer)
-    - [Requirements](#requirements)
-    - [Infra Setup](#infra-setup)
-    - [CI/CD setup](#cicd-setup)
-    - [Audio Processing Config](#audio-processing-config)
-        - [Description](#description)
-        - [Config](#config)
-        - [Steps to run](#steps-to-run)
-    - [Audio Analysis Config](#audio-analysis-config)
-        - [Config](#config-1)
-        - [Steps to run](#steps-to-run-1)
-    - [Data Balancing Config](#data-balancing-config)
-        - [config](#config-2)
-        - [steps to run:](#steps-to-run-2)
-    - [Audio Transcription (with config):](#audio-transcription-with-config)
-        - [config:](#config-3)
-        - [steps to run:](#steps-to-run-3)
-  - [Tutorials Reference](#tutorials-reference)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Git Repository](#git-repository)
-  - [Contact](#contact)
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 
 Intelligent Data Pipelines are built to create the audio data set that can be used for Speech Recognition deeplearning models. The aim is to allow easy, quick and fast dataset generation without doing manual work.

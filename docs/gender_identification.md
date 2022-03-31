@@ -1,23 +1,5 @@
 # Gender Identification
 
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-- [Gender Identification](#gender-identification)
-  - [Table of Contents](#table-of-contents)
-  - [About The Project](#about-the-project)
-  - [Working](#working)
-    - [Embeddings](#embeddings)
-    - [Classification algorithm](#classification-algorithm)
-      - [Hyperparameters](#hyperparameters)
-    - [Train data](#train-data)
-    - [Test data](#test-data)
-
-  - [Usage](#usage)
-    - [Parameters to change](#parameters-to-change)
-    - [Commands for Inference](#commands-for-inference)
-    
-  - [Tutorials Reference](#tutorials-reference)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project

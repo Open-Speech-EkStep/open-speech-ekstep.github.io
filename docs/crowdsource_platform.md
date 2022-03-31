@@ -1,50 +1,6 @@
 # Crowdsourcing Platform
 
-<!-- TABLE OF CONTENTS -->
 
-## Table of Contents
-
-- [Crowdsourcing Platform](#crowdsourcing-platform)
-  - [Table of Contents](#table-of-contents)
-  - [About The Project](#about-the-project)
-    - [Built With](#built-with)
-  - [Architecture](#architecture)
-    - [Logical Architecture](#logical-architecture)
-    - [Cloud Agnostic Architecture: Kubernetes](#cloud-agnostic-architecture-kubernetes)
-    - [Deployment Architecture: AWS](#deployment-architecture-aws)
-    - [Architecture Improvements](#architecture-improvements)
-  - [Languages and Tools](#languages-and-tools)
-  - [Dashboard Design](#dashboard-design)
-  - [UI Details](#ui-details)
-  - [Auto Validation](#auto-validation)
-  - [CI/CD](#cicd)
-  - [Infrastructure as Code](#infrastructure-as-code)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-  - [Usage](#usage)
-    - [Common configuration steps:](#common-configuration-steps)
-      - [Setting credentials for Google cloud bucket](#setting-credentials-for-google-cloud-bucket)
-      - [Setting credentials for AWS cloud bucket](#setting-credentials-for-aws-cloud-bucket)
-      - [Bucket configuration](#bucket-configuration)
-      - [Environment file configurations](#environment-file-configurations)
-  - [Running services](#running-services)
-  - [Database migrations](#database-migrations)
-  - [Testing](#testing)
-    - [Unit Tests](#unit-tests)
-    - [Functional Test](#functional-test)
-    - [Scalabiity Test](#scalabiity-test)
-    - [Load Test](#load-test)
-  - [Security](#security)
-  - [Running cost estimates](#running-cost-estimates)
-  - [Architecture Decision Records](#architecture-decision-records)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Walkthrough Videos](#walkthrough-videos)
-  - [Git repository](#git-repository)
-  - [Contact](#contact)
-
-<!-- ABOUT THE PROJECT -->
 
 ## About The Project
 

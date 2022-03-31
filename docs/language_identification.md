@@ -1,22 +1,5 @@
 # Language Identification
 
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-- [Language Identification](#language-identification)
-  - [Table of Contents](#table-of-contents)
-  - [About The Project](#about-the-project)
-  - [Working](#working)
-    - [Training](#training)
-    - [Train data](#train-data)
-    - [Results](#results)
-
-  - [Usage](#usage)
-    - [Preparing the Data](#preparing-the-data)
-    - [Training the Model](#training-the-model)
-    - [Inference](#inference)
-  
-  - [Tutorials Reference](#tutorials-reference)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project

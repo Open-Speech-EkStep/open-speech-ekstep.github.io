@@ -27,6 +27,7 @@ git clone https://github.com/Open-Speech-EkStep/vakyansh-wav2vec2-experimentatio
 conda create --name <env_name> python=3.7
 conda activate <env_name>
 cd vakyansh-wav2vec2-experimentation
+
 ### Packages
 pip install packaging soundfile swifter
 pip install -r requirements.txt

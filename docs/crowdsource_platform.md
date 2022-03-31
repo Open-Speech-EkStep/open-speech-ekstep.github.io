@@ -40,6 +40,7 @@
   - [Architecture Decision Records](#architecture-decision-records)
   - [Contributing](#contributing)
   - [License](#license)
+  - [Walthrough Videos](#walthrough-videos)
   - [Git repository](#git-repository)
   - [Contact](#contact)
 
@@ -50,8 +51,8 @@
 This web app is a crowdsourcing platform that aims to create open datasets to develop Speech Recognition, Text-to-Speech, Machine Translation and Optical Character Recognition for Indian languages. This will empower our technologists, language enthusiasts and language communities to build world class digital applications in our own local languages. It can be used to crowdsource audio and validate them for various languages.
 
 It comprises four initiatives:
-Speech Contribution: It creates a repository of diverse voices speaking Indian languages, where volunteers record their voice by reading a text. They can also choose to validate the audio and corresponding text of other volunteers. 
-Speech Validation: It creates an open dataset through transcription of audio files. Volunteers can validate the transcriptions for audio files in different languages. 
+Speech Contribution: It creates a repository of diverse voices speaking Indian languages, where volunteers record their voice by reading a text. They can also choose to validate the audio and corresponding text of other volunteers.
+Speech Validation: It creates an open dataset through transcription of audio files. Volunteers can validate the transcriptions for audio files in different languages.
 Translation Validation: It creates open parallel translation datasets between corresponding sentences in two languages. Volunteers validate these translations.
 Image Validation: It creates an open data repository of images and the corresponding text. Similar to other initiatives, volunteers can validate the labels against the image.
 
@@ -256,12 +257,12 @@ It will start the production server on [http://localhost:3000](http://localhost:
 
 Auto Validation feature validates and warns the users in case their inputs are detected to be different from what actual data should be. It is done by comparing the user input to a machine generated output and validated against a set threshold limit for every initiative. When Auto Validation is enabled for the application, user inputs during the validation are screened depending upon the threshold set for each language in their respective initiatives.
 
-For each initiatives, scores are calculated with user input and the machine generated output. If the scores do not pass the required threshold, the system displays a message on the application screen asking the user to double check their input. In case the users go ahead and submit their input despite the message, the response input is flagged and not validated further. 
+For each initiatives, scores are calculated with user input and the machine generated output. If the scores do not pass the required threshold, the system displays a message on the application screen asking the user to double check their input. In case the users go ahead and submit their input despite the message, the response input is flagged and not validated further.
 
-* Types of scores calculated for initiatives:
-  * ASR - WER (Word Error Rate)
-  * OCR - Levenstein method
-  * Parallel - BleuScore method
+- Types of scores calculated for initiatives:
+  - ASR - WER (Word Error Rate)
+  - OCR - Levenstein method
+  - Parallel - BleuScore method
 
 The Text Initiative currently does not support auto validation feature.
 
@@ -570,6 +571,10 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## Walthrough Videos
+
+Link: https://drive.google.com/drive/folders/0AKaMc31idTcZUk9PVA
 
 ## License
 

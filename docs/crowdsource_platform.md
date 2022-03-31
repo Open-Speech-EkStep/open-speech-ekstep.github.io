@@ -40,7 +40,7 @@
   - [Architecture Decision Records](#architecture-decision-records)
   - [Contributing](#contributing)
   - [License](#license)
-  - [Walthrough Videos](#walthrough-videos)
+  - [Walkthrough Videos](#walkthrough-videos)
   - [Git repository](#git-repository)
   - [Contact](#contact)
 
@@ -572,7 +572,7 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## Walthrough Videos
+## Walkthrough Videos
 
 Link: https://drive.google.com/drive/folders/0AKaMc31idTcZUk9PVA
 

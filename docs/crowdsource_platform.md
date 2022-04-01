@@ -530,7 +530,10 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Walkthrough Videos
 
-Link: https://drive.google.com/drive/folders/0AKaMc31idTcZUk9PVA
+1. [Functional / Architecture / Infrastructure Overview](https://drive.google.com/drive/folders/1LzVJ2dVQ_pbB9clOI6-1-VP3Dquprv1G?usp=sharing)
+2. [Code Walkthrough - UI](https://drive.google.com/drive/folders/15YSGczIxHS-mikY9m4EqF0OeCPeD7Vkg?usp=sharing)
+3. [Code Walkthrough - Backend](https://drive.google.com/drive/folders/1uIT6JxI8EdCoL4So75_V3_JcMxYPtOwO?usp=sharing)
+4. [Code Setup](https://drive.google.com/drive/folders/11YFOrs06H_ZmqVCeuqNGQPzUhG3nZ2si?usp=sharing)
 
 ## License
 

@@ -135,8 +135,8 @@ Our latest container images can be pulled directly from `gcr.io/ekstepspeechreco
 
 *Pre-requisites*:
 
-Download all tts models in the local path using gsutil -m cp -r ```gs://vakyaansh-open-models/tts_models <local path>/tts_models/```
-Download all transliteration models into local using gsutil -m cp -r ```gs://vakyaansh-open-models/translit_models <local path>/translit_models/```
+Download all tts models in the local path using gsutil -m cp -r ```gs://vakyansh-open-models/tts <local path>/tts_models/```
+Download all transliteration models into local using gsutil -m cp -r ```gs://vakyansh-open-models/translit_models <local path>/translit_models/```
 Prepare the model_dict.json and place it in <local path>/tts_models/
 The model_dict.json sample :
 

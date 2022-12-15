@@ -188,7 +188,7 @@ The various components or modules as shown in the above Fig 1 are required to be
 
 **Loading models files and artifacts**: The first step towards deployment is dumping the model files for every language into their respective language directories and placing them inside the external mountable disk at a designated location. Here for TTS we have TTS models and transliteration models to be placed in the respective directories.  Refer readme for directory structure `https://github.com/Open-Speech-EkStep/text-to-speech-open-api`.
 
-**TTS MODELS**:Once the tts models are downloaded from `https://storage.googleapis.com/vakyaansh-open-models/tts-models/`, create a file named `model_dict.json` in the same hierarchy as the language directories. The model_dict.json should have the respective paths of the language model files and the setting for ITN and punctuation for every language.
+**TTS MODELS**:Once the tts models are downloaded from `https://storage.googleapis.com/vakyansh-open-models/tts/`, create a file named `model_dict.json` in the same hierarchy as the language directories. The model_dict.json should have the respective paths of the language model files and the setting for ITN and punctuation for every language.
 
 Sample model_dict.json
 ```json	
